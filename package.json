@@ -9,6 +9,8 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@web3modal/ethereum": "^2.4.2",
+    "@web3modal/react": "^2.4.2",
     "bootstrap": "^5.2.3",
     "eslint": "8.29.0",
     "eslint-config-next": "13.0.6",
@@ -21,6 +23,8 @@
     "react-icons": "^4.7.1",
     "react-slick": "^0.29.0",
     "sass": "^1.56.2",
-    "slick-carousel": "^1.8.1"
+    "slick-carousel": "^1.8.1",
+    "viem": "^0.3.47",
+    "wagmi": "^1.1.0"
   }
 }

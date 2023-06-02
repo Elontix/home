@@ -1,4 +1,6 @@
+import Exhaustive from "../components/about/Exhaustive";
 import Contest from "../components/common/Contest";
+import HowToPlay from "../components/common/HowToPlay";
 import LatestWinner from "../components/common/LatestWinner";
 import Support from "../components/common/Support";
 import Testimonial from "../components/common/Testimonial";
@@ -16,6 +18,12 @@ export default function HomeThree() {
 
       {/* Contest section */}
       <Contest />
+
+      {/* How it play section */}
+      <HowToPlay />
+
+      {/* Exhastive section */}
+      <Exhaustive />
 
       {/* Latest winner section */}
       <LatestWinner />

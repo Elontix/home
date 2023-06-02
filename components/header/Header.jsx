@@ -124,20 +124,6 @@ const Header = () => {
                   <Link href="/#" onClick={(e) => handleOpen(e)}>
                     Home
                   </Link>
-                  {/* <ul className="sub-menu">
-                    {[
-                      // ["Home One", "/"],
-                      // ["Home Two", "/index-two"],
-                      // ["Home Three", "/index-three"],
-                      // ["Home Four", "/index-four"],
-                    ].map(([itm, url], i) => (
-                      <li key={i}>
-                        <Link href={url} onClick={() => setShow(false)}>
-                          {itm}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul> */}
                 </li>
                 <li
                   className={`menu_has_children ${

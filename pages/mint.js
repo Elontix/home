@@ -2,16 +2,38 @@ import mint from "../data/mint";
 import Image from "next/image";
 import TicketGif from "/public/images/crypto/tickets.gif";
 
+import { useWeb3Modal } from "@web3modal/react";
+import { useAccount, useConnect } from "wagmi";
+import { useEffect } from "react";
+import { bsc, bscTestnet } from "wagmi/chains";
+
 const Mint = () => {
+  const { isOpen, open, close, setDefaultChain } = useWeb3Modal();
+
+  const {
+    address,
+    connector,
+    isConnected,
+    isConnecting,
+    isDisconnected,
+    isReconnecting,
+    status,
+  } = useAccount();
+
+  const connectWallet = () => {
+    open();
+    setDefaultChain(bsc);
+  };
+
   return (
     <>
       <div className="" style={{ minHeight: "25vh" }}></div>
       <div className="container" style={{ paddingBottom: "5rem" }}>
-        <div class="row" style={{ rowGap: "2rem", alignItems: "center" }}>
-          <div class="col-sm-12 col-lg-6">
+        <div className="row" style={{ rowGap: "2rem", alignItems: "center" }}>
+          <div className="col-sm-12 col-lg-6">
             <div
               style={{ borderLeft: "2px dotted white", rowGap: "2rem" }}
-              class="row px-3"
+              className="row px-3"
             >
               {mint.map((data, index) => (
                 <div key={index}>
@@ -39,13 +61,13 @@ const Mint = () => {
               ))}
             </div>
           </div>
-          <div class="col-sm-12 col-lg-6">
+          <div className="col-sm-12 col-lg-6">
             <div
-              class="px-4 rounded"
+              className="px-4 rounded"
               style={{
                 textAlign: "center",
                 backgroundImage:
-                  "radial-gradient(circle, #5a4bcc, #4538a2, #31277a, #1d1655, #0f0232);",
+                  "radial-gradient(circle, #5a4bcc, #4538a2, #31277a, #1d1655, #0f0232)",
                 boxShadow: `0px 0px 12px -4px ${"black"}`,
               }}
             >
@@ -100,7 +122,9 @@ const Mint = () => {
                       background: "gray",
                     }}
                   ></div>
-                  <button className="cmn-btn">connect wallet</button>
+                  <button onClick={connectWallet} className="cmn-btn">
+                    connect wallet
+                  </button>
                 </div>
               </div>
             </div>
