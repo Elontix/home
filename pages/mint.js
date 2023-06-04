@@ -3,12 +3,20 @@ import Image from "next/image";
 import TicketGif from "/public/images/crypto/tickets.gif";
 
 import { useWeb3Modal } from "@web3modal/react";
-import { useAccount, useConnect } from "wagmi";
+import { useAccount, useConnect, useBalance, useDisconnect } from "wagmi";
 import { useEffect } from "react";
 import { bsc, bscTestnet } from "wagmi/chains";
+import { colors } from "../theme/color";
+import { MintAPi } from "./api/mint";
+import { useMutation } from "@apollo/client";
 
 const Mint = () => {
   const { isOpen, open, close, setDefaultChain } = useWeb3Modal();
+
+  const [createAccount, { data, loading, error, called }] = useMutation(
+    MintAPi.createAccountGQL()
+  );
+  const { disconnect } = useDisconnect();
 
   const {
     address,
@@ -20,10 +28,39 @@ const Mint = () => {
     status,
   } = useAccount();
 
+  const { data: balance, isFetched: balanceFeteched } = useBalance({
+    address,
+  });
+
   const connectWallet = () => {
     open();
     setDefaultChain(bsc);
   };
+
+  const addressStrip = (str) =>
+    str.substring(0, 4) + "...." + str.substring(str.length - 4, str.length);
+
+  useEffect(() => {
+    disconnect();
+  }, []);
+
+  const updateWalletInformation = async () => {
+    const { ip } = await fetch("https://api.ipify.org?format=json", {
+      method: "GET",
+    })
+      .then((res) => res.json())
+      .catch((error) => console.error(error));
+    const { data } = await createAccount({
+      variables: {
+        address: address,
+        ipAddress: ip,
+      },
+    });
+  };
+
+  useEffect(() => {
+    updateWalletInformation().then().catch();
+  }, [address]);
 
   return (
     <>
@@ -45,8 +82,8 @@ const Mint = () => {
                         color: "white",
                         width: "28px",
                         height: "28px",
-                        background: "#ffb200",
-                        color: "#0f0232",
+                        background: colors.baseColor,
+                        color: colors.bgOne,
                         textAlign: "center",
                         borderRadius: "1rem",
                         padding: ".2rem",
@@ -80,8 +117,8 @@ const Mint = () => {
                   <h4>Price</h4>
                 </div>
                 <div className="col-6" style={{ textAlign: "right" }}>
-                  <h5 style={{ color: "#ffb200" }}>Edition #000001</h5>
-                  <h5 style={{ color: "#ffb200" }}>eth0.2</h5>
+                  <h5 style={{ color: colors.baseColor }}>Edition #000001</h5>
+                  <h5 style={{ color: colors.baseColor }}>eth0.2</h5>
                 </div>
                 <div
                   className="row"
@@ -122,16 +159,47 @@ const Mint = () => {
                       background: "gray",
                     }}
                   ></div>
-                  <button onClick={connectWallet} className="cmn-btn">
-                    connect wallet
-                  </button>
+                  {isConnected ? (
+                    <button
+                      onClick={() => {
+                        console.log("buy tickers");
+                      }}
+                      className="cmn-btn"
+                    >
+                      Buy Tickets
+                    </button>
+                  ) : (
+                    <button onClick={connectWallet} className="cmn-btn">
+                      connect wallet
+                    </button>
+                  )}
+                </div>
+
+                <div style={{ color: colors.baseColor }}>
+                  <div
+                    style={{
+                      alignItems: "center",
+                      display: "flex",
+                      justifyContent: "space-between",
+                    }}
+                  >
+                    <div style={{ textAlign: "left" }}>
+                      <div>Connected To</div>
+                      <div>{isConnected ? addressStrip(address) : ""}</div>
+                    </div>
+
+                    <div>
+                      {balanceFeteched
+                        ? `${balance.formatted} ${balance.symbol}`
+                        : 0}
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-
       <div className="bg-shape"></div>
     </>
   );
