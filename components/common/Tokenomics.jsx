@@ -1,8 +1,10 @@
 import Link from "next/link";
+import Image from "next/image";
 import { useState } from "react";
 import winnerData from "../../data/winnerData";
 import TicketCheckCard from "../cards/TicketCheckCard";
 import WinnerCard from "../cards/WinnerCard";
+import Logo from "./public/images/";
 
 const LatestWinner = () => {
   const [winners, setWinners] = useState(winnerData);
@@ -26,8 +28,8 @@ const LatestWinner = () => {
               >
                 <div className="row mb-none-30">
                   <div className="col-lg-4 mb-30">
-                    {/* ticket check card */}
-                    <TicketCheckCard />
+                    {/* logo */}
+                    {/* <Image src={} he /> */}
                   </div>
                   <div className="col-lg-8 mb-30">
                     {/* winner card */}

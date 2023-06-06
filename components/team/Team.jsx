@@ -13,7 +13,8 @@ const Team = () => {
               <h2 className="section-title style--two">Expert Team Members</h2>
               <p>
                 These are the key drivers that make us different: Safe, Social,
-                Reliable and Fun. Rifa Lotto is dedicated to trust and safety.
+                Reliable and Fun. Elontix Lotto is dedicated to trust and
+                safety.
               </p>
             </div>
           </div>

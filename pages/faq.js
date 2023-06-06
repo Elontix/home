@@ -7,17 +7,19 @@ const Faq = () => {
   return (
     <>
       {/* Banner section */}
-      <div className="inner-hero-section style--four">
-        <div className="bg-shape">
+      {/* <div className="inner-hero-section style--four"> */}
+      <div>
+        {/* <div className="bg-shape">
           <Image src={inner_hero_shape_2} alt="inner hero shape 2" />
-        </div>
-
+        </div> */}
         <Banner
-          breadcrumb={[
-            ["Home", "/"],
-            ["Pages", "/"],
-            ["Faq", "/"],
-          ]}
+          breadcrumb={
+            [
+              // ["Home", "/"],
+              // ["Pages", "/"],
+              // ["Faq", "/"],
+            ]
+          }
         />
       </div>
 

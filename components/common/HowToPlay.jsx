@@ -22,23 +22,19 @@ const HowToPlay = () => {
         </div>
         <div className="row mb-none-30 justify-content-xl-start justify-content-center">
           <div className="col-xl-3 col-lg-4 col-sm-6 mb-30">
-            <div
-              className="play-card play-card--one bg_img"
-            >
+            <div className="play-card play-card--one bg_img">
               <div className="play-card__icon">
                 <Image src={play_1} alt="image-icon" />
                 <span className="play-card__number">01</span>
               </div>
               <div className="play-card__content">
                 <h3 className="play-card__title">Choose</h3>
-                <p>Register to RIFA & Choose your contest</p>
+                <p>Register to Elontix & Choose your contest</p>
               </div>
             </div>
           </div>
           <div className="col-xl-3 col-lg-4 col-sm-6 mb-30">
-            <div
-              className="play-card play-card--two bg_img"
-            >
+            <div className="play-card play-card--two bg_img">
               <div className="play-card__icon">
                 <Image src={play_2} alt="image-icon" />
                 <span className="play-card__number">02</span>
@@ -50,9 +46,7 @@ const HowToPlay = () => {
             </div>
           </div>
           <div className="col-xl-3 col-lg-4 col-sm-6 mb-30">
-            <div
-              className="play-card play-card--three bg_img"
-            >
+            <div className="play-card play-card--three bg_img">
               <div className="play-card__icon">
                 <Image src={play_3} alt="image-icon" />
                 <span className="play-card__number">03</span>

@@ -6,7 +6,7 @@ import support_2 from "/public/images/icon/support/2.png";
 
 const Support = () => {
   return (
-    <section className="pb-120">
+    <section className="pt-120 pb-120">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-8">
@@ -59,7 +59,7 @@ const Support = () => {
                 <Image src={support_2} alt="image" />
               </div>
               <div className="support-card__content">
-                <h3 className="support-card__title">Our Guide to Rifa</h3>
+                <h3 className="support-card__title">Our Guide to Elontix</h3>
                 <p>Check out our FAQs to see if we can help you out. </p>
                 <div className="btn-grp justify-content-xl-start mt-3">
                   <Link

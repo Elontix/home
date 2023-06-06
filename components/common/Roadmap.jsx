@@ -1,11 +1,12 @@
-import Link from "next/link";
 import { useState } from "react";
-import winnerData from "../../data/winnerData";
-import TicketCheckCard from "../cards/TicketCheckCard";
-import WinnerCard from "../cards/WinnerCard";
 
-const LatestWinner = () => {
-  const [winners, setWinners] = useState(winnerData);
+import Link from "next/link";
+import roadmapData from "../../data/roadmap";
+import TicketCheckCard from "../cards/TicketCheckCard";
+import RoadMapCard from "../cards/RoadmapCard";
+
+const Roadmap = () => {
+  const [roadmap, setRoadmap] = useState(roadmapData);
 
   return (
     <section className="latest-winner-section position-relative pt-120 pb-120">
@@ -32,8 +33,8 @@ const LatestWinner = () => {
                   <div className="col-lg-8 mb-30">
                     {/* winner card */}
 
-                    {winners.map((winner) => (
-                      <WinnerCard key={winner.id} winner={winner} />
+                    {roadmap.map((road, index) => (
+                      <RoadMapCard key={index} roadmap={road} />
                     ))}
 
                     {/* <div className="btn-grp">
@@ -59,15 +60,9 @@ const LatestWinner = () => {
                   <div className="col-lg-8 mb-30">
                     {/* winner card */}
 
-                    {winners.map((winner) => (
-                      <WinnerCard key={winner.id} winner={winner} />
+                    {roadmap.map((road, index) => (
+                      <RoadMapCard key={index} roadmap={road} />
                     ))}
-
-                    <div className="btn-grp">
-                      <Link href="winner" className="btn-border">
-                        browse more
-                      </Link>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -86,15 +81,9 @@ const LatestWinner = () => {
                   <div className="col-lg-8 mb-30">
                     {/* winner card */}
 
-                    {winners.map((winner) => (
-                      <WinnerCard key={winner.id} winner={winner} />
+                    {roadmap.map((road, index) => (
+                      <RoadMapCard key={index} roadmap={road} />
                     ))}
-
-                    <div className="btn-grp">
-                      <Link href="/winner" className="btn-border">
-                        browse more
-                      </Link>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -113,15 +102,9 @@ const LatestWinner = () => {
                   <div className="col-lg-8 mb-30">
                     {/* winner card */}
 
-                    {winners.map((winner) => (
-                      <WinnerCard key={winner.id} winner={winner} />
+                    {roadmap.map((road, index) => (
+                      <RoadMapCard key={index} roadmap={road} />
                     ))}
-
-                    <div className="btn-grp">
-                      <Link href="winner" className="btn-border">
-                        browse more
-                      </Link>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -139,15 +122,9 @@ const LatestWinner = () => {
                   </div>
                   <div className="col-lg-8 mb-30">
                     {/* winner card */}
-                    {winners.map((winner) => (
-                      <WinnerCard key={winner.id} winner={winner} />
+                    {roadmap.map((road, index) => (
+                      <RoadMapCard key={index} roadmap={road} />
                     ))}
-
-                    <div className="btn-grp">
-                      <Link href="/winner" className="btn-border">
-                        browse more
-                      </Link>
-                    </div>
                   </div>
                 </div>
               </div>
@@ -159,4 +136,4 @@ const LatestWinner = () => {
   );
 };
 
-export default LatestWinner;
+export default Roadmap;

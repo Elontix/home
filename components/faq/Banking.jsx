@@ -11,7 +11,7 @@ const Banking = () => {
             aria-expanded="true"
             aria-controls="collapseOne"
           >
-            How do I deposit funds into my Rifa Lottos account?
+            How do I deposit funds into my Elontix Lottos account?
           </button>
         </div>
         <div
@@ -127,7 +127,7 @@ const Banking = () => {
             aria-expanded="false"
             aria-controls="collapseFive"
           >
-            Which payment methods are accepted by Rifa Lottos?
+            Which payment methods are accepted by Elontix Lottos?
           </button>
         </div>
         <div

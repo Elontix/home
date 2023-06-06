@@ -3,7 +3,7 @@ import CopyToClipboard from "react-copy-to-clipboard";
 
 const Referral = () => {
   const [copyValue, setCopyValue] = useState({
-    value: "https://rifa.com/?ref=albert24",
+    value: "https://Elontix.com/?ref=albert24",
     copied: false,
   });
   return (

@@ -12,7 +12,7 @@ const TopAffiliate = () => {
               <h2 className="section-title style--two">
                 Ranking for Last Month !
               </h2>
-              <p>Become a Rifa affiliate and start earning each month</p>
+              <p>Become a Elontix affiliate and start earning each month</p>
             </div>
           </div>
         </div>

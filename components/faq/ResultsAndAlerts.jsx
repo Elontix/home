@@ -11,7 +11,7 @@ const ResultsAndAlerts = () => {
             aria-expanded="true"
             aria-controls="collapse7"
           >
-            How do I deposit funds into my Rifa Lottos account?
+            How do I deposit funds into my Elontix Lottos account?
           </button>
         </div>
         <div

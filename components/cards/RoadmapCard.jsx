@@ -1,7 +1,7 @@
 import { colors } from "../../theme/color";
 
-const WinnerCard = ({ winner }) => {
-  const { title, works } = winner;
+const RoadmapCard = ({ roadmap }) => {
+  const { title, works } = roadmap;
   return (
     <div style={{ borderRadius: "1rem" }} className="winner-card mb-30">
       <div className="winner-card__content">
@@ -37,4 +37,4 @@ const WinnerCard = ({ winner }) => {
   );
 };
 
-export default WinnerCard;
+export default RoadmapCard;

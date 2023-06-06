@@ -9,7 +9,7 @@ import hero_2_e2 from "/public/images/elements/hero-2-e2.png";
 import hero_2_e3 from "/public/images/elements/hero-2-e3.png";
 import hero_2_e4 from "/public/images/elements/hero-2-e4.png";
 import hero_2_e5 from "/public/images/elements/hero-2-e5.png";
-import hero_3_main_thumb from "/public/images/elements/hero-3-main-thumb.png";
+// import hero_3_main_thumb from "/public/images/elements/hero-3-main-thumb.png";
 import hero_3_shape from "/public/images/elements/hero-3-shape.png";
 import round_shape_3 from "/public/images/elements/round-shape-3.png";
 
@@ -45,15 +45,15 @@ const Hero = () => {
         <div className="hero-e5">
           <Image src={hero_2_e5} alt="image" />
         </div>
-        <div className="hero-car-main">
+        {/* <div className="hero-car-main">
           <Image src={hero_3_main_thumb} alt="image" />
-        </div>
+        </div> */}
         <div className="container">
           <div className="row justify-content-center justify-content-lg-start">
             <div className="col-xl-7 col-lg-8 col-md-10">
               <div className="hero__content">
                 <div className="hero__subtitle">play anytime, any where</div>
-                <h2 className="hero__title">Win Big With Rifa</h2>
+                <h2 className="hero__title">Win Big With Elontix</h2>
                 <p className="">
                   Don&#39;t miss your chance.Will you be our next lucky winner?
                 </p>

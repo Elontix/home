@@ -1,4 +1,4 @@
-const AboutRifa = () => {
+const AboutElontix = () => {
   return (
     <div className="accordion cmn-accordion" id="faqAcc-five">
       <div className="card">
@@ -11,7 +11,7 @@ const AboutRifa = () => {
             aria-expanded="true"
             aria-controls="collapse10"
           >
-            How do I deposit funds into my Rifa Lottos account?
+            How do I deposit funds into my Elontix Lottos account?
           </button>
         </div>
         <div
@@ -92,4 +92,4 @@ const AboutRifa = () => {
   );
 };
 
-export default AboutRifa;
+export default AboutElontix;

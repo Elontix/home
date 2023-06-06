@@ -22,7 +22,7 @@ const ContactInfo = () => {
           </div>
           <div className="contact-info__content">
             <p>Email</p>
-            <span>info@rifa.com</span>
+            <span>info@Elontix.com</span>
           </div>
         </div>
       </div>
