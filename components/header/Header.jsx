@@ -3,7 +3,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import cartData from "../../data/cartData";
 import tag from "/public/images/icon/btn/tag.png";
-import logo from "/public/images/logo.png";
+import logo from "/public/images/logo.webp";
 
 const Header = () => {
   const [open, setOpen] = useState("");
@@ -94,7 +94,7 @@ const Header = () => {
         <div className="container">
           <nav className="navbar navbar-expand-xl p-0 align-items-center">
             <Link href="/" className="site-logo site-title">
-              <Image src={logo} alt="logo" />
+              <Image height={256} width={256} src={logo} alt="logo" />
               <span className="logo-icon">
                 <i className="flaticon-fire"></i>
               </span>

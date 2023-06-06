@@ -1,0 +1,9 @@
+@keyframes rotate-x {
+  50% {
+    -webkit-transform: rotateY(360deg);
+  }
+}
+
+.rotater {
+  animation: rotate-x 1s all infinite;
+}

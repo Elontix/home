@@ -6,7 +6,7 @@ import Roadmap from "../components/common/Roadmap";
 import Support from "../components/common/Support";
 import Testimonial from "../components/common/Testimonial";
 import Counter from "../components/home-three/Counter";
-import Hero from "../components/home-three/Hero";
+import Hero from "../components/home-four/Hero";
 import Faq from "./faq";
 
 export default function HomeThree() {
@@ -34,7 +34,7 @@ export default function HomeThree() {
       {<Tokenomics />}
 
       {/* Testimonial section */}
-      <Testimonial />
+      {/* <Testimonial /> */}
 
       {/* FAQ section */}
       <Faq />

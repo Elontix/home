@@ -29,6 +29,11 @@ const Roadmap = () => {
                   <div className="col-lg-4 mb-30">
                     {/* ticket check card */}
                     <TicketCheckCard />
+
+                    <div
+                      style={{ background: "none" }}
+                      className="number-check-wrapper"
+                    ></div>
                   </div>
                   <div className="col-lg-8 mb-30">
                     {/* winner card */}

@@ -27,7 +27,7 @@ const Hero = () => {
         <div className="hero__shape-left">
           <Image src={hero_3_shape} alt="round shape 3" />
         </div>
-        <div className="hero__shape">
+        {/* <div className="hero__shape">
           <Image src={round_shape_3} alt="image" />
         </div>
         <div className="hero-e1">
@@ -44,7 +44,7 @@ const Hero = () => {
         </div>
         <div className="hero-e5">
           <Image src={hero_2_e5} alt="image" />
-        </div>
+        </div> */}
         {/* <div className="hero-car-main">
           <Image src={hero_3_main_thumb} alt="image" />
         </div> */}
