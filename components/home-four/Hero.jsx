@@ -24,9 +24,9 @@ const Hero = () => {
         setIsOpen={setIsOpen}
       />
       <section style={{ paddingBottom: 0 }} className="hero style--three">
-        <div className="hero__circle">
+        {/* <div className="hero__circle">
           <Image src={hero_4_circle} alt="image" />
-        </div>
+        </div> */}
         <div
           style={{
             top: "550px",

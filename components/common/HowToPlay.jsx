@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { colors } from "../../theme/color";
 import play_el from "/public/images/elements/play-el.png";
 import play_1 from "/public/images/icon/play/1.png";
 import play_2 from "/public/images/icon/play/2.png";
@@ -14,9 +15,10 @@ const HowToPlay = () => {
         <div className="row">
           <div className="col-lg-6 text-sm-start text-center">
             <div className="section-header">
-              <span className="section-sub-title">Need to know about</span>
-              <h2 className="section-title">How To Play</h2>
-              <p>Follow these 3 easy steps! </p>
+              <h2 className="section-title">How Elontix works?</h2>
+              <p style={{ color: colors.baseColor }}>
+                Follow these 4 easy steps!{" "}
+              </p>
             </div>
           </div>
         </div>
@@ -50,6 +52,18 @@ const HowToPlay = () => {
               <div className="play-card__icon">
                 <Image src={play_3} alt="image-icon" />
                 <span className="play-card__number">03</span>
+              </div>
+              <div className="play-card__content">
+                <h3 className="play-card__title">Win</h3>
+                <p>Start Dreaming, you&#39;re almost there</p>
+              </div>
+            </div>
+          </div>
+          <div className="col-xl-3 col-lg-4 col-sm-6 mb-30">
+            <div className="play-card play-card--three bg_img">
+              <div className="play-card__icon">
+                <Image src={play_3} alt="image-icon" />
+                <span className="play-card__number">04</span>
               </div>
               <div className="play-card__content">
                 <h3 className="play-card__title">Win</h3>

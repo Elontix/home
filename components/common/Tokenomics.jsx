@@ -272,14 +272,6 @@ const LatestWinner = () => {
                         ))}
                       </div>
                     </div>
-
-                    <div className="px-4">
-                      <p style={{ color: colors.baseColor }}>
-                        $ELONTIX is a deflationary token - All reward
-                        distributions are paid in BSC from taxes and platform
-                        revenues.
-                      </p>
-                    </div>
                   </div>
                 </div>
               </div>

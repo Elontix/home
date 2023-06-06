@@ -42,19 +42,19 @@ const Header = () => {
         windowHeight > 50 && "menu-fixed animated fadeInDown"
       }`}
     >
-      <div className="header__top">
+      {/* <div className="header__top">
         <div className="container">
           <div className="row align-items-center gap-2 gap-md-0">
             <div className="col-sm-6">
               <div className="left d-flex align-items-center">
-                {/* <a
+                <a
                   href="tel:65655655"
                   className="d-flex align-items-center gap-1"
                 >
                   <i className="las la-phone-volume"></i>
                   Customer Support
-                </a> */}
-                {/* <div className="language">
+                </a>
+                <div className="language">
                   <i className="las la-globe-europe"></i>
                   <div className="select">
                     <select className="border-0">
@@ -65,7 +65,7 @@ const Header = () => {
                       <option>Frn</option>
                     </select>
                   </div>
-                </div> */}
+                </div>
               </div>
             </div>
             <div className="col-sm-6">
@@ -89,7 +89,7 @@ const Header = () => {
             </div>
           </div>
         </div>
-      </div>
+      </div> */}
       <div className="header__bottom">
         <div className="container">
           <nav className="navbar navbar-expand-xl p-0 align-items-center">

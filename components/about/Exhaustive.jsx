@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { colors } from "../../theme/color";
 import feature_car from "/public/images/elements/feature-car.png";
 import feature_10 from "/public/images/icon/feature/10.png";
 import feature_5 from "/public/images/icon/feature/5.png";
@@ -17,13 +18,10 @@ const Exhaustive = () => {
         <div className="row justify-content-center">
           <div className="col-lg-10">
             <div className="section-header text-center">
-              <span className="section-sub-title">
-                An Exhaustive list of amazing features
-              </span>
               <h2 className="section-title style--two">
                 What makes Elontix different?
               </h2>
-              <p>
+              <p style={{ color: colors.baseColor }}>
                 These are the key drivers that make us different: Safe, Social,
                 Reliable and Fun. Elontix Lotto is dedicated to trust and
                 safety.

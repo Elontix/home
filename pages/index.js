@@ -40,7 +40,7 @@ export default function HomeThree() {
       <Faq />
 
       {/* Support section */}
-      <Support />
+      {/* <Support /> */}
     </>
   );
 }
