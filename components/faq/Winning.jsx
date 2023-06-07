@@ -11,7 +11,7 @@ const Winning = () => {
             aria-expanded="true"
             aria-controls="collapse4"
           >
-            How do I deposit funds into my Elontix Lottos account?
+            What happens if I win?
           </button>
         </div>
         <div
@@ -22,10 +22,8 @@ const Winning = () => {
         >
           <div className="card-body">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-              ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
-              accumsan lacus vel facilisis.{" "}
+              If you win, you will receive the prize associated with the
+              contest/Lottery to your DEX wallet.
             </p>
           </div>
         </div>
@@ -40,7 +38,8 @@ const Winning = () => {
             aria-expanded="false"
             aria-controls="collapse5"
           >
-            What will the payment reflect as on my credit card statement?
+            Are there any fees or costs associated with participating in the
+            lottery?
           </button>
         </div>
         <div
@@ -51,39 +50,9 @@ const Winning = () => {
         >
           <div className="card-body">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-              ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
-              accumsan lacus vel facilisis.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="card">
-        <div className="card-header" id="h-6">
-          <button
-            className="btn btn-link btn-block text-left collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapse6"
-            aria-expanded="false"
-            aria-controls="collapse6"
-          >
-            Why am I unable to deposit funds via credit card on your website?
-          </button>
-        </div>
-        <div
-          id="collapse6"
-          className="collapse"
-          aria-labelledby="h-6"
-          data-bs-parent="#faqAcc-three"
-        >
-          <div className="card-body">
-            <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum
-              dignissimos consectetur aspernatur expedita aut reiciendis magni
-              tempore ullam libero, voluptate nam accusamus est a debitis,
-              obcaecati beatae possimus veniam distinctio?
+              There is only a ticket purchase fees or transaction fees
+              associated with participating in the lottery. These fees cover the
+              operational costs of the platform and ensure its sustainability.
             </p>
           </div>
         </div>

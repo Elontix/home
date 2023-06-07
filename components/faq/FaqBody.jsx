@@ -6,7 +6,7 @@ import Winning from "./Winning";
 
 const FaqBody = () => {
   return (
-    <section className="pb-120">
+    <section className="container pb-120">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
@@ -34,7 +34,7 @@ const FaqBody = () => {
                     aria-controls="ticket"
                     aria-selected="false"
                   >
-                    Elontix tickets
+                    rifa tickets
                   </button>
                 </li>
                 <li className="nav-item" role="presentation">
@@ -76,23 +76,11 @@ const FaqBody = () => {
                     results & alerts
                   </button>
                 </li>
-                <li className="nav-item" role="presentation">
-                  <button
-                    className="nav-link"
-                    id="about-tab"
-                    data-bs-toggle="tab"
-                    data-bs-target="#about"
-                    role="tab"
-                    aria-controls="about"
-                    aria-selected="false"
-                  >
-                    about Elontix
-                  </button>
-                </li>
               </ul>
             </div>
           </div>
         </div>
+
         <div className="row justify-content-center">
           <div className="col-lg-10">
             <div className="faq-body-wrapper">
@@ -132,15 +120,6 @@ const FaqBody = () => {
                 >
                   {/* Results And Alerts here */}
                   <ResultsAndAlerts />
-                </div>
-                <div
-                  className="tab-pane fade"
-                  id="about"
-                  role="tabpanel"
-                  aria-labelledby="about-tab"
-                >
-                  {/* About Elontix here */}
-                  <AboutRifa />
                 </div>
               </div>
             </div>

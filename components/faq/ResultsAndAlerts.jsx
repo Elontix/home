@@ -11,7 +11,7 @@ const ResultsAndAlerts = () => {
             aria-expanded="true"
             aria-controls="collapse7"
           >
-            How do I deposit funds into my Elontix Lottos account?
+            Can I sell or trade the NFTs I acquire through the lottery?
           </button>
         </div>
         <div
@@ -22,10 +22,9 @@ const ResultsAndAlerts = () => {
         >
           <div className="card-body">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-              ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
-              accumsan lacus vel facilisis.{" "}
+              Yes, the NFTs bought on ElonTix platform can be sold, traded, or
+              transferred to other individuals on compatible NFT marketplaces
+              like OpenSea.
             </p>
           </div>
         </div>
@@ -40,7 +39,7 @@ const ResultsAndAlerts = () => {
             aria-expanded="false"
             aria-controls="collapse8"
           >
-            What will the payment reflect as on my credit card statement?
+            Is the platform secure and trustworthy?
           </button>
         </div>
         <div
@@ -51,10 +50,10 @@ const ResultsAndAlerts = () => {
         >
           <div className="card-body">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-              ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
-              accumsan lacus vel facilisis.
+              {`ElonTix leverages the security and immutability of the blockchain,
+              making them inherently secure and transparent. However, it's
+              essential to conduct your own research and due diligence before
+              participating.`}
             </p>
           </div>
         </div>
@@ -69,7 +68,7 @@ const ResultsAndAlerts = () => {
             aria-expanded="false"
             aria-controls="collapse9"
           >
-            Why am I unable to deposit funds via credit card on your website?
+            Who is behind ElonTix Team?
           </button>
         </div>
         <div
@@ -80,10 +79,8 @@ const ResultsAndAlerts = () => {
         >
           <div className="card-body">
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum
-              dignissimos consectetur aspernatur expedita aut reiciendis magni
-              tempore ullam libero, voluptate nam accusamus est a debitis,
-              obcaecati beatae possimus veniam distinctio?
+              Our team is headlined by serial entrepreneurs, game developers,
+              graphic designers and NFT Advisors.
             </p>
           </div>
         </div>

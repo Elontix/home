@@ -31,7 +31,7 @@ const HowToPlay = () => {
               </div>
               <div className="play-card__content">
                 <h3 className="play-card__title">Choose</h3>
-                <p>Register to Elontix & Choose your contest</p>
+                <p>Connect your wallet</p>
               </div>
             </div>
           </div>
@@ -43,7 +43,7 @@ const HowToPlay = () => {
               </div>
               <div className="play-card__content">
                 <h3 className="play-card__title">buy</h3>
-                <p>Pick Your Numbers & Complete your Purchase</p>
+                <p>Purchase ElonTix tickets</p>
               </div>
             </div>
           </div>
@@ -54,8 +54,8 @@ const HowToPlay = () => {
                 <span className="play-card__number">03</span>
               </div>
               <div className="play-card__content">
-                <h3 className="play-card__title">Win</h3>
-                <p>Start Dreaming, you&#39;re almost there</p>
+                <h3 className="play-card__title">Track</h3>
+                <p>Track and Verify</p>
               </div>
             </div>
           </div>
@@ -67,7 +67,7 @@ const HowToPlay = () => {
               </div>
               <div className="play-card__content">
                 <h3 className="play-card__title">Win</h3>
-                <p>Start Dreaming, you&#39;re almost there</p>
+                <p>Claim your winnings</p>
               </div>
             </div>
           </div>

@@ -48,23 +48,28 @@ const LatestWinner = () => {
   const utils = [
     {
       icon: BsStars,
-      text: "Access to exclusive tournaments & events",
+      text: "Governance & Voting Rights",
     },
     {
       icon: FaBurn,
-      text: "Buyback & burn - 50% of all taxes and platform revenues",
+      text: "Decentralized Finance",
     },
     {
       icon: BsDatabaseUp,
-      text: "Stake & earn in BSC from platform revenues",
+      text: "Immutable Record-Keeping",
     },
     {
       icon: FaHandPeace,
-      text: "BSC airdrop for top holders",
+      text: "Loyalty Programs",
     },
     {
       icon: FaCrown,
-      text: "Weekly burn lottery",
+      text: "MultiChain Compatibility",
+    },
+
+    {
+      icon: FaCrown,
+      text: "Charity Integration",
     },
   ];
 
@@ -121,9 +126,8 @@ const LatestWinner = () => {
                             }}
                             key={i}
                           >
-                            <h6>{t.label}</h6>
+                            <h4>{t.label}</h4>
                             <h5 style={{ color: colors.baseColor }}>
-                              {" "}
                               {t.value}
                             </h5>
                           </div>
@@ -136,7 +140,7 @@ const LatestWinner = () => {
                       <div
                         style={{
                           margin: "1rem 0",
-                          borderRadius: "1vw",
+                          borderRadius: "5px",
                           border: `2px solid ${colors.baseColorTwo}`,
                         }}
                       >

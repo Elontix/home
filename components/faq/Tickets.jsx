@@ -11,7 +11,7 @@ const Tickets = () => {
             aria-expanded="true"
             aria-controls="collapse1"
           >
-            How do I deposit funds into my Elontix Lottos account?
+            What is ElonTix?
           </button>
         </div>
         <div
@@ -22,10 +22,11 @@ const Tickets = () => {
         >
           <div className="card-body">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-              ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
-              accumsan lacus vel facilisis.{" "}
+              ElonTix is a blockchain-based NFT lottery platform that utilizes
+              blockchain technology and non-fungible tokens (NFTs) to conduct
+              lotteries. It combines the transparency, security, and
+              immutability of the blockchain with the uniqueness and scarcity of
+              NFTs to create a fair and exciting lottery experience.
             </p>
           </div>
         </div>
@@ -40,7 +41,7 @@ const Tickets = () => {
             aria-expanded="false"
             aria-controls="collapse2"
           >
-            What will the payment reflect as on my credit card statement?
+            How does ElonTix Platform work?
           </button>
         </div>
         <div
@@ -51,10 +52,11 @@ const Tickets = () => {
         >
           <div className="card-body">
             <p>
-              Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-              eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis
-              ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
-              accumsan lacus vel facilisis.
+              ElonTix allows users to purchase tickets using various
+              cryptocurrencies. Each ticket corresponds to a specific NFT. At
+              the conclusion of the lottery, a random drawing takes place on the
+              blockchain to determine the winning ticket/NFT. Winners receive
+              the prize associated with the NFT they hold.
             </p>
           </div>
         </div>
@@ -69,7 +71,8 @@ const Tickets = () => {
             aria-expanded="false"
             aria-controls="collapse3"
           >
-            Why am I unable to deposit funds via credit card on your website?
+            What are the advantages of using a blockchain-based NFT lottery
+            platform?
           </button>
         </div>
         <div
@@ -80,10 +83,12 @@ const Tickets = () => {
         >
           <div className="card-body">
             <p>
-              Lorem ipsum dolor, sit amet consectetur adipisicing elit. Rerum
-              dignissimos consectetur aspernatur expedita aut reiciendis magni
-              tempore ullam libero, voluptate nam accusamus est a debitis,
-              obcaecati beatae possimus veniam distinctio?
+              ElonTix is a NFT lottery platform that provide transparency and
+              fairness as all transactions and draws are recorded on the
+              blockchain, ensuring integrity. Additionally, NFTs add uniqueness
+              and value to the lottery, making it more exciting for
+              participants. Instant payouts, community involvement, and secure
+              escrow are other benefits.
             </p>
           </div>
         </div>

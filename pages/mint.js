@@ -7,8 +7,10 @@ import { useAccount, useConnect, useBalance, useDisconnect } from "wagmi";
 import { useEffect } from "react";
 import { bsc, bscTestnet } from "wagmi/chains";
 import { colors } from "../theme/color";
-import { MintAPi } from "./api/mint";
+import { MintAPi } from "./api/mint/mint";
 import { useMutation } from "@apollo/client";
+
+import { useContractRead } from "wagmi";
 
 const Mint = () => {
   const { isOpen, open, close, setDefaultChain } = useWeb3Modal();
@@ -17,6 +19,13 @@ const Mint = () => {
     MintAPi.createAccountGQL()
   );
   const { disconnect } = useDisconnect();
+
+  const mintContract = useContractRead({
+    address: "0xd23306DA2087CA5374F3F05DAB93D8F6189C3E46",
+    abi: MintAPi.getMintAbi(false),
+    functionName: "validateTokenId",
+    args: [1],
+  });
 
   const {
     address,
@@ -34,7 +43,7 @@ const Mint = () => {
 
   const connectWallet = () => {
     open();
-    setDefaultChain(bsc);
+    setDefaultChain(bscTestnet);
   };
 
   const addressStrip = (str) =>
@@ -108,7 +117,10 @@ const Mint = () => {
                 boxShadow: `0px 0px 12px -4px ${"black"}`,
               }}
             >
-              <h3 className="py-4">Mint your ticket to reveal your NFT</h3>
+              <h3 className="py-4">
+                {mintContract.data}
+                Mint your ticket to reveal your NFT
+              </h3>
               <Image height={320} width={520} src={TicketGif} alt="ok" />
 
               <div className="row py-4">

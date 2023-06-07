@@ -33,12 +33,12 @@ const Exhaustive = () => {
           <div className="col-xl-9">
             <div className="row mb-none-30">
               {[
-                ["No Commission on Winnings", feature_5],
-                ["Safe and Secure Playing", feature_6],
-                ["Biggest lottery jackpots", feature_7],
-                ["Instant payout system", feature_8],
-                ["Dedicated Support", feature_9],
-                ["Unlimited Affiliates", feature_10],
+                ["Provably fair ", feature_5],
+                ["Transparency and  Security", feature_6],
+                ["Instant payouts", feature_7],
+                ["Global Accessibility", feature_8],
+                ["Anonymity", feature_9],
+                ["Unlimited Winning", feature_10],
               ].map(([title, icon], i) => (
                 <div key={i} className="col-lg-4 col-sm-6 mb-30">
                   <div className="feature-card style--two">
