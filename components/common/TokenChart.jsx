@@ -8,8 +8,10 @@ const chart = `
 <html>
   <meta charset="utf-8" />
   <head>
+
     <title>elontix</title>
     <style type="text/css">
+      @import url('https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@200&display=swap');
       *{
         padding:0,
         margin:0
@@ -42,7 +44,8 @@ const chart = `
           plotShadow: false,
           borderWidth:0,
           margin:0,
-          padding:0
+          padding:0,
+          fontFamily: "'Josefin Sans', sans-serif",
         },
         title: {
           text: "",
@@ -58,9 +61,10 @@ const chart = `
               enabled: true,
               format: "<b>{point.name}</b>: {point.percentage:.1f} %",
               style: {
-                color:
-                  (Highcharts.theme && Highcharts.theme.contrastTextColor) ||
-                  "black",
+                fontFamily: "'Josefin Sans', sans-serif",
+                fontWeight:"bold",
+                fontSize:"16px",
+                color: "white",
               },
             },
             point: {
@@ -116,10 +120,10 @@ const chart = `
             type: "pie",
             name: "pool",
             data: [
-              ["DEX Liquidity", 28],
               ["Cex Listing", 9],
+              ["DEX Liquidity", 28],
               ["Pinksale Presale", 57.0],
-              ["Partnerships", 6],
+              ["Eco Systems & Treasury", 6],
             ],
           },
         ],

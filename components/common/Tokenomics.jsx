@@ -154,21 +154,6 @@ const LatestWinner = () => {
                         >
                           <div
                             style={{
-                              background: colors.baseColorTwo,
-                              borderRadius: ".5rem",
-                              padding: ".5rem",
-                            }}
-                          >
-                            <div
-                              style={{
-                                color: "#ffffff",
-                              }}
-                            >
-                              DEX / CEX Listings & Liquidity - 34.2 Million
-                            </div>
-                          </div>
-                          <div
-                            style={{
                               display: "flex",
                               justifyContent: "space-evenly",
                               columnGap: ".5rem",
@@ -183,7 +168,7 @@ const LatestWinner = () => {
                                 color: "#ffffff",
                               }}
                             >
-                              Pre Sale - 60 Million
+                              Pinksale Presale - 57%
                             </div>
                             <div
                               style={{
@@ -194,7 +179,7 @@ const LatestWinner = () => {
                                 color: "#ffffff",
                               }}
                             >
-                              Partnerships - 1.8 Million
+                              Eco System & Treasury - 6%
                             </div>
                           </div>
 
@@ -214,7 +199,7 @@ const LatestWinner = () => {
                                 color: "#ffffff",
                               }}
                             >
-                              Marketing - 2 Million
+                              CEX Listing - 9%
                             </div>
                             <div
                               style={{
@@ -225,7 +210,7 @@ const LatestWinner = () => {
                                 color: "#ffffff",
                               }}
                             >
-                              Team - 2 Million
+                              DEX Listing - 28%
                             </div>
                           </div>
                         </div>
