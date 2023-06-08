@@ -1,11 +1,57 @@
-import Link from "next/link";
-import { useState } from "react";
-import winnerData from "../../data/winnerData";
-import TicketCheckCard from "../cards/TicketCheckCard";
 import WinnerCard from "../cards/WinnerCard";
 
+import { bscTestnet } from "wagmi/chains";
+import { useWeb3Modal } from "@web3modal/react";
+import { useContractRead, useDisconnect, useAccount } from "wagmi";
+import { useState, useEffect } from "react";
+
+import { MintAPi } from "../../pages/api/mint/mint.js";
+import { colors } from "../../theme/color.js";
+
 const LatestWinner = () => {
-  const [winners, setWinners] = useState(winnerData);
+  const { disconnect } = useDisconnect();
+  const { address, isConnected } = useAccount();
+  const { open, setDefaultChain } = useWeb3Modal();
+
+  const [counter, setCounter] = useState(0);
+  const [winners, setWinners] = useState([]);
+
+  useEffect(() => {
+    open();
+    setDefaultChain(bscTestnet);
+  }, []);
+
+  const totalWinners = useContractRead({
+    address: "0xd23306DA2087CA5374F3F05DAB93D8F6189C3E46",
+    abi: MintAPi.getMintAbi(false),
+    functionName: "_drawsToDate",
+    chainId: bscTestnet.chainId,
+    account: address,
+  });
+
+  const {
+    data: winnerData,
+    error: winnerError,
+    isError: hasWinnerError,
+    isSuccess: hasWinnerSuccess,
+  } = useContractRead({
+    address: "0xd23306DA2087CA5374F3F05DAB93D8F6189C3E46",
+    abi: MintAPi.getMintAbi(false),
+    args: [counter],
+    functionName: "draws",
+    chainId: bscTestnet.chainId,
+    account: address,
+  });
+
+  useEffect(() => {
+    if (counter !== totalWinners.data && hasWinnerSuccess) {
+      setCounter(counter + 1);
+      let w = winners;
+      w.push(winnerData);
+      setWinners(w);
+    }
+    console.log(winners);
+  }, [hasWinnerSuccess, counter]);
 
   return (
     <section className="latest-winner-section position-relative pt-120 pb-120">
@@ -25,129 +71,10 @@ const LatestWinner = () => {
                 aria-labelledby="dream-tab"
               >
                 <div className="row mb-none-30">
-                  <div className="col-lg-4 mb-30">
-                    {/* ticket check card */}
-                    <TicketCheckCard />
-                  </div>
-                  <div className="col-lg-8 mb-30">
-                    {/* winner card */}
-
-                    {winners.map((winner) => (
-                      <WinnerCard key={winner.id} winner={winner} />
+                  <div className="mb-30">
+                    {winners.map((winner, i) => (
+                      <WinnerCard key={i} winner={winner} />
                     ))}
-
-                    {/* <div className="btn-grp">
-                      <Link href="winner" className="btn-border">
-                        browse more
-                      </Link>
-                    </div> */}
-                  </div>
-                </div>
-              </div>
-
-              <div
-                className="tab-pane fade"
-                id="bike"
-                role="tabpanel"
-                aria-labelledby="bike-tab"
-              >
-                <div className="row mb-none-30">
-                  <div className="col-lg-4 mb-30">
-                    {/* ticket check card */}
-                    <TicketCheckCard />
-                  </div>
-                  <div className="col-lg-8 mb-30">
-                    {/* winner card */}
-
-                    {winners.map((winner) => (
-                      <WinnerCard key={winner.id} winner={winner} />
-                    ))}
-
-                    <div className="btn-grp">
-                      <Link href="winner" className="btn-border">
-                        browse more
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                className="tab-pane fade"
-                id="watch"
-                role="tabpanel"
-                aria-labelledby="watch-tab"
-              >
-                <div className="row mb-none-30">
-                  <div className="col-lg-4 mb-30">
-                    {/* ticket check card */}
-                    <TicketCheckCard />
-                  </div>
-                  <div className="col-lg-8 mb-30">
-                    {/* winner card */}
-
-                    {winners.map((winner) => (
-                      <WinnerCard key={winner.id} winner={winner} />
-                    ))}
-
-                    <div className="btn-grp">
-                      <Link href="/winner" className="btn-border">
-                        browse more
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                className="tab-pane fade"
-                id="laptop"
-                role="tabpanel"
-                aria-labelledby="laptop-tab"
-              >
-                <div className="row mb-none-30">
-                  <div className="col-lg-4 mb-30">
-                    {/* ticket check card */}
-                    <TicketCheckCard />
-                  </div>
-                  <div className="col-lg-8 mb-30">
-                    {/* winner card */}
-
-                    {winners.map((winner) => (
-                      <WinnerCard key={winner.id} winner={winner} />
-                    ))}
-
-                    <div className="btn-grp">
-                      <Link href="winner" className="btn-border">
-                        browse more
-                      </Link>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div
-                className="tab-pane fade"
-                id="money"
-                role="tabpanel"
-                aria-labelledby="money-tab"
-              >
-                <div className="row mb-none-30">
-                  <div className="col-lg-4 mb-30">
-                    {/* ticket check card */}
-                    <TicketCheckCard />
-                  </div>
-                  <div className="col-lg-8 mb-30">
-                    {/* winner card */}
-                    {winners.map((winner) => (
-                      <WinnerCard key={winner.id} winner={winner} />
-                    ))}
-
-                    <div className="btn-grp">
-                      <Link href="/winner" className="btn-border">
-                        browse more
-                      </Link>
-                    </div>
                   </div>
                 </div>
               </div>

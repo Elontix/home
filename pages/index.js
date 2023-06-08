@@ -1,13 +1,10 @@
 import Exhaustive from "../components/about/Exhaustive";
-import Contest from "../components/common/Contest";
 import Tokenomics from "../components/common/Tokenomics";
 import HowToPlay from "../components/common/HowToPlay";
 import Roadmap from "../components/common/Roadmap";
-import Support from "../components/common/Support";
-import Testimonial from "../components/common/Testimonial";
-import Counter from "../components/home-three/Counter";
-import Hero from "../components/home-four/Hero";
-import Faq from "./faq";
+import Counter from "../components/home/Counter";
+import Hero from "../components/home/Hero";
+import Faq from "../components/faq/FaqBody";
 
 export default function HomeThree() {
   return (
@@ -33,14 +30,8 @@ export default function HomeThree() {
       {/* Tokenomics section */}
       {<Tokenomics />}
 
-      {/* Testimonial section */}
-      {/* <Testimonial /> */}
-
       {/* FAQ section */}
       <Faq />
-
-      {/* Support section */}
-      {/* <Support /> */}
     </>
   );
 }

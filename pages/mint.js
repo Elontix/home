@@ -3,55 +3,81 @@ import Image from "next/image";
 import TicketGif from "/public/images/crypto/tickets.gif";
 
 import { useWeb3Modal } from "@web3modal/react";
-import { useAccount, useConnect, useBalance, useDisconnect } from "wagmi";
-import { useEffect } from "react";
-import { bsc, bscTestnet } from "wagmi/chains";
+import { useAccount, useBalance, useDisconnect, useContractWrite } from "wagmi";
+import { useEffect, useState } from "react";
+import { bscTestnet } from "wagmi/chains";
 import { colors } from "../theme/color";
 import { MintAPi } from "./api/mint/mint";
 import { useMutation } from "@apollo/client";
 
-import { useContractRead } from "wagmi";
+import toast, { Toaster } from "react-hot-toast";
+import { BiErrorAlt } from "react-icons/bi";
+import { MdOutlineDoneOutline } from "react-icons/md";
+
+import Mintbar from "../components/common/MintBar";
+
+function eToster(message, duration, bg, color, icon) {
+  return toast.custom(
+    <div
+      style={{
+        maxWidth: "820px",
+        padding: "1rem",
+        borderRadius: "1rem",
+        background: bg,
+        color: color,
+        display: "flex",
+        columnGap: "1rem",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div> {icon}</div>
+      <p style={{ color: color }}> {message}</p>
+    </div>,
+    { duration: duration }
+  );
+}
+
+function generateRandom(min = 100000, max = 999999) {
+  let difference = max - min;
+  let rand = Math.random();
+  rand = Math.floor(rand * difference);
+  rand = rand + min;
+  rand = String(rand).split("");
+  return rand;
+}
 
 const Mint = () => {
-  const { isOpen, open, close, setDefaultChain } = useWeb3Modal();
+  const [token, setToken] = useState(["0", "0", "0", "0", "0", "0"]);
+  function updateRandomNumber() {
+    setToken([...generateRandom()]);
+  }
+  function updateNumber(value, key) {
+    let temp = token;
+    temp[key] = value;
+    setToken([...temp]);
+  }
+  function tokenStrip() {
+    let n = "";
+    for (let i = 0; i < token.length; i++) n += token[i];
+    return Number(n);
+  }
 
-  const [createAccount, { data, loading, error, called }] = useMutation(
-    MintAPi.createAccountGQL()
-  );
+  const { open, setDefaultChain } = useWeb3Modal();
   const { disconnect } = useDisconnect();
-
-  const mintContract = useContractRead({
-    address: "0xd23306DA2087CA5374F3F05DAB93D8F6189C3E46",
-    abi: MintAPi.getMintAbi(false),
-    functionName: "validateTokenId",
-    args: [1],
-  });
-
-  const {
-    address,
-    connector,
-    isConnected,
-    isConnecting,
-    isDisconnected,
-    isReconnecting,
-    status,
-  } = useAccount();
-
+  const { address, isConnected } = useAccount();
   const { data: balance, isFetched: balanceFeteched } = useBalance({
     address,
   });
-
+  const [createAccount, { data, loading, error, called }] = useMutation(
+    MintAPi.createAccountGQL()
+  );
   const connectWallet = () => {
     open();
     setDefaultChain(bscTestnet);
   };
-
   const addressStrip = (str) =>
     str.substring(0, 4) + "...." + str.substring(str.length - 4, str.length);
-
-  useEffect(() => {
-    disconnect();
-  }, []);
 
   const updateWalletInformation = async () => {
     const { ip } = await fetch("https://api.ipify.org?format=json", {
@@ -71,10 +97,34 @@ const Mint = () => {
     updateWalletInformation().then().catch();
   }, [address]);
 
+  useEffect(() => {
+    disconnect();
+  }, []);
+
+  const {
+    write: mintWrite,
+    data: mintData,
+    error: mintError,
+    isError: mintIsError,
+    isSuccess: mintIsSuccess,
+  } = useContractWrite({
+    address: "0xd23306DA2087CA5374F3F05DAB93D8F6189C3E46",
+    abi: MintAPi.getMintAbi(false),
+    functionName: "mint",
+    args: [address, 100000],
+    chainId: bscTestnet.chainId,
+    account: address,
+    gas: 400000,
+    maxFeePerGas: 400000,
+    value: 1000000000000000,
+  });
+
   return (
     <>
       <div className="" style={{ minHeight: "25vh" }}></div>
+
       <div className="container" style={{ paddingBottom: "5rem" }}>
+        <Mintbar />
         <div className="row" style={{ rowGap: "2rem", alignItems: "center" }}>
           <div className="col-sm-12 col-lg-6">
             <div
@@ -117,10 +167,7 @@ const Mint = () => {
                 boxShadow: `0px 0px 12px -4px ${"black"}`,
               }}
             >
-              <h3 className="py-4">
-                {mintContract.data}
-                Mint your ticket to reveal your NFT
-              </h3>
+              <h3 className="py-4">Mint your ticket to reveal your NFT</h3>
               <Image height={320} width={520} src={TicketGif} alt="ok" />
 
               <div className="row py-4">
@@ -136,32 +183,35 @@ const Mint = () => {
                   className="row"
                   style={{ justifyContent: "center", alignItems: "center" }}
                 >
-                  {[0, 1, 2, 3, 4, 5].map((i, k) => (
-                    <div
+                  {token.map((i, k) => (
+                    <input
+                      key={k}
                       style={{
-                        background: "white",
-                        maxWidth: "32px",
-                        maxHeight: "32px",
-                        minHeight: "32px",
-                        minWidth: "32px",
+                        background: colors.bgOne,
                         textAlign: "center",
                         display: "flex",
                         justifyContent: "center",
                         alignItems: "center",
-                        margin: "0 .4rem",
+                        margin: "1rem .4rem",
                         borderRadius: "5px",
                         fontSize: "xl",
                         fontWeight: "bold",
                       }}
+                      type="text"
+                      value={i}
                       className="col"
-                      key={k}
-                    >
-                      <div>{i}</div>
-                    </div>
+                      maxlength="1"
+                      onChange={(e) => updateNumber(e.target.value, k)}
+                    />
                   ))}
                 </div>
                 <div className="p-4">
-                  <h4 style={{ cursor: "pointer" }}>GENERATE RANDOM TICKET</h4>
+                  <h4
+                    onClick={updateRandomNumber}
+                    style={{ cursor: "pointer" }}
+                  >
+                    GENERATE RANDOM TICKET
+                  </h4>
                   <div
                     style={{
                       width: "80%",
@@ -173,8 +223,29 @@ const Mint = () => {
                   ></div>
                   {isConnected ? (
                     <button
-                      onClick={() => {
-                        console.log("buy tickers");
+                      onClick={async () => {
+                        await mintWrite();
+                        if (mintIsError) {
+                          eToster(
+                            mintError.message,
+                            6000,
+                            "red",
+                            "white",
+                            <BiErrorAlt size={48} />
+                          );
+                          return;
+                        }
+                        if (mintIsSuccess) {
+                          eToster(
+                            mintError.message,
+                            3000,
+                            "green",
+                            "white",
+                            <MdOutlineDoneOutline size={48} />
+                          );
+                        }
+
+                        console.log(mintData);
                       }}
                       className="cmn-btn"
                     >
@@ -212,6 +283,7 @@ const Mint = () => {
           </div>
         </div>
       </div>
+      <Toaster />
       <div className="bg-shape"></div>
     </>
   );

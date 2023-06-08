@@ -1,12 +1,9 @@
-import Link from "next/link";
 import Image from "next/image";
 import { useState } from "react";
 import winnerData from "../../data/winnerData";
-import TicketCheckCard from "../cards/TicketCheckCard";
-import WinnerCard from "../cards/WinnerCard";
 import Logo from "/public/images/main.webp";
 import { colors } from "../../theme/color";
-import { BsDatabaseUp, BsStars } from "react-icons/bs";
+import { BsStars } from "react-icons/bs";
 import { FaBurn, FaCrown, FaHandPeace } from "react-icons/fa";
 import { TokenChart } from "./TokenChart";
 
@@ -53,10 +50,6 @@ const LatestWinner = () => {
     {
       icon: FaBurn,
       text: "Decentralized Finance",
-    },
-    {
-      icon: BsDatabaseUp,
-      text: "Immutable Record-Keeping",
     },
     {
       icon: FaHandPeace,

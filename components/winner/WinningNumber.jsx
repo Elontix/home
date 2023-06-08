@@ -9,11 +9,8 @@ const WinningNumber = () => {
         <div className="row">
           <div className="col-lg-12">
             <div className="winner-details-wrapper bg_img">
-              <div className="left">
-                <Image src={contest_1} alt="contest 1" />
-              </div>
+              <div className="left"></div>
               <div className="body">
-                <p className="contest-number">Contest No: B2T</p>
                 <p className="contest-date">
                   <span>Draw took place on :</span> Saturday May 20, 2020
                 </p>
@@ -28,18 +25,8 @@ const WinningNumber = () => {
                   <li>26</li>
                   <li>87</li>
                 </ul>
-                <div className="btn-grp">
-                  <a href="#0" className="btn-border">
-                    Alerts
-                  </a>
-                  <a href="#0" className="btn-border">
-                    How to Claim
-                  </a>
-                </div>
               </div>
-              <div className="right">
-                <Image src={contest_2} alt="contest 2" />
-              </div>
+              <div className="right"></div>
             </div>
           </div>
         </div>

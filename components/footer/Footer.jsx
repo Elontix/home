@@ -16,7 +16,7 @@ const Footer = () => {
           <div className="col-lg-12">
             <div className="subscribe-area">
               <div className="left">
-                <span className="subtitle">Subscribe to Sorko</span>
+                <span className="subtitle">Subscribe to Elontix</span>
                 <h3 className="title">To Get Exclusive Benefits</h3>
               </div>
               <div className="right">
@@ -38,18 +38,7 @@ const Footer = () => {
       <div className="container pt-120">
         <div className="row pb-5 align-items-center">
           <div className="col-lg-4">
-            <ul className="app-btn">
-              <li>
-                <Link href="/#">
-                  <Image src={store_btn_1} alt="image" />
-                </Link>
-              </li>
-              <li>
-                <Link href="/#">
-                  <Image src={store_btn_2} alt="image" />
-                </Link>
-              </li>
-            </ul>
+            <ul className="app-btn"></ul>
           </div>
           <div className="col-lg-8">
             <ul className="short-links justify-content-lg-end justify-content-center">

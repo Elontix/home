@@ -32,7 +32,6 @@ const LeftSideMenu = () => {
             ["Transactions", "/user-transaction"],
             ["Referral Program", "/user-referral"],
             ["Favorite Lotteries", "/user-lottery"],
-            ["Help Center", "/contact"],
             ["Log Out", "/#"],
           ].map(([item, url], i) => (
             <li

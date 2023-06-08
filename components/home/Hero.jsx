@@ -1,19 +1,19 @@
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+
+import e from "/public/images/elements/hero-2-star.png";
+import elon from "/public/images/elon.png";
+import hero_2_e4 from "/public/images/elements/hero-2-e4.png";
+import hero_2_e3 from "/public/images/elements/hero-2-e3.png";
+
+import VedioModal from "../vedioModal/VedioModal";
+
 import { useState } from "react";
 import { FaPlay } from "react-icons/fa";
-import VedioModal from "../vedioModal/VedioModal";
-import car_light from "/public/images/elements/car-light.png";
-import car_main from "/public/images/elements/car-main.png";
-import car_ray from "/public/images/elements/car-ray.png";
-import car_shadow from "/public/images/elements/car-shadow.png";
-import car_star from "/public/images/elements/car-star.png";
-import hero_building from "/public/images/elements/hero-building.png";
-import hero_car from "/public/images/elements/hero-car.png";
-import hero_shape from "/public/images/elements/hero-shape.jpg.png";
 
 const Hero = () => {
   const [isOpen, setIsOpen] = useState(false);
+
   return (
     <>
       <VedioModal
@@ -21,33 +21,72 @@ const Hero = () => {
         isOpen={isOpen}
         setIsOpen={setIsOpen}
       />
+      <section style={{ paddingBottom: 0 }} className="hero style--three">
+        {/* <div className="hero__circle">
+          <Image src={hero_4_circle} alt="image" />
+        </div> */}
+        <div
+          style={{
+            top: "550px",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-around",
+            alignItems: "center",
+          }}
+          className="hero__obj"
+        >
+          <Image style={{ marginTop: "400px" }} src={hero_2_e4} alt="image" />
+          <Image src={hero_2_e3} alt="image" />
+          <Image style={{ marginTop: "300px" }} src={hero_2_e3} alt="image" />
+          <Image style={{ marginTop: "-100px" }} src={hero_2_e3} alt="image" />
+        </div>
 
-      <section className="hero">
-        <div className="hero__shape">
-          <Image src={hero_shape} alt="image" />
+        <div
+          style={{
+            top: "200px",
+            display: "flex",
+            flexDirection: "row",
+            justifyContent: "space-evenly",
+            columnGap: "4rem",
+            alignItems: "center",
+          }}
+          className="hero__obj"
+        >
+          <Image style={{ marginTop: "400px" }} src={e} alt="image" />
+          <Image style={{ marginTop: "-400px" }} src={e} alt="image" />
+          <Image style={{ marginTop: "100px" }} src={e} alt="image" />
+          <Image style={{ marginTop: "500px" }} src={e} alt="image" />
+          <Image style={{ marginTop: "-300px" }} src={e} alt="image" />
+          <Image style={{ marginTop: "-200px" }} src={e} alt="image" />
+          <Image style={{ marginTop: "-500px" }} src={e} alt="image" />
+          <Image style={{ marginTop: "600px" }} src={e} alt="image" />
         </div>
-        <div className="hero__element">
-          <Image src={hero_building} alt="image" />
-        </div>
-        <div className="hero__car wow bounceIn">
-          <Image src={car_shadow} alt="image" className="car-shadow" />
-          <Image src={car_ray} alt="image" className="car-ray" />
-          <Image src={car_light} alt="image" className="car-light" />
-          <Image src={hero_car} alt="image" className="hero-car" />
-          <Image src={car_star} alt="image" className="car-star" />
-        </div>
-        <div className="container">
-          <div className="row justify-content-center justify-content-lg-start">
-            <div className="col-lg-6 col-md-8">
-              <div className="hero__content">
-                <div className="hero__subtitle">Contest FOR YOUR CHANCE to</div>
-                <h2 className="hero__title">big win</h2>
+
+        <div className="container pb-120">
+          <div className="row justify-content-center">
+            <div className="col-lg-9">
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  flexDirection: "column",
+                  alignItems: "center",
+                  rowGap: "2rem",
+                }}
+              >
+                <div className="">Try Your Luck!</div>
+                <h2 className="">Win Your Dream Car</h2>
                 <p>
-                  Now&#39;s your chance to win a car! Check out the prestige
-                  cars you can win in our car prize draws. Will you be our next
-                  lucky winner?
+                  Don&#39;t miss your chance.Will you be our next lucky winner?
                 </p>
-                <div className="hero__btn">
+                <div
+                  style={{
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    columnGap: "2rem",
+                  }}
+                >
                   <Link href="/contest" className="cmn-btn">
                     Participate Now
                   </Link>
@@ -57,12 +96,11 @@ const Hero = () => {
                 </div>
               </div>
             </div>
-            <div className="col-lg-6">
-              <div className="hero__thumb">
-                <Image src={car_main} alt="" />
-              </div>
-            </div>
           </div>
+        </div>
+
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Image src={elon} alt="image" />
         </div>
       </section>
     </>

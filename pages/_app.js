@@ -9,17 +9,16 @@ import { Web3Modal } from "@web3modal/react";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { bsc, bscTestnet } from "wagmi/chains";
 
-import { ApolloClient, InMemoryCache, ApolloProvider } from "@apollo/client";
-import { HydrationProvider, Client } from "react-hydration-provider";
+import client from "../apollo-client";
+import { ApolloProvider } from "@apollo/client";
+
+import Head from "next/head";
+import Layout from "../components/layout";
 
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../public/css/line-awesome.min.css";
 import "../public/css/modal-video.scss";
 import "../styles/main.sass";
-
-import Head from "next/head";
-import Layout from "../components/layout";
-import client from "../apollo-client";
 
 const chains = [bsc, bscTestnet];
 const projectId = process.env.PROJECT_ID;
@@ -52,18 +51,14 @@ function MyApp({ Component, pageProps }) {
   return (
     <div>
       <ApolloProvider client={client}>
-        <HydrationProvider>
-          <Client>
-            <WagmiConfig config={wagmiConfig}>
-              <Head>
-                <title>Elontix.io</title>
-              </Head>
-              <Layout>
-                <Component {...pageProps} />
-              </Layout>
-            </WagmiConfig>
-          </Client>
-        </HydrationProvider>
+        <WagmiConfig config={wagmiConfig}>
+          <Head>
+            <title>Elontix.io</title>
+          </Head>
+          <Layout>
+            <Component {...pageProps} />
+          </Layout>
+        </WagmiConfig>
       </ApolloProvider>
       <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
     </div>
