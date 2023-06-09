@@ -13,7 +13,7 @@ const Partner = () => {
           <div className="col-lg-6">
             <div className="section-header text-center">
               <span className="section-sub-title">What you&#39;ll get as</span>
-              <h2 className="section-title style--two"> Affiliate Partner</h2>
+              <h2 className="section-title style--two"> What is Elontix</h2>
               <p>
                 Earn Unlimited Commissions with Elontix affiliate program. Our
                 partner program can increase your income by receing percentage.

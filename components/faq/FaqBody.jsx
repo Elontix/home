@@ -1,4 +1,3 @@
-import AboutRifa from "./AboutRifa";
 import Banking from "./Banking";
 import ResultsAndAlerts from "./ResultsAndAlerts";
 import Tickets from "./Tickets";
@@ -34,7 +33,7 @@ const FaqBody = () => {
                     aria-controls="ticket"
                     aria-selected="false"
                   >
-                    rifa tickets
+                    Elontix
                   </button>
                 </li>
                 <li className="nav-item" role="presentation">
@@ -47,7 +46,7 @@ const FaqBody = () => {
                     aria-controls="banking"
                     aria-selected="true"
                   >
-                    banking
+                    Participation
                   </button>
                 </li>
                 <li className="nav-item" role="presentation">
@@ -73,7 +72,7 @@ const FaqBody = () => {
                     aria-controls="result"
                     aria-selected="false"
                   >
-                    results & alerts
+                    Security
                   </button>
                 </li>
               </ul>

@@ -55,62 +55,17 @@ const chart = `
         },
         plotOptions: {
           pie: {
-            allowPointSelect: true,
+            allowPointSelect: false,
             cursor: "pointer",
             dataLabels: {
               enabled: true,
               format: "<b>{point.name}</b>: {point.percentage:.1f} %",
+              distance:30,
               style: {
                 fontFamily: "'Josefin Sans', sans-serif",
                 fontWeight:"bold",
                 fontSize:"16px",
                 color: "white",
-              },
-            },
-            point: {
-              events: {
-                click: function () {},
-                mouseOver: function (e) {
-                  $(this.dataLabel).stop(true, true);
-                  this.slice(true, true, true);
-
-                  var translation = this.slicedTranslation || {
-                    translateX: 0,
-                    translateY: 0,
-                  };
-                  var dlTranslation = {
-                    translateX:
-                      this.dataLabel.translateX + translation.translateX,
-                    translateY:
-                      this.dataLabel.translateY + translation.translateY,
-                  };
-                  console.log(dlTranslation);
-                  this.dataLabel.animate(dlTranslation);
-                  this.connector.animate(translation);
-                },
-                mouseOut: function () {
-                  $(this.dataLabel).stop(true, true);
-                  this.slice(false, true, true);
-                  var translation = this.slicedTranslation || {
-                    translateX: 0,
-                    translateY: 0,
-                  };
-
-                  var dlTranslation = {
-                    translateX:
-                      this.dataLabel.translateX - translation.translateX,
-                    translateY:
-                      this.dataLabel.translateY - translation.translateY,
-                  };
-                  console.log(dlTranslation);
-                  translation = {
-                    translateX: 0,
-                    translateY: 0,
-                  };
-                  this.dataLabel.animate(dlTranslation);
-
-                  this.connector.animate(translation);
-                },
               },
             },
           },

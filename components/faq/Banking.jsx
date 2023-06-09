@@ -58,30 +58,30 @@ const Banking = () => {
         </div>
       </div>
       <div className="card">
-        <div className="card-header" id="headingThree">
+        <div className="card-header" id="h-5">
           <button
             className="btn btn-link btn-block text-left collapsed"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#collapseThree"
+            data-bs-target="#collapse5"
             aria-expanded="false"
-            aria-controls="collapseThree"
+            aria-controls="collapse5"
           >
-            How are winners determined?
+            Are there any fees or costs associated with participating in the
+            lottery?
           </button>
         </div>
         <div
-          id="collapseThree"
+          id="collapse5"
           className="collapse"
-          aria-labelledby="headingThree"
-          data-bs-parent="#faqAcc-two"
+          aria-labelledby="h-5"
+          data-bs-parent="#faqAcc-three"
         >
           <div className="card-body">
             <p>
-              Winners are determined through a random drawing conducted on the
-              blockchain using Chainlink VRF. The platform uses transparent and
-              secure methods to generate random numbers or select the winning
-              ticket/NFT, ensuring a fair outcome.
+              There is only a ticket purchase fees or transaction fees
+              associated with participating in the lottery. These fees cover the
+              operational costs of the platform and ensure its sustainability.
             </p>
           </div>
         </div>

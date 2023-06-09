@@ -2,7 +2,7 @@ import { useEffect, useState } from "react";
 import { useWeb3Modal } from "@web3modal/react";
 import { bscTestnet } from "wagmi/chains";
 
-import { useAccount, useBalance, useDisconnect, useContractRead } from "wagmi";
+import { useAccount, useDisconnect, useContractRead } from "wagmi";
 import Mintbar from "../components/common/MintBar";
 
 import ContestCard from "../components/cards/ContestCard";
@@ -14,9 +14,7 @@ const Collection = () => {
   const { open, setDefaultChain } = useWeb3Modal();
   const { disconnect } = useDisconnect();
   const { address, isConnected } = useAccount();
-  const { data: balance, isFetched: balanceFeteched } = useBalance({
-    address,
-  });
+
   const connectWallet = () => {
     open();
     setDefaultChain(bscTestnet);
@@ -26,6 +24,7 @@ const Collection = () => {
 
   useEffect(() => {
     disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const [counter, setCounter] = useState(0);
@@ -53,6 +52,7 @@ const Collection = () => {
       setData([...d]);
       setCounter(counter + 1);
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [counter, hasCollecitonSucess]);
 
   return (

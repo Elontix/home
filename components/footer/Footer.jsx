@@ -64,7 +64,7 @@ const Footer = () => {
         <div className="row py-5 align-items-center">
           <div className="col-lg-6">
             <p className="copy-right-text text-lg-start text-center mb-lg-0 mb-3">
-              Copyright © 2020.All Rights Reserved By{" "}
+              Copyright © 2023.All Rights Reserved By{" "}
               <Link href="/">Elontix</Link>
             </p>
           </div>

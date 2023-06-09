@@ -1,5 +1,6 @@
 import Image from "next/image";
 import { top_affiliate } from "../../data/affiliate";
+import affiliate_bg from "/public/images/elements/affiliate-bg.jpg";
 
 const TopAffiliate = () => {
   return (
@@ -16,6 +17,7 @@ const TopAffiliate = () => {
             </div>
           </div>
         </div>
+
         <div className="row mb-none-30 justify-content-center">
           {top_affiliate.map(({ id, name, earn, img }) => (
             <div key={id} className="col-lg-4 col-md-6 mb-30">

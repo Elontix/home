@@ -1,6 +1,6 @@
 import { gql } from "@apollo/client";
 
-export class User {
+export class UserApi {
   static registerUser = () => {
     return gql`
       mutation Users(

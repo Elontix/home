@@ -1,7 +1,21 @@
 import { colors } from "../../theme/color";
 
-const WinnerCard = ({ winner }) => {
-  const { title, works } = winner;
+const ticketData = (n) => {
+  try {
+    let t = [];
+    for (let i = 0; i < n.length; i++) {
+      t.push(Number(n[i]));
+    }
+    return t;
+  } catch (error) {
+    console.log(error);
+    return [];
+  }
+};
+const WinnerCard = ({ date, no, ticket }) => {
+  const t = ticketData(String(ticket).toString());
+  const p = new Date(date * 1000).toISOString();
+
   return (
     <div
       style={{
@@ -35,8 +49,8 @@ const WinnerCard = ({ winner }) => {
         >
           <div>
             <h3 style={{ color: colors.baseColor }}> Ticket not minted</h3>
-            <div> Draw Number #68 </div>
-            <div> Draw Date: Sat May 27 2023</div>
+            <div> Draw Number #{no} </div>
+            <div> Draw Date: {p}</div>
           </div>
 
           <div>
@@ -48,23 +62,25 @@ const WinnerCard = ({ winner }) => {
                 columnGap: "1rem",
               }}
             >
-              {[4, 2, 3, 1, 5, 6].map((n, i) => (
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    background: colors.baseColorTwo,
-                    width: "36px",
-                    height: "36px",
-                    padding: ".2rem",
-                    borderRadius: "2rem",
-                  }}
-                  key={i}
-                >
-                  {n}
-                </div>
-              ))}{" "}
+              {t !== null
+                ? t.map((n, i) => (
+                    <div
+                      style={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                        background: colors.baseColorTwo,
+                        width: "36px",
+                        height: "36px",
+                        padding: ".2rem",
+                        borderRadius: "2rem",
+                      }}
+                      key={i}
+                    >
+                      {n}
+                    </div>
+                  ))
+                : null}{" "}
             </div>
           </div>
         </div>

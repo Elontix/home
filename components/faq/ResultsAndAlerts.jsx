@@ -2,34 +2,6 @@ const ResultsAndAlerts = () => {
   return (
     <div className="accordion cmn-accordion" id="faqAcc-four">
       <div className="card">
-        <div className="card-header" id="h-7">
-          <button
-            className="btn btn-link btn-block text-left"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapse7"
-            aria-expanded="true"
-            aria-controls="collapse7"
-          >
-            Can I sell or trade the NFTs I acquire through the lottery?
-          </button>
-        </div>
-        <div
-          id="collapse7"
-          className="collapse show"
-          aria-labelledby="h-7"
-          data-bs-parent="#faqAcc-four"
-        >
-          <div className="card-body">
-            <p>
-              Yes, the NFTs bought on ElonTix platform can be sold, traded, or
-              transferred to other individuals on compatible NFT marketplaces
-              like OpenSea.
-            </p>
-          </div>
-        </div>
-      </div>
-      <div className="card">
         <div className="card-header" id="h-8">
           <button
             className="btn btn-link btn-block text-left collapsed"
@@ -59,28 +31,33 @@ const ResultsAndAlerts = () => {
         </div>
       </div>
       <div className="card">
-        <div className="card-header" id="h-9">
+        <div className="card-header" id="h-3">
           <button
             className="btn btn-link btn-block text-left collapsed"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#collapse9"
+            data-bs-target="#collapse3"
             aria-expanded="false"
-            aria-controls="collapse9"
+            aria-controls="collapse3"
           >
-            Who is behind ElonTix Team?
+            What are the advantages of using a blockchain-based NFT lottery
+            platform?
           </button>
         </div>
         <div
-          id="collapse9"
+          id="collapse3"
           className="collapse"
-          aria-labelledby="h-9"
-          data-bs-parent="#faqAcc-four"
+          aria-labelledby="h-3"
+          data-bs-parent="#faqAcc-one"
         >
           <div className="card-body">
             <p>
-              Our team is headlined by serial entrepreneurs, game developers,
-              graphic designers and NFT Advisors.
+              ElonTix is a NFT lottery platform that provide transparency and
+              fairness as all transactions and draws are recorded on the
+              blockchain, ensuring integrity. Additionally, NFTs add uniqueness
+              and value to the lottery, making it more exciting for
+              participants. Instant payouts, community involvement, and secure
+              escrow are other benefits.
             </p>
           </div>
         </div>

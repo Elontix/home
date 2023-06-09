@@ -4,12 +4,13 @@ import play_el from "/public/images/elements/play-el.png";
 import play_1 from "/public/images/icon/play/1.png";
 import play_2 from "/public/images/icon/play/2.png";
 import play_3 from "/public/images/icon/play/3.png";
+import play_bg from "/public/images/bg/contest-bg.jpg";
 
 const HowToPlay = () => {
   return (
     <section className="position-relative z-index-two pt-120 pb-120 overflow-hidden">
       <div className="play-elements">
-        <Image src={play_el} alt="image" />
+        <Image src={play_bg} alt="image" />
       </div>
       <div className="container">
         <div className="row">

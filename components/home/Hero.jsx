@@ -3,13 +3,21 @@ import Image from "next/image";
 
 import e from "/public/images/elements/hero-2-star.png";
 import elon from "/public/images/elon.png";
+import elon_bg from "/public/images/elon_bg.png";
 import hero_2_e4 from "/public/images/elements/hero-2-e4.png";
 import hero_2_e3 from "/public/images/elements/hero-2-e3.png";
+import hero_4_obj from "/public/images/elements/hero-4-obj.png";
+import hero_4_circle from "/public/images/elements/hero-4-circle.png";
+import ticket from "/public/images/crypto/tickets.gif";
+import _bg from "/public/images/life.png";
 
 import VedioModal from "../vedioModal/VedioModal";
 
 import { useState } from "react";
 import { FaPlay } from "react-icons/fa";
+import { colors } from "../../theme/color";
+
+import { motion } from "framer-motion";
 
 const Hero = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -22,9 +30,48 @@ const Hero = () => {
         setIsOpen={setIsOpen}
       />
       <section style={{ paddingBottom: 0 }} className="hero style--three">
-        {/* <div className="hero__circle">
+        <div
+          style={{
+            transform: "scale(-1,1)",
+            opacity: 0.07,
+            right: "5%",
+            top: "7%",
+          }}
+          className="hero__circle"
+        >
+          <Image
+            style={{
+              height: "720px",
+              width: "100%",
+            }}
+            src={elon_bg}
+            alt="image"
+          />
+        </div>
+
+        <div
+          style={{
+            opacity: 0.07,
+            left: "5%",
+            top: "7%",
+          }}
+          className="hero__circle"
+        >
+          <Image
+            style={{
+              height: "720px",
+              width: "100%",
+            }}
+            src={elon_bg}
+            alt="image"
+          />
+        </div>
+        <div className="hero__circle">
           <Image src={hero_4_circle} alt="image" />
-        </div> */}
+        </div>
+        <div className="hero__obj">
+          <Image style={{ opacity: 0.33 }} src={hero_4_obj} alt="image" />
+        </div>
         <div
           style={{
             top: "550px",
@@ -62,45 +109,166 @@ const Hero = () => {
           <Image style={{ marginTop: "600px" }} src={e} alt="image" />
         </div>
 
-        <div className="container pb-120">
+        <div className="container">
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              position: "relative",
+              marginBottom: "1rem",
+            }}
+          >
+            <Image
+              style={{
+                position: "absolute",
+                top: "-170px",
+                display: "flex",
+                alignSelf: "center",
+                justifyContent: "center",
+                maxWidth: "380px",
+              }}
+              src={ticket}
+              alt="image"
+            />
+          </div>
+
           <div className="row justify-content-center">
-            <div className="col-lg-9">
+            <div className="col-lg-12">
+              <div style={{ display: "flex", justifyContent: "center" }}>
+                {[
+                  "Y",
+                  "o",
+                  "u",
+                  "r",
+                  "\u00A0",
+                  "L",
+                  "i",
+                  "f",
+                  "e",
+                  "\u00A0",
+                  "t",
+                  "i",
+                  "m",
+                  "e",
+                  "\u00A0",
+                  "M",
+                  "e",
+                  "m",
+                  "e",
+                  "\u00A0",
+                  "T",
+                  "i",
+                  "c",
+                  "k",
+                  "e",
+                  "t",
+                ].map((s, i) => (
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ rotate: 360, scale: 1 }}
+                    className="main_txt"
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                      delay: i * 0.1,
+                      repeat: Infinity,
+                      repeatDelay: 5,
+                    }}
+                    key={i}
+                  >
+                    {s}
+                  </motion.div>
+                ))}
+              </div>
               <div
                 style={{
                   display: "flex",
                   justifyContent: "center",
-                  flexDirection: "column",
                   alignItems: "center",
-                  rowGap: "2rem",
                 }}
               >
-                <div className="">Try Your Luck!</div>
-                <h2 className="">Win Your Dream Car</h2>
-                <p>
-                  Don&#39;t miss your chance.Will you be our next lucky winner?
-                </p>
-                <div
-                  style={{
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    columnGap: "2rem",
-                  }}
-                >
-                  <Link href="/contest" className="cmn-btn">
-                    Participate Now
-                  </Link>
-                  <button className="video-btn" onClick={() => setIsOpen(true)}>
-                    <FaPlay />
-                  </button>
+                <div className="main_txt_under gd_text">
+                  WIN{" "}
+                  <span>
+                    {["B", "N", "B", "s"].map((b, k) => (
+                      <motion.span
+                        key={k}
+                        className="main_txt_under gd_text"
+                        initial={{ y: 0 }}
+                        animate={{ y: 10 }}
+                        transition={{
+                          type: "spring",
+                          duration: 1000,
+                          stiffness: 800,
+                          damping: 60,
+                          repeat: Infinity,
+                          repeatDelay: 2,
+                        }}
+                      >
+                        {b}
+                      </motion.span>
+                    ))}
+                  </span>
+                  {"\u00A0"}
+                  EVERY WEEK FOR
+                  {"\u00A0"}
+                  <span
+                    className="main_txt_under gd_text"
+                    style={{ textShadow: `0px 0px 70px white` }}
+                  >
+                    LIFE
+                  </span>
                 </div>
+              </div>
+              <p className="main_txt_under_sub">
+                {`World's #1 Decentralized Meme-based lottery platform.`}
+              </p>
+              <div
+                style={{
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  columnGap: "2rem",
+                }}
+              >
+                <Link href="/contest" className="cmn-btn">
+                  Participate Now
+                </Link>
+                <button className="video-btn" onClick={() => setIsOpen(true)}>
+                  <FaPlay />
+                </button>
               </div>
             </div>
           </div>
         </div>
 
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <Image src={elon} alt="image" />
+        <div style={{ position: "relative" }}>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              paddingTop: "2rem",
+            }}
+          >
+            <Image src={elon} alt="image" />
+          </div>
+          <div
+            style={{
+              borderRadius: "2rem",
+              padding: "2rem",
+              textAlign: "center",
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              backgroundColor: "rgb(53, 40, 130)",
+              boxShadow:
+                "inset 0 -3px 8px 3px #ec137954, 0px 10px 21px 0px rgba(53, 40, 130, 0.6)",
+              borderRadius: "999px)",
+            }}
+          >
+            <h2>{`"Elontix - Your ticket to meme-filled riches, Elon Musk style"`}</h2>
+          </div>
         </div>
       </section>
     </>

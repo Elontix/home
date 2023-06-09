@@ -1,12 +1,12 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useEffect, useState } from "react";
-import tag from "/public/images/icon/btn/tag.png";
+import { colors } from "../../theme/color";
 import logo from "/public/images/logo.webp";
 
 const Header = () => {
   const [open, setOpen] = useState("");
-  const [windowHeight, setWindowHeight] = useState(0);
+  const [windowHeight, setWindowHeight] = useState(100);
   const [show, setShow] = useState(false);
 
   const handleOpen = (e) => {
@@ -20,7 +20,7 @@ const Header = () => {
   const navBarTop = () => {
     if (window !== undefined) {
       let height = window.scrollY;
-      setWindowHeight(height);
+      // setWindowHeight(height);
     }
   };
 
@@ -113,9 +113,22 @@ const Header = () => {
                 </li>
               </ul>
               <div className="nav-right">
-                <Link href="/contest" className="cmn-btn style--three btn--sm">
-                  <Image src={tag} alt="icon" className="me-1" /> Buy Tickets
-                </Link>
+                <div
+                  style={{
+                    boxShadow: "0px 0px 3px gray",
+                    padding: "1rem",
+                    borderRadius: "5rem",
+                  }}
+                >
+                  <a
+                    href="#0"
+                    className="user__btn d-flex align-items-center justify-content-center"
+                    data-bs-toggle="modal"
+                    data-bs-target="#loginModal"
+                  >
+                    <i className="las la-user"></i>
+                  </a>
+                </div>
               </div>
             </div>
           </nav>

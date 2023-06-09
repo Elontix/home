@@ -4,7 +4,7 @@ import { clients } from "../../data/affiliate";
 
 import "slick-carousel/slick/slick.css";
 
-const Trusted = () => {
+const Marketing = () => {
   const settings = {
     slidesToShow: 4,
     slidesToScroll: 1,
@@ -34,7 +34,7 @@ const Trusted = () => {
           <div className="col-lg-12">
             <div className="client-wrapper">
               <h2 className="client-wrapper__title">
-                Audited and {`KYC'ed`} by
+                OUR GLOBAL MARKETING PARTNERS
               </h2>
               <div className="client-slider">
                 <Slider {...settings}>
@@ -53,4 +53,4 @@ const Trusted = () => {
   );
 };
 
-export default Trusted;
+export default Marketing;

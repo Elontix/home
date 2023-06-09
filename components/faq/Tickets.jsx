@@ -62,33 +62,28 @@ const Tickets = () => {
         </div>
       </div>
       <div className="card">
-        <div className="card-header" id="h-3">
+        <div className="card-header" id="h-9">
           <button
             className="btn btn-link btn-block text-left collapsed"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#collapse3"
+            data-bs-target="#collapse9"
             aria-expanded="false"
-            aria-controls="collapse3"
+            aria-controls="collapse9"
           >
-            What are the advantages of using a blockchain-based NFT lottery
-            platform?
+            Who is behind ElonTix Team?
           </button>
         </div>
         <div
-          id="collapse3"
+          id="collapse9"
           className="collapse"
-          aria-labelledby="h-3"
-          data-bs-parent="#faqAcc-one"
+          aria-labelledby="h-9"
+          data-bs-parent="#faqAcc-four"
         >
           <div className="card-body">
             <p>
-              ElonTix is a NFT lottery platform that provide transparency and
-              fairness as all transactions and draws are recorded on the
-              blockchain, ensuring integrity. Additionally, NFTs add uniqueness
-              and value to the lottery, making it more exciting for
-              participants. Instant payouts, community involvement, and secure
-              escrow are other benefits.
+              Our team is headlined by serial entrepreneurs, game developers,
+              graphic designers and NFT Advisors.
             </p>
           </div>
         </div>

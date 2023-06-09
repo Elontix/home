@@ -6,7 +6,6 @@ import { useContractRead, useDisconnect, useAccount } from "wagmi";
 import { useState, useEffect } from "react";
 
 import { MintAPi } from "../../pages/api/mint/mint.js";
-import { colors } from "../../theme/color.js";
 
 const LatestWinner = () => {
   const { disconnect } = useDisconnect();
@@ -19,6 +18,8 @@ const LatestWinner = () => {
   useEffect(() => {
     open();
     setDefaultChain(bscTestnet);
+    console.log(MintAPi.getMintAbi(false));
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const totalWinners = useContractRead({
@@ -51,6 +52,7 @@ const LatestWinner = () => {
       setWinners(w);
     }
     console.log(winners);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasWinnerSuccess, counter]);
 
   return (
@@ -73,7 +75,12 @@ const LatestWinner = () => {
                 <div className="row mb-none-30">
                   <div className="mb-30">
                     {winners.map((winner, i) => (
-                      <WinnerCard key={i} winner={winner} />
+                      <WinnerCard
+                        key={i}
+                        date={Number(winner[1])}
+                        no={Number(winner[0])}
+                        ticket={Number(winner[2])}
+                      />
                     ))}
                   </div>
                 </div>

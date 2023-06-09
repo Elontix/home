@@ -7,28 +7,58 @@ import { BsStars } from "react-icons/bs";
 import { FaBurn, FaCrown, FaHandPeace } from "react-icons/fa";
 import { TokenChart } from "./TokenChart";
 
+const TickColor = (props) => (
+  <div
+    style={{
+      boxShadow: "0px 0px 0px 1px #27374D",
+      borderRadius: "4px",
+      background: props.bg,
+      height: "24px",
+      width: "24px",
+    }}
+  ></div>
+);
+
+const ChartText = (props) => {
+  return (
+    <div
+      style={{
+        width: "100%",
+        background: colors.baseColorTwo,
+        borderRadius: ".5rem",
+        padding: ".5rem",
+        color: "#ffffff",
+        display: "flex",
+        columnGap: ".5rem",
+        alignItems: "center",
+      }}
+    >
+      <TickColor bg={props.bg} /> <div>{props.text}</div>
+    </div>
+  );
+};
+
 const LatestWinner = () => {
-  const [winners, setWinners] = useState(winnerData);
   const tokenomics = [
     {
-      label: "pre sale price",
-      value: "$0.00....",
+      label: "Name",
+      value: "ELONTIX",
     },
     {
-      label: "pancakeswap listing price",
-      value: "$0.00... USD",
+      label: "Ticker",
+      value: "$ELONTIX",
     },
     {
-      label: "market cap",
-      value: "$..... USD",
+      label: "Total Supply",
+      value: "10,000,000,000,000 ",
     },
     {
-      label: "circulating supply",
-      value: "45 million",
+      label: "Type",
+      value: "BEP-20",
     },
     {
-      label: "total supply",
-      value: "100 million",
+      label: "Contract Address",
+      value: "0x212......",
     },
   ];
   const tax = [
@@ -67,7 +97,7 @@ const LatestWinner = () => {
   ];
 
   return (
-    <section className="latest-winner-section position-relative pt-120 pb-120">
+    <section className="px-1 latest-winner-section position-relative pt-120 pb-120">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-8">
@@ -134,78 +164,28 @@ const LatestWinner = () => {
                         style={{
                           margin: "1rem 0",
                           borderRadius: "5px",
-                          border: `2px solid ${colors.baseColorTwo}`,
                         }}
                       >
                         <TokenChart />
                         <div
                           style={{
-                            display: "grid",
                             padding: "1rem",
+                            display: "grid",
                             rowGap: ".5rem",
+                            columnGap: ".5rem",
+                            gridTemplateColumns: "1fr 1fr",
                           }}
                         >
-                          <div
-                            style={{
-                              display: "flex",
-                              justifyContent: "space-evenly",
-                              columnGap: ".5rem",
-                            }}
-                          >
-                            <div
-                              style={{
-                                width: "100%",
-                                background: colors.baseColorTwo,
-                                borderRadius: ".5rem",
-                                padding: ".5rem",
-                                color: "#ffffff",
-                              }}
-                            >
-                              Pinksale Presale - 57%
-                            </div>
-                            <div
-                              style={{
-                                width: "100%",
-                                background: colors.baseColorTwo,
-                                borderRadius: ".5rem",
-                                padding: ".5rem",
-                                color: "#ffffff",
-                              }}
-                            >
-                              Eco System & Treasury - 6%
-                            </div>
-                          </div>
-
-                          <div
-                            style={{
-                              display: "flex",
-                              justifyContent: "space-evenly",
-                              columnGap: ".5rem",
-                            }}
-                          >
-                            <div
-                              style={{
-                                width: "100%",
-                                background: colors.baseColorTwo,
-                                borderRadius: ".5rem",
-                                padding: ".5rem",
-                                color: "#ffffff",
-                              }}
-                            >
-                              CEX Listing - 9%
-                            </div>
-                            <div
-                              style={{
-                                width: "100%",
-                                background: colors.baseColorTwo,
-                                borderRadius: ".5rem",
-                                padding: ".5rem",
-                                color: "#ffffff",
-                              }}
-                            >
-                              DEX Listing - 28%
-                            </div>
-                          </div>
+                          <ChartText
+                            bg={"#01E272"}
+                            text="Pinksale Presale - 57%"
+                          />
+                          <ChartText bg={"#544FC5"} text="DEX Listing - 28%" />
+                          <ChartText bg={"#2CAFFE"} text="CEX Listing - 9%" />
+                          <ChartText
+                            bg={"#FE6A35"}
+                            text="Eco System & Treasury - 6%"
+                          />
                         </div>
                       </div>
                     </div>

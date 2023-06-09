@@ -1,9 +1,15 @@
-import { useEffect, useState } from "react";
 import { FaGooglePlusG } from "react-icons/fa";
+
 import { useFormik } from "formik";
 import { useRouter } from "next/router";
+import { UserApi } from "../../pages/api/user";
 
 import Social from "../social/Social";
+
+import { useMutation } from "@apollo/client";
+import toast, { Toaster } from "react-hot-toast";
+import { MdWarning } from "react-icons/md";
+import { BiRightArrow } from "react-icons/bi";
 
 const isValidUsername = (username) => /^[a-z0-9]{6}$/.test(username);
 const isValidEmail = (email) =>
@@ -13,7 +19,7 @@ const isValidEmail = (email) =>
 const toLowerCase = (text) => String(text).toLowerCase();
 const validate = (values) => {
   const errors = {};
-  if (!values.sername) errors.username = "*required";
+  if (!values.username) errors.username = "*required";
   else if (isValidUsername(toLowerCase(values.username)))
     errors.username = "*username should be alpha numeric";
   else if (values.username.length < 7) errors.username = "*min 6 characters";
@@ -26,46 +32,48 @@ const validate = (values) => {
   else if (values.confirmPassword !== values.password)
     errors.confirmPassword = "*password and confirm password are not same";
 
-  console.log(errors);
   return errors;
 };
 
-const SignUp = () => {
-  const handleRequest = (data) => {
-    setStatus({
-      error: data.error,
-      message: data.message,
-      status: data.status,
-    });
-    if (!data.error) {
-      form.resetForm();
-      setTimeout(() => {}, 3500);
-    }
-  };
+function eToster(message, duration, bg, color, icon) {
+  return toast.custom(
+    <div
+      style={{
+        maxWidth: "820px",
+        padding: "1rem",
+        borderRadius: "1rem",
+        background: bg,
+        color: color,
+        display: "flex",
+        columnGap: "1rem",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div> {icon}</div>
+      <p style={{ color: color }}> {message}</p>
+    </div>,
+    { duration: duration }
+  );
+}
 
+const FormError = (props) => (
+  <div>
+    {props.touched || props.name ? (
+      <p style={{ color: "red" }}>{props.name}</p>
+    ) : null}
+  </div>
+);
+
+const SignUp = () => {
   const { id } = useRouter();
 
-  useEffect(() => {}, []);
-
-  const [referral, setReferral] = useState({
-    referralCode: "",
-    referrals: [],
-    username: "",
-  });
-
-  const [status, setStatus] = useState({
-    message: "",
-    status: "",
-    error: false,
-  });
-
-  // const [createAccount, { data, loading, error, called }] = useMutation(
-  //   UserApi.
-  // );
+  const [createAccount, { data, loading, error, called }] = useMutation(
+    UserApi.registerUser()
+  );
 
   const form = useFormik({
     initialValues: {
-      name: "",
       email: "",
       password: "",
       username: "",
@@ -75,6 +83,35 @@ const SignUp = () => {
     validate,
     onSubmit: (values) => {
       console.log(values);
+      createAccount({
+        variables: {
+          ...values,
+        },
+      })
+        .then((s) => {
+          const resp = s.data.registerUser;
+          console.log(resp);
+          if (resp.error)
+            return eToster(
+              resp.message,
+              4000,
+              "orange",
+              "white",
+              <MdWarning />
+            );
+
+          form.resetForm();
+          return eToster(
+            resp.message,
+            4000,
+            "green",
+            "white",
+            <BiRightArrow />
+          );
+        })
+        .catch((e) => {
+          return eToster(e, 4000, "red", "white", <MdWarning />);
+        });
     },
   });
 
@@ -100,7 +137,7 @@ const SignUp = () => {
               </button>
               <h3 className="title">Open Free Account</h3>
               <div className="account-form-wrapper">
-                <form>
+                <div>
                   <div className="form-group">
                     <label>
                       Email <sup>*</sup>
@@ -114,6 +151,10 @@ const SignUp = () => {
                       required
                       value={form.values.email}
                     />
+                    <FormError
+                      touched={form.touched.email ?? false}
+                      name={form.errors.email ?? ""}
+                    />
                   </div>
                   <div className="form-group">
                     <label>
@@ -121,12 +162,16 @@ const SignUp = () => {
                     </label>
                     <input
                       onChange={form.handleChange}
-                      type="email"
+                      type="text"
                       name="username"
                       id="username"
                       placeholder="Enter your Username"
                       required
                       value={form.values.username}
+                    />
+                    <FormError
+                      touched={form.touched.username ?? false}
+                      name={form.errors.username ?? ""}
                     />
                   </div>
                   <div className="form-group">
@@ -142,6 +187,11 @@ const SignUp = () => {
                       required
                       value={form.values.password}
                     />
+
+                    <FormError
+                      touched={form.touched.password ?? false}
+                      name={form.errors.password ?? ""}
+                    />
                   </div>
                   <div className="form-group">
                     <label>
@@ -155,6 +205,10 @@ const SignUp = () => {
                       placeholder="Confirm Password"
                       required
                       value={form.values.confirmPassword}
+                    />
+                    <FormError
+                      touched={form.touched.confirmPassword ?? false}
+                      name={form.errors.confirmPassword ?? ""}
                     />
                   </div>
                   <div className="form-group">
@@ -186,9 +240,14 @@ const SignUp = () => {
                     </a>
                   </div>
                   <div className="form-group text-center mt-5">
-                    <button className="cmn-btn">log in</button>
+                    <button
+                      onClick={() => form.handleSubmit()}
+                      className="cmn-btn"
+                    >
+                      signup in
+                    </button>
                   </div>
-                </form>
+                </div>
                 <p className="text-center mt-4">
                   {" "}
                   Already have an account?{" "}
@@ -217,6 +276,7 @@ const SignUp = () => {
           </div>
         </div>
       </div>
+      <Toaster />
     </div>
   );
 };
