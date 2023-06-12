@@ -15,7 +15,6 @@ const Affiliate = () => {
 
       {/* Trusted section here */}
       <Trusted />
-      <Marketing />
     </>
   );
 };

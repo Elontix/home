@@ -45,12 +45,18 @@ const Collection = () => {
   });
 
   useEffect(() => {
-    console.log(data);
     if (!hasCollectionError && hasCollecitonSucess) {
       let d = data;
-      d.push(collectionData);
-      setData([...d]);
-      setCounter(counter + 1);
+      let isUpdated = false;
+
+      for (let i = 0; i < data.length; i++)
+        if (collectionData === data[i]) isUpdated = true;
+
+      if (!isUpdated) {
+        d.push(collectionData);
+        setData([...d]);
+        setCounter(counter + 1);
+      }
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [counter, hasCollecitonSucess]);

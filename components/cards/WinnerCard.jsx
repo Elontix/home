@@ -12,7 +12,7 @@ const ticketData = (n) => {
     return [];
   }
 };
-const WinnerCard = ({ date, no, ticket }) => {
+const WinnerCard = ({ date, no, ticket, isMinted }) => {
   const t = ticketData(String(ticket).toString());
   const p = new Date(date * 1000).toISOString();
 
@@ -48,7 +48,10 @@ const WinnerCard = ({ date, no, ticket }) => {
           }}
         >
           <div>
-            <h3 style={{ color: colors.baseColor }}> Ticket not minted</h3>
+            <h3 style={{ color: colors.baseColor }}>
+              {" "}
+              {isMinted ? "Ticket minted" : " Ticket not minted"}{" "}
+            </h3>
             <div> Draw Number #{no} </div>
             <div> Draw Date: {p}</div>
           </div>

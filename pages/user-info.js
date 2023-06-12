@@ -11,7 +11,6 @@ const UserInfo = () => {
           <div className="row">
             {/* TODO: suer info */}
             <LeftSideMenu />
-
             {/* Personal details */}
             <Info />
           </div>

@@ -1,6 +1,23 @@
+import { useEffect, useState } from "react";
 import { FaRegEdit } from "react-icons/fa";
 
 const Info = () => {
+  const [user, setUser] = useState({
+    name: "",
+    id: "",
+  });
+
+  useEffect(() => {
+    let name;
+    let id;
+    name = localStorage.getItem("username") || "";
+    id = localStorage.getItem("userId") || "";
+    setUser({
+      name,
+      id,
+    });
+  }, []);
+
   return (
     <div className="col-lg-8 mt-lg-0 mt-5">
       <div className="user-info-card">
@@ -14,7 +31,7 @@ const Info = () => {
         <ul className="user-info-card__list">
           <li>
             <span className="caption">Name</span>
-            <span className="value">Albert Owens</span>
+            <span className="value">{user.name}</span>
           </li>
           <li>
             <span className="caption">Date of Birth</span>
@@ -60,7 +77,7 @@ const Info = () => {
         <ul className="user-info-card__list">
           <li>
             <span className="caption">Email</span>
-            <span className="value">albert349@gmail.com</span>
+            <span className="value">{user.name}</span>
           </li>
         </ul>
       </div>

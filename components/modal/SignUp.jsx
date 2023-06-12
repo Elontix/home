@@ -51,7 +51,7 @@ function eToster(message, duration, bg, color, icon) {
       }}
     >
       <div> {icon}</div>
-      <p style={{ color: color }}> {message}</p>
+      <div style={{ color: color }}> {message}</div>
     </div>,
     { duration: duration }
   );
@@ -60,7 +60,7 @@ function eToster(message, duration, bg, color, icon) {
 const FormError = (props) => (
   <div>
     {props.touched || props.name ? (
-      <p style={{ color: "red" }}>{props.name}</p>
+      <div style={{ color: "red" }}>{props.name}</div>
     ) : null}
   </div>
 );

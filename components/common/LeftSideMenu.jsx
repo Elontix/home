@@ -1,10 +1,26 @@
 import Image from "next/image";
 import Link from "next/link";
 import { useRouter } from "next/router";
+import { useEffect, useState } from "react";
 import team_obj from "/public/images/elements/team-obj.png";
 
 const LeftSideMenu = () => {
   const router = useRouter();
+  const [user, setUser] = useState({
+    name: "",
+    id: "",
+  });
+
+  useEffect(() => {
+    let name;
+    let id;
+    name = localStorage.getItem("username") || "";
+    id = localStorage.getItem("userId") || "";
+    setUser({
+      name,
+      id,
+    });
+  }, []);
 
   return (
     <div className="col-lg-4">
@@ -21,8 +37,10 @@ const LeftSideMenu = () => {
             <div id="imagePreview"></div>
           </div>
         </div>
-        <h3 className="user-card__name">Albert Owens</h3>
-        <span className="user-card__id">ID : 19535909</span>
+        <h5 style={{ zIndex: 200, margin: "2rem 0 0 0" }} className="">
+          {user.name}
+        </h5>
+        <span className="user-card__id">ID : {user.id}</span>
       </div>
       <div className="user-action-card">
         <ul className="user-action-list">

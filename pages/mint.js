@@ -113,7 +113,7 @@ const Mint = () => {
     address: "0xd23306DA2087CA5374F3F05DAB93D8F6189C3E46",
     abi: MintAPi.getMintAbi(false),
     functionName: "mint",
-    args: [address, 100000],
+    args: [address, tokenStrip(token)],
     chainId: bscTestnet.chainId,
     account: address,
     gas: 400000,

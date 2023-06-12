@@ -22,4 +22,19 @@ export class UserApi {
       }
     `;
   };
+
+  static loginUser = () => {
+    return gql`
+      mutation Users($username: String, $password: String) {
+        loginUser(username: $username, password: $password) {
+          error
+          message
+          name
+          status
+          userId
+          username
+        }
+      }
+    `;
+  };
 }

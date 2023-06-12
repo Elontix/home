@@ -7,6 +7,7 @@ import Hero from "../components/home/Hero";
 import Faq from "../components/faq/FaqBody";
 import Affiliate from "./affiliate";
 import TopAffiliate from "../components/affiliate/TopAffiliate";
+import Marketing from "../components/affiliate/Marketing";
 
 export default function HomeThree() {
   return (
@@ -21,7 +22,7 @@ export default function HomeThree() {
       <HowToPlay />
 
       {/* Exhastive section */}
-      {/* <Exhaustive /> */}
+      <Marketing />
 
       {/* Roadmap section */}
       <Roadmap />

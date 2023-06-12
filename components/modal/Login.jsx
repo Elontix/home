@@ -1,8 +1,13 @@
+import { useMutation } from "@apollo/client";
 import { useFormik } from "formik";
 import { BiRightArrow } from "react-icons/bi";
 import { FaFacebookF, FaGooglePlusG, FaTwitter } from "react-icons/fa";
 import { MdWarning } from "react-icons/md";
+import { UserApi } from "../../pages/api/user";
 import Social from "../social/Social";
+
+import toast, { Toaster } from "react-hot-toast";
+import { useRouter } from "next/router";
 
 const isValidUsername = (username) => /^[a-z0-9]{6}$/.test(username);
 const toLowerCase = (text) => String(text).toLowerCase();
@@ -33,7 +38,7 @@ function eToster(message, duration, bg, color, icon) {
       }}
     >
       <div> {icon}</div>
-      <p style={{ color: color }}> {message}</p>
+      <div style={{ color: color }}> {message}</div>
     </div>,
     { duration: duration }
   );
@@ -42,27 +47,34 @@ function eToster(message, duration, bg, color, icon) {
 const FormError = (props) => (
   <div>
     {props.touched || props.name ? (
-      <p style={{ color: "red" }}>{props.name}</p>
+      <div style={{ color: "red" }}>{props.name}</div>
     ) : null}
   </div>
 );
 
 const Login = () => {
+  const router = useRouter();
+
+  const [login, { data, loading, error, called }] = useMutation(
+    UserApi.loginUser()
+  );
+
   const form = useFormik({
     initialValues: {
-      email: "",
+      username: "",
       password: "",
     },
     validate,
     onSubmit: (values) => {
       console.log(values);
-      createAccount({
+      login({
         variables: {
           ...values,
         },
       })
         .then((s) => {
-          const resp = s.data.registerUser;
+          console.log(s);
+          const resp = s.data.loginUser;
           console.log(resp);
           if (resp.error)
             return eToster(
@@ -72,16 +84,21 @@ const Login = () => {
               "white",
               <MdWarning />
             );
-          return eToster(
-            resp.message,
-            4000,
-            "green",
-            "white",
-            <BiRightArrow />
-          );
+          localStorage.setItem("username", resp.username);
+          localStorage.setItem("userId", resp.userId);
+          router.push("/user-info");
+          window.location.reload();
+          // return eToster(
+          //   resp.message,
+          //   4000,
+          //   "green",
+          //   "white",
+          //   <BiRightArrow />
+          // );
         })
         .catch((e) => {
-          return eToster(e, 4000, "red", "white", <MdWarning />);
+          console.log(e);
+          // return eToster(e, 4000, "red", "white", <MdWarning />);
         });
     },
   });
@@ -108,16 +125,17 @@ const Login = () => {
               </button>
               <h3 className="title">Welcome Back</h3>
               <div className="account-form-wrapper">
-                <form>
+                <div>
                   <div className="form-group">
                     <label>
                       Email <sup>*</sup>
                     </label>
                     <input
-                      type="email"
-                      name="login_name"
-                      id="login_name"
-                      placeholder="Enter your Email"
+                      type="text"
+                      name="username"
+                      id="username"
+                      onChange={form.handleChange}
+                      placeholder="Enter your Username"
                       required
                     />
                     <FormError
@@ -131,9 +149,10 @@ const Login = () => {
                     </label>
                     <input
                       type="password"
-                      name="login_pass"
-                      id="login_pass"
+                      name="password"
+                      id="password"
                       placeholder="password"
+                      onChange={form.handleChange}
                       required
                     />
                     <FormError
@@ -158,9 +177,11 @@ const Login = () => {
                     </a>
                   </div>
                   <div className="form-group text-center mt-5">
-                    <button className="cmn-btn">log in</button>
+                    <button onClick={form.handleSubmit} className="cmn-btn">
+                      log in
+                    </button>
                   </div>
-                </form>
+                </div>
                 <p className="text-center mt-4">
                   Don&#39;t have an account?{" "}
                   <a
@@ -189,6 +210,8 @@ const Login = () => {
           </div>
         </div>
       </div>
+
+      <Toaster />
     </div>
   );
 };

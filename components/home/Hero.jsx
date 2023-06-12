@@ -192,32 +192,65 @@ const Hero = () => {
                   WIN{" "}
                   <span>
                     {["B", "N", "B", "s"].map((b, k) => (
-                      <motion.span
-                        key={k}
-                        className="main_txt_under gd_text"
-                        initial={{ y: 0 }}
-                        animate={{ y: 10 }}
-                        transition={{
-                          type: "spring",
-                          duration: 1000,
-                          stiffness: 800,
-                          damping: 60,
-                          repeat: Infinity,
-                          repeatDelay: 2,
+                      <motion.div
+                        style={{
+                          display: "inline-block",
                         }}
+                        key={k}
+                        initial={{
+                          sacle: 0,
+                          textShadow: `0px 0px 4px rgba(255, 255, 255, 1)`,
+                        }}
+                        animate={{
+                          scale: 1,
+                          textShadow: `0px 0px 32px rgba(255, 255, 255, .1)`,
+                        }}
+                        transition={{
+                          type: "keyframes",
+                          stiffness: 860,
+                          damping: 60,
+                          delay: k * 0.1,
+                          repeat: Infinity,
+                          repeatDelay: 1,
+                        }}
+                        className="main_txt_under gd_text"
                       >
                         {b}
-                      </motion.span>
+                      </motion.div>
                     ))}
                   </span>
                   {"\u00A0"}
                   EVERY WEEK FOR
                   {"\u00A0"}
-                  <span
-                    className="main_txt_under gd_text"
-                    style={{ textShadow: `0px 0px 70px white` }}
-                  >
-                    LIFE
+                  <span>
+                    {["L", "I", "F", "E"].map((b, k) => (
+                      <motion.div
+                        style={{
+                          display: "inline-block",
+                        }}
+                        key={k}
+                        initial={{
+                          sacle: 0,
+                          rotate: 0,
+                          textShadow: `0px 0px 4px rgba(255, 255, 255, .8)`,
+                        }}
+                        animate={{
+                          scale: 1,
+                          textShadow: `0px 0px 16px rgba(255, 255, 255, .2)`,
+                        }}
+                        transition={{
+                          type: "keyframes",
+                          stiffness: 860,
+                          damping: 60,
+                          delay: k * 0.1,
+                          repeat: Infinity,
+                          repeatDelay: 1,
+                        }}
+                        className="main_txt_under gd_text"
+                      >
+                        {b}
+                      </motion.div>
+                    ))}
                   </span>
                 </div>
               </div>
@@ -232,12 +265,9 @@ const Hero = () => {
                   columnGap: "2rem",
                 }}
               >
-                <Link href="/contest" className="cmn-btn">
+                <Link href="/contest" class="btn draw-border">
                   Participate Now
                 </Link>
-                <button className="video-btn" onClick={() => setIsOpen(true)}>
-                  <FaPlay />
-                </button>
               </div>
             </div>
           </div>
