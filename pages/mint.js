@@ -4,6 +4,11 @@ import TicketGif from "/public/images/crypto/tickets.gif";
 
 import { useWeb3Modal } from "@web3modal/react";
 import { useAccount, useBalance, useDisconnect, useContractWrite } from "wagmi";
+import {
+  watchPendingTransactions,
+  WatchPendingTransactionsResult,
+} from "@wagmi/core";
+
 import { useEffect, useState } from "react";
 import { bscTestnet } from "wagmi/chains";
 import { colors } from "../theme/color";
@@ -52,6 +57,7 @@ const Mint = () => {
   function updateRandomNumber() {
     setToken([...generateRandom()]);
   }
+
   function updateNumber(value, key) {
     let temp = token;
     temp[key] = value;
@@ -109,6 +115,7 @@ const Mint = () => {
     error: mintError,
     isError: mintIsError,
     isSuccess: mintIsSuccess,
+    status: mintStatus,
   } = useContractWrite({
     address: "0xd23306DA2087CA5374F3F05DAB93D8F6189C3E46",
     abi: MintAPi.getMintAbi(false),
@@ -120,6 +127,18 @@ const Mint = () => {
     maxFeePerGas: 400000,
     value: 1000000000000000,
   });
+
+  const [counter, setCounter] = useState(0);
+
+  console.log(mintIsSuccess);
+
+  useEffect(() => {
+    console.log(counter, mintStatus, mintIsSuccess);
+    if (mintIsSuccess && counter < 4) {
+      mintWrite();
+      setCounter(counter + 1);
+    }
+  }, [counter, mintIsSuccess]);
 
   return (
     <>
@@ -226,7 +245,8 @@ const Mint = () => {
                   {isConnected ? (
                     <button
                       onClick={async () => {
-                        await mintWrite();
+                        mintWrite();
+                        setCounter(1);
                         if (mintIsError) {
                           eToster(
                             mintError.message,

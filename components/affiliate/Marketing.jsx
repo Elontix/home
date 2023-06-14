@@ -34,7 +34,9 @@ const Marketing = () => {
           <div className="col-lg-12">
             <div className="client-wrapper">
               <h2 className="client-wrapper__title">
-                OUR GLOBAL MARKETING PARTNERS
+                OUR GLOBAL{" "}
+                <span className="client-wrapper__title tag">MARKETING</span>{" "}
+                PARTNERS
               </h2>
               <div className="client-slider">
                 <Slider {...settings}>

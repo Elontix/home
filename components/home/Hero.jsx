@@ -166,7 +166,6 @@ const Hero = () => {
                   <motion.div
                     initial={{ scale: 0 }}
                     animate={{ rotate: 360, scale: 1 }}
-                    className="main_txt"
                     transition={{
                       type: "spring",
                       stiffness: 260,
@@ -177,7 +176,7 @@ const Hero = () => {
                     }}
                     key={i}
                   >
-                    {s}
+                    <h3 className={i > 14 ? "tag" : ""}> {s}</h3>
                   </motion.div>
                 ))}
               </div>
@@ -254,8 +253,19 @@ const Hero = () => {
                   </span>
                 </div>
               </div>
-              <p className="main_txt_under_sub">
-                {`World's #1 Decentralized Meme-based lottery platform.`}
+              <p style={{ color: "white" }} className="main_txt_under_sub">
+                {`World's`} #1 Decentralized{" "}
+                <span>
+                  <p
+                    className="main_txt_under_sub tag"
+                    style={{
+                      textShadow: `2px 2px 5px ${colors.baseColorTwo}`,
+                    }}
+                  >
+                    Meme lottery
+                  </p>{" "}
+                </span>{" "}
+                platform.
               </p>
               <div
                 style={{
@@ -265,7 +275,10 @@ const Hero = () => {
                   columnGap: "2rem",
                 }}
               >
-                <Link href="/contest" class="btn draw-border">
+                <Link href="/contest" class="btn_x draw-border">
+                  Participate Now
+                </Link>
+                <Link href="/contest" class="btn_y secondary">
                   Participate Now
                 </Link>
               </div>
@@ -282,22 +295,6 @@ const Hero = () => {
             }}
           >
             <Image src={elon} alt="image" />
-          </div>
-          <div
-            style={{
-              borderRadius: "2rem",
-              padding: "2rem",
-              textAlign: "center",
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              backgroundColor: "rgb(53, 40, 130)",
-              boxShadow:
-                "inset 0 -3px 8px 3px #ec137954, 0px 10px 21px 0px rgba(53, 40, 130, 0.6)",
-              borderRadius: "999px)",
-            }}
-          >
-            <h2>{`"Elontix - Your ticket to meme-filled riches, Elon Musk style"`}</h2>
           </div>
         </div>
       </section>

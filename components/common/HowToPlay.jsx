@@ -8,16 +8,30 @@ import play_bg from "/public/images/bg/contest-bg.jpg";
 
 const HowToPlay = () => {
   return (
-    <section className="position-relative z-index-two pt-120 pb-120 overflow-hidden">
+    <section className="position-relative pt-120 z-index-two pb-120 overflow-hidden">
       <div className="play-elements">
         <Image src={play_bg} alt="image" />
       </div>
       <div className="container">
         <div className="row">
-          <div className="col-lg-6 text-sm-start text-center">
+          <div className="col-lg-12 text-sm-start text-center">
             <div className="section-header">
-              <h2 className="section-title">How Elontix works?</h2>
-              <p style={{ color: colors.baseColor }}>
+              <h2 className="section-title"></h2>
+              <h1 style={{ textAlign: "center" }}>
+                How
+                {"\u00A0"}
+                <span>
+                  <h1 className="tag">Elontix</h1>
+                </span>{" "}
+                works?
+              </h1>
+              <p
+                style={{
+                  color: colors.baseColor,
+                  textAlign: "center",
+                  paddingBottom: "6rem",
+                }}
+              >
                 Follow these 4 easy steps!{" "}
               </p>
             </div>
@@ -32,7 +46,7 @@ const HowToPlay = () => {
               </div>
               <div className="play-card__content">
                 <h3 className="play-card__title">Choose</h3>
-                <p>Connect your wallet</p>
+                <p className="tag">Connect your wallet</p>
               </div>
             </div>
           </div>
@@ -44,7 +58,7 @@ const HowToPlay = () => {
               </div>
               <div className="play-card__content">
                 <h3 className="play-card__title">buy</h3>
-                <p>Purchase ElonTix tickets</p>
+                <p className="tag">Purchase ElonTix tickets</p>
               </div>
             </div>
           </div>
@@ -56,7 +70,7 @@ const HowToPlay = () => {
               </div>
               <div className="play-card__content">
                 <h3 className="play-card__title">Track</h3>
-                <p>Track and Verify</p>
+                <p className="tag">Track and Verify</p>
               </div>
             </div>
           </div>
@@ -68,7 +82,7 @@ const HowToPlay = () => {
               </div>
               <div className="play-card__content">
                 <h3 className="play-card__title">Win</h3>
-                <p>Claim your winnings</p>
+                <p className="tag">Claim your winnings</p>
               </div>
             </div>
           </div>

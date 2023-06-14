@@ -1,43 +1,127 @@
 import Image from "next/image";
 import { affiliate_partner } from "../../data/affiliate";
-import affiliate_bg from "/public/images/elements/affiliate-bg.jpg";
+import { colors } from "../../theme/color";
+import elon_1 from "/public/images/elon.png";
 
 const Partner = () => {
   return (
-    <section className="pt-120 pb-120 position-relative">
-      <div className="bg-el">
-        <Image src={affiliate_bg} alt="affiliate bg" />
-      </div>
-      <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-lg-6">
-            <div className="section-header text-center">
-              <span className="section-sub-title">What you&#39;ll get as</span>
-              <h2 className="section-title style--two"> What is Elontix</h2>
-              <p>
-                Earn Unlimited Commissions with Elontix affiliate program. Our
-                partner program can increase your income by receing percentage.
-              </p>
-            </div>
-          </div>
+    <div
+      style={{
+        position: "relative",
+        backgroundImage:
+          "linear-gradient(to bottom, #0f0232, #1b0d41, #2b1350, #3c185f, #4f1d6d, #4f1d6d, #4f1d6d, #4f1d6d, #3c185f, #2b1350, #1b0d41, #0f0232)",
+      }}
+    >
+      <div
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div
+          style={{
+            position: "absolute",
+            zIndex: 999,
+            top: "0%",
+            padding: "2rem",
+            textAlign: "center",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            backgroundColor: "rgb(53, 40, 130)",
+            borderRadius: "4rem",
+            boxShadow: `2px 2px 3px ${colors.bgOne}, -2px -2px 3px #69227F`,
+          }}
+        >
+          <h2>
+            {`" `}
+            <span>
+              <h2 className="tag">Elontix </h2>
+            </span>{" "}
+            - Your ticket to meme-filled riches,{" "}
+            <span>
+              <h2 className="tag">Elon Musk</h2>{" "}
+            </span>{" "}
+            style
+            {` "`}
+          </h2>
         </div>
-        <div className="row mb-none-30">
-          {affiliate_partner.map(({ id, title, desc, icon }) => (
-            <div key={id} className="col-xl-3 col-sm-6 mb-30">
-              <div className="affiliate-card">
-                <div className="affiliate-card__icon">
-                  <Image src={icon} alt={title} />
+      </div>
+
+      <section style={{ padding: "6rem 0 0 0" }} className="position-relative">
+        <div className="container pt-120">
+          <div className="row justify-content-center">
+            <div className="col-lg-12">
+              <h1 style={{ textAlign: "center" }}>
+                What is{" "}
+                <span className="tag">
+                  <h1>Elontix?</h1>
+                </span>{" "}
+              </h1>
+            </div>
+            <div className="pb-120">
+              <div style={{ alignItems: "center" }} className="row p-4">
+                <div className="col-6">
+                  <Image
+                    style={{ maxWidth: "380px" }}
+                    src={elon_1}
+                    alt="elon"
+                  />
                 </div>
-                <div className="affiliate-card__content">
-                  <h3 className="affiliate-card__title">{title}</h3>
-                  <p>{desc}</p>
+                <div className="col-6">
+                  <p
+                    style={{
+                      color: "white",
+                    }}
+                  >
+                    Elontix is an innovative NFT-based blockchain lottery
+                    platform that embodies the visionary spirit of Elon Musk.
+                    Inspired by
+                    {`Musk's`} desire to revolutionize industries through
+                    technological advancements, Elontix aims to redefine the
+                    traditional lottery experience using the power of blockchain
+                    and non-fungible tokens. By leveraging the decentralized
+                    nature of blockchain, Elontix ensures transparency,
+                    security, and fairness in every lottery draw, providing
+                    participants with a seamless and trustworthy gaming
+                    experience.
+                  </p>
+                </div>
+              </div>
+              <div style={{ alignItems: "center" }} className="row p-4">
+                <div className="col-6">
+                  <p
+                    style={{
+                      color: "white",
+                    }}
+                  >
+                    Just as Musk envisions a future of sustainable energy and
+                    space exploration, Elontix envisions a future where
+                    lotteries are conducted with utmost integrity and
+                    accessibility, empowering individuals worldwide to dream big
+                    and participate in life-changing opportunities. With
+                    Elontix, the convergence of blockchain and lottery creates a
+                    new paradigm, reflecting Elon {`Musk's`} commitment to
+                    pushing boundaries and challenging conventional norms.
+                  </p>
+                </div>
+                <div
+                  style={{ justifyContent: "flex-end", display: "flex" }}
+                  className="col-6"
+                >
+                  <Image
+                    style={{ maxWidth: "380px" }}
+                    src={elon_1}
+                    alt="elon"
+                  />
                 </div>
               </div>
             </div>
-          ))}
+          </div>
         </div>
-      </div>
-    </section>
+      </section>
+    </div>
   );
 };
 

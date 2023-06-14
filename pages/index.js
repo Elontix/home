@@ -8,6 +8,7 @@ import Faq from "../components/faq/FaqBody";
 import Affiliate from "./affiliate";
 import TopAffiliate from "../components/affiliate/TopAffiliate";
 import Marketing from "../components/affiliate/Marketing";
+import Util from "../components/home/Util";
 
 export default function HomeThree() {
   return (
@@ -23,6 +24,8 @@ export default function HomeThree() {
 
       {/* Exhastive section */}
       <Marketing />
+
+      <Util />
 
       {/* Roadmap section */}
       <Roadmap />

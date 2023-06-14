@@ -1,9 +1,18 @@
 import Image from "next/image";
 import Link from "next/link";
-import { FaFacebookF, FaLinkedinIn, FaTwitter } from "react-icons/fa";
+import {
+  FaTwitter,
+  FaTelegram,
+  FaReddit,
+  FaInstagram,
+  FaDiscord,
+  FaMedium,
+} from "react-icons/fa";
 import round_shape_2 from "/public/images/elements/round-shape-2.png";
 import store_btn_1 from "/public/images/icon/store-btn/1.png";
 import store_btn_2 from "/public/images/icon/store-btn/2.png";
+import elon from "/public/images/elon.png";
+import { colors } from "../../theme/color";
 
 const Footer = () => {
   return (
@@ -35,57 +44,81 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="container pt-120">
-        <div className="row pb-5 align-items-center">
+      <div className="container" style={{ paddingTop: "3rem" }}>
+        <div className="row">
           <div className="col-lg-4">
-            <ul className="app-btn"></ul>
+            <Image style={{ maxWidth: "360px" }} src={elon} alt="elon" />
           </div>
-          <div className="col-lg-8">
+          <div
+            className="col-lg-8"
+            style={{
+              display: "flex",
+              flexDirection: "column",
+              alignItems: "flex-end",
+              justifyContent: "flex-end",
+              rowGap: "2rem",
+            }}
+          >
             <ul className="short-links justify-content-lg-end justify-content-center">
               <li>
-                <Link href="/#">About</Link>
-              </li>
-              <li>
-                <Link href="/#">FAQs</Link>
-              </li>
-              <li>
-                <Link href="/#">Contact</Link>
-              </li>
-              <li>
-                <Link href="/#">Terms of Services</Link>
-              </li>
-              <li>
-                <Link href="/#">Privacy</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
-        <hr />
-        <div className="row py-5 align-items-center">
-          <div className="col-lg-6">
-            <p className="copy-right-text text-lg-start text-center mb-lg-0 mb-3">
-              Copyright © 2023.All Rights Reserved By{" "}
-              <Link href="/">Elontix</Link>
-            </p>
-          </div>
-          <div className="col-lg-6">
-            <ul className="social-links justify-content-lg-end justify-content-center">
-              <li>
-                <Link href="/#">
-                  <FaFacebookF />
+                <Link style={{ color: colors.baseColor }} href="/#">
+                  ElonTix
                 </Link>
               </li>
               <li>
-                <Link href="/#">
-                  <FaTwitter />
+                <Link style={{ color: colors.baseColor }} href="/#">
+                  Partners
                 </Link>
               </li>
               <li>
-                <Link href="/#">
-                  <FaLinkedinIn />
+                <Link style={{ color: colors.baseColor }} href="/#">
+                  Whitepaper
+                </Link>
+              </li>
+              <li>
+                <Link style={{ color: colors.baseColor }} href="/#">
+                  Roadmap
+                </Link>
+              </li>
+              <li>
+                <Link style={{ color: colors.baseColor }} href="/#">
+                  Tokenomics
                 </Link>
               </li>
             </ul>
+
+            <div
+              style={{ columnGap: "1rem" }}
+              className="social-links justify-content-lg-end justify-content-center"
+            >
+              <Link href="/#">
+                <FaTelegram size={32} />
+              </Link>
+              <Link href="/#">
+                <FaTwitter size={32} />
+              </Link>
+              <Link href="/#">
+                <FaDiscord size={32} />
+              </Link>
+              <Link href="/#">
+                <FaInstagram size={32} />
+              </Link>
+              <Link href="/#">
+                <FaReddit size={32} />
+              </Link>
+              <Link href="/#">
+                <FaMedium size={32} />
+              </Link>
+            </div>
+
+            <div className="pb-5 social-links justify-content-lg-end justify-content-center">
+              <p className="copy-right-text text-lg-start text-center mb-lg-0 mb-3">
+                Copyright © 2023.All Rights Reserved By{" "}
+                <Link style={{ color: colors.baseColor }} href="/">
+                  Elontix
+                </Link>
+              </p>
+            </div>
           </div>
         </div>
       </div>

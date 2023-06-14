@@ -457,8 +457,8 @@
   border-#{$horizontal}-width: $width
 
  &:hover 
-  color: $hover
-  background: #5a4bcc
+  color: $bg-one
+  background: $base-color
 
   &::before,
   &::after 
@@ -474,11 +474,11 @@
    transition-delay: 0s, $duration, 0s
 
 .draw-border 
- @include btn-border-drawing(#58afd1, #ffe593, 3px, bottom, right)
+ @include btn-border-drawing($base-color, $base-color-three, 3px, bottom, right)
 
 
 //=== Button styling, semi-ignore
-.btn 
+.btn_x
  background: #0f0232 
  border: none
  cursor: pointer
@@ -490,3 +490,72 @@
 
  &:focus 
   outline: 2px dotted #55d7dc
+
+.util_card_gradient
+  display:flex
+  padding: 1rem 2rem
+  border-radius: 1rem
+  align-items:center
+  flex-direction: row 
+  justify-center:center
+  background-image: linear-gradient(to right bottom, #c06ed8, #8c53ad, #5d3883, #321f59, #0f0232)
+  box-shadow: -2px -2px 5px $base-color-three, 2px 2px 5px $bg-one 
+
+  .timer_tick
+    display:flex
+    flex-direction:column
+    justify-content:center
+    align-items:center
+    row-gap:1rem
+    text-align:center
+    .timer
+      color: $base-color
+      text-align:center
+    .tick
+      text-align: center
+      background: $bg-one
+      min-width:64px
+      max-width:64px
+      min-height:64px
+      max-height:64px
+      border-radius:6px
+      color:$base-color
+      font-size:42px
+
+
+// Basic Button Style
+.btn_y
+  box-sizing: border-box
+  appearance: none
+  background-color: transparent
+  border: 2px solid $bg-one
+  color: $base-color
+  cursor: pointer
+  display: flex
+  align-self: center
+  line-height: 1.5
+  font-size: 1.2rem 
+  font-weight: 700 
+  padding: 1em 2em
+  letter-spacing: 0.05rem
+  text-align: center
+
+  &:hover,
+  &:focus 
+    color: #fff
+    outline: 0
+
+//BUTTON 3
+.secondary 
+  border-color: $blue
+  color: $base-color
+  box-shadow: 0 0 40px 40px $bg-one inset, 0 0 0 0 $base-color
+  transition: all 150ms ease-in-out
+  
+  &:hover 
+    box-shadow: 0 0 10px 0 $base-color-three inset, 0 0 10px 4px $base-color-two
+
+
+
+
+

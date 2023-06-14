@@ -1,7 +1,12 @@
 import { colors } from "../../theme/color";
 
-const RoadmapCard = ({ roadmap }) => {
-  const { title, works } = roadmap;
+const RoadmapCard = ({ roadmap, index }) => {
+  const { title, works, status } = roadmap;
+  function bgReturn(s) {
+    if (s === "IN_PROGRESS") return "#C06ED8";
+    if (s === "DONE") return "#C06ED8";
+    if (s === "LATER") return "white";
+  }
   return (
     <div
       style={{
@@ -15,7 +20,13 @@ const RoadmapCard = ({ roadmap }) => {
     >
       <div className="winner-card__content">
         <div className="content-top">
-          <h3>{title}</h3>
+          <h3>
+            Phase {index + 1}
+            {"\u00A0"}-{"\u00A0"}
+            <span>
+              <h3 className="tag">{title}</h3>
+            </span>
+          </h3>
         </div>
         <div className="content-bottom">
           {works.map((s, i) => (
@@ -33,7 +44,7 @@ const RoadmapCard = ({ roadmap }) => {
                   margin: ".2rem",
                   background: colors.baseColorTwo,
                   borderRadius: ".3rem",
-                  color: colors.paraColor,
+                  color: "white",
                 }}
               >
                 {s}

@@ -9,11 +9,14 @@ const TopAffiliate = () => {
         <div className="row justify-content-center">
           <div className="col-lg-8">
             <div className="section-header text-center">
-              <span className="section-sub-title">Top-Earning Affiliate</span>
               <h2 className="section-title style--two">
-                Ranking for Last Month !
+                Our{" "}
+                <span className="section-title style--two tag">All-Star</span>{" "}
+                Team
               </h2>
-              <p>Become a Elontix affiliate and start earning each month</p>
+              <span className="section-sub-title">
+                Innovators united, forging the future of blockchain lotteries
+              </span>
             </div>
           </div>
         </div>

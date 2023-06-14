@@ -1,11 +1,9 @@
 import Image from "next/image";
 import Link from "next/link";
-import { useRouter } from "next/router";
 import { useEffect, useState } from "react";
 import team_obj from "/public/images/elements/team-obj.png";
 
 const LeftSideMenu = () => {
-  const router = useRouter();
   const [user, setUser] = useState({
     name: "",
     id: "",

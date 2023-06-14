@@ -114,38 +114,57 @@ const LatestWinner = () => {
                 aria-labelledby="dream-tab"
               >
                 <div className="row mb-none-30">
-                  <div className="col-lg-6 mb-30">
-                    <div
-                      style={{ background: "none" }}
-                      className="number-check-wrapper"
-                    >
-                      <Image
-                        className="rotate-x"
-                        src={Logo}
-                        height={412}
-                        alt=""
-                      />
+                  <div className="col-lg-4 mb-30">
+                    <div className="number-check-wrapper">
+                      <h4
+                        style={{
+                          color: colors.baseColor,
+                          fontSize: "4rem",
+                          marginBottom: "1rem",
+                          lineHeight: "1",
+                        }}
+                      >
+                        $ELONTIX Token
+                      </h4>
+                      <h6 style={{ lineHeight: "1.4" }}>
+                        A well-designed economic system that fuels growth and
+                        sustainability
+                      </h6>
                     </div>
                   </div>
+                  <div style={{ visibility: "hidden" }} className="col-lg-2">
+                    x
+                  </div>
                   <div className="col-lg-6 mb-30">
-                    <div className="pb-120">
-                      <h1>$ELONTIX Token</h1>
-                      <h3 style={{ color: colors.baseColor }}>
-                        Buy Now on pancakeswap
-                      </h3>
-                    </div>
                     {/* Tokenomics */}
                     <div className="pb-120">
-                      <h2>Tokenomics</h2>
-                      <div>
+                      <h2 className="pb-2">
+                        Token
+                        {"\u00A0"}
+                        <span>
+                          <h2 className="tag">Details</h2>
+                        </span>
+                      </h2>
+                      <div
+                        style={{
+                          borderRadius: "1rem",
+                          background: colors.bgOne,
+                          boxShadow: `2px 2px 3px ${"black"}, -2px -2px 3px ${
+                            colors.baseColorTwo
+                          }`,
+                        }}
+                      >
                         {tokenomics.map((t, i) => (
                           <div
                             style={{
                               display: "flex",
                               justifyContent: "space-between",
                               margin: ".5rem 0",
-                              padding: "1rem 0",
-                              borderBottom: `1px groove ${colors.baseColorTwo}`,
+                              padding: "1rem 2rem",
+                              borderBottom:
+                                i === tokenomics.length - 1
+                                  ? ""
+                                  : `2px solid ${colors.baseColorTwo}`,
                             }}
                             key={i}
                           >
@@ -159,7 +178,13 @@ const LatestWinner = () => {
                     </div>
                     {/* Chart */}
                     <div className="pb-120">
-                      <h2>Token Distribution</h2>
+                      <h2 className="pb-2">
+                        Token
+                        {"\u00A0"}
+                        <span>
+                          <h2 className="tag">Distribution</h2>
+                        </span>
+                      </h2>
                       <div
                         style={{
                           margin: "1rem 0",
@@ -192,16 +217,33 @@ const LatestWinner = () => {
 
                     {/* Token Tax */}
                     <div className="pb-120">
-                      <h2>Token Tax</h2>
-                      <div>
+                      <h2 className="pb-2">
+                        Token
+                        {"\u00A0"}
+                        <span>
+                          <h2 className="tag">Tax</h2>
+                        </span>
+                      </h2>
+                      <div
+                        style={{
+                          borderRadius: "1rem",
+                          background: colors.bgOne,
+                          boxShadow: `2px 2px 3px ${"black"}, -2px -2px 3px ${
+                            colors.baseColorTwo
+                          }`,
+                        }}
+                      >
                         {tax.map((t, i) => (
                           <div
                             style={{
                               display: "grid",
                               justifyContent: "space-between",
                               margin: ".5rem 0",
-                              padding: "1rem 0",
-                              borderBottom: `1px groove ${colors.baseColorTwo}`,
+                              padding: "1rem 2rem",
+                              borderBottom:
+                                i === tax.length - 1
+                                  ? ""
+                                  : `2px solid ${colors.baseColorTwo}`,
                             }}
                             key={i}
                           >
@@ -214,17 +256,35 @@ const LatestWinner = () => {
 
                     {/* Token Utility */}
                     <div className="pb-90">
-                      <h2>Token Utility</h2>
-                      <div>
+                      <h2 className="pb-2">
+                        Token
+                        {"\u00A0"}
+                        <span>
+                          <h2 className="tag">Utility</h2>
+                        </span>
+                      </h2>
+
+                      <div
+                        style={{
+                          borderRadius: "1rem",
+                          background: colors.bgOne,
+                          boxShadow: `2px 2px 3px ${"black"}, -2px -2px 3px ${
+                            colors.baseColorTwo
+                          }`,
+                        }}
+                      >
                         {utils.map((t, i) => (
                           <div
                             style={{
+                              columnGap: "1rem",
                               display: "flex",
                               justifyContent: "flex-start",
-                              columnGap: "1.25rem",
                               margin: ".5rem 0",
-                              padding: "1rem 0",
-                              borderBottom: `1px groove ${colors.baseColorTwo}`,
+                              padding: "1rem 1rem",
+                              borderBottom:
+                                i === utils.length - 1
+                                  ? ""
+                                  : `2px solid ${colors.baseColorTwo}`,
                             }}
                             key={i}
                           >

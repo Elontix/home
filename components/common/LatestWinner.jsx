@@ -13,9 +13,9 @@ const LatestWinner = () => {
 
   const [counter, setCounter] = useState(0);
   const [winners, setWinners] = useState([]);
+  const [mints, setMints] = useState([]);
 
   useEffect(() => {
-    console.log(MintAPi.getMintAbi(false));
     open();
     setDefaultChain(bscTestnet);
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -51,7 +51,7 @@ const LatestWinner = () => {
   } = useContractRead({
     address: "0xd23306DA2087CA5374F3F05DAB93D8F6189C3E46",
     abi: MintAPi.getMintAbi(false),
-    // args: [winners[counter] || 0],
+    args: [mints[counter] || 100000],
     functionName: "isTokenMinted",
     chainId: bscTestnet.chainId,
     account: address,
@@ -60,16 +60,19 @@ const LatestWinner = () => {
   useEffect(() => {
     if (counter !== totalWinners.data && hasWinnerSuccess && mintIsSuccess) {
       let isUpdated = false;
+      for (let i = 0; i < winners.length; i++)
+        if (winners[i][2] === winnerData) isUpdated = true;
 
-      for (let i = 0; i < data.length; i++)
-        if (collectionData === data[i]) isUpdated = true;
       if (!isUpdated) {
         setCounter(counter + 1);
         let w = winners;
         w.push({ ...winnerData, minted });
+        let m = mints;
+        m.push(minted);
         setWinners(w);
+        setMints(m);
       }
-      console.log(mints, winners);
+      console.log(mints);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasWinnerSuccess, counter]);
@@ -93,7 +96,7 @@ const LatestWinner = () => {
               >
                 <div className="row mb-none-30">
                   <div className="mb-30">
-                    {/* {winners.map((winner, i) => (
+                    {winners.map((winner, i) => (
                       <WinnerCard
                         key={i}
                         date={Number(winner[1])}
@@ -101,7 +104,7 @@ const LatestWinner = () => {
                         ticket={Number(winner[2])}
                         isMinted={mints[i]}
                       />
-                    ))} */}
+                    ))}
                   </div>
                 </div>
               </div>

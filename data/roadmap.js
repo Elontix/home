@@ -1,6 +1,7 @@
 const roadmapData = [
   {
-    title: "Phase 1 - Research and Planning",
+    title: "Research and Planning",
+    status: "DONE",
     works: [
       "ElonTix Ideation",
       "Market Research",
@@ -12,7 +13,8 @@ const roadmapData = [
     ],
   },
   {
-    title: "Phase 2 - Design and Development ",
+    title: "Design and Development ",
+    status: "IN_PROGRESS",
     works: [
       "Smart Contract Development",
       "Blockchain Integration",
@@ -24,18 +26,21 @@ const roadmapData = [
     ],
   },
   {
-    title: "Phase 3 - Launch and Deployment",
+    title: "Launch and Deployment",
+    status: "LATER",
     works: [
       "ElonTix Website Launch",
       "ElonTix NFTs Launch",
       "Fair launch on Pinksale ",
       "User acquisition Campaigns",
-      "Pre-Listing on CMC/CG Token Launch on DEX",
+      "Pre-Listing on CMC/CG",
+      "Token Launch on DEX",
       "ElonTix Token Staking and Farming ",
     ],
   },
   {
-    title: "Phase 4 - Scaling and Growth",
+    title: "Scaling and Growth",
+    status: "LATER",
     works: [
       "Scalability and Interoperability",
       "Expand to New markets",

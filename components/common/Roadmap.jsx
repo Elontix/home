@@ -28,14 +28,14 @@ const Roadmap = () => {
                 >
                   Our roadmap
                 </h4>
-                <p style={{ lineHeight: "1" }}>
+                <h6 style={{ lineHeight: "1.4" }}>
                   Clear goals, great planning, flawless execution.
-                </p>
+                </h6>
               </div>
             </div>
             <div className="col-lg-8 mb-30">
               {roadmap.map((road, index) => (
-                <RoadMapCard key={index} roadmap={road} />
+                <RoadMapCard key={index} index={index} roadmap={road} />
               ))}
             </div>
           </div>
