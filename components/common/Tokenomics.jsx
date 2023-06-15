@@ -120,21 +120,14 @@ const LatestWinner = () => {
                       style={{ background: "none" }}
                       className="number-check-wrapper"
                     >
-                      <Image className="py-5" src={elon} alt="elon" />
-                      <h4
-                        style={{
-                          color: colors.baseColor,
-                          fontSize: "4rem",
-                          marginBottom: "1rem",
-                          lineHeight: "1",
-                        }}
-                      >
-                        $ELONTIX Token
-                      </h4>
-                      <h6 style={{ lineHeight: "1.4" }}>
-                        A well-designed economic system that fuels growth and
-                        sustainability
-                      </h6>
+                      <Image src={elon} alt="elon" />
+                      <div className="neu_grad">
+                        <h2 className="tag">$ELONTIX Token</h2>
+                        <h6 style={{ lineHeight: "1.4" }}>
+                          A well-designed economic system that fuels growth and
+                          sustainability
+                        </h6>
+                      </div>
                     </div>
                   </div>
                   <div style={{ visibility: "hidden" }} className="col-lg-2">

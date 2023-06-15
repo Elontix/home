@@ -23,20 +23,15 @@ const Roadmap = () => {
                 style={{ background: "none" }}
                 className="number-check-wrapper"
               >
-                <Image className="py-5" src={elon} alt="elon" />
-                <h4
-                  style={{
-                    color: colors.baseColor,
-                    fontSize: "4rem",
-                    lineHeight: ".8",
-                    marginBottom: "1rem",
-                  }}
-                >
-                  Our roadmap
-                </h4>
-                <h6 style={{ lineHeight: "1.4" }}>
-                  Clear goals, great planning, flawless execution.
-                </h6>
+                <div style={{ display: "flex", justifyContent: "center" }}>
+                  <Image style={{ maxWidth: "80%" }} src={elon} alt="elon" />
+                </div>
+                <div className="neu_grad">
+                  <h2 className="tag">Our roadmap</h2>
+                  <h6 style={{ lineHeight: "1.4" }}>
+                    Clear goals, great planning, flawless execution.
+                  </h6>
+                </div>
               </div>
             </div>
             <div className="col-lg-8 mb-30">

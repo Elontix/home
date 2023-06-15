@@ -108,16 +108,7 @@ const Partner = () => {
                 </div>
                 <div className="col-12 col-xl-6">
                   <div className="elon_parent">
-                    <Image
-                      className="elontix_img elon_image2"
-                      src={elon_2}
-                      alt="elon"
-                    />
-                    <Image
-                      className="elontix_img elon_image1"
-                      src={elon_2}
-                      alt="elon"
-                    />
+                    <Image className="elontix_img" src={elon_2} alt="elon" />
                   </div>
                   <Board />
                 </div>
@@ -130,7 +121,9 @@ const Partner = () => {
                     src={elon_1}
                     alt="elon"
                   />
-                  <Board />
+                  <div className="elontix_img_hidden_b">
+                    <Board />
+                  </div>
                 </div>
 
                 <div className="col-12 col-xl-6 gy=5">
@@ -159,6 +152,9 @@ const Partner = () => {
                     src={elon_1}
                     alt="elon"
                   />
+                  <div className="elontix_img_hidden_t">
+                    <Board />
+                  </div>
                 </div>
               </div>
             </div>

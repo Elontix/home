@@ -65,54 +65,7 @@ const Footer = () => {
               alt="elon"
             />
           </div>
-          <div
-            className="col-lg-4"
-            style={{
-              display: "flex",
-              flexDirection: "row",
-              alignItems: "center",
-              justifyContent: "center",
-              rowGap: "2rem",
-            }}
-          >
-            <div className="row">
-              <ul
-                className="short-links justify-content-lg-end justify-content-center"
-                style={{
-                  display: "flex",
-                  justifyContent: "center",
-                  alignItems: "center",
-                  flexDirection: "column",
-                }}
-              >
-                <Link style={{ color: colors.baseColor }} href="/#">
-                  ElonTix
-                </Link>
-                <Link style={{ color: colors.baseColor }} href="/#">
-                  Partners
-                </Link>
-                <Link style={{ color: colors.baseColor }} href="/#">
-                  Whitepaper
-                </Link>
-                <Link style={{ color: colors.baseColor }} href="/#">
-                  Roadmap
-                </Link>
-                <Link style={{ color: colors.baseColor }} href="/#">
-                  Tokenomics
-                </Link>
-              </ul>
-            </div>
-          </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "flex-end",
-              alignItems: "flex-end",
-              flexDirection: "column",
-              rowGap: "2rem",
-            }}
-            className="col-4"
-          >
+          <div className="col-8 footer_bottom_left">
             <div className="social-links justify-content-center">
               <div
                 style={{ columnGap: "1rem" }}
@@ -137,16 +90,51 @@ const Footer = () => {
                   <FaMedium size={32} />
                 </Link>
               </div>
-
-              <p className="py-4 copy-right-text text-lg-start text-center mb-lg-0 mb-3">
-                Copyright © 2023.All Rights Reserved By{" "}
-                <Link style={{ color: colors.baseColor }} href="/">
-                  Elontix
-                </Link>
-              </p>
             </div>
+
+            <ul className="short-links justify-content-lg-end justify-content-center">
+              <li>
+                <Link style={{ color: colors.baseColor }} href="/#">
+                  ElonTix
+                </Link>
+              </li>
+              <li>
+                <Link style={{ color: colors.baseColor }} href="/#">
+                  Partners
+                </Link>
+              </li>
+              <li>
+                <Link style={{ color: colors.baseColor }} href="/#">
+                  Whitepaper
+                </Link>
+              </li>
+              <li>
+                <Link style={{ color: colors.baseColor }} href="/#">
+                  Roadmap
+                </Link>
+              </li>
+              <li>
+                <Link style={{ color: colors.baseColor }} href="/#">
+                  Tokenomics
+                </Link>
+              </li>
+            </ul>
           </div>
         </div>
+      </div>
+      <div style={{ display: "flex", justifyContent: "center" }}>
+        <p
+          style={{ textAlign: "center" }}
+          className="py-4 copy-right-text text-lg-start text-center mb-lg-0 mb-3"
+        >
+          Copyright © 2023.All Rights Reserved By{" "}
+          <Link
+            style={{ color: colors.baseColor, textAlign: "center" }}
+            href="/"
+          >
+            Elontix
+          </Link>
+        </p>
       </div>
     </footer>
   );

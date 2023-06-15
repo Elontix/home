@@ -15,7 +15,7 @@ const Util = () => {
         <div className="col-12 col-xl-6">
           <GradCard />
         </div>
-        <div className="col-12 col-xl-6">
+        <div style={{ cursor: "pointer" }} className="col-12 col-xl-6">
           <div
             style={{
               display: "flex",
@@ -23,7 +23,6 @@ const Util = () => {
               justifyContent: "center",
               flexDirection: "column",
               alignItems: "center",
-              cursor: "pointer",
             }}
           >
             <Image
@@ -34,17 +33,8 @@ const Util = () => {
               alt="elon"
             />
           </div>
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              paddingBottom: "1rem",
-              width: "100%",
-            }}
-          >
-            <button style={{ width: "100%" }} className="cmn-btn">
-              Mint now
-            </button>
+          <div className="neu_grad">
+            <h4 className="tag text-center">Mint now</h4>
           </div>
         </div>
       </div>

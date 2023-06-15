@@ -21,6 +21,7 @@ $bg-two: #02014a;
 }
 
 .animate_ml {
+  box-shadow: 0px 0px 3px $base-color;
   animation: animate_ml 1s alternate infinite ease-in;
   padding: 0 1rem;
   border-radius: 0.2rem;
@@ -255,7 +256,11 @@ $bg-two: #02014a;
 .sub_module_ul {
   margin: 1rem 0 0 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  row-gap: 0;
+  line-height: 1;
 }
 
 .tick_w {
@@ -287,11 +292,37 @@ $bg-two: #02014a;
   top: -12px;
   z-index: 1000;
   opacity: 0.3;
-  animation: elon_animate 200ms ease-in-out infinite;
+  animation: elon_animate 800ms 1s ease-in-out infinite;
 }
 
 @keyframes elon_animate {
-  50% {
-    transform: scale(1.02) translateX(-1px) translateY(-4px);
+  0% {
+    transform: translateX(-1px) translateY(-2px);
   }
+  50% {
+    transform: scale(1.01) translateX(-2px) translateY(-1px);
+  }
+}
+
+.footer_bottom_left {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  align-items: flex-end;
+  row-gap: 2rem;
+}
+
+.neu_grad {
+  background-image: radial-gradient(
+    circle,
+    #5a4bcc,
+    #4538a2,
+    #31277a,
+    #1d1655,
+    #0f0232
+  );
+  margin-top: 0.4rem;
+  border-radius: 1rem;
+  padding: 1rem;
+  box-shadow: 2px 2px 4px black, -2px -2px 4px $base-color-two;
 }

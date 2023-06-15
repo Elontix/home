@@ -255,7 +255,7 @@ const Hero = () => {
               <p style={{ color: "white" }} className="main_txt_under_sub">
                 {`World's`} #1 Decentralized{" "}
                 <span>
-                  <p className="main_txt_under_sub animate_ml">Meme lottery</p>{" "}
+                  <p className="main_txt_under_sub ">Meme lottery</p>{" "}
                 </span>{" "}
                 platform.
               </p>
