@@ -8,16 +8,16 @@ import {
 const RoadmapCard = ({ roadmap, index }) => {
   const { title, works, status } = roadmap;
   function bgReturn(s) {
-    if (s === "IN_PROGRESS") return "#FFE162";
-    if (s === "DONE") return "#91C483";
-    if (s === "LATER") return "#EEEEEE";
+    if (s === "IN_PROGRESS") return "#FF7000";
+    if (s === "DONE") return "#16FF00";
+    if (s === "LATER") return "#DDE6ED";
   }
 
   function iconReturs(s) {
     if (s === "IN_PROGRESS")
-      return <MdOutlinePending size={64} color={"#FFE162"} />;
+      return <MdOutlinePending size={64} color={"#F79327"} />;
     if (s === "DONE")
-      return <MdOutlineDoneOutline size={64} color={"#91C483"} />;
+      return <MdOutlineDoneOutline size={64} color={"#98D8AA"} />;
     if (s === "LATER")
       return <MdOutlineWatchLater size={64} color={"#EEEEEE"} />;
   }
@@ -27,9 +27,7 @@ const RoadmapCard = ({ roadmap, index }) => {
       style={{
         borderRadius: "1rem",
         background: colors.bgOne,
-        boxShadow: `2px 2px 3px ${"black"}, -2px -2px 3px ${
-          colors.baseColorTwo
-        }`,
+        boxShadow: `2px 2px 5px ${colors.baseColorTwo}, -2px -2px 5px ${colors.baseColor}`,
       }}
       className="winner-card mb-30"
     >
@@ -43,7 +41,7 @@ const RoadmapCard = ({ roadmap, index }) => {
           }}
           className="content-top"
         >
-          {iconReturs(status)}
+          {/* {iconReturs(status)} */}
           <h3>
             Phase {index + 1}
             {"\u00A0"}-{"\u00A0"}

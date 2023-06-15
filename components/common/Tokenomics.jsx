@@ -120,7 +120,7 @@ const LatestWinner = () => {
                       style={{ background: "none" }}
                       className="number-check-wrapper"
                     >
-                      <Image src={elon} alt="elon" />
+                      <Image className="neu_grad_img" src={elon} alt="elon" />
                       <div className="neu_grad">
                         <h2 className="tag">$ELONTIX Token</h2>
                         <h6 style={{ lineHeight: "1.4" }}>
@@ -147,9 +147,7 @@ const LatestWinner = () => {
                         style={{
                           borderRadius: "1rem",
                           background: colors.bgOne,
-                          boxShadow: `2px 2px 3px ${"black"}, -2px -2px 3px ${
-                            colors.baseColorTwo
-                          }`,
+                          boxShadow: `2px 2px 5px ${colors.baseColorTwo}, -2px -2px 5px ${colors.baseColor}`,
                         }}
                       >
                         {tokenomics.map((t, i) => (
@@ -226,9 +224,7 @@ const LatestWinner = () => {
                         style={{
                           borderRadius: "1rem",
                           background: colors.bgOne,
-                          boxShadow: `2px 2px 3px ${"black"}, -2px -2px 3px ${
-                            colors.baseColorTwo
-                          }`,
+                          boxShadow: `2px 2px 5px ${colors.baseColorTwo}, -2px -2px 5px ${colors.baseColor}`,
                         }}
                       >
                         {tax.map((t, i) => (
@@ -266,9 +262,7 @@ const LatestWinner = () => {
                         style={{
                           borderRadius: "1rem",
                           background: colors.bgOne,
-                          boxShadow: `2px 2px 3px ${"black"}, -2px -2px 3px ${
-                            colors.baseColorTwo
-                          }`,
+                          boxShadow: `2px 2px 5px ${colors.baseColorTwo}, -2px -2px 5px ${colors.baseColor}`,
                         }}
                       >
                         {utils.map((t, i) => (

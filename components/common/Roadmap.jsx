@@ -2,7 +2,6 @@ import Image from "next/image";
 import { useState } from "react";
 
 import roadmapData from "../../data/roadmap";
-import { colors } from "../../theme/color";
 import RoadMapCard from "../cards/RoadmapCard";
 import elon from "/public/images/roadmap.png";
 
@@ -24,7 +23,12 @@ const Roadmap = () => {
                 className="number-check-wrapper"
               >
                 <div style={{ display: "flex", justifyContent: "center" }}>
-                  <Image style={{ maxWidth: "80%" }} src={elon} alt="elon" />
+                  <Image
+                    className="neu_grad_img"
+                    style={{ maxWidth: "80%" }}
+                    src={elon}
+                    alt="elon"
+                  />
                 </div>
                 <div className="neu_grad">
                   <h2 className="tag">Our roadmap</h2>

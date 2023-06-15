@@ -1,4 +1,5 @@
 import Image from "next/image";
+import { colors } from "../../theme/color";
 import Child from "/public/images/child.png";
 import elon from "/public/images/elon_2.png";
 
@@ -11,33 +12,7 @@ const Util = () => {
           <h2 className="tag section-title">UTILITES</h2>
         </span>
       </h2>
-      <div className="gx-5 gy-5 align-items-center row">
-        <div className="col-12 col-xl-6">
-          <GradCard />
-        </div>
-        <div style={{ cursor: "pointer" }} className="col-12 col-xl-6">
-          <div
-            style={{
-              display: "flex",
-              padding: "4rem 0 0 0",
-              justifyContent: "center",
-              flexDirection: "column",
-              alignItems: "center",
-            }}
-          >
-            <Image
-              style={{
-                maxWidth: "420px",
-              }}
-              src={elon}
-              alt="elon"
-            />
-          </div>
-          <div className="neu_grad">
-            <h4 className="tag text-center">Mint now</h4>
-          </div>
-        </div>
-      </div>
+      <GradCard />
 
       <div className="row">
         <Charity />
@@ -129,32 +104,68 @@ const GradWinCard = () => {
 
 const GradCard = () => {
   return (
-    <div className="p-2 row util_card_gradient">
-      <div className="title">LIFETIME DRAW</div>
-      <div className="subtitle">Every Friday 3PM</div>
-      <div className="util_card_gradient_content col-12">
-        <div className="main_module_ul">
-          <div className="timer_tick">
-            <div className="tick">10</div>
-            <div className="timer">Days</div>
+    <div className="p-4 row util_card_gradient row">
+      <div className="col-12 col-lg-6">
+        <div className="title">LIFETIME DRAW</div>
+        <div className="subtitle">Every Friday 3PM</div>
+        <div className="util_card_gradient_content col-12">
+          <div className="main_module_ul">
+            <div className="timer_tick">
+              <div className="tick">10</div>
+              <div className="timer">Days</div>
+            </div>
+            <div className="timer_tick">
+              <div className="tick">8</div>
+              <div className="timer">Hours</div>
+            </div>
+            <div className="timer_tick">
+              <div className="tick">2</div>
+              <div className="timer">Minutes</div>
+            </div>
+            <div className="timer_tick">
+              <div className="tick">22</div>
+              <div className="timer">Seconds</div>
+            </div>
           </div>
-          <div className="timer_tick">
-            <div className="tick">8</div>
-            <div className="timer">Hours</div>
-          </div>
-          <div className="timer_tick">
-            <div className="tick">2</div>
-            <div className="timer">Minutes</div>
-          </div>
-          <div className="timer_tick">
-            <div className="tick">22</div>
-            <div className="timer">Seconds</div>
+
+          <div className="sub_module_ul">
+            <div className="bnb_value">22.82</div>
+            <div className="bnb">BNB</div>
           </div>
         </div>
-
-        <div className="sub_module_ul">
-          <div className="bnb_value">22.82</div>
-          <div className="bnb">BNB</div>
+      </div>
+      <div className="col-12 col-lg-6">
+        <div
+          style={{
+            marginTop: "2rem",
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            flexDirection: "column",
+          }}
+        >
+          <Image
+            style={{
+              maxWidth: "360px",
+              transform: "translateX(-10px)",
+              zIndex: 0,
+            }}
+            src={elon}
+            alt="elon"
+          />
+          <div
+            style={{
+              zIndex: 1,
+              borderRadius: "1rem",
+              background: colors.bgOne,
+              boxShadow: `2px 2px 5px ${colors.baseColorTwo}, -2px -2px 5px ${colors.baseColor}`,
+              padding: "1rem 2rem",
+              cursor: "pointer",
+              minWidth: "240px",
+            }}
+          >
+            <h4 className="tag text-center">Mint now</h4>
+          </div>
         </div>
       </div>
     </div>

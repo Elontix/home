@@ -256,6 +256,14 @@ const Hero = () => {
                 {`World's`} #1 Decentralized{" "}
                 <span>
                   <p className="main_txt_under_sub ">Meme lottery</p>{" "}
+                  {/* <span>
+                  <div class="text-animation">
+                    <div style={{ minWidth: "250px" }} class="text-wrapper">
+                      <h2>Meme lottery</h2>
+                      <h2>Meme lottery</h2>
+                    </div>
+                  </div>
+                </span>{" "} */}
                 </span>{" "}
                 platform.
               </p>

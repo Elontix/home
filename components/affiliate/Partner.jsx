@@ -14,7 +14,7 @@ const Board = (props) => {
         width: "80%",
         margin: "auto",
         color: colors.bgOne,
-        boxShadow: `2px 2px 5px black, -2px -2px 5px ${colors.baseColor}`,
+        boxShadow: `2px 2px 5px ${colors.baseColorTwo}, -2px -2px 5px ${colors.baseColor}`,
         borderRadius: "5rem",
       }}
     >
@@ -49,9 +49,9 @@ const Partner = () => {
             display: "flex",
             justifyContent: "center",
             alignItems: "center",
-            backgroundColor: "rgb(53, 40, 130)",
+            background: colors.bgOne,
             borderRadius: "4rem",
-            boxShadow: `2px 2px 3px ${colors.bgOne}, -2px -2px 3px #69227F`,
+            boxShadow: `2px 2px 5px ${colors.baseColorTwo}, -2px -2px 5px ${colors.baseColor}`,
           }}
         >
           <h2>
