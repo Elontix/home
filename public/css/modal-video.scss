@@ -2,9 +2,13 @@ $animation-speed: 0.3s;
 $animation-function: ease-out;
 $backdrop-color: rgba(51, 51, 51, 0.9);
 
+@import url("https://fonts.googleapis.com/css2?family=Josefin+Sans:wght@400;600;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Fredericka+the+Great&display=swap");
+
 $base-color: #ffb200;
 $base-color-two: #5a4bcc;
 $base-color-three: #c06ed8;
+$para-font: "Josefin Sans";
 
 // bg-color
 $bg-one: #0f0232;
@@ -343,9 +347,7 @@ $bg-two: #02014a;
 
 $color_1: #fff;
 $color_2: transparent;
-$font-family_1: "Nunito", sans-serif;
 
-@import "https://fonts.googleapis.com/css2?family=Nunito:wght@600&display=swap";
 @keyframes wave {
   /* start point */
   0%,
@@ -389,12 +391,7 @@ $font-family_1: "Nunito", sans-serif;
     transform: translateX(-50%) scaleY(1);
   }
 }
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: $font-family_1;
-}
+
 .text-animation {
   background: #000;
   display: flex;
@@ -404,6 +401,8 @@ $font-family_1: "Nunito", sans-serif;
 .text-wrapper {
   position: relative;
   h2 {
+    top: -40px;
+    width: 100%;
     z-index: 4;
     font-size: 24px;
     color: $color_1;
@@ -479,4 +478,278 @@ $font-family_1: "Nunito", sans-serif;
 }
 .third-image {
   background-size: 50% 140px;
+}
+
+.mcl {
+  width: -webkit-min-content;
+  width: -moz-min-content;
+  width: min-content;
+  margin: auto;
+  text-transform: uppercase;
+  background: linear-gradient(
+    219deg,
+    var(--color-1) 19%,
+    transparent 19%,
+    transparent 20%,
+    var(--color-2) 20%,
+    var(--color-2) 39%,
+    transparent 39%,
+    transparent 40%,
+    var(--color-3) 40%,
+    var(--color-3) 59%,
+    transparent 59%,
+    transparent 60%,
+    var(--color-4) 60%,
+    var(--color-4) 79%,
+    transparent 79%,
+    transparent 80%,
+    var(--color-5) 80%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+.main_txt {
+  color: white;
+  font-size: 1.5rem;
+
+  font-weight: 900;
+  text-align: center;
+  @media (min-width: 720px) {
+    font-size: 1.75rem;
+    margin: 0 0 1rem 0;
+  }
+}
+
+.main_txt_under {
+  margin: 1rem 0 0.5rem 0;
+  color: #ffb200;
+  font-weight: bold;
+  font-size: 2.5rem;
+  text-align: center;
+  line-height: 1;
+  @media (min-width: 720px) {
+    font-size: 3.3rem;
+  }
+  @media (min-width: 1330px) {
+    font-size: 4rem;
+  }
+}
+
+.main_txt_under_sub {
+  font-size: 1.3rem;
+  text-align: center;
+  margin: 0 0 1rem 0;
+
+  @media (min-width: 720px) {
+    font-size: 1.6rem;
+  }
+}
+
+:root {
+  --color-1: #186cb8;
+  --color-2: #2a9a9f;
+  --color-3: #f1b211;
+  --color-4: #e83611;
+  --color-5: #f9002f;
+}
+
+.gd_text {
+  font-weight: 900;
+  background: linear-gradient(
+    219deg,
+    var(--color-1) 19%,
+    transparent 19%,
+    transparent 20%,
+    var(--color-2) 20%,
+    var(--color-2) 39%,
+    transparent 39%,
+    transparent 40%,
+    var(--color-3) 40%,
+    var(--color-3) 59%,
+    transparent 59%,
+    transparent 60%,
+    var(--color-4) 60%,
+    var(--color-4) 79%,
+    transparent 79%,
+    transparent 80%,
+    var(--color-5) 80%
+  );
+  background-clip: text;
+  color: transparent;
+  -webkit-background-clip: text;
+}
+
+.tag {
+  color: $base-color;
+}
+
+//=== Drawing effect
+@mixin btn-border-drawing(
+  $color: #ccc,
+  $hover: black,
+  $width: 2px,
+  $vertical: top,
+  $horizontal: left,
+  $duration: 0.25s
+) {
+  box-shadow: inset 0 0 0 $width $color;
+  color: $color;
+  transition: color $duration $duration/3;
+  position: relative;
+
+  &::before,
+  &::after {
+    border: 0 solid transparent;
+    box-sizing: border-box;
+    content: "";
+    pointer-events: none;
+    position: absolute;
+    width: 0;
+    height: 0;
+    #{$vertical}: 0;
+    #{$horizontal}: 0;
+  }
+
+  &::before {
+    $h-side: if($horizontal == "left", "right", "left");
+    border-#{$vertical}-width: $width;
+    border-#{$h-side}-width: $width;
+  }
+
+  &::after {
+    $v-side: if($vertical == "top", "bottom", "top");
+    border-#{$v-side}-width: $width;
+    border-#{$horizontal}-width: $width;
+  }
+
+  &:hover {
+    color: $bg-one;
+    background: $base-color;
+  }
+
+  &::before,
+  &::after {
+    border-color: $hover;
+    transition: border-color 0s, width $duration, height $duration;
+    width: 100%;
+    height: 100%;
+  }
+
+  &::before {
+    transition-delay: 0s, 0s, $duration;
+  }
+
+  &::after {
+    transition-delay: 0s, $duration, 0s;
+  }
+}
+
+.draw-border {
+  @include btn-border-drawing(
+    $base-color,
+    $base-color-three,
+    3px,
+    bottom,
+    right
+  );
+}
+
+//=== Button styling, semi-ignore
+.btn_x {
+  background: #0f0232;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 1em 2em;
+  letter-spacing: 0.05rem;
+
+  &:focus {
+    outline: 2px dotted #55d7dc;
+  }
+}
+
+// Basic Button Style
+.btn_y {
+  box-sizing: border-box;
+  appearance: none;
+  background-color: transparent;
+  border: 2px solid $bg-one;
+  color: $base-color;
+  cursor: pointer;
+  display: flex;
+  align-self: center;
+  line-height: 1.5;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 1em 2em;
+  letter-spacing: 0.05rem;
+  text-align: center;
+
+  &:hover,
+  &:focus {
+    color: #fff;
+    outline: 0;
+  }
+}
+
+$red: #e74c3c;
+$blue: #3498db;
+
+//BUTTON 3
+.secondary {
+  border-color: $blue;
+  color: $base-color;
+  box-shadow: 0 0 40px 40px $bg-one inset, 0 0 0 0 $base-color;
+  transition: all 150ms ease-in-out;
+
+  &:hover {
+    box-shadow: 0 0 10px 0 $base-color-three inset, 0 0 10px 4px $base-color-two;
+  }
+}
+
+.elontix_img {
+  display: flex;
+  justify-content: center;
+  max-width: 320px;
+  align-items: center;
+  margin: 1rem auto 0 auto;
+}
+
+.elontix_img_hidden_b {
+  display: none;
+  @media (min-width: 1200px) {
+    display: flex;
+    justify-content: flex-end;
+    align-items: flex-end;
+  }
+}
+
+.elontix_img_hidden_t {
+  display: flex;
+  @media (min-width: 1200px) {
+    display: none;
+  }
+}
+
+.btn_grp {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  column-gap: 2rem;
+  row-gap: 2rem;
+  @media (min-width: 1200px) {
+    flex-direction: row;
+  }
+}
+
+.partner_text {
+  font-size: 1rem;
+  @media (min-width: 1200px) {
+    font-size: 1.4rem;
+  }
 }

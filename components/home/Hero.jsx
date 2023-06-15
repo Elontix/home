@@ -255,7 +255,15 @@ const Hero = () => {
               <p style={{ color: "white" }} className="main_txt_under_sub">
                 {`World's`} #1 Decentralized{" "}
                 <span>
-                  <p className="main_txt_under_sub ">Meme lottery</p>{" "}
+                  {/* <p className="main_txt_under_sub ">Meme lottery</p>{" "} */}
+                  <div>
+                    <div class="text-animation">
+                      <div class="text-wrapper">
+                        <h2>Meme lottery</h2>
+                        <h2>Meme lottery</h2>
+                      </div>
+                    </div>
+                  </div>
                   {/* <span>
                   <div class="text-animation">
                     <div style={{ minWidth: "250px" }} class="text-wrapper">

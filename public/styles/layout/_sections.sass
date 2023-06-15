@@ -130,19 +130,15 @@
   position: absolute 
   top: 0
   right: 0
-  opacity: 0.3
   text-align: right
   z-index: -1 
   @media (max-width: 575px)
     display: none
   img 
-    max-height: 540px
-    object-fit: cover
-    object-position: center top
     @media (max-width: 1199px)
-      width: 100%
+      width: 60%
     @media (max-width: 767px)
-      width: 100%
+      width: 45%
 .play-card
   padding: 30px 25px
   +border-radius(10px)
@@ -820,7 +816,7 @@
       width: 100%
       justify-content: center
   &__content
-    width: 100%
+    width: 70%
     position: relative
     @media (max-width: 767px)
       width: 100%
@@ -842,7 +838,7 @@
       border-bottom: 1px solid #c4a1f8
       +d-flex
       @media (max-width: 767px) 
-        padding: 25px 20px 20px 20px
+        padding: 65px 20px 20px 20px
       .left
         width: 50%
         padding-right: 50px
@@ -860,7 +856,7 @@
         span 
           color: #27ff5a
     .content-bottom
-      padding: 20px 20px 20px 20px
+      padding: 30px 30px 30px 50px
       +d-flex
       @media (max-width: 767px)
         text-align: center
@@ -3808,6 +3804,3 @@
         margin-left: 6px
         font-size: 32px
 /* error-section end */
-
-.tag
-  color: $base-color
