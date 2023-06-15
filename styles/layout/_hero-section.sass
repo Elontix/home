@@ -491,39 +491,7 @@
  &:focus 
   outline: 2px dotted #55d7dc
 
-.util_card_gradient
-  display:flex
-  padding: 1rem 2rem
-  border-radius: 1rem
-  align-items:center
-  flex-direction: row 
-  justify-center:center
-  background-image: linear-gradient(to right bottom, #c06ed8, #8c53ad, #5d3883, #321f59, #0f0232)
-  box-shadow: -2px -2px 5px $base-color-three, 2px 2px 5px $bg-one 
-
-  .timer_tick
-    display:flex
-    flex-direction:column
-    justify-content:center
-    align-items:center
-    row-gap:1rem
-    text-align:center
-    .timer
-      color: $base-color
-      text-align:center
-    .tick
-      text-align: center
-      background: $bg-one
-      min-width:64px
-      max-width:64px
-      min-height:64px
-      max-height:64px
-      border-radius:6px
-      color:$base-color
-      font-size:42px
-
-
-// Basic Button Style
+  // Basic Button Style
 .btn_y
   box-sizing: border-box
   appearance: none
@@ -558,4 +526,36 @@
 
 
 
+.elontix_img
+  display: flex
+  justify-content: center 
+  max-width: 320px
+  align-items: center
+  margin: 1rem auto 0 auto
 
+.elontix_img_hidden_b
+  display: none
+  @media (min-width: 1200px)
+    display: flex
+    justify-content: flex-end
+    align-items: flex-end
+
+.elontix_img_hidden_t
+  display: flex 
+  @media (min-width: 1200px)
+    display: none
+
+.btn_grp
+  display: flex
+  flex-direction: column
+  align-items: center
+  justify-content: center
+  column-gap: 2rem
+  row-gap: 2rem
+  @media (min-width: 1200px)
+    flex-direction: row
+
+.partner_text
+  font-size: 1rem
+  @media (min-width: 1200px)
+    font-size: 1.4rem

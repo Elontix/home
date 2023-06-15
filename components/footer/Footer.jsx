@@ -1,5 +1,6 @@
-import Image from "next/image";
 import Link from "next/link";
+import Image from "next/image";
+
 import {
   FaTwitter,
   FaTelegram,
@@ -8,10 +9,10 @@ import {
   FaDiscord,
   FaMedium,
 } from "react-icons/fa";
+
+import elon from "/public/images/logo.webp";
 import round_shape_2 from "/public/images/elements/round-shape-2.png";
-import store_btn_1 from "/public/images/icon/store-btn/1.png";
-import store_btn_2 from "/public/images/icon/store-btn/2.png";
-import elon from "/public/images/elon.png";
+
 import { colors } from "../../theme/color";
 
 const Footer = () => {
@@ -44,75 +45,100 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="container" style={{ paddingTop: "3rem" }}>
-        <div className="row">
-          <div className="col-lg-4">
-            <Image style={{ maxWidth: "360px" }} src={elon} alt="elon" />
-          </div>
+      <div className="container" style={{ padding: "3rem 0" }}>
+        <div className="pt-120 row">
           <div
-            className="col-lg-8"
             style={{
               display: "flex",
-              flexDirection: "column",
-              alignItems: "flex-end",
-              justifyContent: "flex-end",
+              justifyContent: "center",
+              alignSelf: "center",
+            }}
+            className="col-lg-4"
+          >
+            <Image
+              className="footer_img"
+              style={{
+                margin: 0,
+                maxWidth: "360px",
+              }}
+              src={elon}
+              alt="elon"
+            />
+          </div>
+          <div
+            className="col-lg-4"
+            style={{
+              display: "flex",
+              flexDirection: "row",
+              alignItems: "center",
+              justifyContent: "center",
               rowGap: "2rem",
             }}
           >
-            <ul className="short-links justify-content-lg-end justify-content-center">
-              <li>
+            <div className="row">
+              <ul
+                className="short-links justify-content-lg-end justify-content-center"
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  flexDirection: "column",
+                }}
+              >
                 <Link style={{ color: colors.baseColor }} href="/#">
                   ElonTix
                 </Link>
-              </li>
-              <li>
                 <Link style={{ color: colors.baseColor }} href="/#">
                   Partners
                 </Link>
-              </li>
-              <li>
                 <Link style={{ color: colors.baseColor }} href="/#">
                   Whitepaper
                 </Link>
-              </li>
-              <li>
                 <Link style={{ color: colors.baseColor }} href="/#">
                   Roadmap
                 </Link>
-              </li>
-              <li>
                 <Link style={{ color: colors.baseColor }} href="/#">
                   Tokenomics
                 </Link>
-              </li>
-            </ul>
-
-            <div
-              style={{ columnGap: "1rem" }}
-              className="social-links justify-content-lg-end justify-content-center"
-            >
-              <Link href="/#">
-                <FaTelegram size={32} />
-              </Link>
-              <Link href="/#">
-                <FaTwitter size={32} />
-              </Link>
-              <Link href="/#">
-                <FaDiscord size={32} />
-              </Link>
-              <Link href="/#">
-                <FaInstagram size={32} />
-              </Link>
-              <Link href="/#">
-                <FaReddit size={32} />
-              </Link>
-              <Link href="/#">
-                <FaMedium size={32} />
-              </Link>
+              </ul>
             </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              alignItems: "flex-end",
+              flexDirection: "column",
+              rowGap: "2rem",
+            }}
+            className="col-4"
+          >
+            <div className="social-links justify-content-center">
+              <div
+                style={{ columnGap: "1rem" }}
+                className="social-links justify-content-lg-end justify-content-center"
+              >
+                <Link href="/#">
+                  <FaTelegram size={32} />
+                </Link>
+                <Link href="/#">
+                  <FaTwitter size={32} />
+                </Link>
+                <Link href="/#">
+                  <FaDiscord size={32} />
+                </Link>
+                <Link href="/#">
+                  <FaInstagram size={32} />
+                </Link>
+                <Link href="/#">
+                  <FaReddit size={32} />
+                </Link>
+                <Link href="/#">
+                  <FaMedium size={32} />
+                </Link>
+              </div>
 
-            <div className="pb-5 social-links justify-content-lg-end justify-content-center">
-              <p className="copy-right-text text-lg-start text-center mb-lg-0 mb-3">
+              <p className="py-4 copy-right-text text-lg-start text-center mb-lg-0 mb-3">
                 Copyright © 2023.All Rights Reserved By{" "}
                 <Link style={{ color: colors.baseColor }} href="/">
                   Elontix

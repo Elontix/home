@@ -35,7 +35,12 @@ const Marketing = () => {
             <div className="client-wrapper">
               <h2 className="client-wrapper__title">
                 OUR GLOBAL{" "}
-                <span className="client-wrapper__title tag">MARKETING</span>{" "}
+                <span
+                  style={{ padding: 0, margin: 0 }}
+                  className="client-wrapper__title tag"
+                >
+                  MARKETING
+                </span>{" "}
                 PARTNERS
               </h2>
               <div className="client-slider">

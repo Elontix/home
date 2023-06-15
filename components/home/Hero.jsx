@@ -14,7 +14,6 @@ import _bg from "/public/images/life.png";
 import VedioModal from "../vedioModal/VedioModal";
 
 import { useState } from "react";
-import { FaPlay } from "react-icons/fa";
 import { colors } from "../../theme/color";
 
 import { motion } from "framer-motion";
@@ -125,7 +124,7 @@ const Hero = () => {
                 display: "flex",
                 alignSelf: "center",
                 justifyContent: "center",
-                maxWidth: "380px",
+                maxWidth: "320px",
               }}
               src={ticket}
               alt="image"
@@ -256,29 +255,15 @@ const Hero = () => {
               <p style={{ color: "white" }} className="main_txt_under_sub">
                 {`World's`} #1 Decentralized{" "}
                 <span>
-                  <p
-                    className="main_txt_under_sub tag"
-                    style={{
-                      textShadow: `2px 2px 5px ${colors.baseColorTwo}`,
-                    }}
-                  >
-                    Meme lottery
-                  </p>{" "}
+                  <p className="main_txt_under_sub animate_ml">Meme lottery</p>{" "}
                 </span>{" "}
                 platform.
               </p>
-              <div
-                style={{
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                  columnGap: "2rem",
-                }}
-              >
-                <Link href="/contest" class="btn_x draw-border">
+              <div className="btn_grp">
+                <Link href="/contest" className="btn_x draw-border">
                   Participate Now
                 </Link>
-                <Link href="/contest" class="btn_y secondary">
+                <Link href="/contest" className="btn_y secondary">
                   Participate Now
                 </Link>
               </div>

@@ -1,12 +1,27 @@
 import { colors } from "../../theme/color";
+import {
+  MdOutlineDoneOutline,
+  MdOutlinePending,
+  MdOutlineWatchLater,
+} from "react-icons/md";
 
 const RoadmapCard = ({ roadmap, index }) => {
   const { title, works, status } = roadmap;
   function bgReturn(s) {
-    if (s === "IN_PROGRESS") return "#C06ED8";
-    if (s === "DONE") return "#C06ED8";
-    if (s === "LATER") return "white";
+    if (s === "IN_PROGRESS") return "#FFE162";
+    if (s === "DONE") return "#91C483";
+    if (s === "LATER") return "#EEEEEE";
   }
+
+  function iconReturs(s) {
+    if (s === "IN_PROGRESS")
+      return <MdOutlinePending size={64} color={"#FFE162"} />;
+    if (s === "DONE")
+      return <MdOutlineDoneOutline size={64} color={"#91C483"} />;
+    if (s === "LATER")
+      return <MdOutlineWatchLater size={64} color={"#EEEEEE"} />;
+  }
+
   return (
     <div
       style={{
@@ -19,7 +34,16 @@ const RoadmapCard = ({ roadmap, index }) => {
       className="winner-card mb-30"
     >
       <div className="winner-card__content">
-        <div className="content-top">
+        <div
+          style={{
+            display: "flex",
+            alignItems: "center",
+            columnGap: "1rem",
+            padding: "1rem 1rem",
+          }}
+          className="content-top"
+        >
+          {iconReturs(status)}
           <h3>
             Phase {index + 1}
             {"\u00A0"}-{"\u00A0"}
@@ -42,9 +66,9 @@ const RoadmapCard = ({ roadmap, index }) => {
                 style={{
                   padding: ".5rem",
                   margin: ".2rem",
-                  background: colors.baseColorTwo,
+                  background: bgReturn(status),
                   borderRadius: ".3rem",
-                  color: "white",
+                  color: colors.bgOne,
                 }}
               >
                 {s}

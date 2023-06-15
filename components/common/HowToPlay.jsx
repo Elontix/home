@@ -1,10 +1,8 @@
 import Image from "next/image";
-import { colors } from "../../theme/color";
-import play_el from "/public/images/elements/play-el.png";
 import play_1 from "/public/images/icon/play/1.png";
 import play_2 from "/public/images/icon/play/2.png";
 import play_3 from "/public/images/icon/play/3.png";
-import play_bg from "/public/images/bg/contest-bg.jpg";
+import play_bg from "/public/images/bg_3.jpeg";
 
 const HowToPlay = () => {
   return (
@@ -17,19 +15,12 @@ const HowToPlay = () => {
           <div className="col-lg-12 text-sm-start text-center">
             <div className="section-header">
               <h2 className="section-title"></h2>
-              <h1 style={{ textAlign: "center" }}>
-                How
-                {"\u00A0"}
-                <span>
-                  <h1 className="tag">Elontix</h1>
-                </span>{" "}
-                works?
-              </h1>
+              <h1 style={{ textAlign: "center" }}>How Elontix works?</h1>
               <p
                 style={{
-                  color: colors.baseColor,
                   textAlign: "center",
                   paddingBottom: "6rem",
+                  fontWeight: "bolder",
                 }}
               >
                 Follow these 4 easy steps!{" "}

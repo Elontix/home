@@ -1,7 +1,27 @@
 import Image from "next/image";
 import { affiliate_partner } from "../../data/affiliate";
 import { colors } from "../../theme/color";
-import elon_1 from "/public/images/elon.png";
+
+import elon_1 from "/public/images/elon_1.webp";
+import elon_2 from "/public/images/elon_3.webp";
+
+const Board = (props) => {
+  return (
+    <div
+      style={{
+        background: colors.bgOne,
+        minHeight: "80px",
+        width: "80%",
+        margin: "auto",
+        color: colors.bgOne,
+        boxShadow: `2px 2px 5px black, -2px -2px 5px ${colors.baseColor}`,
+        borderRadius: "5rem",
+      }}
+    >
+      x
+    </div>
+  );
+};
 
 const Partner = () => {
   return (
@@ -49,30 +69,28 @@ const Partner = () => {
         </div>
       </div>
 
-      <section style={{ padding: "6rem 0 0 0" }} className="position-relative">
+      <section style={{ padding: "8rem 0 0 0" }} className="position-relative">
         <div className="container pt-120">
           <div className="row justify-content-center">
             <div className="col-lg-12">
               <h1 style={{ textAlign: "center" }}>
                 What is{" "}
-                <span className="tag">
-                  <h1>Elontix?</h1>
+                <span>
+                  <h1 className="tag">Elontix?</h1>
                 </span>{" "}
               </h1>
             </div>
             <div className="pb-120">
-              <div style={{ alignItems: "center" }} className="row p-4">
-                <div className="col-6">
-                  <Image
-                    style={{ maxWidth: "380px" }}
-                    src={elon_1}
-                    alt="elon"
-                  />
-                </div>
-                <div className="col-6">
+              <div
+                style={{ alignItems: "center" }}
+                className="row p-4 gx-5 gy-5"
+              >
+                <div className="col-12 col-xl-6">
                   <p
+                    className="partner_text"
                     style={{
                       color: "white",
+                      textAlign: "left",
                     }}
                   >
                     Elontix is an innovative NFT-based blockchain lottery
@@ -88,12 +106,39 @@ const Partner = () => {
                     experience.
                   </p>
                 </div>
+                <div className="col-12 col-xl-6">
+                  <div className="elon_parent">
+                    <Image
+                      className="elontix_img elon_image2"
+                      src={elon_2}
+                      alt="elon"
+                    />
+                    <Image
+                      className="elontix_img elon_image1"
+                      src={elon_2}
+                      alt="elon"
+                    />
+                  </div>
+                  <Board />
+                </div>
               </div>
               <div style={{ alignItems: "center" }} className="row p-4">
-                <div className="col-6">
+                <div className="col-12 col-xl-6">
+                  <Image
+                    style={{ transform: "scaleX(-1)" }}
+                    className="elontix_img elontix_img_hidden_b"
+                    src={elon_1}
+                    alt="elon"
+                  />
+                  <Board />
+                </div>
+
+                <div className="col-12 col-xl-6 gy=5">
                   <p
+                    className="partner_text"
                     style={{
                       color: "white",
+                      textAlign: "right",
                     }}
                   >
                     Just as Musk envisions a future of sustainable energy and
@@ -106,12 +151,11 @@ const Partner = () => {
                     pushing boundaries and challenging conventional norms.
                   </p>
                 </div>
-                <div
-                  style={{ justifyContent: "flex-end", display: "flex" }}
-                  className="col-6"
-                >
+
+                <div className="col-12 col-xl-0">
                   <Image
-                    style={{ maxWidth: "380px" }}
+                    style={{ transform: "scaleX(-1)" }}
+                    className="elontix_img elontix_img_hidden_t"
                     src={elon_1}
                     alt="elon"
                   />

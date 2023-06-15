@@ -2,6 +2,30 @@ $animation-speed: 0.3s;
 $animation-function: ease-out;
 $backdrop-color: rgba(51, 51, 51, 0.9);
 
+$base-color: #ffb200;
+$base-color-two: #5a4bcc;
+$base-color-three: #c06ed8;
+
+// bg-color
+$bg-one: #0f0232;
+$bg-two: #02014a;
+
+@keyframes animate_ml {
+  0% {
+    background-color: #ffb200;
+    color: #0f0232;
+  }
+  50% {
+    background-color: #c06ed8;
+  }
+}
+
+.animate_ml {
+  animation: animate_ml 1s alternate infinite ease-in;
+  padding: 0 1rem;
+  border-radius: 0.2rem;
+}
+
 @keyframes modal-video {
   from {
     opacity: 0;
@@ -133,5 +157,141 @@ $backdrop-color: rgba(51, 51, 51, 0.9);
 
   &:after {
     transform: rotate(-45deg);
+  }
+}
+
+.util_card_gradient {
+  display: flex;
+  padding: 1rem;
+  border-radius: 1rem;
+  align-items: center;
+  flex-direction: row;
+  justify-content: center;
+  background-image: linear-gradient(
+    to right bottom,
+    #c06ed8,
+    #8c53ad,
+    #5d3883,
+    #321f59,
+    #0f0232
+  );
+  box-shadow: -2px -2px 5px $base-color-three, 2px 2px 5px $bg-one;
+
+  .title {
+    text-align: center;
+    font-size: 1.4rem;
+    font-weight: bold;
+    color: $base-color;
+    @media (min-width: 1200px) {
+      font-size: 3rem;
+    }
+  }
+
+  .subtitle {
+    font-size: 1.2rem;
+    color: white;
+    text-align: center;
+    @media (min-width: 1200px) {
+      font-size: 2.4rem;
+    }
+  }
+}
+
+.bnb_value {
+  font-size: 2rem;
+  color: $base-color;
+  @media (min-width: 1200px) {
+    font-size: 4rem;
+  }
+}
+.bnb {
+  font-size: 1.5rem;
+  color: white;
+  @media (min-width: 1200px) {
+    font-size: 3rem;
+  }
+}
+
+.timer_tick {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  row-gap: 1rem;
+  text-align: center;
+  .timer {
+    color: $base-color;
+    text-align: center;
+    font-size: 0.8rem;
+  }
+  .tick {
+    text-align: center;
+    background: $bg-one;
+    min-width: 48px;
+    max-width: 48px;
+    min-height: 48px;
+    max-height: 48px;
+    border-radius: 6px;
+    color: $base-color;
+    font-size: 32px;
+    margin: 1rem 0 0 0;
+    @media (min-width: 1200px) {
+      min-width: 72px;
+      max-width: 72px;
+      min-height: 72px;
+      max-height: 72px;
+      font-size: 48px;
+    }
+  }
+}
+
+.main_module_ul {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  justify-content: center;
+  column-gap: 1rem;
+}
+.sub_module_ul {
+  margin: 1rem 0 0 0;
+  display: flex;
+  justify-content: space-between;
+}
+
+.tick_w {
+  background: $bg-one;
+  border-radius: 4rem;
+  color: $base-color;
+  font-size: 26px;
+  min-height: 48px;
+  max-height: 48px;
+  min-width: 48px;
+  max-width: 48px;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.elon_parent {
+  position: relative;
+  top: 0;
+  left: 0;
+}
+.elon_image1 {
+  position: relative;
+}
+.elon_image2 {
+  position: absolute;
+  left: 140px;
+  top: -12px;
+  z-index: 1000;
+  opacity: 0.3;
+  animation: elon_animate 200ms ease-in-out infinite;
+}
+
+@keyframes elon_animate {
+  50% {
+    transform: scale(1.02) translateX(-1px) translateY(-4px);
   }
 }

@@ -1,41 +1,66 @@
 import Image from "next/image";
-import { colors } from "../../theme/color";
-import Child from "/public/images/child.jpg";
+import Child from "/public/images/child.png";
+import elon from "/public/images/elon_2.webp";
 
 const Util = () => {
   return (
-    <div className="container pt-120 pb-120">
+    <div className="container p-4 pt-120 pb-120">
       <h2 style={{ textAlign: "center" }} className="section-title py-4">
         OUR{" "}
         <span>
           <h2 className="tag section-title">UTILITES</h2>
         </span>
       </h2>
-      <div className="gx-5 row">
-        <div className="col-6">
+      <div className="gx-5 gy-5 align-items-center row">
+        <div className="col-12 col-xl-6">
           <GradCard />
         </div>
-        <div className="col-6">
-          <GradCard />
+        <div className="col-12 col-xl-6">
+          <div
+            style={{
+              display: "flex",
+              padding: "4rem 0 0 0",
+              justifyContent: "center",
+              flexDirection: "column",
+              alignItems: "center",
+              cursor: "pointer",
+            }}
+          >
+            <Image
+              style={{
+                maxWidth: "420px",
+              }}
+              src={elon}
+              alt="elon"
+            />
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              paddingBottom: "1rem",
+              width: "100%",
+            }}
+          >
+            <button style={{ width: "100%" }} className="cmn-btn">
+              Mint now
+            </button>
+          </div>
         </div>
       </div>
-      <div
-        style={{ display: "flex", padding: "4rem 0", justifyContent: "center" }}
-      >
-        <button className="cmn-btn">Discover more</button>
-      </div>
-      <div className="pb-120 row">
+
+      <div className="row">
         <Charity />
       </div>
 
-      <div className="gx-5 row">
-        <div className="col-6">
+      {/* <div className="gx-5 gy-5 row">
+        <div className="col-12 col-xl-6">
           <GradWinCard />
         </div>
-        <div className="col-6">
+        <div className="col-12 col-xl-6">
           <GradCard />
         </div>
-      </div>
+      </div> */}
     </div>
   );
 };
@@ -44,59 +69,16 @@ export default Util;
 
 const Charity = () => {
   return (
-    <div className="container" style={{ position: "relative" }}>
-      <div
-        className="p-4"
-        style={{
-          position: "absolute",
-        }}
-      >
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-between",
-            alignItems: "center",
-            flexDirection: "row",
-          }}
-        >
-          <div>
-            <div
-              style={{
-                fontSize: "2rem",
-                fontWeight: "bold",
-                color: colors.baseColor,
-              }}
-            >
-              OUR CHARITY PARTNER
-            </div>
-            <div
-              style={{ fontWeight: "bold", fontSize: "1.2rem", color: "white" }}
-            >
-              Part of our minting fees will be donated to children impacted
-            </div>
-            <div
-              style={{ fontWeight: "bold", fontSize: "1.2rem", color: "white" }}
-            >
-              by conflict through our partner charity INARA
-            </div>
-          </div>
-          <div
-            style={{
-              fontSize: "2rem",
-              fontWeight: "bold",
-              color: colors.baseColor,
-            }}
-          >
-            Logo
-          </div>
-        </div>
-      </div>
+    <div className="container " style={{ position: "relative" }}>
       <Image
         style={{
-          height: "20vh",
-          backgroundSize: "cover",
-          objectFit: "cover",
+          backgroundSize: "contain",
+          objectFit: "contain",
+          objectPosition: "center bottom",
           margin: "auto",
+          borderRadius: "1rem",
+          maxHeight: "256px",
+          minHeight: "256px",
         }}
         alt="child"
         src={Child}
@@ -118,15 +100,7 @@ const GradWinCard = () => {
         }}
       >
         <div>
-          <div
-            style={{
-              fontSize: "1.6rem",
-              fontWeight: "bold",
-              color: colors.baseColor,
-            }}
-          >
-            LIFETIME DRAW WINNING NUMBERS
-          </div>
+          <div className="title">LIFETIME DRAW WINNING NUMBERS</div>
           <p>Sat Jun 10 2023</p>
         </div>
         <div
@@ -144,28 +118,11 @@ const GradWinCard = () => {
               justifyContent: "space-evenly",
               alignItems: "center",
               justifyContent: "center",
-              columnGap: "1rem",
+              columnGap: ".8rem",
             }}
           >
             {[1, 2, 4, 5, 6].map((s, i) => (
-              <div
-                style={{
-                  background: colors.bgOne,
-                  borderRadius: "4rem",
-                  color: colors.baseColor,
-                  fontSize: "42px",
-                  minHeight: "64px",
-                  maxHeight: "64px",
-                  minWidth: "64px",
-                  maxWidth: "64px",
-                  textAlign: "center",
-                  display: "flex",
-                  alignItems: "center",
-                  justifyContent: "center",
-                }}
-                key={i}
-                className="tick_w"
-              >
+              <div key={i} className="tick_w">
                 {s}
               </div>
             ))}
@@ -182,45 +139,11 @@ const GradWinCard = () => {
 
 const GradCard = () => {
   return (
-    <div className="p-4 row util_card_gradient">
-      <div className="row col-6">
-        <div style={{ fontSize: "1.4rem", color: colors.baseColor }}>
-          LIFETIME DRAW
-        </div>
-        <div
-          style={{
-            lineHeight: "1",
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "column",
-            alignItems: "start",
-          }}
-        >
-          <div style={{ fontSize: "4rem", color: colors.baseColor }}>22.82</div>
-          <div style={{ fontSize: "2rem", color: colors.baseColor }}>ETH</div>
-        </div>
-      </div>
-
-      <div
-        style={{
-          rowGap: "1rem",
-          display: "flex",
-          flexDirection: "column",
-        }}
-        className="col-6"
-      >
-        <div style={{ fontSize: "1.4rem", color: "white" }}>
-          Every Friday 3PM ET
-        </div>
-        <div
-          style={{
-            display: "flex",
-            justifyContent: "space-evenly",
-            alignItems: "center",
-            justifyContent: "center",
-            columnGap: "1rem",
-          }}
-        >
+    <div className="p-2 row util_card_gradient">
+      <div className="title">LIFETIME DRAW</div>
+      <div className="subtitle">Every Friday 3PM</div>
+      <div className="util_card_gradient_content col-12">
+        <div className="main_module_ul">
           <div className="timer_tick">
             <div className="tick">10</div>
             <div className="timer">Days</div>
@@ -238,8 +161,10 @@ const GradCard = () => {
             <div className="timer">Seconds</div>
           </div>
         </div>
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <button className="cmn-btn">Mint now</button>
+
+        <div className="sub_module_ul">
+          <div className="bnb_value">22.82</div>
+          <div className="bnb">BNB</div>
         </div>
       </div>
     </div>
