@@ -1,7 +1,4 @@
 import Image from "next/image";
-import { useState } from "react";
-import winnerData from "../../data/winnerData";
-import Logo from "/public/images/main.webp";
 import { colors } from "../../theme/color";
 import { BsStars } from "react-icons/bs";
 import { FaBurn, FaCrown, FaHandPeace } from "react-icons/fa";

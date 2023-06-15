@@ -8,7 +8,7 @@ import elon from "/public/images/roadmap.png";
 const Roadmap = () => {
   const [roadmap, setRoadmap] = useState(roadmapData);
   return (
-    <section className="latest-winner-section position-relative pt-120 pb-120">
+    <section className="latest-winner-section position-relative pt-120">
       <div className="container">
         <div className="row justify-content-center">
           <div className="col-lg-8">
