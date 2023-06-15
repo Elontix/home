@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Child from "/public/images/child.png";
-import elon from "/public/images/elon_2.webp";
+import elon from "/public/images/elon_2.png";
 
 const Util = () => {
   return (
