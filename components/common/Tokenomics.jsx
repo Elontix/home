@@ -6,6 +6,7 @@ import { colors } from "../../theme/color";
 import { BsStars } from "react-icons/bs";
 import { FaBurn, FaCrown, FaHandPeace } from "react-icons/fa";
 import { TokenChart } from "./TokenChart";
+import elon from "/public/images/token.png";
 
 const TickColor = (props) => (
   <div
@@ -115,7 +116,11 @@ const LatestWinner = () => {
               >
                 <div className="row mb-none-30">
                   <div className="col-lg-4 mb-30">
-                    <div className="number-check-wrapper">
+                    <div
+                      style={{ background: "none" }}
+                      className="number-check-wrapper"
+                    >
+                      <Image className="py-5" src={elon} alt="elon" />
                       <h4
                         style={{
                           color: colors.baseColor,

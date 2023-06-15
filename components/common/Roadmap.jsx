@@ -1,8 +1,10 @@
+import Image from "next/image";
 import { useState } from "react";
 
 import roadmapData from "../../data/roadmap";
 import { colors } from "../../theme/color";
 import RoadMapCard from "../cards/RoadmapCard";
+import elon from "/public/images/roadmap.png";
 
 const Roadmap = () => {
   const [roadmap, setRoadmap] = useState(roadmapData);
@@ -17,7 +19,11 @@ const Roadmap = () => {
         <div className="row">
           <div className="row mb-none-30">
             <div className="col-lg-4 mb-30">
-              <div className="number-check-wrapper">
+              <div
+                style={{ background: "none" }}
+                className="number-check-wrapper"
+              >
+                <Image className="py-5" src={elon} alt="elon" />
                 <h4
                   style={{
                     color: colors.baseColor,

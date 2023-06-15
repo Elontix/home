@@ -279,7 +279,7 @@ const Hero = () => {
               paddingTop: "2rem",
             }}
           >
-            <Image src={elon} alt="image" />
+            <Image style={{ maxWidth: "420px" }} src={elon} alt="image" />
           </div>
         </div>
       </section>
