@@ -39,21 +39,7 @@ const Partner = () => {
           alignItems: "center",
         }}
       >
-        <div
-          style={{
-            position: "absolute",
-            zIndex: 999,
-            top: "0%",
-            padding: "2rem",
-            textAlign: "center",
-            display: "flex",
-            justifyContent: "center",
-            alignItems: "center",
-            background: colors.bgOne,
-            borderRadius: "4rem",
-            boxShadow: `2px 2px 5px ${colors.baseColorTwo}, -2px -2px 5px ${colors.baseColor}`,
-          }}
-        >
+        <div style={{}} className="hero_bottom_banner">
           <h2>
             {`" `}
             <span>
@@ -108,7 +94,11 @@ const Partner = () => {
                 </div>
                 <div className="col-12 col-xl-6">
                   <div className="elon_parent">
-                    <Image className="elontix_img" src={elon_2} alt="elon" />
+                    <Image
+                      className="elontix_img partner_image"
+                      src={elon_2}
+                      alt="elon"
+                    />
                   </div>
                   <Board />
                 </div>
@@ -117,7 +107,7 @@ const Partner = () => {
                 <div className="col-12 col-xl-6">
                   <Image
                     style={{ transform: "scaleX(-1)" }}
-                    className="elontix_img elontix_img_hidden_b"
+                    className="elontix_img elontix_img_hidden_b partner_image"
                     src={elon_1}
                     alt="elon"
                   />
@@ -148,7 +138,7 @@ const Partner = () => {
                 <div className="col-12 col-xl-0">
                   <Image
                     style={{ transform: "scaleX(-1)" }}
-                    className="elontix_img elontix_img_hidden_t"
+                    className="elontix_img elontix_img_hidden_t partner_image"
                     src={elon_1}
                     alt="elon"
                   />

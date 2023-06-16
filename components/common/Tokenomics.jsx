@@ -20,6 +20,7 @@ const TickColor = (props) => (
 const ChartText = (props) => {
   return (
     <div
+      className="tokenomics_card_text"
       style={{
         width: "100%",
         background: colors.baseColorTwo,
@@ -97,11 +98,6 @@ const LatestWinner = () => {
   return (
     <section className="px-1 latest-winner-section position-relative pt-120 pb-120">
       <div className="container">
-        <div className="row justify-content-center">
-          <div className="col-lg-8">
-            <div className="section-header text-center"></div>
-          </div>
-        </div>
         <div className="row">
           <div className="col-lg-12">
             <div className="tab-content mt-50" id="winnerTabContent">
@@ -161,10 +157,10 @@ const LatestWinner = () => {
                             }}
                             key={i}
                           >
-                            <h4>{t.label}</h4>
-                            <h5 style={{ color: colors.baseColor }}>
+                            <h5>{t.label}</h5>
+                            <h6 style={{ color: colors.baseColor }}>
                               {t.value}
-                            </h5>
+                            </h6>
                           </div>
                         ))}
                       </div>

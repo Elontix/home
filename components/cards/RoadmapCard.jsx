@@ -62,6 +62,7 @@ const RoadmapCard = ({ roadmap, index }) => {
               key={i}
             >
               <div
+                className="roadmap_card_text"
                 style={{
                   boxShadow: `3px 3px 6px ${colors.baseColorTwo}, -3px -3px 6px black`,
                   border: `1px solid black`,

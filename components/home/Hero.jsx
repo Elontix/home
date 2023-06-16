@@ -81,10 +81,25 @@ const Hero = () => {
           }}
           className="hero__obj"
         >
-          <Image style={{ marginTop: "400px" }} src={hero_2_e4} alt="image" />
+          <Image
+            className="hero__obj_h"
+            style={{ marginTop: "400px" }}
+            src={hero_2_e4}
+            alt="image"
+          />
           <Image src={hero_2_e3} alt="image" />
-          <Image style={{ marginTop: "300px" }} src={hero_2_e3} alt="image" />
-          <Image style={{ marginTop: "-100px" }} src={hero_2_e3} alt="image" />
+          <Image
+            className="hero__obj_h"
+            style={{ marginTop: "300px" }}
+            src={hero_2_e3}
+            alt="image"
+          />
+          <Image
+            className="hero__obj_h"
+            style={{ marginTop: "-100px" }}
+            src={hero_2_e3}
+            alt="image"
+          />
         </div>
 
         <div
@@ -98,14 +113,49 @@ const Hero = () => {
           }}
           className="hero__obj"
         >
-          <Image style={{ marginTop: "400px" }} src={e} alt="image" />
-          <Image style={{ marginTop: "-400px" }} src={e} alt="image" />
+          <Image
+            className="hero__obj_h"
+            style={{ marginTop: "400px" }}
+            src={e}
+            alt="image"
+          />
+          <Image
+            className="hero__obj_h"
+            style={{ marginTop: "-400px" }}
+            src={e}
+            alt="image"
+          />
           <Image style={{ marginTop: "100px" }} src={e} alt="image" />
-          <Image style={{ marginTop: "500px" }} src={e} alt="image" />
-          <Image style={{ marginTop: "-300px" }} src={e} alt="image" />
-          <Image style={{ marginTop: "-200px" }} src={e} alt="image" />
-          <Image style={{ marginTop: "-500px" }} src={e} alt="image" />
-          <Image style={{ marginTop: "600px" }} src={e} alt="image" />
+          <Image
+            className="hero__obj_h"
+            style={{ marginTop: "500px" }}
+            src={e}
+            alt="image"
+          />
+          <Image
+            className="hero__obj_h"
+            style={{ marginTop: "-300px" }}
+            src={e}
+            alt="image"
+          />
+          <Image
+            className="hero__obj_h"
+            style={{ marginTop: "-200px" }}
+            src={e}
+            alt="image"
+          />
+          <Image
+            className="hero__obj_h"
+            style={{ marginTop: "-500px" }}
+            src={e}
+            alt="image"
+          />
+          <Image
+            className="hero__obj_h"
+            style={{ marginTop: "600px" }}
+            src={e}
+            alt="image"
+          />
         </div>
 
         <div className="container">
@@ -303,7 +353,7 @@ const Hero = () => {
               paddingTop: "2rem",
             }}
           >
-            <Image style={{ maxWidth: "420px" }} src={elon} alt="image" />
+            <Image className="px-5" src={elon} alt="image" />
           </div>
         </div>
       </section>

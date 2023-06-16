@@ -17,9 +17,9 @@ const HowToPlay = () => {
               <h2 className="section-title"></h2>
               <h1 style={{ textAlign: "center" }}>How Elontix works?</h1>
               <p
+                className="pb-0 pb-lg-120"
                 style={{
                   textAlign: "center",
-                  paddingBottom: "6rem",
                   fontWeight: "bolder",
                 }}
               >

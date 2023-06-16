@@ -9,18 +9,13 @@ const Layout = ({ children }) => {
     <>
       {/* SignUp Modal */}
       <SignUp />
-
       {/* Login Modal */}
       <Login />
-
       {/* Header section */}
       <Header />
-
       {children}
-
       {/* Footer section */}
       <Footer />
-
       {/* scroll-to-top start */}
       <ScrollToTop />
     </>

@@ -5,9 +5,10 @@ import {
   w3mConnectors,
   w3mProvider,
 } from "@web3modal/ethereum";
+
 import { Web3Modal } from "@web3modal/react";
-import { configureChains, createConfig, WagmiConfig } from "wagmi";
 import { bsc, bscTestnet } from "wagmi/chains";
+import { configureChains, createConfig, WagmiConfig } from "wagmi";
 
 import client from "../apollo-client";
 import { ApolloProvider } from "@apollo/client";
@@ -16,6 +17,7 @@ import Head from "next/head";
 import Layout from "../components/layout";
 
 import "bootstrap/dist/css/bootstrap.min.css";
+
 import "../public/css/line-awesome.min.css";
 import "../public/css/modal-video.scss";
 import "../public/styles/main.sass";
