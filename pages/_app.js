@@ -19,10 +19,10 @@ import Head from "next/head";
 import Layout from "../components/layout";
 
 import "bootstrap/dist/css/bootstrap.min.css";
-
 import "../public/css/line-awesome.min.css";
 import "../public/css/modal-video.scss";
 import "../public/styles/main.sass";
+import "../public/styles/global.css";
 
 const chains = [bsc, bscTestnet];
 const projectId = process.env.PROJECT_ID;
