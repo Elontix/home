@@ -65,8 +65,8 @@ const Footer = () => {
               alt="elon"
             />
           </div>
-          <div className="col-8 footer_bottom_left">
-            <div className="social-links justify-content-center">
+          <div className="col-12 col-lg-8 ">
+            <div>
               <div
                 style={{ columnGap: "1rem" }}
                 className="social-links justify-content-lg-end justify-content-center"
@@ -92,7 +92,7 @@ const Footer = () => {
               </div>
             </div>
 
-            <ul className="short-links justify-content-lg-end justify-content-center">
+            <ul className="short-links p-2 align-items-center justify-content-lg-end justify-content-center">
               <li>
                 <Link style={{ color: colors.baseColor }} href="/#">
                   ElonTix

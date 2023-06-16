@@ -196,11 +196,9 @@ const Hero = () => {
                         }}
                         key={k}
                         initial={{
-                          sacle: 0,
                           textShadow: `0px 0px 4px rgba(255, 255, 255, 1)`,
                         }}
                         animate={{
-                          scale: 1,
                           textShadow: `0px 0px 32px rgba(255, 255, 255, .1)`,
                         }}
                         transition={{
@@ -228,7 +226,6 @@ const Hero = () => {
                         }}
                         key={k}
                         initial={{
-                          sacle: 0,
                           rotate: 0,
                           textShadow: `0px 0px 4px rgba(255, 255, 255, .8)`,
                         }}
@@ -253,27 +250,38 @@ const Hero = () => {
                 </div>
               </div>
               <p style={{ color: "white" }} className="main_txt_under_sub">
-                {`World's`} #1 Decentralized{" "}
+                {`World's`} #1{" "}
                 <span>
-                  {/* <p className="main_txt_under_sub ">Meme lottery</p>{" "} */}
-                  <div>
-                    <div class="text-animation">
-                      <div class="text-wrapper">
-                        <h2>Meme lottery</h2>
-                        <h2>Meme lottery</h2>
-                      </div>
-                    </div>
-                  </div>
-                  {/* <span>
-                  <div class="text-animation">
-                    <div style={{ minWidth: "250px" }} class="text-wrapper">
-                      <h2>Meme lottery</h2>
-                      <h2>Meme lottery</h2>
-                    </div>
-                  </div>
-                </span>{" "} */}
+                  <p className="main_txt_under_sub tag">
+                    {["M", "e", "m", "e", "-", "b", "a", "s", "e", "d"].map(
+                      (b, k) => (
+                        <motion.div
+                          style={{
+                            display: "inline-block",
+                          }}
+                          key={k}
+                          initial={{
+                            scale: 0,
+                          }}
+                          animate={{
+                            scale: 1,
+                          }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 260,
+                            damping: 20,
+                            delay: k * 0.1,
+                            repeat: Infinity,
+                            repeatDelay: 3,
+                          }}
+                        >
+                          {b}
+                        </motion.div>
+                      )
+                    )}
+                  </p>{" "}
                 </span>{" "}
-                platform.
+                decentralized lottery platform
               </p>
               <div className="btn_grp">
                 <Link href="/contest" className="btn_x draw-border">

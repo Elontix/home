@@ -753,3 +753,30 @@ $blue: #3498db;
     font-size: 1.4rem;
   }
 }
+
+.charity_parent {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.charity {
+  max-height: 256px;
+  min-height: 256px;
+  background-image: url("/images/child0.png");
+  background-position: center;
+  background-size: contain;
+  background-clip: content-box;
+  // object-fit: contain;
+  // object-position: center bottom;
+  background-repeat: no-repeat;
+  margin: 2rem 0;
+  padding: 0;
+  width: 100%;
+  @media (min-width: 820px) {
+    background-image: url("/images/child.png");
+    display: flex;
+    justify-self: center;
+    align-self: center;
+  }
+}

@@ -81,7 +81,9 @@
         margin-top: 15px
 .social-links 
   +d-flex
-  margin: -5px
+  justify-content: center
+  align-items: center
+  padding: 2rem 0
   li 
     margin: 5px
     a 
@@ -110,27 +112,33 @@
   +d-flex
   margin-top: -5px
   margin-bottom: -5px
+  flex-direction: column
+  @media (min-width: 880px)
+    flex-direction: row
   li 
-    &:first-child
-      a 
-        padding-left: 0
-        &::before 
-          display: none
-    &:last-child
-      a 
-        padding-right: 0
+
+    @media (min-width: 960px)
+      &:first-child
+        a 
+          padding-left: 0
+          &::before 
+            display: none
+      &:last-child
+        a 
+          padding-right: 0
     a 
       padding: 5px 30px
       color: #d2d5fc
       position: relative
       font-size: 18px
-      &::before 
-        position: absolute
-        content: ''
-        top: 50%
-        left: 0
-        width: 3px 
-        height: 18px
-        background-color: #686fc5
-        margin-top: -9px
+      @media (min-width: 960px)
+        &::before 
+          position: absolute
+          content: ''
+          top: 50%
+          left: 0
+          width: 3px 
+          height: 18px
+          background-color: #686fc5
+          margin-top: -9px
 /* footer section css end */

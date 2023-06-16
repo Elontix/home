@@ -93,7 +93,7 @@ const Partner = () => {
                       textAlign: "left",
                     }}
                   >
-                    Elontix is an innovative NFT-based blockchain lottery
+                    Elontix is an innovative Meme-based decentralized lottery
                     platform that embodies the visionary spirit of Elon Musk.
                     Inspired by
                     {`Musk's`} desire to revolutionize industries through

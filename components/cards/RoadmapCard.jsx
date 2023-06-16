@@ -8,8 +8,8 @@ import {
 const RoadmapCard = ({ roadmap, index }) => {
   const { title, works, status } = roadmap;
   function bgReturn(s) {
-    if (s === "IN_PROGRESS") return "#FF7000";
-    if (s === "DONE") return "#16FF00";
+    if (s === "IN_PROGRESS") return "#ffb200";
+    if (s === "DONE") return "#1B9C85";
     if (s === "LATER") return "#DDE6ED";
   }
 
@@ -56,12 +56,15 @@ const RoadmapCard = ({ roadmap, index }) => {
               style={{
                 display: "flex",
                 rowGap: "1rem",
+
                 columnGap: "1rem",
               }}
               key={i}
             >
               <div
                 style={{
+                  boxShadow: `3px 3px 6px ${colors.baseColorTwo}, -3px -3px 6px black`,
+                  border: `1px solid black`,
                   padding: ".5rem",
                   margin: ".2rem",
                   background: bgReturn(status),

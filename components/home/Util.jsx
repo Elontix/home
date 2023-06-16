@@ -34,70 +34,8 @@ export default Util;
 
 const Charity = () => {
   return (
-    <div className="container " style={{ position: "relative" }}>
-      <Image
-        style={{
-          backgroundSize: "contain",
-          objectFit: "contain",
-          objectPosition: "center bottom",
-          margin: "auto",
-          borderRadius: "1rem",
-          maxHeight: "256px",
-          minHeight: "256px",
-        }}
-        alt="child"
-        src={Child}
-      ></Image>
-    </div>
-  );
-};
-
-const GradWinCard = () => {
-  return (
-    <div className="p-4 row util_card_gradient">
-      <div
-        className="row"
-        style={{
-          display: "flex",
-          justifyContent: "center",
-          alignItems: "center",
-          rowGap: "1rem",
-        }}
-      >
-        <div>
-          <div className="title">LIFETIME DRAW WINNING NUMBERS</div>
-          <p>Sat Jun 10 2023</p>
-        </div>
-        <div
-          style={{
-            lineHeight: "1",
-            display: "flex",
-            justifyContent: "center",
-            flexDirection: "column",
-            alignItems: "start",
-          }}
-        >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "space-evenly",
-              alignItems: "center",
-              justifyContent: "center",
-              columnGap: ".8rem",
-            }}
-          >
-            {[1, 2, 4, 5, 6].map((s, i) => (
-              <div key={i} className="tick_w">
-                {s}
-              </div>
-            ))}
-          </div>
-        </div>
-
-        <div style={{ display: "flex", justifyContent: "start" }}>
-          <button className="cmn-btn">Previous Result</button>
-        </div>
-      </div>
+    <div className="container charity_parent">
+      <div className="charity"></div>
     </div>
   );
 };
@@ -145,8 +83,8 @@ const GradCard = () => {
           }}
         >
           <Image
+            className="elon_shoutout"
             style={{
-              maxWidth: "360px",
               transform: "translateX(-10px)",
               zIndex: 0,
             }}
@@ -161,7 +99,7 @@ const GradCard = () => {
               boxShadow: `2px 2px 5px ${colors.baseColorTwo}, -2px -2px 5px ${colors.baseColor}`,
               padding: "1rem 2rem",
               cursor: "pointer",
-              minWidth: "240px",
+              minWidth: "80%",
             }}
           >
             <h4 className="tag text-center">Mint now</h4>

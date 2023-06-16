@@ -119,7 +119,7 @@ const LatestWinner = () => {
                     >
                       <Image className="neu_grad_img" src={elon} alt="elon" />
                       <div className="neu_grad">
-                        <h2 className="tag">$ELONTIX Token</h2>
+                        <h2 className="tag">Our Token</h2>
                         <h6 style={{ lineHeight: "1.4" }}>
                           A well-designed economic system that fuels growth and
                           sustainability

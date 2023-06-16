@@ -28,7 +28,7 @@ const Marketing = () => {
     ],
   };
   return (
-    <section className="pb-120">
+    <section className="pt-120 pb-120">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
