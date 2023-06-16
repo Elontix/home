@@ -80,6 +80,24 @@ export const top_affiliate = [
     earn: "5,026.66",
     img: top_affiliate_3,
   },
+  {
+    id: 1,
+    name: "Ricky Moran",
+    earn: "5,026.66",
+    img: top_affiliate_1,
+  },
+  {
+    id: 2,
+    name: "Ken Harper",
+    earn: "5,026.66",
+    img: top_affiliate_2,
+  },
+  {
+    id: 3,
+    name: "Lewis Frank",
+    earn: "5,026.66",
+    img: top_affiliate_3,
+  },
 ];
 
 export const clients = [client_1, client_2, client_3, client_4, client_1];

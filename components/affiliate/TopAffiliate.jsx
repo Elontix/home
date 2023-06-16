@@ -32,7 +32,13 @@ const TopAffiliate = () => {
                 </div>
                 <div className="top-affiliate-card__content">
                   <h3 className="name">{name}</h3>
-                  <span className="amount">${earn}</span>
+                  <span className="amount">
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Dolorum, eius aperiam quo deserunt quidem minima,
+                    exercitationem provident iusto mollitia minus tenetur
+                    inventore distinctio dolores perspiciatis maxime ut aut
+                    porro animi?
+                  </span>
                 </div>
               </div>
             </div>
