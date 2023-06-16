@@ -2,19 +2,17 @@ import Link from "next/link";
 import Image from "next/image";
 
 import e from "/public/images/elements/hero-2-star.png";
-import elon from "/public/images/elon.png";
+import elon from "/public/images/elon.webp";
 import elon_bg from "/public/images/elon_bg.png";
 import hero_2_e4 from "/public/images/elements/hero-2-e4.png";
 import hero_2_e3 from "/public/images/elements/hero-2-e3.png";
 import hero_4_obj from "/public/images/elements/hero-4-obj.png";
 import hero_4_circle from "/public/images/elements/hero-4-circle.png";
 import ticket from "/public/images/crypto/tickets.gif";
-import _bg from "/public/images/life.png";
 
 import VedioModal from "../vedioModal/VedioModal";
 
 import { useState } from "react";
-import { colors } from "../../theme/color";
 
 import { motion } from "framer-motion";
 

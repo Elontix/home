@@ -1,11 +1,10 @@
 import Image from "next/image";
 import { colors } from "../../theme/color";
-import Child from "/public/images/child.png";
-import elon from "/public/images/elon_2.png";
+import elon from "/public/images/utils/elon_2.webp";
 
 const Util = () => {
   return (
-    <div className="container p-4 pt-120 pb-120">
+    <div className="container p-5 pt-120 pb-120">
       <h2 style={{ textAlign: "center" }} className="section-title py-4">
         OUR{" "}
         <span>
@@ -17,15 +16,6 @@ const Util = () => {
       <div className="row">
         <Charity />
       </div>
-
-      {/* <div className="gx-5 gy-5 row">
-        <div className="col-12 col-xl-6">
-          <GradWinCard />
-        </div>
-        <div className="col-12 col-xl-6">
-          <GradCard />
-        </div>
-      </div> */}
     </div>
   );
 };

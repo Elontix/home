@@ -3,7 +3,7 @@ import { colors } from "../../theme/color";
 import { BsStars } from "react-icons/bs";
 import { FaBurn, FaCrown, FaHandPeace } from "react-icons/fa";
 import { TokenChart } from "./TokenChart";
-import elon from "/public/images/token.png";
+import elon from "/public/images/token.webp";
 
 const TickColor = (props) => (
   <div

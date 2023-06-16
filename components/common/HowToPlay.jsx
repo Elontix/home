@@ -2,7 +2,7 @@ import Image from "next/image";
 import play_1 from "/public/images/icon/play/1.png";
 import play_2 from "/public/images/icon/play/2.png";
 import play_3 from "/public/images/icon/play/3.png";
-import play_bg from "/public/images/bg_3.jpeg";
+import play_bg from "/public/images/bg/elon_bg.jpeg";
 
 const HowToPlay = () => {
   return (

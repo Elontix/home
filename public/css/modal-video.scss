@@ -763,7 +763,7 @@ $blue: #3498db;
 .charity {
   max-height: 256px;
   min-height: 256px;
-  background-image: url("/images/child0.png");
+  background-image: url("/images/child0.jpg");
   background-position: center;
   background-size: contain;
   background-clip: content-box;
@@ -774,7 +774,7 @@ $blue: #3498db;
   width: 100%;
   @media (min-width: 820px) {
     margin: 2rem 0;
-    background-image: url("/images/child.png");
+    background-image: url("/images/child.jpg");
     display: flex;
     justify-self: center;
     align-self: center;

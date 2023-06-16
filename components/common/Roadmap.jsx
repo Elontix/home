@@ -3,7 +3,7 @@ import { useState } from "react";
 
 import roadmapData from "../../data/roadmap";
 import RoadMapCard from "../cards/RoadmapCard";
-import elon from "/public/images/roadmap.png";
+import elon from "/public/images/roadmap.webp";
 
 const Roadmap = () => {
   const [roadmap, setRoadmap] = useState(roadmapData);
