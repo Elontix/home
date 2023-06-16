@@ -32,7 +32,7 @@ const Charity = () => {
 
 const GradCard = () => {
   return (
-    <div className="p-4 row util_card_gradient row">
+    <div className="p-5 row util_card_gradient row">
       <div className="col-12 col-lg-6">
         <div className="title">LIFETIME DRAW</div>
         <div className="subtitle">Every Friday 3PM</div>
@@ -65,7 +65,6 @@ const GradCard = () => {
       <div className="col-12 col-lg-6">
         <div
           style={{
-            marginTop: "2rem",
             display: "flex",
             justifyContent: "center",
             alignItems: "center",

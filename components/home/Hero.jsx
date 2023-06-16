@@ -306,13 +306,16 @@ const Hero = () => {
                         <motion.div
                           style={{
                             display: "inline-block",
+                            fontWeight: "bolder",
                           }}
                           key={k}
                           initial={{
-                            scale: 0,
+                            scale: 1.5,
+                            y: 3,
                           }}
                           animate={{
                             scale: 1,
+                            y: 0,
                           }}
                           transition={{
                             type: "spring",

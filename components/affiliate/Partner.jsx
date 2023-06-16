@@ -1,5 +1,4 @@
 import Image from "next/image";
-import { affiliate_partner } from "../../data/affiliate";
 import { colors } from "../../theme/color";
 
 import elon_1 from "/public/images/partner/elon_1.webp";

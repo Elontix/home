@@ -1,5 +1,5 @@
-import client_1 from "/public/images/client/1.png";
-import client_2 from "/public/images/client/2.png";
+import client_1 from "/public/images/dex.svg";
+import client_2 from "/public/images/ps.png";
 import client_3 from "/public/images/client/3.png";
 import client_4 from "/public/images/client/4.png";
 import affiliate_1 from "/public/images/icon/affiliate/1.png";
@@ -100,4 +100,4 @@ export const top_affiliate = [
   },
 ];
 
-export const clients = [client_1, client_2, client_3, client_4, client_1];
+export const clients = [client_1, client_2];
