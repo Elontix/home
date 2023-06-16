@@ -6,6 +6,8 @@ import {
   w3mProvider,
 } from "@web3modal/ethereum";
 
+import { HydrationProvider, Client } from "react-hydration-provider";
+
 import { Web3Modal } from "@web3modal/react";
 import { bsc, bscTestnet } from "wagmi/chains";
 import { configureChains, createConfig, WagmiConfig } from "wagmi";
@@ -51,19 +53,21 @@ function MyApp({ Component, pageProps }) {
     );
   }
   return (
-    <div>
-      <ApolloProvider client={client}>
-        <WagmiConfig config={wagmiConfig}>
-          <Head>
-            <title>Elontix.io</title>
-          </Head>
-          <Layout>
-            <Component {...pageProps} />
-          </Layout>
-        </WagmiConfig>
-      </ApolloProvider>
-      <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
-    </div>
+    <HydrationProvider>
+      <Client>
+        <ApolloProvider client={client}>
+          <WagmiConfig config={wagmiConfig}>
+            <Head>
+              <title>Elontix.io</title>
+            </Head>
+            <Layout>
+              <Component {...pageProps} />
+            </Layout>
+          </WagmiConfig>
+        </ApolloProvider>
+        <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
+      </Client>
+    </HydrationProvider>
   );
 }
 

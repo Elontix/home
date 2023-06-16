@@ -297,10 +297,10 @@ const Hero = () => {
                   </span>
                 </div>
               </div>
-              <p style={{ color: "white" }} className="main_txt_under_sub">
+              <div style={{ color: "white" }} className="main_txt_under_sub">
                 {`World's`} #1{" "}
                 <span>
-                  <p className="main_txt_under_sub tag">
+                  <div className="main_txt_under_sub tag">
                     {["M", "e", "m", "e", "-", "b", "a", "s", "e", "d"].map(
                       (b, k) => (
                         <motion.div
@@ -327,10 +327,10 @@ const Hero = () => {
                         </motion.div>
                       )
                     )}
-                  </p>{" "}
+                  </div>{" "}
                 </span>{" "}
                 decentralized lottery platform
-              </p>
+              </div>
               <div className="btn_grp">
                 <Link href="/contest" className="btn_x draw-border">
                   Participate Now
