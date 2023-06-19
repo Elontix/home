@@ -1,6 +1,6 @@
 import Image from "next/image";
-import { top_affiliate } from "../../data/affiliate";
-import affiliate_bg from "/public/images/elements/affiliate-bg.jpg";
+import { top_affiliate, top_affiliates } from "../../data/affiliate";
+import { colors } from "../../theme/color";
 
 const TopAffiliate = () => {
   return (
@@ -21,23 +21,103 @@ const TopAffiliate = () => {
           </div>
         </div>
 
-        <div className="row mb-none-30 justify-content-center">
-          {top_affiliate.map(({ id, name, earn, img }) => (
-            <div key={id} className="col-lg-4 col-md-6 mb-30">
+        <div className="row pb-120 justify-content-center">
+          {top_affiliate.map(({ id, name, earn, img, title }) => (
+            <div key={id} className="col-lg-6 mb-30">
               <div className="top-affiliate-card">
-                <div className="top-affiliate-card__thumb">
+                <div
+                  style={{
+                    background: colors.baseColorTwo,
+                    paddingTop: "2rem",
+                    margin: "auto",
+                    borderTopRightRadius: "100%",
+                    borderTopLeftRadius: "100%",
+                    borderBottomLeftRadius: "5%",
+                    borderBottomRightRadius: "5%",
+                    borderTop: `24px solid ${colors.baseColorTwo}`,
+                    borderBottom: `24px solid ${colors.bgOne}`,
+                    borderLeft: `8px solid ${colors.bgOne}`,
+                    borderRight: `8px solid ${colors.bgOne}`,
+                    backgroundImage: `radial-gradient(circle, #5a4bcc, #4538a2, #31277a, #1d1655, #0f0232)`,
+                    zIndex: 1,
+                  }}
+                >
                   <div className="inner">
-                    <Image src={img} alt={name} />
+                    <Image
+                      style={{ zIndex: -1, maxWidth: "256px" }}
+                      src={img}
+                      alt={name}
+                    />
                   </div>
                 </div>
-                <div className="top-affiliate-card__content">
+                <div className="">
                   <h3 className="name">{name}</h3>
-                  <span className="amount">
-                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                    Dolorum, eius aperiam quo deserunt quidem minima,
-                    exercitationem provident iusto mollitia minus tenetur
-                    inventore distinctio dolores perspiciatis maxime ut aut
-                    porro animi?
+                  <span
+                    style={{
+                      fontSize: ".9rem",
+                      color: colors.baseColor,
+                      fontWeight: "bolder",
+                    }}
+                  >
+                    {title}
+                  </span>
+                  <span
+                    style={{ fontSize: ".9rem", color: colors.paraColor }}
+                    className="amount"
+                  >
+                    {earn}
+                  </span>
+                </div>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <div className="row mb-none-30 justify-content-center">
+          {top_affiliates.map(({ id, name, earn, img, title }) => (
+            <div key={id} className="col-12 col-md-6 mb-30">
+              <div className="top-affiliate-card">
+                <div
+                  style={{
+                    background: colors.baseColorTwo,
+                    paddingTop: "2rem",
+                    margin: "auto",
+                    borderTopRightRadius: "100%",
+                    borderTopLeftRadius: "100%",
+                    borderBottomLeftRadius: "5%",
+                    borderBottomRightRadius: "5%",
+                    borderTop: `24px solid ${colors.baseColorTwo}`,
+                    borderBottom: `24px solid ${colors.bgOne}`,
+                    borderLeft: `8px solid ${colors.bgOne}`,
+                    borderRight: `8px solid ${colors.bgOne}`,
+                    backgroundImage: `radial-gradient(circle, #5a4bcc, #4538a2, #31277a, #1d1655, #0f0232)`,
+                    zIndex: 1,
+                  }}
+                >
+                  <div className="inner">
+                    <Image
+                      style={{ zIndex: -1, maxWidth: "256px" }}
+                      src={img}
+                      alt={name}
+                    />
+                  </div>
+                </div>
+                <div className="">
+                  <h3 className="name">{name}</h3>
+                  <span
+                    style={{
+                      fontSize: ".9rem",
+                      color: colors.baseColor,
+                      fontWeight: "bolder",
+                    }}
+                  >
+                    {title}
+                  </span>
+                  <span
+                    style={{ fontSize: ".9rem", color: colors.paraColor }}
+                    className="amount"
+                  >
+                    {earn}
                   </span>
                 </div>
               </div>

@@ -1,13 +1,17 @@
 import Image from "next/image";
+import { Link as Links } from "react-scroll";
 import Link from "next/link";
+
 import { useEffect, useState } from "react";
-import { colors } from "../../theme/color";
 import logo from "/public/images/logo.webp";
+import { useRouter } from "next/router";
 
 const Header = () => {
+  const router = useRouter();
   const [open, setOpen] = useState("");
   const [windowHeight, setWindowHeight] = useState(100);
   const [show, setShow] = useState(false);
+  console.log(router.pathname !== "/");
 
   const handleOpen = (e) => {
     if (open !== e.target.text) {
@@ -34,6 +38,81 @@ const Header = () => {
     };
   }, []);
 
+  const items = [
+    <li key={0}>
+      <Links
+        activeClass="active"
+        to="home"
+        spy={true}
+        smooth={true}
+        offset={50}
+        duration={500}
+        style={{ cursor: "pointer" }}
+      >
+        Home
+      </Links>
+    </li>,
+    <li key={1}>
+      <Links
+        activeClass="active"
+        to="roadmap"
+        spy={true}
+        smooth={true}
+        offset={50}
+        duration={500}
+        style={{ cursor: "pointer" }}
+      >
+        Roadmap
+      </Links>
+    </li>,
+    <li key={2}>
+      <Links
+        activeClass="active"
+        to="token"
+        spy={true}
+        smooth={true}
+        offset={50}
+        duration={500}
+        style={{ cursor: "pointer" }}
+      >
+        Tokenomics
+      </Links>
+    </li>,
+    <li key={3}>
+      <Links
+        activeClass="active"
+        to="team"
+        spy={true}
+        smooth={true}
+        offset={50}
+        duration={500}
+        style={{ cursor: "pointer" }}
+      >
+        Team
+      </Links>
+    </li>,
+    <li
+      key={4}
+      className={`menu_has_children ${open === "Home" ? "open" : ""}`}
+    >
+      <Link href="/#" onClick={(e) => handleOpen(e)}>
+        Papers
+      </Link>
+      <ul className="sub-menu">
+        {[
+          ["White Paper", "https://whitepaper.elontix.io/"],
+          ["KYC", "/"],
+        ].map(([itm, url], i) => (
+          <li key={i}>
+            <Link target="_blank" href={url} onClick={() => setShow(false)}>
+              {itm}
+            </Link>
+          </li>
+        ))}
+      </ul>
+    </li>,
+  ];
+
   return (
     <header
       id="gotoTop"
@@ -45,7 +124,7 @@ const Header = () => {
         <div className="container">
           <nav className="navbar navbar-expand-xl p-0 align-items-center">
             <Link href="/" className="site-logo site-title">
-              <Image height={256} width={256} src={logo} alt="logo" />
+              <Image height={212} width={212} src={logo} alt="logo" />
               <span className="logo-icon">
                 <i className="flaticon-fire"></i>
               </span>
@@ -59,76 +138,31 @@ const Header = () => {
             </button>
             <div className={`collapse navbar-collapse ${show && "show"}`}>
               <ul className="navbar-nav main-menu ms-auto">
-                <li
-                  className={`menu_has_children ${
-                    open === "Home" ? "open" : ""
-                  }`}
-                >
-                  <Link href="/#" onClick={(e) => handleOpen(e)}>
-                    Home
-                  </Link>
-                </li>
-                <li
-                  className={`menu_has_children ${
-                    open === "Contest" ? "open" : ""
-                  }`}
-                >
-                  <Link href="/mint" onClick={(e) => handleOpen(e)}>
-                    Buy
-                  </Link>
-                </li>
+                {router.pathname === "/" ? (
+                  [...items]
+                ) : (
+                  <li>
+                    <Link href="/" onClick={(e) => handleOpen(e)}>
+                      Home
+                    </Link>
+                  </li>
+                )}
                 <li>
                   <Link href="/winner" onClick={() => setShow(false)}>
                     Winners
                   </Link>
                 </li>
-                <li
-                  className={`menu_has_children ${
-                    open === "pages" ? "open" : ""
-                  }`}
-                >
-                  <Link href="#0" onClick={(e) => handleOpen(e)}>
-                    pages
-                  </Link>
-                  <ul className="sub-menu">
-                    {[
-                      ["Affiliate Page", "/affiliate"],
-                      ["How it works", "/how-work"],
-                      ["User Panel", "/user"],
-                      ["FAQ Page", "/faq"],
-                      ["404 Page", "/404"],
-                    ].map(([itm, url], i) => (
-                      <li key={i}>
-                        <Link href={url} onClick={() => setShow(false)}>
-                          {itm}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </li>
-                <li>
-                  <Link href="/contact" onClick={() => setShow(false)}>
-                    contact
-                  </Link>
-                </li>
               </ul>
+
               <div className="nav-right">
-                <div
-                  style={{
-                    boxShadow: "0px 0px 3px gray",
-                    padding: "1rem",
-                    borderRadius: "5rem",
-                  }}
+                <Link
+                  href="/mint"
+                  // data-bs-toggle="modal"
+                  // data-bs-target="#loginModal"
+                  className="cmn-btn"
                 >
-                  <a
-                    href="#0"
-                    className="user__btn d-flex align-items-center justify-content-center"
-                    data-bs-toggle="modal"
-                    data-bs-target="#loginModal"
-                  >
-                    <i className="las la-user"></i>
-                  </a>
-                </div>
+                  Mint now
+                </Link>
               </div>
             </div>
           </nav>

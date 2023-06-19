@@ -8,7 +8,7 @@ import hero_2_e4 from "/public/images/elements/hero-2-e4.png";
 import hero_2_e3 from "/public/images/elements/hero-2-e3.png";
 import hero_4_obj from "/public/images/elements/hero-4-obj.png";
 import hero_4_circle from "/public/images/elements/hero-4-circle.png";
-import ticket from "/public/images/crypto/tickets.gif";
+import ticket from "/public/images/ticket.gif";
 
 import VedioModal from "../vedioModal/VedioModal";
 
@@ -168,11 +168,11 @@ const Hero = () => {
             <Image
               style={{
                 position: "absolute",
-                top: "-170px",
+                top: "-200px",
                 display: "flex",
                 alignSelf: "center",
                 justifyContent: "center",
-                maxWidth: "320px",
+                maxWidth: "480px",
               }}
               src={ticket}
               alt="image"
@@ -335,11 +335,13 @@ const Hero = () => {
                 decentralized lottery platform
               </div>
               <div className="btn_grp">
-                <Link href="/contest" className="btn_x draw-border">
-                  Participate Now
+                <Link href="/">
+                  <button class="custom-btn btn-7">
+                    <span>Participate Now</span>
+                  </button>
                 </Link>
                 <Link href="/contest" className="btn_y secondary">
-                  Participate Now
+                  Join Community
                 </Link>
               </div>
             </div>

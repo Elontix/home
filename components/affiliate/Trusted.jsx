@@ -40,7 +40,11 @@ const Trusted = () => {
                 <Slider {...settings}>
                   {clients.map((singleItm, i) => (
                     <div key={i} className="client-single">
-                      <Image src={singleItm} alt={`client ${i}`} />
+                      <Image
+                        style={{ borderRadius: "1rem" }}
+                        src={singleItm}
+                        alt={`client ${i}`}
+                      />
                     </div>
                   ))}
                 </Slider>

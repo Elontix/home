@@ -16,7 +16,7 @@ import { MintAPi } from "./api/mint/mint";
 import { useMutation } from "@apollo/client";
 
 import toast, { Toaster } from "react-hot-toast";
-import { BiErrorAlt } from "react-icons/bi";
+import { BiErrorAlt, BiTrash } from "react-icons/bi";
 import { MdOutlineDoneOutline } from "react-icons/md";
 
 import Mintbar from "../components/common/MintBar";
@@ -129,8 +129,10 @@ const Mint = () => {
   });
 
   const [counter, setCounter] = useState(0);
-
-  console.log(mintIsSuccess);
+  const [tickets, setTickets] = useState([
+    [0, 1, 2, 4, 5, 6],
+    [1, 2, 5, 6, 7, 8],
+  ]);
 
   useEffect(() => {
     console.log(counter, mintStatus, mintIsSuccess);
@@ -139,6 +141,23 @@ const Mint = () => {
       setCounter(counter + 1);
     }
   }, [counter, mintIsSuccess]);
+
+  function addTicket() {
+    console.log(tickets);
+    let tempTickets = tickets;
+    tempTickets.push(token);
+    setTickets([...tempTickets]);
+  }
+
+  function deleteTickets(index) {
+    let tempTickets = [];
+    for (let i = 0; i < tickets.length; i++) {
+      if (index !== i) {
+        tempTickets.push(tickets[i]);
+      }
+    }
+    setTickets([...tempTickets]);
+  }
 
   return (
     <>
@@ -149,33 +168,112 @@ const Mint = () => {
         <div className="row" style={{ rowGap: "2rem", alignItems: "center" }}>
           <div className="col-sm-12 col-lg-6">
             <div
-              style={{ borderLeft: "2px dotted white", rowGap: "2rem" }}
+              style={{
+                textAlign: "center",
+                backgroundImage:
+                  "radial-gradient(circle, #5a4bcc, #4538a2, #31277a, #1d1655, #0f0232)",
+                boxShadow: `0px 0px 12px -4px ${"black"}`,
+              }}
               className="row px-3"
             >
-              {mint.map((data, index) => (
-                <div key={index}>
-                  <div style={{ position: "relative" }}>
+              <h2 className="pt-5">Your Tickets</h2>
+              <div>
+                {!isConnected ? (
+                  <div className="tag">Connect your wallet to add tickets</div>
+                ) : null}
+              </div>
+              <div>
+                {tickets.map((i, k) => (
+                  <div
+                    key={k}
+                    style={{
+                      background: colors.bgOne,
+                      padding: ".8rem",
+                      textAlign: "center",
+                      display: "flex",
+                      margin: "1rem",
+                      borderRadius: "5px",
+                      fontSize: "xl",
+                      fontWeight: "bold",
+                      width: "100%",
+                    }}
+                  >
                     <div
                       style={{
-                        position: "absolute",
-                        left: "-42px",
-                        color: "white",
-                        width: "28px",
-                        height: "28px",
-                        background: colors.baseColor,
-                        color: colors.bgOne,
-                        textAlign: "center",
-                        borderRadius: "1rem",
-                        padding: ".2rem",
+                        display: "flex",
+                        columnGap: "1rem",
+                        alignItems: "center",
+                        width: "100%",
                       }}
                     >
-                      {index + 1}
+                      {i.map((j, l) => (
+                        <div
+                          key={l}
+                          style={{
+                            width: "100%",
+                            background: colors.baseColor,
+                            height: "40px",
+                            width: "40px",
+                            borderRadius: "30vh",
+                            columnGap: "0",
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                          }}
+                        >
+                          {j}
+                        </div>
+                      ))}
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "flex-end",
+                        }}
+                      >
+                        <BiTrash
+                          //   onClick={() => deleteTickets(k)}
+                          size={24}
+                          color={colors.baseColor}
+                        />
+                      </div>
                     </div>
-                    <h3 className="title">{data.header}</h3>
-                    <span className="subtitle">{data.sub}</span>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+              <div style={{ paddingBottom: "2rem" }}>
+                {isConnected ? (
+                  <button
+                    onClick={async () => {
+                      mintWrite();
+                      setCounter(1);
+                      if (mintIsError) {
+                        eToster(
+                          mintError.message,
+                          6000,
+                          "red",
+                          "white",
+                          <BiErrorAlt size={48} />
+                        );
+                        return;
+                      }
+                      if (mintIsSuccess) {
+                        eToster(
+                          mintError.message,
+                          3000,
+                          "green",
+                          "white",
+                          <MdOutlineDoneOutline size={48} />
+                        );
+                      }
+
+                      console.log(mintData);
+                    }}
+                    className="cmn-btn"
+                  >
+                    Buy Tickets
+                  </button>
+                ) : null}
+              </div>
             </div>
           </div>
           <div className="col-sm-12 col-lg-6">
@@ -233,6 +331,7 @@ const Mint = () => {
                   >
                     GENERATE RANDOM TICKET
                   </h4>
+
                   <div
                     style={{
                       width: "80%",
@@ -243,36 +342,13 @@ const Mint = () => {
                     }}
                   ></div>
                   {isConnected ? (
-                    <button
-                      onClick={async () => {
-                        mintWrite();
-                        setCounter(1);
-                        if (mintIsError) {
-                          eToster(
-                            mintError.message,
-                            6000,
-                            "red",
-                            "white",
-                            <BiErrorAlt size={48} />
-                          );
-                          return;
-                        }
-                        if (mintIsSuccess) {
-                          eToster(
-                            mintError.message,
-                            3000,
-                            "green",
-                            "white",
-                            <MdOutlineDoneOutline size={48} />
-                          );
-                        }
-
-                        console.log(mintData);
-                      }}
+                    <div
+                      style={{ cursor: "pointer" }}
+                      //   onClick={addTicket}
                       className="cmn-btn"
                     >
-                      Buy Tickets
-                    </button>
+                      Add Ticket
+                    </div>
                   ) : (
                     <button onClick={connectWallet} className="cmn-btn">
                       connect wallet

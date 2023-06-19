@@ -395,11 +395,8 @@ $bg-two: #02014a;
   font-size: 2.5rem;
   text-align: center;
   line-height: 1;
-  @media (min-width: 720px) {
-    font-size: 3.3rem;
-  }
-  @media (min-width: 1330px) {
-    font-size: 4rem;
+  @media (min-width: 1540px) {
+    font-size: 3.5rem;
   }
 }
 
@@ -449,6 +446,20 @@ $bg-two: #02014a;
 
 .tag {
   color: $base-color;
+}
+
+.btn_x {
+  background: #0f0232;
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 1em 2em;
+  letter-spacing: 0.05rem;
+  &:focus {
+    outline: 2px dotted #55d7dc;
+  }
 }
 
 //=== Drawing effect
@@ -522,22 +533,6 @@ $bg-two: #02014a;
   );
 }
 
-//=== Button styling, semi-ignore
-.btn_x {
-  background: #0f0232;
-  border: none;
-  cursor: pointer;
-  line-height: 1.5;
-  font-size: 1.2rem;
-  font-weight: 700;
-  padding: 1em 2em;
-  letter-spacing: 0.05rem;
-
-  &:focus {
-    outline: 2px dotted #55d7dc;
-  }
-}
-
 // Basic Button Style
 .btn_y {
   box-sizing: border-box;
@@ -571,7 +566,6 @@ $blue: #3498db;
   color: $base-color;
   box-shadow: 0 0 40px 40px $bg-one inset, 0 0 0 0 $base-color;
   transition: all 150ms ease-in-out;
-
   &:hover {
     box-shadow: 0 0 10px 0 $base-color-three inset, 0 0 10px 4px $base-color-two;
   }
@@ -682,7 +676,7 @@ body,
 
 body::-webkit-scrollbar {
   width: 1em;
-  background-color: $base-color;
+  background-color: $bg-one;
 }
 
 body::-webkit-scrollbar-track {
@@ -715,4 +709,103 @@ body::-webkit-scrollbar-thumb {
   @media (min-width: 720px) {
     font-size: 1rem;
   }
+}
+
+.active {
+  color: $base-color;
+}
+
+.custom-btn {
+  border: none;
+  cursor: pointer;
+  line-height: 1.5;
+  font-size: 1.2rem;
+  font-weight: 700;
+  padding: 1em 2em;
+  letter-spacing: 0.05rem;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+/* 7 */
+.btn-7 {
+  background: linear-gradient(
+    0deg,
+    rgba(255, 151, 0, 1) 0%,
+    rgba(251, 75, 2, 1) 100%
+  );
+  line-height: 42px;
+  padding: 0;
+  border: none;
+}
+.btn-7 span {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.btn-7:before,
+.btn-7:after {
+  position: absolute;
+  content: "";
+  right: 0;
+  bottom: 0;
+  background: rgba(251, 75, 2, 1);
+  box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, 0.9),
+    -4px -4px 5px 0px rgba(255, 255, 255, 0.9),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+.btn-7:before {
+  height: 0%;
+  width: 2px;
+}
+.btn-7:after {
+  width: 0%;
+  height: 2px;
+}
+.btn-7:hover {
+  color: rgba(251, 75, 2, 1);
+  background: transparent;
+}
+.btn-7:hover:before {
+  height: 100%;
+}
+.btn-7:hover:after {
+  width: 100%;
+}
+.btn-7 span:before,
+.btn-7 span:after {
+  position: absolute;
+  content: "";
+  left: 0;
+  top: 0;
+  background: rgba(251, 75, 2, 1);
+  box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, 0.9),
+    -4px -4px 5px 0px rgba(255, 255, 255, 0.9),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+  transition: all 0.3s ease;
+}
+.btn-7 span:before {
+  width: 2px;
+  height: 0%;
+}
+.btn-7 span:after {
+  height: 2px;
+  width: 0%;
+}
+.btn-7 span:hover:before {
+  height: 100%;
+}
+.btn-7 span:hover:after {
+  width: 100%;
 }
