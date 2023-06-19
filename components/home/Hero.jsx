@@ -335,11 +335,9 @@ const Hero = () => {
                 decentralized lottery platform
               </div>
               <div className="btn_grp">
-                <Link href="/">
-                  <button class="custom-btn btn-7">
-                    <span>Participate Now</span>
-                  </button>
-                </Link>
+                <div className="custom-btn_o btn-7_x span_7">
+                  Participate Now
+                </div>
                 <Link href="/contest" className="btn_y secondary">
                   Join Community
                 </Link>
