@@ -21,67 +21,16 @@ const TopAffiliate = () => {
           </div>
         </div>
 
-        <div className="row pb-120 justify-content-center">
-          {top_affiliate.map(({ id, name, earn, img, title }) => (
-            <div key={id} className="col-lg-6 mb-30">
-              <div className="top-affiliate-card">
-                <div
-                  style={{
-                    background: colors.baseColorTwo,
-                    paddingTop: "2rem",
-                    margin: "auto",
-                    borderTopRightRadius: "100%",
-                    borderTopLeftRadius: "100%",
-                    borderBottomLeftRadius: "5%",
-                    borderBottomRightRadius: "5%",
-                    borderTop: `24px solid ${colors.baseColorTwo}`,
-                    borderBottom: `24px solid ${colors.bgOne}`,
-                    borderLeft: `8px solid ${colors.bgOne}`,
-                    borderRight: `8px solid ${colors.bgOne}`,
-                    backgroundImage: `radial-gradient(circle, #5a4bcc, #4538a2, #31277a, #1d1655, #0f0232)`,
-                    zIndex: 1,
-                  }}
-                >
-                  <div className="inner">
-                    <Image
-                      style={{ zIndex: -1, maxWidth: "256px" }}
-                      src={img}
-                      alt={name}
-                    />
-                  </div>
-                </div>
-                <div className="">
-                  <h3 className="name">{name}</h3>
-                  <span
-                    style={{
-                      fontSize: ".9rem",
-                      color: colors.baseColor,
-                      fontWeight: "bolder",
-                    }}
-                  >
-                    {title}
-                  </span>
-                  <span
-                    style={{ fontSize: ".9rem", color: colors.paraColor }}
-                    className="amount"
-                  >
-                    {earn}
-                  </span>
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-
         <div className="row mb-none-30 justify-content-center">
-          {top_affiliates.map(({ id, name, earn, img, title }) => (
-            <div key={id} className="col-12 col-md-6 mb-30">
+          {top_affiliate.map(({ id, name, earn, img, title }) => (
+            <div key={id} className="col-12 col-md-6 col-lg-4 mb-30">
               <div className="top-affiliate-card">
                 <div
                   style={{
                     background: colors.baseColorTwo,
                     paddingTop: "2rem",
                     margin: "auto",
+                    rowGap: "2rem",
                     borderTopRightRadius: "100%",
                     borderTopLeftRadius: "100%",
                     borderBottomLeftRadius: "5%",

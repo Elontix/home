@@ -81,14 +81,11 @@ export const top_affiliate = [
 
     img: top_affiliate_3,
   },
-];
-
-export const top_affiliates = [
   {
     id: 3,
     name: "Deekshit",
     title: "DEV / TECH",
-    // earn: "Deekshit plays a crucial role in driving the technical development and implementation of the core features of ElonTix. With a  meticulous approach and strong background in coding and system architecture, he contributes to the platform's technical infrastructure and ensures its efficiency, stability, integrity and security",
+    earn: "Deekshit plays a crucial role in driving the technical development and implementation of the core features of ElonTix. With a  meticulous approach and strong background in coding and system architecture, he contributes to the platform's technical infrastructure and ensures its efficiency, stability, integrity and security",
     img: top_affiliate_2,
   },
   {

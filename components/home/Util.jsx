@@ -80,18 +80,8 @@ const GradCard = () => {
             src={elon}
             alt="elon"
           />
-          <div
-            style={{
-              zIndex: 1,
-              borderRadius: "1rem",
-              background: colors.bgOne,
-              boxShadow: `2px 2px 5px ${colors.baseColorTwo}, -2px -2px 5px ${colors.baseColor}`,
-              padding: "1rem 2rem",
-              cursor: "pointer",
-              minWidth: "80%",
-            }}
-          >
-            <h4 className="tag text-center">Mint now</h4>
+          <div className="mint_now_util">
+            <h4 className="tag  text-center">Mint now</h4>
           </div>
         </div>
       </div>

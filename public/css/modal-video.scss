@@ -806,3 +806,21 @@ body::-webkit-scrollbar-thumb {
 .btn-7_x .span_7:hover:after {
   width: 100%;
 }
+
+.mint_now_util {
+  z-index: 1;
+  border-radius: 1rem;
+  background: $bg-one;
+  padding: 1rem 2rem;
+  cursor: pointer;
+  min-width: 80%;
+  box-shadow: 2px 2px 5px $base-color-two, -2px -2px 5px $base-color;
+  &:hover {
+    box-shadow: -2px -2px 5px $base-color-two, 2px 2px 5px $base-color;
+    transition: all 500ms;
+  }
+  &:focus,
+  &:active {
+    box-shadow: 2px 2px 5px $base-color-two, -2px -2px 5px $base-color;
+  }
+}
