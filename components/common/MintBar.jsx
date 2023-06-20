@@ -42,6 +42,7 @@ const Mintbar = () => {
       }}
     >
       <ToggleButton label="Mint" link="/mint" />
+      <ToggleButton label="Mint Multiple" link="/mint-multiple" />
       <ToggleButton label="My Collection" link="/collection" />
     </div>
   );

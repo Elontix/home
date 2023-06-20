@@ -20,6 +20,7 @@ import { BiErrorAlt } from "react-icons/bi";
 import { MdOutlineDoneOutline } from "react-icons/md";
 
 import Mintbar from "../components/common/MintBar";
+import { NextFetchEvent } from "next/server";
 
 function eToster(message, duration, bg, color, icon) {
   return toast.custom(
@@ -43,12 +44,13 @@ function eToster(message, duration, bg, color, icon) {
   );
 }
 
-function generateRandom(min = 100000, max = 999999) {
+function generateRandom(min = 0, max = 999) {
   let difference = max - min;
   let rand = Math.random();
   rand = Math.floor(rand * difference);
   rand = rand + min;
   rand = String(rand).split("");
+
   return rand;
 }
 
@@ -146,39 +148,8 @@ const Mint = () => {
 
       <div className="container" style={{ paddingBottom: "5rem" }}>
         <Mintbar />
-        <div className="row" style={{ rowGap: "2rem", alignItems: "center" }}>
-          <div className="col-sm-12 col-lg-6">
-            <div
-              style={{ borderLeft: "2px dotted white", rowGap: "2rem" }}
-              className="row px-3"
-            >
-              {mint.map((data, index) => (
-                <div key={index}>
-                  <div style={{ position: "relative" }}>
-                    <div
-                      style={{
-                        position: "absolute",
-                        left: "-42px",
-                        color: "white",
-                        width: "28px",
-                        height: "28px",
-                        background: colors.baseColor,
-                        color: colors.bgOne,
-                        textAlign: "center",
-                        borderRadius: "1rem",
-                        padding: ".2rem",
-                      }}
-                    >
-                      {index + 1}
-                    </div>
-                    <h3 className="title">{data.header}</h3>
-                    <span className="subtitle">{data.sub}</span>
-                  </div>
-                </div>
-              ))}
-            </div>
-          </div>
-          <div className="col-sm-12 col-lg-6">
+        <div className="row" style={{ rowGap: "2rem", columnGap: "0rem" }}>
+          <div className="col-sm-12 col-lg-6 px-5">
             <div
               className="px-4 rounded"
               style={{
@@ -301,6 +272,37 @@ const Mint = () => {
                   </div>
                 </div>
               </div>
+            </div>
+          </div>
+          <div className="col-sm-12 col-lg-6 px-5">
+            <div
+              style={{ borderLeft: "2px dotted white", rowGap: "2rem" }}
+              className="row px-3"
+            >
+              {mint.map((data, index) => (
+                <div key={index}>
+                  <div style={{ position: "relative" }}>
+                    <div
+                      style={{
+                        position: "absolute",
+                        left: "-42px",
+                        color: "white",
+                        width: "28px",
+                        height: "28px",
+                        background: colors.baseColor,
+                        color: colors.bgOne,
+                        textAlign: "center",
+                        borderRadius: "1rem",
+                        padding: ".2rem",
+                      }}
+                    >
+                      {index + 1}
+                    </div>
+                    <h3 className="title">{data.header}</h3>
+                    <span className="subtitle">{data.sub}</span>
+                  </div>
+                </div>
+              ))}
             </div>
           </div>
         </div>

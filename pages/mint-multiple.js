@@ -1,9 +1,9 @@
-import mint from "../data/mint";
 import Image from "next/image";
 import TicketGif from "/public/images/ticket.gif";
 
 import { useWeb3Modal } from "@web3modal/react";
 import { useAccount, useBalance, useDisconnect, useContractWrite } from "wagmi";
+
 import {
   watchPendingTransactions,
   WatchPendingTransactionsResult,
@@ -43,25 +43,36 @@ function eToster(message, duration, bg, color, icon) {
   );
 }
 
-function generateRandom(min = 100000, max = 999999) {
+function generateRandom(min = 0, max = 100000) {
   let difference = max - min;
   let rand = Math.random();
   rand = Math.floor(rand * difference);
-  rand = rand + min;
-  rand = String(rand).split("");
+  rand = String(rand + min);
+  rand = rand.split("");
+  let spliter = 6 - rand.length;
+  for (let i = 0; i < spliter; i++) rand = ["0", ...rand];
   return rand;
 }
 
 const Mint = () => {
   const [token, setToken] = useState(["0", "0", "0", "0", "0", "0"]);
   function updateRandomNumber() {
+    nftIdentifier();
     setToken([...generateRandom()]);
+  }
+
+  function typeColor(type) {
+    if (type === "DIAMOND") return "#b9f2ff";
+    if (type === "GOLD") return "#FFD700";
+    if (type === "SILVER") return "#C0C0C0";
+    if (type === "BRONZE") return " #CD7F32";
   }
 
   function updateNumber(value, key) {
     let temp = token;
     temp[key] = value;
     setToken([...temp]);
+    nftIdentifier();
   }
   function tokenStrip() {
     let n = "";
@@ -69,6 +80,32 @@ const Mint = () => {
     return Number(n);
   }
 
+  function nftIdentifier() {
+    let stripedToken = tokenStrip(token);
+    // diamond
+    if (stripedToken < 5000) {
+      setPrice(0.2);
+      setType("DIAMOND");
+    }
+    // gold
+    if (stripedToken > 5000 && stripedToken < 20000) {
+      setPrice(0.1);
+      setType("GOLD");
+    }
+    // silver
+    if (stripedToken > 20000 && stripedToken < 50000) {
+      setPrice(0.05);
+      setType("SILVER");
+    }
+    // bronze
+    if (stripedToken > 50000) {
+      setPrice(0.03);
+      setType("BRONZE");
+    }
+  }
+
+  const [price, setPrice] = useState(0);
+  const [type, setType] = useState("");
   const { open, setDefaultChain } = useWeb3Modal();
   const { disconnect } = useDisconnect();
   const { address, isConnected } = useAccount();
@@ -84,25 +121,6 @@ const Mint = () => {
   };
   const addressStrip = (str) =>
     str.substring(0, 4) + "...." + str.substring(str.length - 4, str.length);
-
-  const updateWalletInformation = async () => {
-    const { ip } = await fetch("https://api.ipify.org?format=json", {
-      method: "GET",
-    })
-      .then((res) => res.json())
-      .catch((error) => console.error(error));
-    const { data } = await createAccount({
-      variables: {
-        address: address,
-        ipAddress: ip,
-      },
-    });
-  };
-
-  useEffect(() => {
-    updateWalletInformation().then().catch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [address]);
 
   useEffect(() => {
     disconnect();
@@ -129,10 +147,7 @@ const Mint = () => {
   });
 
   const [counter, setCounter] = useState(0);
-  const [tickets, setTickets] = useState([
-    [0, 1, 2, 4, 5, 6],
-    [1, 2, 5, 6, 7, 8],
-  ]);
+  const [tickets, setTickets] = useState([]);
 
   useEffect(() => {
     console.log(counter, mintStatus, mintIsSuccess);
@@ -143,9 +158,12 @@ const Mint = () => {
   }, [counter, mintIsSuccess]);
 
   function addTicket() {
-    console.log(tickets);
     let tempTickets = tickets;
-    tempTickets.push(token);
+    tempTickets.push({
+      tokenId: [...token],
+      price: price,
+      type: type,
+    });
     setTickets([...tempTickets]);
   }
 
@@ -159,123 +177,19 @@ const Mint = () => {
     setTickets([...tempTickets]);
   }
 
+  function totalPrice() {
+    let price = 0;
+    for (let i = 0; i < tickets.length; i++) price += tickets[i].price;
+    return price;
+  }
+
   return (
     <>
       <div className="" style={{ minHeight: "25vh" }}></div>
 
       <div className="container" style={{ paddingBottom: "5rem" }}>
         <Mintbar />
-        <div className="row" style={{ rowGap: "2rem", alignItems: "center" }}>
-          <div className="col-sm-12 col-lg-6">
-            <div
-              style={{
-                textAlign: "center",
-                backgroundImage:
-                  "radial-gradient(circle, #5a4bcc, #4538a2, #31277a, #1d1655, #0f0232)",
-                boxShadow: `0px 0px 12px -4px ${"black"}`,
-              }}
-              className="row px-3"
-            >
-              <h2 className="pt-5">Your Tickets</h2>
-              <div>
-                {!isConnected ? (
-                  <div className="tag">Connect your wallet to add tickets</div>
-                ) : null}
-              </div>
-              <div>
-                {tickets.map((i, k) => (
-                  <div
-                    key={k}
-                    style={{
-                      background: colors.bgOne,
-                      padding: ".8rem",
-                      textAlign: "center",
-                      display: "flex",
-                      margin: "1rem",
-                      borderRadius: "5px",
-                      fontSize: "xl",
-                      fontWeight: "bold",
-                      width: "100%",
-                    }}
-                  >
-                    <div
-                      style={{
-                        display: "flex",
-                        columnGap: "1rem",
-                        alignItems: "center",
-                        width: "100%",
-                      }}
-                    >
-                      {i.map((j, l) => (
-                        <div
-                          key={l}
-                          style={{
-                            width: "100%",
-                            background: colors.baseColor,
-                            height: "40px",
-                            width: "40px",
-                            borderRadius: "30vh",
-                            columnGap: "0",
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                          }}
-                        >
-                          {j}
-                        </div>
-                      ))}
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "flex-end",
-                        }}
-                      >
-                        <BiTrash
-                          //   onClick={() => deleteTickets(k)}
-                          size={24}
-                          color={colors.baseColor}
-                        />
-                      </div>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              <div style={{ paddingBottom: "2rem" }}>
-                {isConnected ? (
-                  <button
-                    onClick={async () => {
-                      mintWrite();
-                      setCounter(1);
-                      if (mintIsError) {
-                        eToster(
-                          mintError.message,
-                          6000,
-                          "red",
-                          "white",
-                          <BiErrorAlt size={48} />
-                        );
-                        return;
-                      }
-                      if (mintIsSuccess) {
-                        eToster(
-                          mintError.message,
-                          3000,
-                          "green",
-                          "white",
-                          <MdOutlineDoneOutline size={48} />
-                        );
-                      }
-
-                      console.log(mintData);
-                    }}
-                    className="cmn-btn"
-                  >
-                    Buy Tickets
-                  </button>
-                ) : null}
-              </div>
-            </div>
-          </div>
+        <div className="row" style={{ rowGap: "2rem" }}>
           <div className="col-sm-12 col-lg-6">
             <div
               className="px-4 rounded"
@@ -295,8 +209,9 @@ const Mint = () => {
                   <h4>Price</h4>
                 </div>
                 <div className="col-6" style={{ textAlign: "right" }}>
-                  <h5 style={{ color: colors.baseColor }}>Edition #000001</h5>
-                  <h5 style={{ color: colors.baseColor }}>eth0.2</h5>
+                  <h5 style={{ color: colors.baseColor }}>Edition {type}</h5>
+
+                  <h5 style={{ color: colors.baseColor }}>bnb {price}</h5>
                 </div>
                 <div
                   className="row"
@@ -344,7 +259,7 @@ const Mint = () => {
                   {isConnected ? (
                     <div
                       style={{ cursor: "pointer" }}
-                      //   onClick={addTicket}
+                      onClick={addTicket}
                       className="cmn-btn"
                     >
                       Add Ticket
@@ -376,6 +291,151 @@ const Mint = () => {
                     </div>
                   </div>
                 </div>
+              </div>
+            </div>
+          </div>
+          <div className="col-sm-12 col-lg-6">
+            <div
+              style={{
+                textAlign: "center",
+                backgroundImage:
+                  "radial-gradient(circle, #5a4bcc, #4538a2, #31277a, #1d1655, #0f0232)",
+                boxShadow: `0px 0px 12px -4px ${"black"}`,
+              }}
+              className="row px-3"
+            >
+              <h2 className="pt-5">Your Tickets</h2>
+              <div>
+                {!isConnected ? (
+                  <div className="tag">Connect your wallet to add tickets</div>
+                ) : null}
+              </div>
+              <div>
+                {tickets.map((i, k) => (
+                  <div
+                    className="row "
+                    key={k}
+                    style={{
+                      background: colors.bgOne,
+                      padding: "2rem 1rem",
+                      textAlign: "center",
+                      display: "flex",
+                      margin: "2rem 1rem",
+                      borderRadius: "5px",
+                      fontSize: "xl",
+                      fontWeight: "bold",
+                      width: "100%",
+                      boxShadow: `0px 0px 10px ${typeColor(i.type)}`,
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        columnGap: "1rem",
+                        alignItems: "center",
+                        width: "100%",
+                        position: "relative",
+                      }}
+                    >
+                      <div
+                        style={{
+                          position: "absolute",
+                          top: "-100%",
+                          left: "-3%",
+                        }}
+                      >
+                        <div
+                          style={{
+                            borderRadius: ".2rem",
+                            background: typeColor(i.type),
+                            padding: "0.2rem 1rem",
+                            fontSize: ".8rem",
+                            color: colors.bgOne,
+                          }}
+                        >
+                          {i.type}
+                        </div>
+                      </div>
+                      <div className="row col-8">
+                        {i.tokenId.map((j, l) => (
+                          <div
+                            key={l}
+                            style={{
+                              width: "100%",
+                              margin: "0 .2rem",
+                              backgroundImage: `radial-gradient(circle, #ffb200, #fea200, #fd9100, #fb8100, #f86f03)`,
+                              height: "40px",
+                              width: "40px",
+                              borderRadius: "30vh",
+                              columnGap: "0",
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            {j}
+                          </div>
+                        ))}
+                      </div>
+                      <div className="row col-3">
+                        <h4 style={{ color: typeColor(i.type) }}>
+                          {i.price.toFixed(2)}BNB
+                        </h4>
+                      </div>
+                      <div
+                        className="row col-1"
+                        style={{
+                          display: "flex",
+                          justifyContent: "flex-end",
+                          columnGap: "1rem",
+                        }}
+                      >
+                        <BiTrash
+                          onClick={() => deleteTickets(k)}
+                          size={24}
+                          color={colors.baseColor}
+                        />
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
+              <div style={{ paddingBottom: "2rem" }}>
+                {isConnected ? (
+                  <div>
+                    <button
+                      onClick={async () => {
+                        mintWrite();
+                        setCounter(1);
+                        if (mintIsError) {
+                          eToster(
+                            mintError.message,
+                            6000,
+                            "red",
+                            "white",
+                            <BiErrorAlt size={48} />
+                          );
+                          return;
+                        }
+                        if (mintIsSuccess) {
+                          eToster(
+                            mintError.message,
+                            3000,
+                            "green",
+                            "white",
+                            <MdOutlineDoneOutline size={48} />
+                          );
+                        }
+                      }}
+                      className="cmn-btn"
+                    >
+                      Mint Tickets
+                    </button>
+                    <div className="my-2 tag">
+                      Total Price {totalPrice().toFixed(2)}BNB
+                    </div>
+                  </div>
+                ) : null}
               </div>
             </div>
           </div>

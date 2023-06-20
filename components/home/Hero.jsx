@@ -219,7 +219,7 @@ const Hero = () => {
                       damping: 20,
                       delay: i * 0.1,
                       repeat: Infinity,
-                      repeatDelay: 5,
+                      repeatDelay: 2,
                     }}
                     key={i}
                   >
@@ -323,7 +323,7 @@ const Hero = () => {
                             damping: 20,
                             delay: k * 0.1,
                             repeat: Infinity,
-                            repeatDelay: 3,
+                            repeatDelay: 1,
                           }}
                         >
                           {b}
@@ -335,9 +335,7 @@ const Hero = () => {
                 decentralized lottery platform
               </div>
               <div className="btn_grp">
-                <div className="custom-btn_o btn-7_x span_7">
-                  Participate Now
-                </div>
+                <div className="custom-btn_o">Join Presale Now</div>
                 <Link href="/contest" className="btn_y secondary">
                   Join Community
                 </Link>

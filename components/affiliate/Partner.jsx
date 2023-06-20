@@ -7,6 +7,7 @@ import elon_2 from "/public/images/partner/elon_3.webp";
 const Board = (props) => {
   return (
     <div
+      className="quote_"
       style={{
         background: colors.bgOne,
         minHeight: "80px",
@@ -15,9 +16,15 @@ const Board = (props) => {
         color: colors.bgOne,
         boxShadow: `2px 2px 5px ${colors.baseColorTwo}, -2px -2px 5px ${colors.baseColor}`,
         borderRadius: "5rem",
+        color: colors.baseColor,
+        display: "flex",
+        justifyContent: "center",
+        alignItems: "center",
+        textAlign: "center",
+        padding: "1rem .5rem",
       }}
     >
-      x
+      {props.text}
     </div>
   );
 };
@@ -99,7 +106,9 @@ const Partner = () => {
                       alt="elon"
                     />
                   </div>
-                  <Board />
+                  <Board
+                    text={`"ElonTix: Where innovation, opportunity, and winning converge in the digital realm"`}
+                  />
                 </div>
               </div>
               <div style={{ alignItems: "center" }} className="row p-4">
@@ -111,7 +120,9 @@ const Partner = () => {
                     alt="elon"
                   />
                   <div className="elontix_img_hidden_b">
-                    <Board />
+                    <Board
+                      text={`"Unlocking the potential of NFTs, ElonTix reshapes the future of lotteries"`}
+                    />
                   </div>
                 </div>
 
@@ -142,7 +153,9 @@ const Partner = () => {
                     alt="elon"
                   />
                   <div className="elontix_img_hidden_t">
-                    <Board />
+                    <Board
+                      text={`"Unlocking the potential of NFTs, ElonTix reshapes the future of lotteries"`}
+                    />
                   </div>
                 </div>
               </div>

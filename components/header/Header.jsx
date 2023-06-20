@@ -52,6 +52,19 @@ const Header = () => {
         Home
       </Links>
     </li>,
+    <li key={9}>
+      <Links
+        activeClass="active"
+        to="about"
+        spy={true}
+        smooth={true}
+        offset={50}
+        duration={500}
+        style={{ cursor: "pointer" }}
+      >
+        About
+      </Links>
+    </li>,
     <li key={1}>
       <Links
         activeClass="active"
