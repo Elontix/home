@@ -181,52 +181,44 @@ const Hero = () => {
 
           <div className="row justify-content-center">
             <div className="col-lg-12">
-              <div style={{ display: "flex", justifyContent: "center" }}>
-                {[
-                  "Y",
-                  "o",
-                  "u",
-                  "r",
-                  "\u00A0",
-                  "L",
-                  "i",
-                  "f",
-                  "e",
-                  "\u00A0",
-                  "t",
-                  "i",
-                  "m",
-                  "e",
-                  "\u00A0",
-                  "M",
-                  "e",
-                  "m",
-                  "e",
-                  "\u00A0",
-                  "T",
-                  "i",
-                  "c",
-                  "k",
-                  "e",
-                  "t",
-                ].map((s, i) => (
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ rotate: 360, scale: 1 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 260,
-                      damping: 20,
-                      delay: i * 0.1,
-                      repeat: Infinity,
-                      repeatDelay: 2,
-                    }}
-                    key={i}
-                  >
-                    <h3 className={i > 14 ? "tag" : ""}> {s}</h3>
-                  </motion.div>
-                ))}
+              <div style={{ color: "white" }} className="main_txt_under_sub">
+                {`World's`} #1{" "}
+                <span>
+                  <div className="main_txt_under_sub tag">
+                    {["M", "e", "m", "e", "-", "b", "a", "s", "e", "d"].map(
+                      (b, k) => (
+                        <motion.div
+                          style={{
+                            display: "inline-block",
+                            fontWeight: "bolder",
+                          }}
+                          key={k}
+                          initial={{
+                            scale: 1.5,
+                            y: 3,
+                          }}
+                          animate={{
+                            scale: 1,
+                            y: 0,
+                          }}
+                          transition={{
+                            type: "spring",
+                            stiffness: 260,
+                            damping: 20,
+                            delay: k * 0.1,
+                            repeat: Infinity,
+                            repeatDelay: 1,
+                          }}
+                        >
+                          {b}
+                        </motion.div>
+                      )
+                    )}
+                  </div>{" "}
+                </span>{" "}
+                decentralized lottery platform
               </div>
+
               <div
                 style={{
                   display: "flex",
@@ -297,48 +289,61 @@ const Hero = () => {
                   </span>
                 </div>
               </div>
-              <div style={{ color: "white" }} className="main_txt_under_sub">
-                {`World's`} #1{" "}
-                <span>
-                  <div className="main_txt_under_sub tag">
-                    {["M", "e", "m", "e", "-", "b", "a", "s", "e", "d"].map(
-                      (b, k) => (
-                        <motion.div
-                          style={{
-                            display: "inline-block",
-                            fontWeight: "bolder",
-                          }}
-                          key={k}
-                          initial={{
-                            scale: 1.5,
-                            y: 3,
-                          }}
-                          animate={{
-                            scale: 1,
-                            y: 0,
-                          }}
-                          transition={{
-                            type: "spring",
-                            stiffness: 260,
-                            damping: 20,
-                            delay: k * 0.1,
-                            repeat: Infinity,
-                            repeatDelay: 1,
-                          }}
-                        >
-                          {b}
-                        </motion.div>
-                      )
-                    )}
-                  </div>{" "}
-                </span>{" "}
-                decentralized lottery platform
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  margin: "0rem 0 2rem 0",
+                }}
+              >
+                {[
+                  "Y",
+                  "o",
+                  "u",
+                  "r",
+                  "\u00A0",
+                  "L",
+                  "i",
+                  "f",
+                  "e",
+                  "\u00A0",
+                  "t",
+                  "i",
+                  "m",
+                  "e",
+                  "\u00A0",
+                  "M",
+                  "e",
+                  "m",
+                  "e",
+                  "\u00A0",
+                  "T",
+                  "i",
+                  "c",
+                  "k",
+                  "e",
+                  "t",
+                ].map((s, i) => (
+                  <motion.div
+                    initial={{ scale: 0 }}
+                    animate={{ rotate: 360, scale: 1 }}
+                    transition={{
+                      type: "spring",
+                      stiffness: 260,
+                      damping: 20,
+                      delay: i * 0.1,
+                      repeat: Infinity,
+                      repeatDelay: 2,
+                    }}
+                    key={i}
+                  >
+                    <h3 className={i > 14 ? "tag" : ""}> {s}</h3>
+                  </motion.div>
+                ))}
               </div>
+
               <div className="btn_grp">
-                <div className="custom-btn_o">Join Presale Now</div>
-                <Link href="/contest" className="btn_y secondary">
-                  Join Community
-                </Link>
+                <div className="custom-btn_o">Mint now</div>
               </div>
             </div>
           </div>
