@@ -1,5 +1,31 @@
 import Link from "next/link";
+import { Link as Links } from "react-scroll";
 import Image from "next/image";
+
+import toast, { Toaster } from "react-hot-toast";
+import { MdOutlineDoneOutline } from "react-icons/md";
+
+function eToster(message, duration, bg, color, icon) {
+  return toast.custom(
+    <div
+      style={{
+        maxWidth: "820px",
+        padding: "1rem",
+        borderRadius: "1rem",
+        background: bg,
+        color: color,
+        display: "flex",
+        columnGap: "1rem",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div> {icon}</div>
+      <p style={{ color: color }}> {message}</p>
+    </div>,
+    { duration: duration }
+  );
+}
 
 import {
   FaTwitter,
@@ -30,7 +56,7 @@ const Footer = () => {
                 <h3 className="title">To Get Exclusive Benefits</h3>
               </div>
               <div className="right">
-                <form className="subscribe-form">
+                <div className="subscribe-form">
                   <input
                     type="email"
                     name="subscribe_email"
@@ -38,8 +64,23 @@ const Footer = () => {
                     placeholder="Enter Your Email"
                     required
                   />
-                  <button type="submit">Subscribe</button>
-                </form>
+                  <button
+                    onClick={() => {
+                      console.log("hereo");
+                      eToster(
+                        "Thank you for subscribing!",
+                        5000,
+                        "green",
+                        "white",
+                        <MdOutlineDoneOutline size={24} />
+                      );
+                      return;
+                    }}
+                    type="submit"
+                  >
+                    Subscribe
+                  </button>
+                </div>
               </div>
             </div>
           </div>
@@ -94,29 +135,61 @@ const Footer = () => {
 
             <ul className="short-links p-2 align-items-center justify-content-lg-end justify-content-center">
               <li>
-                <Link style={{ color: colors.baseColor }} href="/#">
+                <Links
+                  to="/home"
+                  spy={true}
+                  smooth={true}
+                  offset={50}
+                  duration={500}
+                  style={{ cursor: "pointer", color: colors.baseColor }}
+                >
                   ElonTix
-                </Link>
+                </Links>
               </li>
               <li>
-                <Link style={{ color: colors.baseColor }} href="/#">
+                <Links
+                  spy={true}
+                  smooth={true}
+                  offset={50}
+                  duration={500}
+                  style={{ cursor: "pointer", color: colors.baseColor }}
+                  to="/about"
+                >
                   Partners
-                </Link>
+                </Links>
               </li>
               <li>
-                <Link style={{ color: colors.baseColor }} href="/#">
+                <Link
+                  style={{ color: colors.baseColor }}
+                  href="https://whitepaper.elontix.io/introduction/abstract"
+                  target={"_blank"}
+                >
                   Whitepaper
                 </Link>
               </li>
               <li>
-                <Link style={{ color: colors.baseColor }} href="/#">
+                <Links
+                  to="/roadmap"
+                  spy={true}
+                  smooth={true}
+                  offset={50}
+                  duration={500}
+                  style={{ cursor: "pointer", color: colors.baseColor }}
+                >
                   Roadmap
-                </Link>
+                </Links>
               </li>
               <li>
-                <Link style={{ color: colors.baseColor }} href="/#">
+                <Links
+                  to="/token"
+                  spy={true}
+                  smooth={true}
+                  offset={50}
+                  duration={500}
+                  style={{ cursor: "pointer", color: colors.baseColor }}
+                >
                   Tokenomics
-                </Link>
+                </Links>
               </li>
             </ul>
           </div>
@@ -136,6 +209,7 @@ const Footer = () => {
           </Link>
         </p>
       </div>
+      <Toaster />
     </footer>
   );
 };

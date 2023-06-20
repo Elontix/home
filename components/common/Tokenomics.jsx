@@ -191,13 +191,13 @@ const LatestWinner = () => {
                           }}
                         >
                           <ChartText
-                            bg={"#01E272"}
+                            bg={"#FFBDF7"}
                             text="Pinksale Presale - 57%"
                           />
-                          <ChartText bg={"#544FC5"} text="DEX Listing - 28%" />
-                          <ChartText bg={"#2CAFFE"} text="CEX Listing - 9%" />
+                          <ChartText bg={"#E1AEFF"} text="DEX Listing - 28%" />
+                          <ChartText bg={"#FF78C4"} text="CEX Listing - 9%" />
                           <ChartText
-                            bg={"#FE6A35"}
+                            bg={"#FFECEC"}
                             text="Eco System & Treasury - 6%"
                           />
                         </div>

@@ -78,7 +78,6 @@ export const top_affiliate = [
     name: "Andy Wes",
     title: "CTO / PRODUCT",
     earn: "Andy has been instrumental in driving the technical strategy and product development of ElonTix. He is known for his strong problem-solving skills and ability to translate complex technical concepts into user-friendly products. His strategic thinking and attention to detail have played a pivotal role in defining the features and functionalities of ElonTix",
-
     img: top_affiliate_3,
   },
   {
@@ -92,11 +91,13 @@ export const top_affiliate = [
     id: 4,
     name: "Drace",
     title: "DEV / BLOCKCHAIN",
+    earn: null,
     img: top_affiliate_1,
   },
   {
     id: 5,
     name: "Laura",
+    earn: null,
     title: "MARKETING",
     img: top_affiliate_4,
   },
@@ -104,6 +105,7 @@ export const top_affiliate = [
     id: 6,
     name: "Leung Chi",
     title: "MARKETING",
+    earn: null,
     img: top_affiliate_6,
   },
 ];

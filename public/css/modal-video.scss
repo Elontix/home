@@ -208,21 +208,6 @@ $bg-two: #02014a;
   }
 }
 
-.bnb_value {
-  font-size: 2rem;
-  color: $base-color;
-  @media (min-width: 1200px) {
-    font-size: 4rem;
-  }
-}
-.bnb {
-  font-size: 1.5rem;
-  color: white;
-  @media (min-width: 1200px) {
-    font-size: 3rem;
-  }
-}
-
 .timer_tick {
   display: flex;
   flex-direction: column;
@@ -237,7 +222,7 @@ $bg-two: #02014a;
   }
   .tick {
     text-align: center;
-    background: $bg-one;
+    background: $base-color-two;
     min-width: 48px;
     max-width: 48px;
     min-height: 48px;
@@ -263,11 +248,30 @@ $bg-two: #02014a;
   justify-content: center;
   column-gap: 1rem;
 }
+
+.bnb_value {
+  font-size: 2rem;
+  color: $bg-one;
+  @media (min-width: 1200px) {
+    font-size: 4rem;
+  }
+}
+.bnb {
+  font-size: 1.5rem;
+  color: $bg-one;
+  @media (min-width: 1200px) {
+    font-size: 3rem;
+  }
+}
 .sub_module_ul {
   margin: 1rem 0 0 0;
+  padding: 1rem 0 0 0;
   display: flex;
   justify-content: center;
-  flex-direction: column;
+  flex-direction: row;
+  column-gap: 1rem;
+  background-color: $base-color-three;
+  box-shadow: 0px 0px 4px black;
   align-items: center;
   row-gap: 0;
   line-height: 1;

@@ -3,6 +3,7 @@ import play_1 from "/public/images/icon/play/1.png";
 import play_2 from "/public/images/icon/play/2.png";
 import play_3 from "/public/images/icon/play/3.png";
 import play_bg from "/public/images/bg/elon_bg.jpeg";
+import { colors } from "../../theme/color";
 
 const HowToPlay = () => {
   return (
@@ -16,15 +17,27 @@ const HowToPlay = () => {
             <div className="section-header">
               <h2 className="section-title"></h2>
               <h1 style={{ textAlign: "center" }}>How Elontix works?</h1>
-              <p
-                className="pb-0 pb-lg-120"
+              <div
                 style={{
-                  textAlign: "center",
-                  fontWeight: "bolder",
+                  display: "flex",
+                  justifyContent: "center",
                 }}
               >
-                Follow these 4 easy steps!{" "}
-              </p>
+                <p
+                  className="pb-0 pb-lg-120 tag"
+                  style={{
+                    textAlign: "center",
+                    fontWeight: "bolder",
+                    fontSize: "1.2rem",
+                    padding: ".2rem 1rem 1rem 1rem",
+                    borderRadius: "1rem",
+                    background: colors.bgOne,
+                    color: colors.baseColor,
+                  }}
+                >
+                  Follow these 4 easy steps!{" "}
+                </p>
+              </div>
             </div>
           </div>
         </div>

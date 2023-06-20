@@ -76,18 +76,67 @@ const TopAffiliate = () => {
                     borderBottom: `4px solid ${colors.baseColor}`,
                   }}
                 ></div>
-                <div className="px-4 py-2">
-                  <span
-                    style={{
-                      fontSize: "1rem",
-                      color: colors.paraColor,
-                      textAlign: "center",
-                    }}
-                    className="amount"
-                  >
-                    {earn}
-                  </span>
-                </div>
+                {earn === null ? null : (
+                  <div className="accordion ">
+                    <div
+                      class="accordion-item"
+                      style={{
+                        background: colors.bgOne,
+                        outline: "none",
+                        border: "none",
+                        borderRadius: 0,
+                      }}
+                    >
+                      <h2
+                        style={{
+                          outline: "none",
+                          border: "none",
+                          borderRadius: 0,
+                        }}
+                        class="accordion-header"
+                        id="headingOne"
+                      >
+                        <button
+                          class="accordion-button"
+                          type="button"
+                          data-bs-toggle={"collapse"}
+                          data-bs-target={"#collapseOne" + id.toString()}
+                          aria-controls={"collapseOne" + id.toString()}
+                          style={{
+                            background: colors.baseColorTwo,
+                            color: colors.baseColor,
+                            textAlign: "center",
+                            fontWeight: "bold",
+                            outline: "none",
+                            border: "none",
+                            borderRadius: 0,
+                          }}
+                        >
+                          About
+                        </button>
+                      </h2>
+                      <div
+                        id={"collapseOne" + id.toString()}
+                        class="accordion-collapse collapse show"
+                        aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample"
+                      >
+                        <div class="accordion-body">
+                          <span
+                            style={{
+                              fontSize: "1rem",
+                              color: colors.paraColor,
+                              textAlign: "center",
+                            }}
+                            className="amount"
+                          >
+                            {earn}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
           ))}

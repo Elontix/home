@@ -20,7 +20,6 @@ import { BiErrorAlt } from "react-icons/bi";
 import { MdOutlineDoneOutline } from "react-icons/md";
 
 import Mintbar from "../components/common/MintBar";
-import { NextFetchEvent } from "next/server";
 
 function eToster(message, duration, bg, color, icon) {
   return toast.custom(
@@ -44,7 +43,7 @@ function eToster(message, duration, bg, color, icon) {
   );
 }
 
-function generateRandom(min = 0, max = 999) {
+function generateRandom(min = 0, max = 100000) {
   let difference = max - min;
   let rand = Math.random();
   rand = Math.floor(rand * difference);

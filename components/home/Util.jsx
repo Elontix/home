@@ -39,10 +39,17 @@ const GradCard = () => {
         <span class="card__line card__line_top"></span>
         <span class="card__line card__line_bottom"></span>
 
-        <div className="p-5 util_card_gradient row">
-          <div className="col-12 col-lg-6">
-            <div className="title">LIFETIME DRAW</div>
-            <div className="subtitle">Every Friday 3PM</div>
+        <div className="p-5 util_card_gradient row ">
+          <div
+            className="col-12 col-lg-6"
+            style={{
+              background: colors.bgOne,
+              padding: "2rem 0",
+              borderRadius: "1rem",
+            }}
+          >
+            <div className="title">NEXT DRAW IN</div>
+            <div className="subtitle"></div>
             <div className="util_card_gradient_content col-12">
               <div className="main_module_ul">
                 <div className="timer_tick">
@@ -64,12 +71,13 @@ const GradCard = () => {
               </div>
 
               <div className="sub_module_ul">
+                <div className="bnb">WIN</div>
                 <div className="bnb_value">22.82</div>
                 <div className="bnb">BNB</div>
               </div>
             </div>
           </div>
-          <div className="col-12 col-lg-6">
+          <div className="col-12 col-lg-6 p-4">
             <div
               style={{
                 display: "flex",
