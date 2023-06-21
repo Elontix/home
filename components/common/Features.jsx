@@ -17,6 +17,8 @@ const Features = () => {
           style={{
             opacity: 0.33,
             position: "absolute",
+            width: "60%",
+            left: "20%",
             zIndex: -1,
             objectFit: "cover",
             backgroundSize: "cover",
