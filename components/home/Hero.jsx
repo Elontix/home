@@ -293,7 +293,7 @@ const Hero = () => {
                 style={{
                   display: "flex",
                   justifyContent: "center",
-                  margin: "0rem 0 2rem 0",
+                  margin: "0rem 0 1rem 0",
                 }}
               >
                 {[
@@ -343,7 +343,17 @@ const Hero = () => {
               </div>
 
               <div className="btn_grp">
-                <div className="custom-btn_o">Mint now</div>
+                <div
+                  style={{
+                    background: "white",
+                    borderRadius: "6px",
+                    backgroundImage: `radial-gradient(circle, #ffb200, #fea200, #fd9100, #fb8100, #f86f03)`,
+                  }}
+                >
+                  <button style={{ margin: 0 }} class="custom-btn btn-7">
+                    <span>Mint Now</span>
+                  </button>
+                </div>
               </div>
             </div>
           </div>

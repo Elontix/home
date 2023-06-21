@@ -4,11 +4,6 @@ import TicketGif from "/public/images/ticket.gif";
 import { useWeb3Modal } from "@web3modal/react";
 import { useAccount, useBalance, useDisconnect, useContractWrite } from "wagmi";
 
-import {
-  watchPendingTransactions,
-  WatchPendingTransactionsResult,
-} from "@wagmi/core";
-
 import { useEffect, useState } from "react";
 import { bscTestnet } from "wagmi/chains";
 import { colors } from "../theme/color";
@@ -205,13 +200,13 @@ const Mint = () => {
 
               <div className="row py-4">
                 <div className="col-6" style={{ textAlign: "left" }}>
-                  <h4>ElonTix</h4>
+                  <h4>Ticket Type</h4>
                   <h4>Price</h4>
                 </div>
                 <div className="col-6" style={{ textAlign: "right" }}>
-                  <h5 style={{ color: colors.baseColor }}>Edition {type}</h5>
+                  <h5 style={{ color: colors.baseColor }}>{type}</h5>
 
-                  <h5 style={{ color: colors.baseColor }}>bnb {price}</h5>
+                  <h5 style={{ color: colors.baseColor }}>{price} BNB</h5>
                 </div>
                 <div
                   className="row"

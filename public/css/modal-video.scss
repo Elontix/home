@@ -724,26 +724,150 @@ body::-webkit-scrollbar-thumb {
   color: $base-color;
 }
 
-.custom-btn_o {
-  color: #fff;
+$color_1: #fff;
+$color_2: rgba(251, 75, 2, 1);
+
+.custom-btn {
+  color: $color_1;
   border-radius: 5px;
   padding: 10px 25px;
   font-weight: 500;
   background: transparent;
   cursor: pointer;
   transition: all 0.3s ease;
-  border: 2px solid $base-color;
-  border-radius: 40rem;
-  line-height: 1.5;
-  font-size: 1.2rem;
-  font-weight: 700;
-  padding: 1em 2em;
-  letter-spacing: 0.05rem;
-  border-radius: 40rem;
-  transition: all 200ms ease-in;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+  color: #02014a;
+  min-height: 50px;
+  max-height: 50px;
+  min-width: 180px;
+  max-width: 180px;
+}
+.btn-7 {
+  min-height: 50px;
+  max-height: 50px;
+  min-width: 180px;
+  max-width: 180px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(
+    4deg,
+    rgb(236, 3, 139) 0%,
+    rgb(251, 100, 104) 44%,
+    rgb(251, 185, 54) 100%
+  );
+  line-height: 42px;
+  padding: 0;
+  border: none;
+  span {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5rem;
+    color: white;
+
+    font-weight: bolder;
+    min-height: 50px;
+    max-height: 50px;
+    min-width: 180px;
+    max-width: 180px;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    &:before {
+      position: absolute;
+      content: "";
+      left: 0;
+      top: 0;
+      background-image: linear-gradient(
+        4deg,
+        rgb(236, 3, 139) 0%,
+        rgb(251, 100, 104) 44%,
+        rgb(251, 185, 54) 100%
+      );
+      box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, 0.9),
+        -4px -4px 5px 0px rgba(255, 255, 255, 0.9),
+        7px 7px 20px 0px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      width: 2px;
+      height: 0%;
+    }
+    &:after {
+      position: absolute;
+      content: "";
+      left: 0;
+      top: 0;
+      background-image: linear-gradient(
+        4deg,
+        rgb(236, 3, 139) 0%,
+        rgb(251, 100, 104) 44%,
+        rgb(251, 185, 54) 100%
+      );
+      box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, 0.9),
+        -4px -4px 5px 0px rgba(255, 255, 255, 0.9),
+        7px 7px 20px 0px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+      transition: all 0.3s ease;
+      height: 2px;
+      width: 0%;
+    }
+    &:hover {
+      &:before {
+        height: 100%;
+      }
+      &:after {
+        width: 100%;
+      }
+    }
+  }
+  &:before {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(
+      4deg,
+      rgb(236, 3, 139) 0%,
+      rgb(251, 100, 104) 44%,
+      rgb(251, 185, 54) 100%
+    );
+    box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, 0.9),
+      -4px -4px 5px 0px rgba(255, 255, 255, 0.9),
+      7px 7px 20px 0px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    height: 0%;
+    width: 2px;
+  }
+  &:after {
+    position: absolute;
+    content: "";
+    right: 0;
+    bottom: 0;
+    background-image: linear-gradient(
+      4deg,
+      rgb(236, 3, 139) 0%,
+      rgb(251, 100, 104) 44%,
+      rgb(251, 185, 54) 100%
+    );
+    box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, 0.9),
+      -4px -4px 5px 0px rgba(255, 255, 255, 0.9),
+      7px 7px 20px 0px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
+    transition: all 0.3s ease;
+    width: 0%;
+    height: 2px;
+  }
   &:hover {
-    color: $base-color;
-    box-shadow: 0px 0px 24px $base-color;
+    color: $color_2;
+    background: transparent;
+    &:before {
+      height: 100%;
+    }
+    &:after {
+      width: 100%;
+    }
   }
 }
 
@@ -910,8 +1034,4 @@ $card__line_bd-cr: $cr-blue-1;
     // position
     left: 200%;
   }
-}
-
-.quote_ {
-  // font-size: 0.8rem;
 }

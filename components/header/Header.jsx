@@ -1,5 +1,5 @@
-import Image from "next/image";
 import { Link as Links } from "react-scroll";
+import Image from "next/image";
 import Link from "next/link";
 
 import { useEffect, useState } from "react";

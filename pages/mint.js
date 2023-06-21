@@ -47,9 +47,10 @@ function generateRandom(min = 0, max = 100000) {
   let difference = max - min;
   let rand = Math.random();
   rand = Math.floor(rand * difference);
-  rand = rand + min;
-  rand = String(rand).split("");
-
+  rand = String(rand + min);
+  rand = rand.split("");
+  let spliter = 6 - rand.length;
+  for (let i = 0; i < spliter; i++) rand = ["0", ...rand];
   return rand;
 }
 
@@ -57,12 +58,14 @@ const Mint = () => {
   const [token, setToken] = useState(["0", "0", "0", "0", "0", "0"]);
   function updateRandomNumber() {
     setToken([...generateRandom()]);
+    nftIdentifier();
   }
 
   function updateNumber(value, key) {
     let temp = token;
     temp[key] = value;
     setToken([...temp]);
+    nftIdentifier();
   }
   function tokenStrip() {
     let n = "";
@@ -141,13 +144,43 @@ const Mint = () => {
     }
   }, [counter, mintIsSuccess]);
 
+  function nftIdentifier() {
+    let stripedToken = tokenStrip(token);
+    // diamond
+    if (stripedToken < 5000) {
+      setPrice(0.2);
+      setType("DIAMOND");
+    }
+    // gold
+    if (stripedToken > 5000 && stripedToken < 20000) {
+      setPrice(0.1);
+      setType("GOLD");
+    }
+    // silver
+    if (stripedToken > 20000 && stripedToken < 50000) {
+      setPrice(0.05);
+      setType("SILVER");
+    }
+    // bronze
+    if (stripedToken > 50000) {
+      setPrice(0.03);
+      setType("BRONZE");
+    }
+  }
+
+  const [price, setPrice] = useState(0);
+  const [type, setType] = useState("");
+
   return (
     <>
       <div className="" style={{ minHeight: "25vh" }}></div>
 
       <div className="container" style={{ paddingBottom: "5rem" }}>
         <Mintbar />
-        <div className="row" style={{ rowGap: "2rem", columnGap: "0rem" }}>
+        <div
+          className="row"
+          style={{ rowGap: "2rem", columnGap: "0rem", alignItems: "center" }}
+        >
           <div className="col-sm-12 col-lg-6 px-5">
             <div
               className="px-4 rounded"
@@ -163,12 +196,12 @@ const Mint = () => {
 
               <div className="row py-4">
                 <div className="col-6" style={{ textAlign: "left" }}>
-                  <h4>ElonTix</h4>
+                  <h4>Ticket Type</h4>
                   <h4>Price</h4>
                 </div>
                 <div className="col-6" style={{ textAlign: "right" }}>
-                  <h5 style={{ color: colors.baseColor }}>Edition #000001</h5>
-                  <h5 style={{ color: colors.baseColor }}>eth0.2</h5>
+                  <h5 style={{ color: colors.baseColor }}>{type}</h5>
+                  <h5 style={{ color: colors.baseColor }}>{price} BNB</h5>
                 </div>
                 <div
                   className="row"

@@ -24,41 +24,34 @@ const TopAffiliate = () => {
         <div className="row mb-none-30 justify-content-center">
           {top_affiliate.map(({ id, name, earn, img, title }) => (
             <div key={id} className="col-12 col-md-6 col-lg-4 mb-30">
-              <div
-                style={{
-                  background: colors.baseColorTwo,
-                  paddingTop: "2rem",
-                  margin: "auto",
-                  rowGap: "2rem",
-                  borderTopRightRadius: "100%",
-                  borderTopLeftRadius: "100%",
-                  borderBottomLeftRadius: "5%",
-                  borderBottomRightRadius: "5%",
-                  borderTop: `24px solid ${colors.baseColorTwo}`,
-                  borderBottom: `24px solid ${colors.bgOne}`,
-                  borderLeft: `8px solid ${colors.bgOne}`,
-                  borderRight: `8px solid ${colors.bgOne}`,
-                  backgroundImage: `radial-gradient(circle, #5a4bcc, #4538a2, #31277a, #1d1655, #0f0232)`,
-                  zIndex: 1,
-                }}
-                className="top-affiliate-card"
-              >
+              <div style={{ padding: 0 }} className="top-affiliate-card">
                 <div
                   style={{
-                    borderBottom: `4px solid ${colors.baseColor}`,
+                    background: colors.baseColorTwo,
+                    paddingTop: "3rem",
+                    margin: "auto",
+                    borderTopRightRadius: "100%",
+                    borderTopLeftRadius: "100%",
+                    borderTop: `24px solid ${colors.baseColorTwo}`,
+                    backgroundImage: `radial-gradient(circle, #5a4bcc, #4538a2, #31277a, #1d1655, #0f0232)`,
+                    zIndex: 1,
                   }}
                 >
                   <Image
                     style={{
                       zIndex: -1,
                       maxWidth: "256px",
-                      margin: "0erem 0 1rem 0",
                     }}
                     src={img}
                     alt={name}
                   />
                 </div>
-                <div className="p-2">
+                <div
+                  style={{
+                    borderTop: `4px solid ${colors.baseColor}`,
+                  }}
+                  className="px-2 py-3"
+                >
                   <h3 className="name">{name}</h3>
                   <span
                     style={{
@@ -81,10 +74,11 @@ const TopAffiliate = () => {
                     <div
                       class="accordion-item"
                       style={{
-                        background: colors.bgOne,
+                        backgroundImage: `radial-gradient(circle, #5a4bcc, #4538a2, #31277a, #1d1655, #0f0232)`,
                         outline: "none",
                         border: "none",
-                        borderRadius: 0,
+                        borderBottomRadius: "1rem",
+                        boxShadow: `0px 0px 4px ${colors.baseColor}`,
                       }}
                     >
                       <h2
@@ -103,13 +97,14 @@ const TopAffiliate = () => {
                           data-bs-target={"#collapseOne" + id.toString()}
                           aria-controls={"collapseOne" + id.toString()}
                           style={{
-                            background: colors.baseColorTwo,
+                            backgroundImage: `radial-gradient(circle, #5a4bcc, #4538a2, #31277a, #1d1655, #0f0232)`,
                             color: colors.baseColor,
                             textAlign: "center",
                             fontWeight: "bold",
                             outline: "none",
                             border: "none",
-                            borderRadius: 0,
+                            borderBottomRadius: "1rem",
+                            boxShadow: `0px 0px 4px ${colors.baseColor}`,
                           }}
                         >
                           About
@@ -126,7 +121,7 @@ const TopAffiliate = () => {
                             style={{
                               fontSize: "1rem",
                               color: colors.paraColor,
-                              textAlign: "center",
+                              textAlign: "left",
                             }}
                             className="amount"
                           >

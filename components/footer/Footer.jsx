@@ -1,6 +1,6 @@
 import Link from "next/link";
-import { Link as Links } from "react-scroll";
 import Image from "next/image";
+import { Link as Links } from "react-scroll";
 
 import toast, { Toaster } from "react-hot-toast";
 import { MdOutlineDoneOutline } from "react-icons/md";
@@ -136,7 +136,7 @@ const Footer = () => {
             <ul className="short-links p-2 align-items-center justify-content-lg-end justify-content-center">
               <li>
                 <Links
-                  to="/home"
+                  to="home"
                   spy={true}
                   smooth={true}
                   offset={50}
@@ -153,7 +153,7 @@ const Footer = () => {
                   offset={50}
                   duration={500}
                   style={{ cursor: "pointer", color: colors.baseColor }}
-                  to="/about"
+                  to="about"
                 >
                   Partners
                 </Links>
@@ -169,7 +169,7 @@ const Footer = () => {
               </li>
               <li>
                 <Links
-                  to="/roadmap"
+                  to="roadmap"
                   spy={true}
                   smooth={true}
                   offset={50}
@@ -181,7 +181,7 @@ const Footer = () => {
               </li>
               <li>
                 <Links
-                  to="/token"
+                  to="token"
                   spy={true}
                   smooth={true}
                   offset={50}
