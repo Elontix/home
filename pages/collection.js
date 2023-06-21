@@ -22,10 +22,10 @@ const Collection = () => {
   const addressStrip = (str) =>
     str.substring(0, 4) + "...." + str.substring(str.length - 4, str.length);
 
-  useEffect(() => {
-    disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
+  // useEffect(() => {
+  //   disconnect();
+  //   // eslint-disable-next-line react-hooks/exhaustive-deps
+  // }, []);
 
   const [counter, setCounter] = useState(0);
   const [data, setData] = useState([]);
@@ -36,29 +36,52 @@ const Collection = () => {
     isError: hasCollectionError,
     isSuccess: hasCollecitonSucess,
   } = useContractRead({
-    address: "0xd23306DA2087CA5374F3F05DAB93D8F6189C3E46",
+    address: MintAPi.getAddress(false),
     abi: MintAPi.getMintAbi(false),
-    args: [address, counter],
+    args: [address, 1],
     functionName: "tokenOfOwnerByIndex",
     chainId: bscTestnet.chainId,
     account: address,
   });
 
+  const {
+    data: tokenUriData,
+    error: tokenUriError,
+    isError: tokenUriIsError,
+    isSuccess: tokenUriIsSuccess,
+  } = useContractRead({
+    address: MintAPi.getAddress(false),
+    abi: MintAPi.getMintAbi(false),
+    args: [1],
+    functionName: "tokenURI",
+    chainId: bscTestnet.chainId,
+    account: address,
+  });
+
+  const getJson = async () => {
+    try {
+      let d = data;
+
+      const f = await (await fetch(tokenUriData)).json();
+      console.log(f);
+      d.push({
+        tokenId: collectionData,
+        ...f,
+      });
+      setData([...d]);
+      setCounter(counter + 1);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     if (!hasCollectionError && hasCollecitonSucess) {
-      let d = data;
       let isUpdated = false;
-
       for (let i = 0; i < data.length; i++)
-        if (collectionData === data[i]) isUpdated = true;
-
-      if (!isUpdated) {
-        d.push(collectionData);
-        setData([...d]);
-        setCounter(counter + 1);
-      }
+        if (collectionData === data[i].tokenId) isUpdated = true;
+      if (!isUpdated) getJson();
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [counter, hasCollecitonSucess]);
 
   return (
@@ -85,10 +108,10 @@ const Collection = () => {
                     <div key={k} className="col-xl-4 col-md-6 mb-30">
                       <ContestCard
                         itm={{
-                          id: "fh*3ja$^",
-                          title: itm.toString(),
-                          ticket_price: "3.99",
-                          img: contest_1,
+                          id: itm.tokenId,
+                          title: itm.name,
+                          ticket_price: itm.description,
+                          img: itm.image,
                           contest_no: "b2t",
                           day_remain: 5,
                           ticket_remain: 9805,

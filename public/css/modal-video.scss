@@ -724,153 +724,59 @@ body::-webkit-scrollbar-thumb {
   color: $base-color;
 }
 
-$color_1: #fff;
-$color_2: rgba(251, 75, 2, 1);
-
-.custom-btn {
-  color: $color_1;
-  border-radius: 5px;
-  padding: 10px 25px;
-  font-weight: 500;
-  background: transparent;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  position: relative;
-  display: inline-block;
-  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
-    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
-  outline: none;
-  color: #02014a;
-  min-height: 50px;
-  max-height: 50px;
-  min-width: 180px;
-  max-width: 180px;
+.pulse:hover,
+.pulse:focus {
+  animation: pulse 1s;
+  box-shadow: 0 0 0 2em transparent;
+  color: $base-color;
+  background-color: white;
+  font-size: 1.6rem;
 }
-.btn-7 {
-  min-height: 50px;
-  max-height: 50px;
-  min-width: 180px;
-  max-width: 180px;
+
+@keyframes pulse {
+  0% {
+    box-shadow: 0 0 0 0 $base-color;
+  }
+}
+
+// Animating from the bottom
+.up:hover,
+.up:focus {
+  box-shadow: inset 0 -3.25em 0 0 $base-color;
+  color: white;
+}
+
+// And from the left
+.slide:hover,
+.slide:focus {
+  box-shadow: inset 6.5em 0 0 0 $base-color;
+  color: white;
+}
+
+// Basic button styles
+.btn_x1 {
+  font-weight: bolder;
   display: flex;
   justify-content: center;
   align-items: center;
+  border-radius: 40rem;
+  color: white;
   background-image: linear-gradient(
     4deg,
     rgb(236, 3, 139) 0%,
     rgb(251, 100, 104) 44%,
     rgb(251, 185, 54) 100%
   );
-  line-height: 42px;
-  padding: 0;
-  border: none;
-  span {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    font-size: 1.5rem;
-    color: white;
-
-    font-weight: bolder;
-    min-height: 50px;
-    max-height: 50px;
-    min-width: 180px;
-    max-width: 180px;
-    position: relative;
-    width: 100%;
-    height: 100%;
-    &:before {
-      position: absolute;
-      content: "";
-      left: 0;
-      top: 0;
-      background-image: linear-gradient(
-        4deg,
-        rgb(236, 3, 139) 0%,
-        rgb(251, 100, 104) 44%,
-        rgb(251, 185, 54) 100%
-      );
-      box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, 0.9),
-        -4px -4px 5px 0px rgba(255, 255, 255, 0.9),
-        7px 7px 20px 0px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
-      transition: all 0.3s ease;
-      width: 2px;
-      height: 0%;
-    }
-    &:after {
-      position: absolute;
-      content: "";
-      left: 0;
-      top: 0;
-      background-image: linear-gradient(
-        4deg,
-        rgb(236, 3, 139) 0%,
-        rgb(251, 100, 104) 44%,
-        rgb(251, 185, 54) 100%
-      );
-      box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, 0.9),
-        -4px -4px 5px 0px rgba(255, 255, 255, 0.9),
-        7px 7px 20px 0px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
-      transition: all 0.3s ease;
-      height: 2px;
-      width: 0%;
-    }
-    &:hover {
-      &:before {
-        height: 100%;
-      }
-      &:after {
-        width: 100%;
-      }
-    }
-  }
-  &:before {
-    position: absolute;
-    content: "";
-    right: 0;
-    bottom: 0;
-    background-image: linear-gradient(
-      4deg,
-      rgb(236, 3, 139) 0%,
-      rgb(251, 100, 104) 44%,
-      rgb(251, 185, 54) 100%
-    );
-    box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, 0.9),
-      -4px -4px 5px 0px rgba(255, 255, 255, 0.9),
-      7px 7px 20px 0px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    height: 0%;
-    width: 2px;
-  }
-  &:after {
-    position: absolute;
-    content: "";
-    right: 0;
-    bottom: 0;
-    background-image: linear-gradient(
-      4deg,
-      rgb(236, 3, 139) 0%,
-      rgb(251, 100, 104) 44%,
-      rgb(251, 185, 54) 100%
-    );
-    box-shadow: -7px -7px 20px 0px rgba(255, 255, 255, 0.9),
-      -4px -4px 5px 0px rgba(255, 255, 255, 0.9),
-      7px 7px 20px 0px rgba(0, 0, 0, 0.2), 4px 4px 5px 0px rgba(0, 0, 0, 0.3);
-    transition: all 0.3s ease;
-    width: 0%;
-    height: 2px;
-  }
-  &:hover {
-    color: $color_2;
-    background: transparent;
-    &:before {
-      height: 100%;
-    }
-    &:after {
-      width: 100%;
-    }
+  border: 2px solid;
+  padding: 0.5em 2em;
+  font-size: 1.4rem;
+  transition: 0.25s;
+  &:hover,
+  &:focus {
+    border-color: $base-color;
+    color: $base-color;
   }
 }
-
 .mint_now_util {
   z-index: 1;
   border-radius: 1rem;
@@ -1034,4 +940,72 @@ $card__line_bd-cr: $cr-blue-1;
     // position
     left: 200%;
   }
+}
+
+.custom-btn {
+  min-height: 45px;
+  min-width: 280px;
+  color: #fff;
+  border-radius: 5px;
+  padding: 10px 25px;
+  font-weight: 500;
+  font-size: 2.2rem;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  display: inline-block;
+  box-shadow: inset 2px 2px 2px 0px rgba(255, 255, 255, 0.5),
+    7px 7px 20px 0px rgba(0, 0, 0, 0.1), 4px 4px 5px 0px rgba(0, 0, 0, 0.1);
+  outline: none;
+}
+
+/* 9 */
+.btn-9 {
+  border: none;
+  transition: all 0.3s ease;
+  font-weight: bolder;
+  overflow: hidden;
+}
+.btn-9:after {
+  position: absolute;
+  content: " ";
+  z-index: -1;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #1fd1f9;
+  background-image: linear-gradient(
+    4deg,
+    rgb(236, 3, 139) 0%,
+    rgb(251, 100, 104) 44%,
+    rgb(251, 185, 54) 100%
+  );
+  transition: all 0.3s ease;
+}
+.btn-9:hover {
+  background: transparent;
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+    -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
+    inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, 0.3);
+  color: #fff;
+}
+.btn-9:hover:after {
+  -webkit-transform: scale(2) rotate(180deg);
+  transform: scale(2) rotate(180deg);
+  box-shadow: 4px 4px 6px 0 rgba(255, 255, 255, 0.5),
+    -4px -4px 6px 0 rgba(116, 125, 136, 0.2),
+    inset -4px -4px 6px 0 rgba(255, 255, 255, 0.5),
+    inset 4px 4px 6px 0 rgba(116, 125, 136, 0.3);
+}
+
+.contest_img {
+  transform: scale(1.195);
+  border-radius: 2rem;
+  padding: 0.2rem 0.24rem;
+}
+.contest_img:hover {
+  transition: all 200ms ease-in-out;
 }

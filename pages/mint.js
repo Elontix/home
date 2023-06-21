@@ -4,16 +4,11 @@ import TicketGif from "/public/images/ticket.gif";
 
 import { useWeb3Modal } from "@web3modal/react";
 import { useAccount, useBalance, useDisconnect, useContractWrite } from "wagmi";
-import {
-  watchPendingTransactions,
-  WatchPendingTransactionsResult,
-} from "@wagmi/core";
 
 import { useEffect, useState } from "react";
 import { bscTestnet } from "wagmi/chains";
 import { colors } from "../theme/color";
 import { MintAPi } from "./api/mint/mint";
-import { useMutation } from "@apollo/client";
 
 import toast, { Toaster } from "react-hot-toast";
 import { BiErrorAlt } from "react-icons/bi";
@@ -56,6 +51,9 @@ function generateRandom(min = 0, max = 100000) {
 
 const Mint = () => {
   const [token, setToken] = useState(["0", "0", "0", "0", "0", "0"]);
+  const [price, setPrice] = useState(0);
+  const [type, setType] = useState("");
+
   function updateRandomNumber() {
     setToken([...generateRandom()]);
     nftIdentifier();
@@ -79,9 +77,7 @@ const Mint = () => {
   const { data: balance, isFetched: balanceFeteched } = useBalance({
     address,
   });
-  const [createAccount, { data, loading, error, called }] = useMutation(
-    MintAPi.createAccountGQL()
-  );
+
   const connectWallet = () => {
     open();
     setDefaultChain(bscTestnet);
@@ -89,28 +85,8 @@ const Mint = () => {
   const addressStrip = (str) =>
     str.substring(0, 4) + "...." + str.substring(str.length - 4, str.length);
 
-  const updateWalletInformation = async () => {
-    const { ip } = await fetch("https://api.ipify.org?format=json", {
-      method: "GET",
-    })
-      .then((res) => res.json())
-      .catch((error) => console.error(error));
-    const { data } = await createAccount({
-      variables: {
-        address: address,
-        ipAddress: ip,
-      },
-    });
-  };
-
-  useEffect(() => {
-    updateWalletInformation().then().catch();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [address]);
-
   useEffect(() => {
     disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   const {
@@ -121,20 +97,25 @@ const Mint = () => {
     isSuccess: mintIsSuccess,
     status: mintStatus,
   } = useContractWrite({
-    address: "0xd23306DA2087CA5374F3F05DAB93D8F6189C3E46",
+    address: MintAPi.getAddress(false),
     abi: MintAPi.getMintAbi(false),
     functionName: "mint",
     args: [address, tokenStrip(token)],
     chainId: bscTestnet.chainId,
     account: address,
-    gas: 400000,
-    maxFeePerGas: 400000,
-    value: 1000000000000000,
+    value: BigInt(price * 10 ** 18),
   });
 
   const [counter, setCounter] = useState(0);
 
   console.log(mintIsSuccess);
+
+  function typeColor(type) {
+    if (type === "DIAMOND") return "#b9f2ff";
+    if (type === "GOLD") return "#FFD700";
+    if (type === "SILVER") return "#C0C0C0";
+    if (type === "BRONZE") return " #CD7F32";
+  }
 
   useEffect(() => {
     console.log(counter, mintStatus, mintIsSuccess);
@@ -168,9 +149,6 @@ const Mint = () => {
     }
   }
 
-  const [price, setPrice] = useState(0);
-  const [type, setType] = useState("");
-
   return (
     <>
       <div className="" style={{ minHeight: "25vh" }}></div>
@@ -200,7 +178,7 @@ const Mint = () => {
                   <h4>Price</h4>
                 </div>
                 <div className="col-6" style={{ textAlign: "right" }}>
-                  <h5 style={{ color: colors.baseColor }}>{type}</h5>
+                  <h5 style={{ color: typeColor(type) }}>{type}</h5>
                   <h5 style={{ color: colors.baseColor }}>{price} BNB</h5>
                 </div>
                 <div

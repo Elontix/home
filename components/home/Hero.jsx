@@ -289,71 +289,84 @@ const Hero = () => {
                   </span>
                 </div>
               </div>
+
               <div
                 style={{
                   display: "flex",
                   justifyContent: "center",
-                  margin: "0rem 0 1rem 0",
+                  alignItems: "center",
+                  columnGap: "1rem",
                 }}
               >
-                {[
-                  "Y",
-                  "o",
-                  "u",
-                  "r",
-                  "\u00A0",
-                  "L",
-                  "i",
-                  "f",
-                  "e",
-                  "\u00A0",
-                  "t",
-                  "i",
-                  "m",
-                  "e",
-                  "\u00A0",
-                  "M",
-                  "e",
-                  "m",
-                  "e",
-                  "\u00A0",
-                  "T",
-                  "i",
-                  "c",
-                  "k",
-                  "e",
-                  "t",
-                ].map((s, i) => (
-                  <motion.div
-                    initial={{ scale: 0 }}
-                    animate={{ rotate: 360, scale: 1 }}
-                    transition={{
-                      type: "spring",
-                      stiffness: 260,
-                      damping: 20,
-                      delay: i * 0.1,
-                      repeat: Infinity,
-                      repeatDelay: 2,
-                    }}
-                    key={i}
-                  >
-                    <h3 className={i > 14 ? "tag" : ""}> {s}</h3>
-                  </motion.div>
-                ))}
-              </div>
-
-              <div className="btn_grp">
                 <div
                   style={{
-                    background: "white",
-                    borderRadius: "6px",
-                    backgroundImage: `radial-gradient(circle, #ffb200, #fea200, #fd9100, #fb8100, #f86f03)`,
+                    display: "flex",
+                    justifyContent: "center",
                   }}
                 >
-                  <button style={{ margin: 0 }} class="custom-btn btn-7">
-                    <span>Mint Now</span>
-                  </button>
+                  {[
+                    "M",
+                    "i",
+                    "n",
+                    "t",
+                    "\u00A0",
+                    "Y",
+                    "o",
+                    "u",
+                    "r",
+                    "\u00A0",
+                    "L",
+                    "i",
+                    "f",
+                    "e",
+                    "\u00A0",
+                    "t",
+                    "i",
+                    "m",
+                    "e",
+                    "\u00A0",
+                    "M",
+                    "e",
+                    "m",
+                    "e",
+                    "\u00A0",
+                    "T",
+                    "i",
+                    "c",
+                    "k",
+                    "e",
+                    "t",
+                    "\u00A0",
+                    "n",
+                    "o",
+                    "w",
+                  ].map((s, i) => (
+                    <motion.div
+                      initial={{ scale: 0 }}
+                      animate={{ rotate: 360, scale: 1 }}
+                      transition={{
+                        type: "spring",
+                        stiffness: 260,
+                        damping: 20,
+                        delay: i * 0.1,
+                        repeat: Infinity,
+                        repeatDelay: 2,
+                      }}
+                      key={i}
+                    >
+                      <h3 className={i > 18 && i < 32 ? "tag" : ""}> {s}</h3>
+                    </motion.div>
+                  ))}
                 </div>
+              </div>
+
+              <div className="btn_grp my-4">
+                <button
+                  class="custom-btn btn-9"
+                  style={{ borderRadius: "40rem" }}
+                >
+                  Mint now
+                </button>
               </div>
             </div>
           </div>

@@ -72,6 +72,7 @@ export const top_affiliate = [
     title: "CEO / DESIGN",
     earn: "A highly accomplished and visionary CEO of ElonTix. With a deep understanding of DAPPs and a track record of success in leading tech companies, his leadership has been instrumental in shaping ElonTix into a trusted platform, and his vision extends beyond lotteries, aiming to utilize blockchain for transformative impact and global empowerment",
     img: top_affiliate_5,
+    desg: "CEO",
   },
   {
     id: 2,
@@ -79,6 +80,7 @@ export const top_affiliate = [
     title: "CTO / PRODUCT",
     earn: "Andy has been instrumental in driving the technical strategy and product development of ElonTix. He is known for his strong problem-solving skills and ability to translate complex technical concepts into user-friendly products. His strategic thinking and attention to detail have played a pivotal role in defining the features and functionalities of ElonTix",
     img: top_affiliate_3,
+    desg: "CTO",
   },
   {
     id: 3,
@@ -86,6 +88,7 @@ export const top_affiliate = [
     title: "DEV / TECH",
     earn: "Deekshit plays a crucial role in driving the technical development and implementation of the core features of ElonTix. With a  meticulous approach and strong background in coding and system architecture, he contributes to the platform's technical infrastructure and ensures its efficiency, stability, integrity and security",
     img: top_affiliate_2,
+    desg: "DEV",
   },
   {
     id: 4,

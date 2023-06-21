@@ -22,17 +22,82 @@ const TopAffiliate = () => {
         </div>
 
         <div className="row mb-none-30 justify-content-center">
-          {top_affiliate.map(({ id, name, earn, img, title }) => (
+          {top_affiliate.map(({ id, name, earn, img, title, desg }, i) => (
             <div key={id} className="col-12 col-md-6 col-lg-4 mb-30">
               <div style={{ padding: 0 }} className="top-affiliate-card">
+                {earn === null ? null : (
+                  <div aria-expanded="false" className="accordion ">
+                    <div
+                      class="accordion-item"
+                      aria-expanded="false"
+                      style={{
+                        backgroundImage: `radial-gradient(circle, #5a4bcc, #4538a2, #31277a, #1d1655, #0f0232)`,
+                        outline: "none",
+                        border: "none",
+                        borderBottomRadius: "1rem",
+                        boxShadow: `0px 0px 4px ${colors.baseColor}`,
+                      }}
+                    >
+                      <h2
+                        style={{
+                          outline: "none",
+                          border: "none",
+                          borderRadius: 0,
+                        }}
+                        class="accordion-header"
+                        id="headingOne"
+                      >
+                        <button
+                          class="accordion-button"
+                          type="button"
+                          aria-expanded={true}
+                          data-bs-toggle={"collapse"}
+                          data-bs-target={"#collapseOne" + id.toString()}
+                          aria-controls={"collapseOne" + id.toString()}
+                          style={{
+                            backgroundImage: `radial-gradient(circle, #5a4bcc, #4538a2, #31277a, #1d1655, #0f0232)`,
+                            color: colors.baseColor,
+                            textAlign: "center",
+                            fontWeight: "bold",
+                            outline: "none",
+                            border: "none",
+                            borderBottomRadius: "1rem",
+                            boxShadow: `0px 0px 4px ${colors.baseColor}`,
+                          }}
+                        >
+                          Know more about our {desg}
+                        </button>
+                      </h2>
+                      <div
+                        id={"collapseOne" + id.toString()}
+                        class="accordion-collapse collapse show"
+                        aria-labelledby="headingOne"
+                        data-bs-parent="#accordionExample"
+                      >
+                        <div class="accordion-body">
+                          <span
+                            style={{
+                              fontSize: "1rem",
+                              color: colors.paraColor,
+                              textAlign: "left",
+                            }}
+                            className="amount"
+                          >
+                            {earn}
+                          </span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                )}
+
                 <div
                   style={{
                     background: colors.baseColorTwo,
                     paddingTop: "3rem",
                     margin: "auto",
-                    borderTopRightRadius: "100%",
-                    borderTopLeftRadius: "100%",
-                    borderTop: `24px solid ${colors.baseColorTwo}`,
+                    borderTopRightRadius: i > 2 ? "100%" : "0",
+                    borderTopLeftRadius: i > 2 ? "100%" : "0",
                     backgroundImage: `radial-gradient(circle, #5a4bcc, #4538a2, #31277a, #1d1655, #0f0232)`,
                     zIndex: 1,
                   }}
@@ -69,69 +134,6 @@ const TopAffiliate = () => {
                     borderBottom: `4px solid ${colors.baseColor}`,
                   }}
                 ></div>
-                {earn === null ? null : (
-                  <div className="accordion ">
-                    <div
-                      class="accordion-item"
-                      style={{
-                        backgroundImage: `radial-gradient(circle, #5a4bcc, #4538a2, #31277a, #1d1655, #0f0232)`,
-                        outline: "none",
-                        border: "none",
-                        borderBottomRadius: "1rem",
-                        boxShadow: `0px 0px 4px ${colors.baseColor}`,
-                      }}
-                    >
-                      <h2
-                        style={{
-                          outline: "none",
-                          border: "none",
-                          borderRadius: 0,
-                        }}
-                        class="accordion-header"
-                        id="headingOne"
-                      >
-                        <button
-                          class="accordion-button"
-                          type="button"
-                          data-bs-toggle={"collapse"}
-                          data-bs-target={"#collapseOne" + id.toString()}
-                          aria-controls={"collapseOne" + id.toString()}
-                          style={{
-                            backgroundImage: `radial-gradient(circle, #5a4bcc, #4538a2, #31277a, #1d1655, #0f0232)`,
-                            color: colors.baseColor,
-                            textAlign: "center",
-                            fontWeight: "bold",
-                            outline: "none",
-                            border: "none",
-                            borderBottomRadius: "1rem",
-                            boxShadow: `0px 0px 4px ${colors.baseColor}`,
-                          }}
-                        >
-                          About
-                        </button>
-                      </h2>
-                      <div
-                        id={"collapseOne" + id.toString()}
-                        class="accordion-collapse collapse show"
-                        aria-labelledby="headingOne"
-                        data-bs-parent="#accordionExample"
-                      >
-                        <div class="accordion-body">
-                          <span
-                            style={{
-                              fontSize: "1rem",
-                              color: colors.paraColor,
-                              textAlign: "left",
-                            }}
-                            className="amount"
-                          >
-                            {earn}
-                          </span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                )}
               </div>
             </div>
           ))}

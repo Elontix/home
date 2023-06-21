@@ -9,6 +9,7 @@ import WhatIsElonTix from "./affiliate";
 import Team from "../components/affiliate/TopAffiliate";
 import Marketing from "../components/affiliate/Marketing";
 import Util from "../components/home/Util";
+import Features from "../components/common/Features";
 
 export default function HomeThree() {
   return (
@@ -22,6 +23,7 @@ export default function HomeThree() {
       <HowElonTixWorks />
       <Marketing />
       <Util />
+      <Features />
       <Element name="roadmap">
         <Roadmap />
       </Element>

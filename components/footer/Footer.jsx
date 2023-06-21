@@ -3,7 +3,7 @@ import Image from "next/image";
 import { Link as Links } from "react-scroll";
 
 import toast, { Toaster } from "react-hot-toast";
-import { MdOutlineDoneOutline } from "react-icons/md";
+import { MdOutlineDoneOutline, MdWarning } from "react-icons/md";
 
 function eToster(message, duration, bg, color, icon) {
   return toast.custom(
@@ -40,8 +40,18 @@ import elon from "/public/images/logo.webp";
 import round_shape_2 from "/public/images/elements/round-shape-2.png";
 
 import { colors } from "../../theme/color";
+import { useState } from "react";
 
 const Footer = () => {
+  const [email, setEmail] = useState("");
+  function changeEmail(e) {
+    setEmail(e);
+  }
+  function ValidateEmail(mail) {
+    if (/^\w+([\.-]?\w+)*@\w+([\.-]?\w+)*(\.\w{2,3})+$/.test(mail)) return true;
+    return false;
+  }
+
   return (
     <footer className="footer-section">
       <div className="bg-shape--top">
@@ -56,31 +66,50 @@ const Footer = () => {
                 <h3 className="title">To Get Exclusive Benefits</h3>
               </div>
               <div className="right">
-                <div className="subscribe-form">
+                <form className="subscribe-form">
                   <input
                     type="email"
                     name="subscribe_email"
                     id="subscribe_email"
                     placeholder="Enter Your Email"
+                    value={email}
+                    onChange={(e) => changeEmail(e.target.value)}
                     required
                   />
                   <button
                     onClick={() => {
-                      console.log("hereo");
-                      eToster(
-                        "Thank you for subscribing!",
-                        5000,
-                        "green",
-                        "white",
-                        <MdOutlineDoneOutline size={24} />
-                      );
-                      return;
+                      if (email !== "") {
+                        if (ValidateEmail(email)) {
+                          return eToster(
+                            "Thank you for subscribing!",
+                            5000,
+                            "green",
+                            "white",
+                            <MdOutlineDoneOutline size={24} />
+                          );
+                        } else {
+                          return eToster(
+                            "Please Enter Valid Email",
+                            5000,
+                            "orange",
+                            "white",
+                            <MdWarning size={24} />
+                          );
+                        }
+                      } else
+                        return eToster(
+                          "Please Enter Email",
+                          5000,
+                          "orange",
+                          "white",
+                          <MdWarning size={24} />
+                        );
                     }}
-                    type="submit"
+                    type="button"
                   >
                     Subscribe
                   </button>
-                </div>
+                </form>
               </div>
             </div>
           </div>

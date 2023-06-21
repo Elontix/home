@@ -37,7 +37,7 @@ const chart = `
   <script>
     $(function () {
       Highcharts.setOptions({
-        colors: ['#FF78C4', '#E1AEFF', '#FFBDF7', '#FFECEC']
+        colors: ['#FB9902', '#0C47FE', '#66B032', '#FE2712']
       });
       $("#box").highcharts({
         chart: {

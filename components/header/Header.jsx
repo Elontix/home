@@ -174,7 +174,7 @@ const Header = () => {
                   // data-bs-target="#loginModal"
                   className="cmn-btn"
                 >
-                  Mint now
+                  Join Presale
                 </Link>
               </div>
             </div>

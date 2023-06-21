@@ -1,4 +1,45 @@
 [
+  {
+    "inputs": [
+      {
+        "internalType": "address[]",
+        "name": "_beneficiaries",
+        "type": "address[]"
+      },
+      { "internalType": "uint256[]", "name": "_amounts", "type": "uint256[]" }
+    ],
+    "name": "addManyToWhitelist",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "_beneficiary", "type": "address" },
+      { "internalType": "uint256", "name": "_amount", "type": "uint256" }
+    ],
+    "name": "addToWhitelist",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "to", "type": "address" },
+      { "internalType": "uint256", "name": "_tokenId", "type": "uint256" }
+    ],
+    "name": "adminMint",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "lockMetadata",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
   { "inputs": [], "stateMutability": "nonpayable", "type": "constructor" },
   {
     "anonymous": false,
@@ -70,6 +111,63 @@
     "type": "event"
   },
   {
+    "inputs": [
+      { "internalType": "address", "name": "to", "type": "address" },
+      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+    ],
+    "name": "approve",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "string", "name": "newBaseURI", "type": "string" }
+    ],
+    "name": "changeBaseURI",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "beneficiary", "type": "address" }
+    ],
+    "name": "changeMintBeneficiary",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "mintCost", "type": "uint256" },
+      { "internalType": "uint256", "name": "index", "type": "uint256" }
+    ],
+    "name": "changeMintCost",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "reservesRate", "type": "uint256" }
+    ],
+    "name": "changeReserveRate",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "beneficiary", "type": "address" },
+      { "internalType": "uint32", "name": "shares", "type": "uint32" }
+    ],
+    "name": "changeRoyaltiesBeneficiary",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "anonymous": false,
     "inputs": [
       {
@@ -81,7 +179,7 @@
       {
         "indexed": false,
         "internalType": "uint256",
-        "name": "winningEdition",
+        "name": "winningNumber",
         "type": "uint256"
       }
     ],
@@ -100,6 +198,40 @@
     ],
     "name": "DrawInitiated",
     "type": "event"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint256", "name": "_requestId", "type": "uint256" },
+      { "internalType": "uint256", "name": "minTokenId", "type": "uint256" },
+      { "internalType": "uint256", "name": "maxTokenId", "type": "uint256" }
+    ],
+    "name": "FinalizeDrawRequest",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "enum ElonTIX721.DrawType",
+        "name": "_drawType",
+        "type": "uint8"
+      }
+    ],
+    "name": "GenerateDrawRequest",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "to", "type": "address" },
+      { "internalType": "uint256", "name": "_tokenId", "type": "uint256" }
+    ],
+    "name": "mint",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
   },
   {
     "anonymous": false,
@@ -121,6 +253,16 @@
     "type": "event"
   },
   {
+    "inputs": [
+      { "internalType": "address", "name": "to", "type": "address" },
+      { "internalType": "uint256[]", "name": "_tokenIds", "type": "uint256[]" }
+    ],
+    "name": "mintMultiple",
+    "outputs": [],
+    "stateMutability": "payable",
+    "type": "function"
+  },
+  {
     "anonymous": false,
     "inputs": [
       {
@@ -140,6 +282,13 @@
     "type": "event"
   },
   {
+    "inputs": [],
+    "name": "pause",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "anonymous": false,
     "inputs": [
       {
@@ -151,6 +300,80 @@
     ],
     "name": "Paused",
     "type": "event"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint32", "name": "drawsToDate", "type": "uint32" }
+    ],
+    "name": "PayoutPrize",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "uint32", "name": "drawId", "type": "uint32" }
+    ],
+    "name": "RemoveDraw",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "renounceOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [],
+    "name": "resetDrawState",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "from", "type": "address" },
+      { "internalType": "address", "name": "to", "type": "address" },
+      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+    ],
+    "name": "safeTransferFrom",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "from", "type": "address" },
+      { "internalType": "address", "name": "to", "type": "address" },
+      { "internalType": "uint256", "name": "tokenId", "type": "uint256" },
+      { "internalType": "bytes", "name": "_data", "type": "bytes" }
+    ],
+    "name": "safeTransferFrom",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "operator", "type": "address" },
+      { "internalType": "bool", "name": "approved", "type": "bool" }
+    ],
+    "name": "setApprovalForAll",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "account", "type": "address" }
+    ],
+    "name": "setVRFAccount",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
   },
   {
     "anonymous": false,
@@ -178,6 +401,26 @@
     "type": "event"
   },
   {
+    "inputs": [
+      { "internalType": "address", "name": "from", "type": "address" },
+      { "internalType": "address", "name": "to", "type": "address" },
+      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
+    ],
+    "name": "transferFrom",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "newOwner", "type": "address" }
+    ],
+    "name": "transferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
     "anonymous": false,
     "inputs": [
       {
@@ -192,14 +435,52 @@
   },
   { "stateMutability": "payable", "type": "fallback" },
   {
-    "inputs": [
-      { "internalType": "uint32", "name": "drawsToDate", "type": "uint32" }
-    ],
-    "name": "PayoutPrize",
+    "inputs": [],
+    "name": "unpause",
     "outputs": [],
     "stateMutability": "nonpayable",
     "type": "function"
   },
+  {
+    "inputs": [
+      {
+        "internalType": "address",
+        "name": "mintingBeneficiary",
+        "type": "address"
+      },
+      { "internalType": "address", "name": "rngContract", "type": "address" },
+      { "internalType": "address", "name": "_owner", "type": "address" }
+    ],
+    "name": "updateAddressesAndTransferOwnership",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      {
+        "internalType": "enum ElonTIX721.DrawType",
+        "name": "drawType",
+        "type": "uint8"
+      },
+      { "internalType": "uint256", "name": "newReward", "type": "uint256" }
+    ],
+    "name": "updateRewards",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  {
+    "inputs": [
+      { "internalType": "address", "name": "to", "type": "address" },
+      { "internalType": "uint256[]", "name": "_tokenIds", "type": "uint256[]" }
+    ],
+    "name": "WhitelistMint",
+    "outputs": [],
+    "stateMutability": "nonpayable",
+    "type": "function"
+  },
+  { "stateMutability": "payable", "type": "receive" },
   {
     "inputs": [],
     "name": "_drawsToDate",
@@ -208,15 +489,8 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "_grandPrizePool",
-    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "_mintPrice",
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "_mintPrices",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
     "type": "function"
@@ -230,125 +504,11 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "to", "type": "address" },
-      { "internalType": "uint256", "name": "_tokenId", "type": "uint256" }
-    ],
-    "name": "adminMint",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "address", "name": "to", "type": "address" },
-      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
-    ],
-    "name": "approve",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
       { "internalType": "address", "name": "owner", "type": "address" }
     ],
     "name": "balanceOf",
     "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "string", "name": "newBaseURI", "type": "string" }
-    ],
-    "name": "changeBaseURI",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "address", "name": "beneficiary", "type": "address" }
-    ],
-    "name": "changeMintBeneficiary",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "uint256", "name": "mintCost", "type": "uint256" }
-    ],
-    "name": "changeMintCost",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "uint256", "name": "reservesRate", "type": "uint256" }
-    ],
-    "name": "changeReserveRate",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "address", "name": "beneficiary", "type": "address" },
-      { "internalType": "uint32", "name": "shares", "type": "uint32" }
-    ],
-    "name": "changeRoyaltiesBeneficiary",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "drawNumber",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "drawNumberGrandPrize",
-    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
-    "stateMutability": "payable",
-    "type": "function"
-  },
-  {
-    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
-    "name": "draws",
-    "outputs": [
-      { "internalType": "uint64", "name": "drawId", "type": "uint64" },
-      { "internalType": "uint64", "name": "start_time", "type": "uint64" },
-      { "internalType": "uint64", "name": "winningEdition", "type": "uint64" },
-      { "internalType": "uint64", "name": "isGrandPrize", "type": "uint64" },
-      { "internalType": "address", "name": "winner", "type": "address" },
-      { "internalType": "uint96", "name": "prizePoolWon", "type": "uint96" },
-      {
-        "internalType": "enum ElonTIX721.DrawState",
-        "name": "state",
-        "type": "uint8"
-      },
-      {
-        "internalType": "uint256",
-        "name": "randomNumberRequestId",
-        "type": "uint256"
-      }
-    ],
-    "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "uint256", "name": "intoReserves", "type": "uint256" },
-      { "internalType": "uint256", "name": "intoGrandPrize", "type": "uint256" }
-    ],
-    "name": "feed",
-    "outputs": [],
-    "stateMutability": "payable",
     "type": "function"
   },
   {
@@ -380,10 +540,39 @@
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "lockMetadata",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "inputs": [
+      { "internalType": "address", "name": "_beneficiary", "type": "address" }
+    ],
+    "name": "iswhitelisted",
+    "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
+    "stateMutability": "view",
+    "type": "function"
+  },
+  {
+    "inputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "name": "ListOfDraws",
+    "outputs": [
+      { "internalType": "uint64", "name": "drawId", "type": "uint64" },
+      { "internalType": "uint64", "name": "start_time", "type": "uint64" },
+      { "internalType": "uint64", "name": "winningNumber", "type": "uint64" },
+      { "internalType": "address", "name": "winner", "type": "address" },
+      {
+        "internalType": "enum ElonTIX721.DrawType",
+        "name": "drawType",
+        "type": "uint8"
+      },
+      {
+        "internalType": "enum ElonTIX721.DrawState",
+        "name": "state",
+        "type": "uint8"
+      },
+      {
+        "internalType": "uint256",
+        "name": "randomNumberRequestId",
+        "type": "uint256"
+      }
+    ],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -394,29 +583,10 @@
     "type": "function"
   },
   {
-    "inputs": [
-      { "internalType": "address", "name": "to", "type": "address" },
-      { "internalType": "uint256", "name": "_tokenId", "type": "uint256" }
-    ],
-    "name": "mint",
-    "outputs": [],
-    "stateMutability": "payable",
-    "type": "function"
-  },
-  {
     "inputs": [],
     "name": "name",
     "outputs": [{ "internalType": "string", "name": "", "type": "string" }],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "uint256", "name": "_requestId", "type": "uint256" }
-    ],
-    "name": "numberDrawn",
-    "outputs": [],
-    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -437,30 +607,22 @@
   },
   {
     "inputs": [],
-    "name": "pause",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
     "name": "paused",
     "outputs": [{ "internalType": "bool", "name": "", "type": "bool" }],
     "stateMutability": "view",
     "type": "function"
   },
   {
-    "inputs": [],
-    "name": "renounceOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "resetDrawState",
-    "outputs": [],
-    "stateMutability": "nonpayable",
+    "inputs": [
+      {
+        "internalType": "enum ElonTIX721.DrawType",
+        "name": "",
+        "type": "uint8"
+      }
+    ],
+    "name": "rewards",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
     "type": "function"
   },
   {
@@ -484,57 +646,6 @@
       { "internalType": "uint256", "name": "", "type": "uint256" }
     ],
     "stateMutability": "view",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "address", "name": "from", "type": "address" },
-      { "internalType": "address", "name": "to", "type": "address" },
-      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
-    ],
-    "name": "safeTransferFrom",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "address", "name": "from", "type": "address" },
-      { "internalType": "address", "name": "to", "type": "address" },
-      { "internalType": "uint256", "name": "tokenId", "type": "uint256" },
-      { "internalType": "bytes", "name": "_data", "type": "bytes" }
-    ],
-    "name": "safeTransferFrom",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "address", "name": "account", "type": "address" }
-    ],
-    "name": "setAlarmAccount",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "address", "name": "operator", "type": "address" },
-      { "internalType": "bool", "name": "approved", "type": "bool" }
-    ],
-    "name": "setApprovalForAll",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "address", "name": "account", "type": "address" }
-    ],
-    "name": "setVRFAccount",
-    "outputs": [],
-    "stateMutability": "nonpayable",
     "type": "function"
   },
   {
@@ -590,49 +701,6 @@
   },
   {
     "inputs": [
-      { "internalType": "address", "name": "from", "type": "address" },
-      { "internalType": "address", "name": "to", "type": "address" },
-      { "internalType": "uint256", "name": "tokenId", "type": "uint256" }
-    ],
-    "name": "transferFrom",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      { "internalType": "address", "name": "newOwner", "type": "address" }
-    ],
-    "name": "transferOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [],
-    "name": "unpause",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
-      {
-        "internalType": "address",
-        "name": "mintingBeneficiary",
-        "type": "address"
-      },
-      { "internalType": "address", "name": "alarmContract", "type": "address" },
-      { "internalType": "address", "name": "rngContract", "type": "address" },
-      { "internalType": "address", "name": "_owner", "type": "address" }
-    ],
-    "name": "updateAddressesAndTransferOwnership",
-    "outputs": [],
-    "stateMutability": "nonpayable",
-    "type": "function"
-  },
-  {
-    "inputs": [
       { "internalType": "uint256", "name": "_tokenId", "type": "uint256" }
     ],
     "name": "validateTokenId",
@@ -640,5 +708,11 @@
     "stateMutability": "view",
     "type": "function"
   },
-  { "stateMutability": "payable", "type": "receive" }
+  {
+    "inputs": [{ "internalType": "address", "name": "", "type": "address" }],
+    "name": "whitelist",
+    "outputs": [{ "internalType": "uint256", "name": "", "type": "uint256" }],
+    "stateMutability": "view",
+    "type": "function"
+  }
 ]

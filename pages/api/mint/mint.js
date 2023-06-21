@@ -7,6 +7,11 @@ export class MintAPi {
     return mintTestAbi;
   };
 
+  static getAddress = (isMainnet) => {
+    if (isMainnet) return null;
+    return "0x64c477Af9ECd24D5CF269a075754D3a0EffA3979";
+  };
+
   static createAccountGQL = () => {
     return gql`
       mutation Users($address: String, $ipAddress: String) {

@@ -130,16 +130,16 @@ const Mint = () => {
     isSuccess: mintIsSuccess,
     status: mintStatus,
   } = useContractWrite({
-    address: "0xd23306DA2087CA5374F3F05DAB93D8F6189C3E46",
+    address: MintAPi.getAddress(false),
     abi: MintAPi.getMintAbi(false),
-    functionName: "mint",
-    args: [address, tokenStrip(token)],
+    functionName: "mintMultiple",
+    args: [address, [0, 2]],
     chainId: bscTestnet.chainId,
     account: address,
-    gas: 400000,
-    maxFeePerGas: 400000,
-    value: 1000000000000000,
+    value: 0.4 * 10 ** 16,
   });
+
+  console.log(mintData, mintError);
 
   const [counter, setCounter] = useState(0);
   const [tickets, setTickets] = useState([]);
