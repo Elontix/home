@@ -15,6 +15,9 @@ const Collection = () => {
   const { disconnect } = useDisconnect();
   const { address, isConnected } = useAccount();
 
+  const [tokenIds, setTokenIds] = useState([]);
+  const [counter, setCounter] = useState(0);
+
   const connectWallet = () => {
     open();
     setDefaultChain(bscTestnet);
@@ -22,66 +25,38 @@ const Collection = () => {
   const addressStrip = (str) =>
     str.substring(0, 4) + "...." + str.substring(str.length - 4, str.length);
 
-  // useEffect(() => {
-  //   disconnect();
-  //   // eslint-disable-next-line react-hooks/exhaustive-deps
-  // }, []);
+  const { data: collectionData, isSuccess: hasCollecitonSucess } =
+    useContractRead({
+      address: MintAPi.getAddress(false),
+      abi: MintAPi.getMintAbi(false),
+      args: [address, counter],
+      functionName: "tokenOfOwnerByIndex",
+      chainId: bscTestnet.chainId,
+      account: address,
+    });
 
-  const [counter, setCounter] = useState(0);
-  const [data, setData] = useState([]);
-
-  const {
-    data: collectionData,
-    error: collectionError,
-    isError: hasCollectionError,
-    isSuccess: hasCollecitonSucess,
-  } = useContractRead({
-    address: MintAPi.getAddress(false),
-    abi: MintAPi.getMintAbi(false),
-    args: [address, 1],
-    functionName: "tokenOfOwnerByIndex",
-    chainId: bscTestnet.chainId,
-    account: address,
-  });
-
-  const {
-    data: tokenUriData,
-    error: tokenUriError,
-    isError: tokenUriIsError,
-    isSuccess: tokenUriIsSuccess,
-  } = useContractRead({
-    address: MintAPi.getAddress(false),
-    abi: MintAPi.getMintAbi(false),
-    args: [1],
-    functionName: "tokenURI",
-    chainId: bscTestnet.chainId,
-    account: address,
-  });
-
-  const getJson = async () => {
-    try {
-      let d = data;
-
-      const f = await (await fetch(tokenUriData)).json();
-      console.log(f);
-      d.push({
-        tokenId: collectionData,
-        ...f,
-      });
-      setData([...d]);
-      setCounter(counter + 1);
-    } catch (error) {
-      console.log(error);
-    }
+  const init = async () => {
+    setTokenIds([...tokenIds, collectionData]);
+    setCounter(counter + 1);
   };
 
   useEffect(() => {
-    if (!hasCollectionError && hasCollecitonSucess) {
-      let isUpdated = false;
-      for (let i = 0; i < data.length; i++)
-        if (collectionData === data[i].tokenId) isUpdated = true;
-      if (!isUpdated) getJson();
+    if (isConnected) init().then().catch();
+  }, [isConnected]);
+
+  useEffect(() => {
+    if (isConnected) {
+      if (hasCollecitonSucess) {
+        let isUpdated = false;
+        for (let i = 0; i < tokenIds.length; i++) {
+          if (tokenIds[i] === collectionData) {
+            isUpdated = true;
+          }
+        }
+        if (!isUpdated) init().then().catch();
+      }
     }
+    console.log(tokenIds);
   }, [counter, hasCollecitonSucess]);
 
   return (
@@ -104,20 +79,9 @@ const Collection = () => {
                 aria-labelledby="laptop-tab"
               >
                 <div className="row mb-none-30 mt-50">
-                  {data.map((itm, k) => (
+                  {tokenIds.map((id, k) => (
                     <div key={k} className="col-xl-4 col-md-6 mb-30">
-                      <ContestCard
-                        itm={{
-                          id: itm.tokenId,
-                          title: itm.name,
-                          ticket_price: itm.description,
-                          img: itm.image,
-                          contest_no: "b2t",
-                          day_remain: 5,
-                          ticket_remain: 9805,
-                          tags: ["dream_car"],
-                        }}
-                      />
+                      <ContestCard address={address} id={id} />
                     </div>
                   ))}
                 </div>

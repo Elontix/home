@@ -2,7 +2,7 @@ export const colors = {
   headingColor: "#ffffff",
   paraColor: "#c4cbf9",
   baseColor: "#ffb200",
-  baseColorTwo: " #5a4bcc",
+  baseColorTwo: "#5a4bcc",
 
   // bg-color
   bgOne: "#0f0232",

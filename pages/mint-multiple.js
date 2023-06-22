@@ -8,7 +8,6 @@ import { useEffect, useState } from "react";
 import { bscTestnet } from "wagmi/chains";
 import { colors } from "../theme/color";
 import { MintAPi } from "./api/mint/mint";
-import { useMutation } from "@apollo/client";
 
 import toast, { Toaster } from "react-hot-toast";
 import { BiErrorAlt, BiTrash } from "react-icons/bi";
@@ -50,7 +49,6 @@ function generateRandom(min = 0, max = 100000) {
 }
 
 const Mint = () => {
-  const [token, setToken] = useState(["0", "0", "0", "0", "0", "0"]);
   function updateRandomNumber() {
     nftIdentifier();
     setToken([...generateRandom()]);
@@ -99,20 +97,23 @@ const Mint = () => {
     }
   }
 
-  const [price, setPrice] = useState(0);
-  const [type, setType] = useState("");
-  const { open, setDefaultChain } = useWeb3Modal();
   const { disconnect } = useDisconnect();
   const { address, isConnected } = useAccount();
+  const { open, setDefaultChain } = useWeb3Modal();
   const { data: balance, isFetched: balanceFeteched } = useBalance({
     address,
   });
-  const [createAccount, { data, loading, error, called }] = useMutation(
-    MintAPi.createAccountGQL()
-  );
+
+  const [type, setType] = useState("");
+  const [price, setPrice] = useState(0);
+  const [counter, setCounter] = useState(0);
+  const [tickets, setTickets] = useState([]);
+  const [token, setToken] = useState(["0", "0", "0", "0", "0", "0"]);
+
   const connectWallet = () => {
     open();
     setDefaultChain(bscTestnet);
+    nftIdentifier();
   };
   const addressStrip = (str) =>
     str.substring(0, 4) + "...." + str.substring(str.length - 4, str.length);
@@ -121,6 +122,19 @@ const Mint = () => {
     disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
+
+  const getTickets = () => {
+    let sampledTickets = [];
+    for (let i = 0; i < tickets.length; i++) {
+      const s = tickets[i].tokenId;
+      let t = "";
+      for (let j = 0; j < s.length; j++) {
+        t += s[j];
+      }
+      sampledTickets.push(Number(t));
+    }
+    return sampledTickets;
+  };
 
   const {
     write: mintWrite,
@@ -133,19 +147,13 @@ const Mint = () => {
     address: MintAPi.getAddress(false),
     abi: MintAPi.getMintAbi(false),
     functionName: "mintMultiple",
-    args: [address, [0, 2]],
+    args: [address, getTickets()],
     chainId: bscTestnet.chainId,
     account: address,
-    value: 0.4 * 10 ** 16,
+    value: totalPrice() * 10 ** 16,
   });
 
-  console.log(mintData, mintError);
-
-  const [counter, setCounter] = useState(0);
-  const [tickets, setTickets] = useState([]);
-
   useEffect(() => {
-    console.log(counter, mintStatus, mintIsSuccess);
     if (mintIsSuccess && counter < 4) {
       mintWrite();
       setCounter(counter + 1);

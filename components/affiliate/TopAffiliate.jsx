@@ -70,11 +70,11 @@ const TopAffiliate = () => {
                       </h2>
                       <div
                         id={"collapseOne" + id.toString()}
-                        class="accordion-collapse collapse show"
+                        class="accordion-collapse collapse"
                         aria-labelledby="headingOne"
                         data-bs-parent="#accordionExample"
                       >
-                        <div class="accordion-body">
+                        <div class="accordion-body close">
                           <span
                             style={{
                               fontSize: "1rem",

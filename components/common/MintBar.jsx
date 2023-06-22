@@ -32,18 +32,42 @@ const ToggleButton = (props) => {
 const Mintbar = () => {
   return (
     <div
-      style={{
-        display: "flex",
-        flexDirection: "row",
-        justifyContent: "center",
-        alignItems: "center",
-        columnGap: "2rem",
-        marginBottom: "4rem",
-      }}
+      style={{ display: "flex", justifyContent: "center" }}
+      className="container"
     >
-      <ToggleButton label="Mint" link="/mint" />
-      <ToggleButton label="Mint Multiple" link="/mint-multiple" />
-      <ToggleButton label="My Collection" link="/collection" />
+      <div
+        className="row mb-5 g-4"
+        style={{
+          display: "flex",
+          justifyContent: "center",
+          alignItems: "center",
+        }}
+      >
+        <div
+          style={{ display: "flex", justifyContent: "center" }}
+          className="col-12 col-md-6 col-lg-3"
+        >
+          <ToggleButton label="Mint" link="/mint-multiple" />
+        </div>
+        <div
+          style={{ display: "flex", justifyContent: "center" }}
+          className="col-12 col-md-6 col-lg-3"
+        >
+          <ToggleButton label="My Collection" link="/collection" />
+        </div>
+        <div
+          style={{ display: "flex", justifyContent: "center" }}
+          className="col-12 col-md-6 col-lg-3"
+        >
+          <ToggleButton label="Draws" link="/mint" />
+        </div>
+        <div
+          style={{ display: "flex", justifyContent: "center" }}
+          className="col-12 col-md-6 col-lg-3"
+        >
+          <ToggleButton label="Winners" link="/winner" />
+        </div>
+      </div>
     </div>
   );
 };

@@ -20,9 +20,11 @@ export default function HomeThree() {
       <Element name="about">
         <WhatIsElonTix />
       </Element>
+      <Element name="utils">
+        <Util />
+      </Element>
       <HowElonTixWorks />
       <Marketing />
-      <Util />
       <Features />
       <Element name="roadmap">
         <Roadmap />

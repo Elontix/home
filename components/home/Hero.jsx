@@ -168,7 +168,7 @@ const Hero = () => {
             <Image
               style={{
                 position: "absolute",
-                top: "-200px",
+                top: "-180px",
                 display: "flex",
                 alignSelf: "center",
                 justifyContent: "center",
@@ -360,14 +360,14 @@ const Hero = () => {
                 </div>
               </div>
 
-              <div className="btn_grp my-4">
+              <Link href="/mint" className="btn_grp my-4">
                 <button
                   class="custom-btn btn-9"
                   style={{ borderRadius: "40rem" }}
                 >
                   Mint now
                 </button>
-              </div>
+              </Link>
             </div>
           </div>
         </div>

@@ -5,13 +5,20 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import logo from "/public/images/logo.webp";
 import { useRouter } from "next/router";
+import {
+  FaDiscord,
+  FaInstagram,
+  FaMedium,
+  FaReddit,
+  FaTelegram,
+  FaTwitter,
+} from "react-icons/fa";
 
 const Header = () => {
   const router = useRouter();
   const [open, setOpen] = useState("");
   const [windowHeight, setWindowHeight] = useState(100);
   const [show, setShow] = useState(false);
-  console.log(router.pathname !== "/");
 
   const handleOpen = (e) => {
     if (open !== e.target.text) {
@@ -52,17 +59,18 @@ const Header = () => {
         Home
       </Links>
     </li>,
-    <li key={9}>
+
+    <li key={10}>
       <Links
         activeClass="active"
-        to="about"
+        to="utils"
         spy={true}
         smooth={true}
         offset={50}
         duration={500}
         style={{ cursor: "pointer" }}
       >
-        About
+        Utilites
       </Links>
     </li>,
     <li key={1}>
@@ -160,11 +168,6 @@ const Header = () => {
                     </Link>
                   </li>
                 )}
-                <li>
-                  <Link href="/winner" onClick={() => setShow(false)}>
-                    Winners
-                  </Link>
-                </li>
               </ul>
 
               <div className="nav-right">
@@ -179,6 +182,46 @@ const Header = () => {
               </div>
             </div>
           </nav>
+        </div>
+      </div>
+      <div>
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "flex-end",
+          }}
+        >
+          <div
+            style={{
+              columnGap: "1rem",
+              justifyContent: "center",
+              alignItems: "center",
+              margin: 0,
+              padding: 0,
+              padding: "1rem",
+              borderBottomLeftRadius: "1rem",
+            }}
+            className="card_bg_img socials_custom"
+          >
+            <Link href="/#">
+              <FaTelegram size={32} />
+            </Link>
+            <Link href="/#">
+              <FaTwitter size={32} />
+            </Link>
+            <Link href="/#">
+              <FaDiscord size={32} />
+            </Link>
+            <Link href="/#">
+              <FaInstagram size={32} />
+            </Link>
+            <Link href="/#">
+              <FaReddit size={32} />
+            </Link>
+            <Link href="/#">
+              <FaMedium size={32} />
+            </Link>
+          </div>
         </div>
       </div>
     </header>
