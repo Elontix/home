@@ -3,10 +3,11 @@ import Slider from "react-slick";
 import { clients } from "../../data/affiliate";
 
 import "slick-carousel/slick/slick.css";
+import { colors } from "../../theme/color";
 
 const Marketing = () => {
   const settings = {
-    slidesToShow: 4,
+    slidesToShow: 3,
     slidesToScroll: 1,
     infinite: false,
     speed: 700,
@@ -28,7 +29,7 @@ const Marketing = () => {
     ],
   };
   return (
-    <section className="pt-120 pb-120">
+    <section className="">
       <div className="container">
         <div className="row">
           <div className="col-lg-12">
@@ -36,18 +37,21 @@ const Marketing = () => {
               <h2 className="client-wrapper__title">
                 OUR GLOBAL{" "}
                 <span
-                  style={{ padding: 0, margin: 0 }}
+                  style={{ padding: 0, margin: 0, color: colors.baseColor }}
                   className="client-wrapper__title tag"
                 >
-                  MARKETING
+                  MARKETING PARTNERS
                 </span>{" "}
-                PARTNERS
               </h2>
               <div className="client-slider">
                 <Slider {...settings}>
                   {clients.map((singleItm, i) => (
                     <div key={i} className="client-single">
-                      <Image src={singleItm} alt={`client ${i}`} />
+                      <Image
+                        src={singleItm}
+                        style={{ padding: "1rem" }}
+                        alt={`client ${i}`}
+                      />
                     </div>
                   ))}
                 </Slider>

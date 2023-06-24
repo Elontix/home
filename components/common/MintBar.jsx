@@ -45,25 +45,19 @@ const Mintbar = () => {
       >
         <div
           style={{ display: "flex", justifyContent: "center" }}
-          className="col-12 col-md-6 col-lg-3"
+          className="col-12 col-md-4"
         >
           <ToggleButton label="Mint" link="/mint-multiple" />
         </div>
         <div
           style={{ display: "flex", justifyContent: "center" }}
-          className="col-12 col-md-6 col-lg-3"
+          className="col-12 col-md-4"
         >
           <ToggleButton label="My Collection" link="/collection" />
         </div>
         <div
           style={{ display: "flex", justifyContent: "center" }}
-          className="col-12 col-md-6 col-lg-3"
-        >
-          <ToggleButton label="Draws" link="/mint" />
-        </div>
-        <div
-          style={{ display: "flex", justifyContent: "center" }}
-          className="col-12 col-md-6 col-lg-3"
+          className="col-12 col-md-4"
         >
           <ToggleButton label="Winners" link="/winner" />
         </div>

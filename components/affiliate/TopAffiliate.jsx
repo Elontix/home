@@ -1,3 +1,4 @@
+import { color } from "framer-motion";
 import Image from "next/image";
 import { top_affiliate, top_affiliates } from "../../data/affiliate";
 import { colors } from "../../theme/color";
@@ -55,6 +56,7 @@ const TopAffiliate = () => {
                           data-bs-target={"#collapseOne" + id.toString()}
                           aria-controls={"collapseOne" + id.toString()}
                           style={{
+                            color: colors.baseColor,
                             backgroundImage: `radial-gradient(circle, #5a4bcc, #4538a2, #31277a, #1d1655, #0f0232)`,
                             color: colors.baseColor,
                             textAlign: "center",

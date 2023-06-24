@@ -6,7 +6,7 @@ import {
 } from "react-icons/md";
 
 const RoadmapCard = ({ roadmap, index }) => {
-  const { title, works, status } = roadmap;
+  const { title, works, status, done } = roadmap;
   function bgReturn(s) {
     if (s === "IN_PROGRESS") return "#ffb200";
     if (s === "DONE") return "#1B9C85";
@@ -68,7 +68,8 @@ const RoadmapCard = ({ roadmap, index }) => {
                   border: `1px solid black`,
                   padding: ".5rem",
                   margin: ".2rem",
-                  background: bgReturn(status),
+                  background:
+                    done !== null && done > i ? "#1B9C85" : bgReturn(status),
                   borderRadius: ".3rem",
                   color: colors.bgOne,
                 }}

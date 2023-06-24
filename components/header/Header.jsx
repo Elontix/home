@@ -13,6 +13,7 @@ import {
   FaTelegram,
   FaTwitter,
 } from "react-icons/fa";
+import { colors } from "../../theme/color";
 
 const Header = () => {
   const router = useRouter();
@@ -172,12 +173,12 @@ const Header = () => {
 
               <div className="nav-right">
                 <Link
-                  href="/mint"
+                  href="/mint-multiple"
                   // data-bs-toggle="modal"
                   // data-bs-target="#loginModal"
                   className="cmn-btn"
                 >
-                  Join Presale
+                  PRESALE LIVE
                 </Link>
               </div>
             </div>
@@ -200,25 +201,26 @@ const Header = () => {
               padding: 0,
               padding: "1rem",
               borderBottomLeftRadius: "1rem",
+              background: colors.bgOne,
             }}
-            className="card_bg_img socials_custom"
+            className=" socials_custom"
           >
-            <Link href="/#">
+            <Link className="soc_hover" href="/#">
               <FaTelegram size={32} />
             </Link>
-            <Link href="/#">
+            <Link className="soc_hover" href="/#">
               <FaTwitter size={32} />
             </Link>
-            <Link href="/#">
+            <Link className="soc_hover" href="/#">
               <FaDiscord size={32} />
             </Link>
-            <Link href="/#">
+            <Link className="soc_hover" href="/#">
               <FaInstagram size={32} />
             </Link>
-            <Link href="/#">
+            <Link className="soc_hover" href="/#">
               <FaReddit size={32} />
             </Link>
-            <Link href="/#">
+            <Link className="soc_hover" href="/#">
               <FaMedium size={32} />
             </Link>
           </div>

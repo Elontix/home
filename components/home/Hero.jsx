@@ -168,12 +168,12 @@ const Hero = () => {
             <Image
               style={{
                 position: "absolute",
-                top: "-180px",
+                top: "-200px",
                 display: "flex",
                 alignSelf: "center",
                 justifyContent: "center",
-                maxWidth: "480px",
               }}
+              className="hero_img_ticket"
               src={ticket}
               alt="image"
             />
@@ -216,7 +216,7 @@ const Hero = () => {
                     )}
                   </div>{" "}
                 </span>{" "}
-                decentralized lottery platform
+                NFT lottery platform
               </div>
 
               <div
@@ -360,7 +360,7 @@ const Hero = () => {
                 </div>
               </div>
 
-              <Link href="/mint" className="btn_grp my-4">
+              <Link href="/mint-multiple" className="btn_grp my-4">
                 <button
                   class="custom-btn btn-9"
                   style={{ borderRadius: "40rem" }}

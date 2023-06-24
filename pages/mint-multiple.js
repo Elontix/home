@@ -212,9 +212,14 @@ const Mint = () => {
                   <h4>Price</h4>
                 </div>
                 <div className="col-6" style={{ textAlign: "right" }}>
-                  <h5 style={{ color: colors.baseColor }}>{type}</h5>
+                  <h5 style={{ color: typeColor(type) }}>{type}</h5>
 
-                  <h5 style={{ color: colors.baseColor }}>{price} BNB</h5>
+                  <h5 style={{ color: colors.baseColor }}>
+                    {price}{" "}
+                    <span>
+                      <h5>BNB</h5>
+                    </span>
+                  </h5>
                 </div>
                 <div
                   className="row"
@@ -228,11 +233,13 @@ const Mint = () => {
                         textAlign: "center",
                         display: "flex",
                         justifyContent: "center",
+                        color: typeColor(type),
                         alignItems: "center",
                         margin: "1rem .4rem",
                         borderRadius: "5px",
                         fontSize: "xl",
                         fontWeight: "bold",
+                        boxShadow: `0px 0px 8px ${typeColor(type)}`,
                       }}
                       type="text"
                       value={i}
@@ -247,7 +254,10 @@ const Mint = () => {
                     onClick={updateRandomNumber}
                     style={{ cursor: "pointer" }}
                   >
-                    GENERATE RANDOM TICKET
+                    GENERATE{" "}
+                    <span>
+                      <h4 className="tag">RANDOM TICKET</h4>
+                    </span>
                   </h4>
 
                   <div
@@ -265,35 +275,44 @@ const Mint = () => {
                       onClick={addTicket}
                       className="cmn-btn"
                     >
-                      Add Ticket
+                      ADD TICKET
                     </div>
                   ) : (
                     <button onClick={connectWallet} className="cmn-btn">
-                      connect wallet
+                      CONNECT WALLET
                     </button>
                   )}
                 </div>
 
-                <div style={{ color: colors.baseColor }}>
-                  <div
-                    style={{
-                      alignItems: "center",
-                      display: "flex",
-                      justifyContent: "space-between",
-                    }}
-                  >
-                    <div style={{ textAlign: "left" }}>
-                      <div>Connected To</div>
-                      <div>{isConnected ? addressStrip(address) : ""}</div>
-                    </div>
+                {isConnected ? (
+                  <div style={{ color: colors.baseColor }}>
+                    <div
+                      style={{
+                        alignItems: "center",
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <div style={{ textAlign: "left" }}>
+                        <div style={{ color: "white" }}>Connected To</div>
+                        <div>{isConnected ? addressStrip(address) : ""}</div>
+                      </div>
 
-                    <div>
-                      {balanceFeteched
-                        ? `${balance.formatted} ${balance.symbol}`
-                        : 0}
+                      <div>
+                        {balanceFeteched ? (
+                          <span>
+                            {`${balance.formatted}`}{" "}
+                            <span style={{ color: colors.baseColor }}>
+                              {`${balance.symbol}`}
+                            </span>
+                          </span>
+                        ) : (
+                          0
+                        )}
+                      </div>
                     </div>
                   </div>
-                </div>
+                ) : null}
               </div>
             </div>
           </div>
@@ -366,7 +385,7 @@ const Mint = () => {
                             style={{
                               width: "100%",
                               margin: "0 .2rem",
-                              backgroundImage: `radial-gradient(circle, #ffb200, #fea200, #fd9100, #fb8100, #f86f03)`,
+                              background: typeColor(i.type),
                               height: "40px",
                               width: "40px",
                               borderRadius: "30vh",
@@ -382,7 +401,7 @@ const Mint = () => {
                       </div>
                       <div className="row col-3">
                         <h4 style={{ color: typeColor(i.type) }}>
-                          {i.price.toFixed(2)}BNB
+                          {i.price.toFixed(2)} <span>BNB</span>
                         </h4>
                       </div>
                       <div
@@ -432,10 +451,11 @@ const Mint = () => {
                       }}
                       className="cmn-btn"
                     >
-                      Mint Tickets
+                      MINT TICKETS
                     </button>
                     <div className="my-2 tag">
-                      Total Price {totalPrice().toFixed(2)}BNB
+                      <span>Total Price</span> {totalPrice().toFixed(2)}{" "}
+                      <span>BNB</span>
                     </div>
                   </div>
                 ) : null}

@@ -14,7 +14,7 @@ const roadmapData = [
   },
   {
     title: "Design and Development ",
-    status: "IN_PROGRESS",
+    status: "DONE",
     works: [
       "Smart Contract Development",
       "Blockchain Integration",
@@ -27,7 +27,8 @@ const roadmapData = [
   },
   {
     title: "Launch and Deployment",
-    status: "LATER",
+    status: "IN_PROGRESS",
+    done: 2,
     works: [
       "ElonTix Website Launch",
       "ElonTix NFTs Launch",

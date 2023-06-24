@@ -150,6 +150,15 @@ const Mint = () => {
     }
   }
 
+  const timeFrame = (t) => {
+    if (t === 0) return "DAYS";
+    if (t === 1) return "HOURS";
+    if (t === 2) return "MINUTES";
+    if (t === 3) return "SECONDS";
+  };
+
+  const data = [1, 2, 2, 2, 2, 2];
+
   return (
     <>
       <div className="" style={{ minHeight: "25vh" }}></div>
@@ -170,118 +179,61 @@ const Mint = () => {
                 boxShadow: `0px 0px 12px -4px ${"black"}`,
               }}
             >
-              <h3 className="py-4">Mint your ticket to reveal your NFT</h3>
               <Image height={320} width={520} src={TicketGif} alt="ok" />
-
-              <div className="row py-4">
-                <div className="col-6" style={{ textAlign: "left" }}>
-                  <h4>Ticket Type</h4>
-                  <h4>Price</h4>
-                </div>
-                <div className="col-6" style={{ textAlign: "right" }}>
-                  <h5 style={{ color: typeColor(type) }}>{type}</h5>
-                  <h5 style={{ color: colors.baseColor }}>{price} BNB</h5>
-                </div>
-                <div
-                  className="row"
-                  style={{ justifyContent: "center", alignItems: "center" }}
-                >
-                  {token.map((i, k) => (
-                    <input
-                      key={k}
-                      style={{
-                        background: colors.bgOne,
-                        textAlign: "center",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        margin: "1rem .4rem",
-                        borderRadius: "5px",
-                        fontSize: "xl",
-                        fontWeight: "bold",
-                      }}
-                      type="text"
-                      value={i}
-                      className="col"
-                      maxlength="1"
-                      onChange={(e) => updateNumber(e.target.value, k)}
-                    />
-                  ))}
-                </div>
-                <div className="p-4">
-                  <h4
-                    onClick={updateRandomNumber}
-                    style={{ cursor: "pointer" }}
-                  >
-                    GENERATE RANDOM TICKET
-                  </h4>
+              <div className="row g-4 py-4">
+                {data.map((s, i) => (
                   <div
                     style={{
-                      width: "80%",
-                      margin: "1rem auto",
-                      height: "3px",
-                      borderRadius: "20px",
-                      background: "gray",
-                    }}
-                  ></div>
-                  {isConnected ? (
-                    <button
-                      onClick={async () => {
-                        mintWrite();
-                        setCounter(1);
-                        if (mintIsError) {
-                          eToster(
-                            mintError.message,
-                            6000,
-                            "red",
-                            "white",
-                            <BiErrorAlt size={48} />
-                          );
-                          return;
-                        }
-                        if (mintIsSuccess) {
-                          eToster(
-                            mintError.message,
-                            3000,
-                            "green",
-                            "white",
-                            <MdOutlineDoneOutline size={48} />
-                          );
-                        }
-
-                        console.log(mintData);
-                      }}
-                      className="cmn-btn"
-                    >
-                      Buy Tickets
-                    </button>
-                  ) : (
-                    <button onClick={connectWallet} className="cmn-btn">
-                      connect wallet
-                    </button>
-                  )}
-                </div>
-
-                <div style={{ color: colors.baseColor }}>
-                  <div
-                    style={{
-                      alignItems: "center",
                       display: "flex",
-                      justifyContent: "space-between",
+                      flexDirection: "row",
+                      justifyContent: "space-evenly",
+                      alignItems: "center",
+                      borderRadius: "1rem",
                     }}
+                    key={i}
+                    className="col-12 py-4"
                   >
-                    <div style={{ textAlign: "left" }}>
-                      <div>Connected To</div>
-                      <div>{isConnected ? addressStrip(address) : ""}</div>
-                    </div>
+                    {[1, 2, 3, 4].map((k, j) => (
+                      <div
+                        style={{
+                          display: "flex",
+                          justifyContent: "center",
+                          alignItems: "center",
+                          flexDirection: "column",
+                          rowGap: ".5rem",
+                        }}
+                        key={j}
+                      >
+                        <div
+                          style={{
+                            display: "flex",
+                            justifyContent: "center",
+                            alignItems: "center",
+                            fontSize: "2rem",
+                            background: colors.bgOne,
+                            boxShadow: `0px 0px 4px ${colors.baseColor}`,
+                            borderRadius: "10px",
+                            minWidth: "60px",
+                            maxWidth: "60px",
+                            maxHeight: "60px",
+                            minHeight: "60px",
+                            color: colors.baseColor,
+                          }}
+                          key={j}
+                        >
+                          {k}
+                        </div>
 
-                    <div>
-                      {balanceFeteched
-                        ? `${balance.formatted} ${balance.symbol}`
-                        : 0}
-                    </div>
+                        <div
+                          style={{ fontSize: ".7rem", fontWeight: "bold" }}
+                          className="tag"
+                        >
+                          {timeFrame(j)}{" "}
+                        </div>
+                      </div>
+                    ))}
                   </div>
-                </div>
+                ))}
               </div>
             </div>
           </div>

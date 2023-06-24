@@ -8,8 +8,6 @@ import Mintbar from "../components/common/MintBar";
 import ContestCard from "../components/cards/ContestCard";
 import { MintAPi } from "./api/mint/mint";
 
-import contest_1 from "/public/images/contest/1.png";
-
 const Collection = () => {
   const { open, setDefaultChain } = useWeb3Modal();
   const { disconnect } = useDisconnect();
@@ -40,11 +38,17 @@ const Collection = () => {
     setCounter(counter + 1);
   };
 
-  useEffect(() => {
-    if (isConnected) init().then().catch();
-  }, [isConnected]);
+  // useEffect(() => {
+  //   if (isConnected) init().then().catch();
+  //   console.log(collectionData);
+  // }, [isConnected]);
+
+  // useEffect(() => {
+  //   disconnect();
+  // }, []);
 
   useEffect(() => {
+    console.log(collectionData);
     if (isConnected) {
       if (hasCollecitonSucess) {
         let isUpdated = false;
@@ -79,11 +83,11 @@ const Collection = () => {
                 aria-labelledby="laptop-tab"
               >
                 <div className="row mb-none-30 mt-50">
-                  {tokenIds.map((id, k) => (
+                  {/* {tokenIds.map((id, k) => (
                     <div key={k} className="col-xl-4 col-md-6 mb-30">
                       <ContestCard address={address} id={id} />
                     </div>
-                  ))}
+                  ))} */}
                 </div>
               </div>
               <div className="bg-shape"></div>
@@ -92,7 +96,7 @@ const Collection = () => {
         ) : (
           <div style={{ display: "flex", justifyContent: "center" }}>
             <button onClick={connectWallet} className="cmn-btn">
-              connect wallet
+              CONNECT WALLET
             </button>
           </div>
         )}

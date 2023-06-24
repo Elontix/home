@@ -6,6 +6,7 @@ import { useContractRead, useDisconnect, useAccount } from "wagmi";
 import { useState, useEffect } from "react";
 
 import { MintAPi } from "../../pages/api/mint/mint.js";
+import Mintbar from "./MintBar";
 
 const LatestWinner = () => {
   const { address, isConnected } = useAccount();
@@ -82,6 +83,7 @@ const LatestWinner = () => {
   return (
     <section className="latest-winner-section position-relative pt-120 pb-120">
       <div className="container">
+        <Mintbar />
         <div className="row justify-content-center">
           <div className="col-lg-8">
             <div className="section-header text-center"></div>

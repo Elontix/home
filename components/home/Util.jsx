@@ -10,14 +10,17 @@ import Bg from "/public/images/bg-util.png";
 const Util = () => {
   return (
     <div className="">
-      <div className="px-5 pt-5 container">
-        <h2 style={{ textAlign: "center" }} className="section-title">
+      <div className="pt-5 container">
+        <h2
+          style={{ textAlign: "center", zIndex: 999999, marginBottom: "1rem" }}
+          className="section-title"
+        >
           OUR{" "}
           <span>
             <h2 className="tag section-title">UTILITES</h2>
           </span>
         </h2>
-        <div className="row mb-5" style={{ rowGap: "2rem" }}>
+        <div className="row gy-5 gx-5 mb-5" style={{ rowGap: "2rem" }}>
           <div
             className="col-12 col-md-8"
             style={{
@@ -33,8 +36,9 @@ const Util = () => {
                 position: "absolute",
                 height: "100%",
                 width: "180px",
-                zIndex: 78,
-                top: "-2%",
+                transform: `scale(1.3)`,
+                zIndex: 3,
+                top: "0%",
                 background: colors.bgOne,
                 right: 0,
                 filter: "blur(25.3px)",
@@ -43,9 +47,12 @@ const Util = () => {
             <Image
               alt="ticket"
               src={ticket}
-              width={1200}
-              height={400}
-              style={{ zIndex: 2 }}
+              style={{
+                transform: `scale(1.1)`,
+                zIndex: 2,
+              }}
+              width={1800}
+              height={800}
             />
           </div>
           <div className="col-12 col-md-4">
@@ -58,7 +65,7 @@ const Util = () => {
               }}
             >
               <Image
-                className="elon_shoutout"
+                className="elon_shoutout px-4"
                 style={{
                   transform: "translateX(-10px)",
                   zIndex: 0,
@@ -74,15 +81,15 @@ const Util = () => {
         </div>
       </div>
       <div
-        className="banner_util"
+        className="banner_util "
         style={{
           background: colors.baseColor,
           width: "100vw",
-          height: "180px",
+          height: "240px",
           display: "flex",
           justifyContent: "center",
           alignItems: "center",
-          columnGap: "2rem",
+          columnGap: "8rem",
         }}
       >
         <div
@@ -91,20 +98,34 @@ const Util = () => {
             fontWeight: "bold",
             fontSize: "1.3rem",
           }}
+          className="px-2 pb-0"
         >
-          <h4 style={{ color: "black" }}>
-            Download ElonTix app and get your NFT.
-          </h4>
-          <h4 style={{ color: "black" }}>No crypto, no wallet needed</h4>
+          <h3 style={{ color: "black" }}>ElonTix will soon be available on</h3>
+          <h3 style={{ color: "black" }}>
+            <span>
+              <h3 style={{ color: "white" }}>App Store</h3>
+            </span>
+            {"\u00A0"}&{"\u00A0"}
+            <span>
+              <h3 style={{ color: colors.bgTwo }}> Play Store</h3>
+            </span>
+          </h3>
         </div>
-        <div style={{ display: "flex", justifyContent: "center" }}>
-          <Image src={AppStore} />
-          <Image src={PlayStore} />
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            paddingBottom: "1rem",
+          }}
+          className="px-5"
+        >
+          <Image src={AppStore} alt="app" />
+          <Image src={PlayStore} alt="play" />
         </div>
       </div>
 
+      <GradCard />
       <div className="container">
-        <GradCard />
         <div className="row">
           <Charity />
         </div>
@@ -125,14 +146,17 @@ const Charity = () => {
 
 const GradCard = () => {
   return (
-    <div style={{ marginTop: "3rem" }} class="card main__card card_bg_img">
+    <div style={{}} class="card main__card card_bg_img">
       <div>
         <span class="card__line card__line_left"></span>
         <span class="card__line card__line_right"></span>
         <span class="card__line card__line_top"></span>
         <span class="card__line card__line_bottom"></span>
 
-        <div style={{ zIndex: 2 }} className="p-5 util_card_gradient row ">
+        <div
+          style={{ zIndex: 2 }}
+          className="p-0 py-2 p-md-5 gy-5 gx-2 util_card_gradient row "
+        >
           <div
             className="col-12 col-lg-6 util_bg"
             style={{
@@ -207,7 +231,9 @@ const GradCard = () => {
               >
                 <div className="bnb">GUARANTEED WIN</div>
                 <div className="bnb_value tag">300 BNB</div>
-                <h4 className="tag">100 BNB guaranteed for 3 winners</h4>
+                <h4 style={{ textAlign: "left" }} className="tag">
+                  100 BNB guaranteed for 3 winners
+                </h4>
               </div>
               <div
                 style={{

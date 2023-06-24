@@ -116,7 +116,7 @@ const Footer = () => {
         </div>
       </div>
       <div className="container" style={{ padding: "3rem 0" }}>
-        <div className="pt-120 row">
+        <div className="row">
           <div
             style={{
               display: "flex",
@@ -141,22 +141,22 @@ const Footer = () => {
                 style={{ columnGap: "1rem" }}
                 className="social-links justify-content-lg-end justify-content-center"
               >
-                <Link href="/#">
+                <Link className="soc_hover" href="/#">
                   <FaTelegram size={32} />
                 </Link>
-                <Link href="/#">
+                <Link className="soc_hover" href="/#">
                   <FaTwitter size={32} />
                 </Link>
-                <Link href="/#">
+                <Link className="soc_hover" href="/#">
                   <FaDiscord size={32} />
                 </Link>
-                <Link href="/#">
+                <Link className="soc_hover" href="/#">
                   <FaInstagram size={32} />
                 </Link>
-                <Link href="/#">
+                <Link className="soc_hover" href="/#">
                   <FaReddit size={32} />
                 </Link>
-                <Link href="/#">
+                <Link className="soc_hover" href="/#">
                   <FaMedium size={32} />
                 </Link>
               </div>

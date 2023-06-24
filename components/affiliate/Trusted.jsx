@@ -3,6 +3,7 @@ import Slider from "react-slick";
 import { clients } from "../../data/affiliate";
 
 import "slick-carousel/slick/slick.css";
+import { colors } from "../../theme/color";
 
 const Trusted = () => {
   const settings = {
@@ -34,7 +35,12 @@ const Trusted = () => {
           <div className="col-lg-12">
             <div className="client-wrapper">
               <h2 className="client-wrapper__title">
-                Audited and {`KYC'ed`} by
+                Audited and{" "}
+                <span
+                  className="client-wrapper__title"
+                  style={{ color: colors.baseColor }}
+                >{`KYC'ed`}</span>{" "}
+                by
               </h2>
               <div className="client-slider">
                 <Slider {...settings}>

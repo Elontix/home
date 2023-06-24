@@ -820,7 +820,14 @@ $card_bd-cr: $cr-blue-2;
 $card__line_bd-cr: $cr-blue-1;
 
 .card_bg_img {
+  width: 100%;
+  height: 100%;
   background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+  object-position: center;
+  background-position: center;
+  background-clip: border-box;
   background: url("/images/bg.svg");
 }
 
@@ -1024,11 +1031,19 @@ $card__line_bd-cr: $cr-blue-1;
 }
 
 .util_bg {
-  background: rgba(255, 255, 255, 0.01);
-  border-radius: 16px;
-  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
-  backdrop-filter: blur(2.3px);
-  -webkit-backdrop-filter: blur(2.3px);
+  background-image: linear-gradient(
+    to right,
+    #5a4bcc,
+    #4538a2,
+    #31277a,
+    #1d1655,
+    #0f0232
+  );
+  // background: rgba(255, 255, 255, 0.01);
+  // border-radius: 16px;
+  // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  // backdrop-filter: blur(1.3px);
+  // -webkit-backdrop-filter: blur(1.3px);
   transform: scale(0.9);
 }
 
@@ -1042,7 +1057,64 @@ $card__line_bd-cr: $cr-blue-1;
 .banner_util {
   flex-direction: column;
   row-gap: 2rem;
+  z-index: 100;
   @media (min-width: 1200px) {
     flex-direction: row;
   }
+  h3 {
+    font-size: 1.2rem;
+    @media (min-width: 1200px) {
+      font-size: 2rem;
+    }
+  }
+}
+
+.hbd_elon {
+  min-width: 320px;
+  border-radius: 1rem;
+  @media (min-width: 1200px) {
+    min-width: 640px;
+  }
+}
+
+.hbd_elon_txt {
+  font-size: 3rem;
+
+  @media (min-width: 800px) {
+    font-size: 3rem;
+  }
+
+  @media (min-width: 1200px) {
+    font-size: 3.5rem;
+  }
+  @media (min-width: 1600px) {
+    font-size: 5rem;
+  }
+}
+
+.accordion {
+  --bs-accordion-btn-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+  --bs-accordion-btn-active-icon: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 16 16' fill='white'%3e%3cpath fill-rule='evenodd' d='M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z'/%3e%3c/svg%3e");
+}
+
+.hero_img_ticket {
+  max-width: 320px;
+  @media (min-width: 800px) {
+    max-width: 380px;
+  }
+  @media (min-width: 1200px) {
+    max-width: 440px;
+  }
+  @media (min-width: 1600px) {
+    max-width: 530px;
+  }
+}
+
+.soc_hover {
+  transition: all 200ms ease-in-out;
+}
+.soc_hover:hover {
+  transform: scale(1.04);
+  color: $base-color-three;
+  transition: all 200ms ease-in-out;
 }

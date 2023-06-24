@@ -1,10 +1,11 @@
 import Image from "next/image";
-import feature_1 from "/public/images/icon/feature/1.png";
-import feature_2 from "/public/images/icon/feature/2.png";
-import feature_3 from "/public/images/icon/feature/3.png";
-import feature_4 from "/public/images/icon/feature/4.png";
+import feature_1 from "/public/images/clock.png";
+import feature_2 from "/public/images/time.png";
+import feature_3 from "/public/images/calendar.png";
+import feature_4 from "/public/images/hourglass.png";
 
 import hero_4_obj from "/public/images/elements/hero-4-obj.png";
+import { colors } from "../../theme/color";
 
 const Features = () => {
   return (
@@ -36,13 +37,23 @@ const Features = () => {
                   <div className="col-lg-12 col-md-6 mb-30">
                     <div className="feature-card hover--effect-1">
                       <div className="feature-card__icon">
-                        <Image src={feature_1} alt="image" />
+                        <Image
+                          style={{ maxWidth: "100px" }}
+                          src={feature_1}
+                          alt="image"
+                        />
                       </div>
                       <div className="feature-card__content">
-                        <h3 className="feature-title">Daily Draws</h3>
+                        <h3
+                          style={{ color: colors.baseColor }}
+                          className="feature-title"
+                        >
+                          Daily Draws
+                        </h3>
                         <p>
-                          Nulla ultricies in nulla ac efficitur. In vel neque
-                          arcu. Donec quis
+                          These draws occur once every day, offering
+                          participants the chance to win prizes on a daily
+                          basis.
                         </p>
                       </div>
                     </div>
@@ -50,13 +61,22 @@ const Features = () => {
                   <div className="col-lg-12 col-md-6 mb-30">
                     <div className="feature-card hover--effect-1">
                       <div className="feature-card__icon">
-                        <Image src={feature_3} alt="image" />
+                        <Image
+                          style={{ maxWidth: "100px" }}
+                          src={feature_3}
+                          alt="image"
+                        />
                       </div>
                       <div className="feature-card__content">
-                        <h3 className="feature-title">Weekly Draws</h3>
+                        <h3
+                          style={{ color: colors.baseColor }}
+                          className="feature-title"
+                        >
+                          Weekly Draws
+                        </h3>
                         <p>
-                          Nulla ultricies in nulla ac efficitur. In vel neque
-                          arcu. Donec quis
+                          Weekly draws on ElonTix are conducted once every week,
+                          typically on a specific day or time.
                         </p>
                       </div>
                     </div>
@@ -68,13 +88,22 @@ const Features = () => {
                   <div className="col-lg-12 col-md-6 mb-30">
                     <div className="feature-card hover--effect-1">
                       <div className="feature-card__icon">
-                        <Image src={feature_2} alt="image" />
+                        <Image
+                          style={{ maxWidth: "100px" }}
+                          src={feature_2}
+                          alt="image"
+                        />
                       </div>
                       <div className="feature-card__content">
-                        <h3 className="feature-title">Special Draws</h3>
+                        <h3
+                          style={{ color: colors.baseColor }}
+                          className="feature-title"
+                        >
+                          Special Draws
+                        </h3>
                         <p>
-                          Nulla ultricies in nulla ac efficitur. In vel neque
-                          arcu. Donec quis
+                          ElonTix also hosts special draws, which are notable
+                          events that occur at predetermined intervals.
                         </p>
                       </div>
                     </div>
@@ -82,13 +111,22 @@ const Features = () => {
                   <div className="col-lg-12 col-md-6 mb-30">
                     <div className="feature-card hover--effect-1">
                       <div className="feature-card__icon">
-                        <Image src={feature_4} alt="image" />
+                        <Image
+                          style={{ maxWidth: "100px" }}
+                          src={feature_4}
+                          alt="image"
+                        />
                       </div>
                       <div className="feature-card__content">
-                        <h3 className="feature-title">Lifetime Draws</h3>
+                        <h3
+                          style={{ color: colors.baseColor }}
+                          className="feature-title"
+                        >
+                          Lifetime Draws
+                        </h3>
                         <p>
-                          Nulla ultricies in nulla ac efficitur. In vel neque
-                          arcu. Donec quis
+                          In addition to the daily, weekly, and special draws,
+                          ElonTix may feature progressive jackpot draws.
                         </p>
                       </div>
                     </div>
@@ -98,21 +136,32 @@ const Features = () => {
             </div>
           </div>
           <div className="col-lg-6 order-lg-2 order-1 text-lg-start text-center">
-            <div className="section-header">
-              <span className="section-sub-title">An Exhaustive list of</span>
-              <h2 className="section-title">Our Lotteries.</h2>
-              <p>
-                Lorem ipsum dolor sit amet, consectetur adipiscing elit. In
-                pretium, elit quis vehicula interdum, sem metus iaculis sapien,
-                sed bibendum lectus augue eu metus.
-              </p>
-              <a
-                href="#0"
-                className="d-flex align-items-center mt-3 justify-content-lg-start justify-content-center"
+            <div className="section-header p-0 m-4">
+              <span
+                className="section-sub-title p-0 m-0"
+                style={{ color: "white" }}
               >
-                Show all lotteries
-                <i className="las la-angle-double-right text-danger"></i>
-              </a>
+                An{" "}
+                <span className="section-sub-title tag p-0 m-0">
+                  Exhaustive
+                </span>{" "}
+                list of
+              </span>
+              <h2 className="section-title p-0 m-0">
+                Our{" "}
+                <span className="section-title tag p-0 m-0">Lotteries.</span>
+              </h2>
+              <p className="p-0 m-0">
+                ElonTix Lottery Draws bring an electrifying blend of excitement
+                and exclusivity. With each draw, participants get a chance to
+                win incredible prizes and unforgettable experiences, all tied to
+                the visionary world of Elon Musk.
+              </p>
+            </div>
+            <div className="mx-5">
+              <button style={{ transform: `scale(1.2)` }} className="cmn-btn">
+                Mint Now
+              </button>
             </div>
           </div>
         </div>

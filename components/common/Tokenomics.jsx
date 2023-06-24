@@ -1,9 +1,11 @@
 import Image from "next/image";
 import { colors } from "../../theme/color";
-import { BsStars } from "react-icons/bs";
-import { FaBurn, FaCrown, FaHandPeace } from "react-icons/fa";
+import { FaHandHoldingHeart } from "react-icons/fa";
 import { TokenChart } from "./TokenChart";
 import elon from "/public/images/token.webp";
+import { BiCopy, BiSelectMultiple } from "react-icons/bi";
+import { MdOutlineHowToVote, MdOutlineLoyalty } from "react-icons/md";
+import { TbPigMoney } from "react-icons/tb";
 
 const TickColor = (props) => (
   <div
@@ -49,7 +51,7 @@ const LatestWinner = () => {
     },
     {
       label: "Total Supply",
-      value: "10,000,000,000,000 ",
+      value: "1,000,000,000,000 ",
     },
     {
       label: "Type",
@@ -57,40 +59,37 @@ const LatestWinner = () => {
     },
     {
       label: "Contract Address",
-      value: "0x212......",
+      value: "0x212...........24a1",
+      copy: true,
     },
   ];
   const tax = [
     {
-      tax: "3% Buy",
-      text: "buyback & burn",
-    },
-    {
-      tax: "3% Sell",
-      text: "marketing & operations, staking rewards & tournament prize pools",
+      tax: "0% buy & 0% sell",
+      text: "Join us on the tax-free express to financial freedom! 🚀💸",
     },
   ];
 
   const utils = [
     {
-      icon: BsStars,
+      icon: MdOutlineHowToVote,
       text: "Governance & Voting Rights",
     },
     {
-      icon: FaBurn,
+      icon: TbPigMoney,
       text: "Decentralized Finance",
     },
     {
-      icon: FaHandPeace,
+      icon: MdOutlineLoyalty,
       text: "Loyalty Programs",
     },
     {
-      icon: FaCrown,
+      icon: BiSelectMultiple,
       text: "MultiChain Compatibility",
     },
 
     {
-      icon: FaCrown,
+      icon: FaHandHoldingHeart,
       text: "Charity Integration",
     },
   ];
@@ -128,7 +127,7 @@ const LatestWinner = () => {
                   </div>
                   <div className="col-lg-6 mb-30">
                     {/* Tokenomics */}
-                    <div className="pb-120">
+                    <div className="" style={{ paddingBottom: "3rem" }}>
                       <h2 className="pb-2">
                         Token
                         {"\u00A0"}
@@ -159,6 +158,16 @@ const LatestWinner = () => {
                           >
                             <h5>{t.label}</h5>
                             <h6 style={{ color: colors.baseColor }}>
+                              {t.copy ? (
+                                <span
+                                  style={{
+                                    margin: "0 1rem",
+                                    cursor: "pointer",
+                                  }}
+                                >
+                                  <BiCopy size={32} />
+                                </span>
+                              ) : null}
                               {t.value}
                             </h6>
                           </div>
@@ -166,7 +175,7 @@ const LatestWinner = () => {
                       </div>
                     </div>
                     {/* Chart */}
-                    <div className="pb-120">
+                    <div className="" style={{ paddingBottom: "3rem" }}>
                       <h2 className="pb-2">
                         Token
                         {"\u00A0"}
@@ -205,7 +214,7 @@ const LatestWinner = () => {
                     </div>
 
                     {/* Token Tax */}
-                    <div className="pb-120">
+                    <div className="" style={{ paddingBottom: "3rem" }}>
                       <h2 className="pb-2">
                         Token
                         {"\u00A0"}
@@ -273,7 +282,7 @@ const LatestWinner = () => {
                             }}
                             key={i}
                           >
-                            {<t.icon size={16} color={colors.baseColor} />}
+                            {<t.icon size={24} color={colors.baseColor} />}
                             <h5>{t.text}</h5>
                           </div>
                         ))}
