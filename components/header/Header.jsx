@@ -180,7 +180,7 @@ const Header = () => {
                   <div
                     style={{
                       maxHeight: "50px",
-                      width: "200px",
+                      width: "160px",
                       margin: "auto",
                       cursor: "pointer",
                       display: "flex",
@@ -190,8 +190,8 @@ const Header = () => {
                       position: "relative",
                       boxShadow: `0px 0px 4px ${colors.baseColor}`,
                       borderRadius: "40rem",
-                      background: "#F37CA8",
                     }}
+                    className="pinksale_butt"
                   >
                     <span
                       style={{

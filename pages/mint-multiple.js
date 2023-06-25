@@ -329,7 +329,14 @@ const Mint = () => {
               <h2 className="pt-5">Your Tickets</h2>
               <div>
                 {!isConnected ? (
-                  <div className="tag">Connect your wallet to add tickets</div>
+                  <div>
+                    <button onClick={connectWallet} className="cmn-btn my-4">
+                      CONNECT WALLET
+                    </button>
+                    <div className="tag">
+                      Connect your wallet to add tickets
+                    </div>
+                  </div>
                 ) : null}
               </div>
               <div>

@@ -168,7 +168,6 @@ const Hero = () => {
             <Image
               style={{
                 position: "absolute",
-                top: "-200px",
                 display: "flex",
                 alignSelf: "center",
                 justifyContent: "center",

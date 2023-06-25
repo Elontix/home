@@ -9,7 +9,7 @@ import PS from "/public/images/ps_l.png";
 const Board = (props) => {
   return (
     <div
-      className="quote_"
+      className="_quote_x"
       style={{
         background: colors.bgOne,
         minHeight: "80px",
@@ -92,9 +92,8 @@ const Partner = () => {
                   }}
                 >
                   <div
+                    className="pinksale_butt _pinksale"
                     style={{
-                      maxHeight: "150px",
-                      width: "480px",
                       margin: "auto",
                       cursor: "pointer",
                       display: "flex",
@@ -104,7 +103,6 @@ const Partner = () => {
                       position: "relative",
                       boxShadow: `0px 0px 4px ${colors.baseColor}`,
                       borderRadius: "40rem",
-                      background: "#F37CA8",
                     }}
                   >
                     <span

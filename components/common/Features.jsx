@@ -158,7 +158,7 @@ const Features = () => {
                 the visionary world of Elon Musk.
               </p>
             </div>
-            <div className="mx-5">
+            <div className="mx-5 mb-30 mb-md-0">
               <button style={{ transform: `scale(1.2)` }} className="cmn-btn">
                 Mint Now
               </button>
