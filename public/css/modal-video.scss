@@ -1118,3 +1118,7 @@ $card__line_bd-cr: $cr-blue-1;
   color: $base-color-three;
   transition: all 200ms ease-in-out;
 }
+
+.active:hover {
+  color: $base-color;
+}

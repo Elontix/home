@@ -141,23 +141,40 @@ const Footer = () => {
                 style={{ columnGap: "1rem" }}
                 className="social-links justify-content-lg-end justify-content-center"
               >
-                <Link className="soc_hover" href="/#">
+                <Link
+                  target={"_blank"}
+                  className="soc_hover"
+                  href="https://t.me/elontix"
+                >
                   <FaTelegram size={32} />
                 </Link>
-                <Link className="soc_hover" href="/#">
+                <Link
+                  target={"_blank"}
+                  className="soc_hover"
+                  href="https://twitter.com/TixElon"
+                >
                   <FaTwitter size={32} />
                 </Link>
-                <Link className="soc_hover" href="/#">
+                <Link
+                  target={"_blank"}
+                  className="soc_hover"
+                  href="https://whitepaper.elontix.io/"
+                >
+                  <FaMedium size={32} />
+                </Link>
+                <Link
+                  target={"_blank"}
+                  className="soc_hover"
+                  href="https://twitter.com/TixElon"
+                >
                   <FaDiscord size={32} />
                 </Link>
-                <Link className="soc_hover" href="/#">
-                  <FaInstagram size={32} />
-                </Link>
-                <Link className="soc_hover" href="/#">
-                  <FaReddit size={32} />
-                </Link>
-                <Link className="soc_hover" href="/#">
-                  <FaMedium size={32} />
+                <Link
+                  target={"_blank"}
+                  className="soc_hover"
+                  href="https://t.me/elontix"
+                >
+                  <FaTelegram size={32} />
                 </Link>
               </div>
             </div>

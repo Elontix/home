@@ -5,15 +5,9 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import logo from "/public/images/logo.webp";
 import { useRouter } from "next/router";
-import {
-  FaDiscord,
-  FaInstagram,
-  FaMedium,
-  FaReddit,
-  FaTelegram,
-  FaTwitter,
-} from "react-icons/fa";
+import { FaDiscord, FaMedium, FaTelegram, FaTwitter } from "react-icons/fa";
 import { colors } from "../../theme/color";
+import PS from "/public/images/ps_l.png";
 
 const Header = () => {
   const router = useRouter();
@@ -123,7 +117,10 @@ const Header = () => {
       <ul className="sub-menu">
         {[
           ["White Paper", "https://whitepaper.elontix.io/"],
-          ["KYC", "/"],
+          [
+            "KYC",
+            "https://verified.assuredefi.com/projects?recordId=recCBLklWKzl9SAWS",
+          ],
         ].map(([itm, url], i) => (
           <li key={i}>
             <Link target="_blank" href={url} onClick={() => setShow(false)}>
@@ -172,14 +169,56 @@ const Header = () => {
               </ul>
 
               <div className="nav-right">
-                <Link
-                  href="/mint-multiple"
-                  // data-bs-toggle="modal"
-                  // data-bs-target="#loginModal"
-                  className="cmn-btn"
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                    padding: "2rem 0",
+                  }}
                 >
-                  PRESALE LIVE
-                </Link>
+                  <div
+                    style={{
+                      maxHeight: "50px",
+                      width: "200px",
+                      margin: "auto",
+                      cursor: "pointer",
+                      display: "flex",
+                      justifyContent: "center",
+                      alignItems: "center",
+                      padding: "1rem 0",
+                      position: "relative",
+                      boxShadow: `0px 0px 4px ${colors.baseColor}`,
+                      borderRadius: "40rem",
+                      background: "#F37CA8",
+                    }}
+                  >
+                    <span
+                      style={{
+                        position: "absolute",
+                        bottom: "-10%",
+                        right: "20%",
+                        background: colors.baseColor,
+                        color: colors.bgOne,
+                        fontWeight: "bold",
+                        padding: ".1rem .25rem",
+                        borderRadius: "1rem",
+                        fontSize: "0.55rem",
+                      }}
+                    >
+                      Coming Soon
+                    </span>
+                    <Image
+                      style={{
+                        objectFit: "contain",
+                        padding: "1rem",
+                        maxWidth: "100%",
+                      }}
+                      src={PS}
+                      alt="ps"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </nav>
@@ -205,23 +244,40 @@ const Header = () => {
             }}
             className=" socials_custom"
           >
-            <Link className="soc_hover" href="/#">
+            <Link
+              target={"_blank"}
+              className="soc_hover"
+              href="https://t.me/elontix"
+            >
               <FaTelegram size={32} />
             </Link>
-            <Link className="soc_hover" href="/#">
+            <Link
+              target={"_blank"}
+              className="soc_hover"
+              href="https://twitter.com/TixElon"
+            >
               <FaTwitter size={32} />
             </Link>
-            <Link className="soc_hover" href="/#">
+            <Link
+              target={"_blank"}
+              className="soc_hover"
+              href="https://whitepaper.elontix.io/"
+            >
+              <FaMedium size={32} />
+            </Link>
+            <Link
+              target={"_blank"}
+              className="soc_hover"
+              href="https://twitter.com/TixElon"
+            >
               <FaDiscord size={32} />
             </Link>
-            <Link className="soc_hover" href="/#">
-              <FaInstagram size={32} />
-            </Link>
-            <Link className="soc_hover" href="/#">
-              <FaReddit size={32} />
-            </Link>
-            <Link className="soc_hover" href="/#">
-              <FaMedium size={32} />
+            <Link
+              target={"_blank"}
+              className="soc_hover"
+              href="https://t.me/elontix"
+            >
+              <FaTelegram size={32} />
             </Link>
           </div>
         </div>

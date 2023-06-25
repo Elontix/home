@@ -126,7 +126,7 @@ const Util = () => {
 
       <GradCard />
       <div className="container">
-        <div className="row">
+        <div className="row my-5 my-md-0">
           <Charity />
         </div>
       </div>

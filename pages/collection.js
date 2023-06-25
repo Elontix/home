@@ -38,17 +38,15 @@ const Collection = () => {
     setCounter(counter + 1);
   };
 
-  // useEffect(() => {
-  //   if (isConnected) init().then().catch();
-  //   console.log(collectionData);
-  // }, [isConnected]);
-
-  // useEffect(() => {
-  //   disconnect();
-  // }, []);
+  useEffect(() => {
+    if (isConnected) init().then().catch();
+  }, [isConnected]);
 
   useEffect(() => {
-    console.log(collectionData);
+    disconnect();
+  }, []);
+
+  useEffect(() => {
     if (isConnected) {
       if (hasCollecitonSucess) {
         let isUpdated = false;
@@ -83,11 +81,11 @@ const Collection = () => {
                 aria-labelledby="laptop-tab"
               >
                 <div className="row mb-none-30 mt-50">
-                  {/* {tokenIds.map((id, k) => (
+                  {tokenIds.map((id, k) => (
                     <div key={k} className="col-xl-4 col-md-6 mb-30">
                       <ContestCard address={address} id={id} />
                     </div>
-                  ))} */}
+                  ))}
                 </div>
               </div>
               <div className="bg-shape"></div>

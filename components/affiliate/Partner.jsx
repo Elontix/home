@@ -68,7 +68,7 @@ const Partner = () => {
           <div className="container pt-120 pb-120">
             <div className="row align-items-center">
               <div
-                className="col-12 col-lg-6 g-5"
+                className="col-12 col-lg-6 "
                 style={{
                   display: "grid",
                   justifyContent: "center",
@@ -76,21 +76,26 @@ const Partner = () => {
                   alignItems: "center",
                 }}
               >
-                <h1 className="tag hbd_elon_txt">Giving back</h1>
-                <h1 className="hbd_elon_txt">to Musk fans</h1>
-                <h1 className="tag hbd_elon_txt">on ocassion </h1>
-                <h1 className="hbd_elon_txt">of his birthday</h1>
+                <div style={{ paddingLeft: "3rem" }}>
+                  <h1 className="tag hbd_elon_txt">Giving back</h1>
+                  <h1 className="hbd_elon_txt">to Musk fans</h1>
+                  <h1 className="tag hbd_elon_txt">on ocassion </h1>
+                  <h1 className="hbd_elon_txt">of his birthday</h1>
+                </div>
+
                 <div
                   style={{
                     display: "flex",
                     justifyContent: "center",
                     alignItems: "center",
-                    padding: "2rem",
+                    padding: "2rem 0",
                   }}
                 >
                   <div
                     style={{
                       maxHeight: "150px",
+                      width: "480px",
+                      margin: "auto",
                       cursor: "pointer",
                       display: "flex",
                       justifyContent: "center",
