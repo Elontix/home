@@ -4,7 +4,7 @@ import elon from "/public/images/utils/elon_2.webp";
 import ticket from "/public/images/ticket.png";
 import AppStore from "/public/images/download (1).png";
 import PlayStore from "/public/images/download.png";
-import Toast from "/public/images/toast.png";
+import Toast from "/public/images/999.png";
 import Bg from "/public/images/bg-util.png";
 
 const Util = () => {
@@ -207,8 +207,8 @@ const GradCard = () => {
             <Image
               style={{
                 position: "absolute",
-                left: "30px",
-                top: "-60px",
+                left: "0px",
+                top: "-130px",
               }}
               src={Toast}
               alt="source"
