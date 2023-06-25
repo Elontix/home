@@ -2,7 +2,7 @@ import Image from "next/image";
 import { colors } from "../../theme/color";
 import elon from "/public/images/utils/elon_2.webp";
 import ticket from "/public/images/ticket.png";
-import AppStore from "/public/images/download (1).png";
+import AppStore from "/public/images/play.png";
 import PlayStore from "/public/images/download.png";
 import Toast from "/public/images/999.png";
 import Bg from "/public/images/bg-util.png";
