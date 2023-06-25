@@ -8,7 +8,7 @@ const ToggleButton = (props) => {
   const isActive = router.asPath == props.link;
 
   return (
-    <Link href={props.link}>
+    <Link href={props.isLinkDeactive ? "" : props.link}>
       <div
         style={{
           background: isActive ? colors.baseColor : colors.baseColorTwo,
@@ -59,7 +59,7 @@ const Mintbar = () => {
           style={{ display: "flex", justifyContent: "center" }}
           className="col-12 col-md-4"
         >
-          <ToggleButton label="Winners" link="/winner" />
+          <ToggleButton isLinkDeactive={true} label="Winners" link="/winner" />
         </div>
       </div>
     </div>
