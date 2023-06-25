@@ -1,8 +1,8 @@
 import env from "react-dotenv";
 
-const SERVER = env.PROD || "";
+const SERVER = true || "";
 let URL = "http://localhost:5000/";
-if (SERVER) URL = "https://api.axlegames.io";
+if (SERVER) URL = "https://api.elontix.io";
 
 const headers = () => {
   return {

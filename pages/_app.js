@@ -25,7 +25,7 @@ import "../public/styles/main.sass";
 import "../public/styles/global.css";
 
 const chains = [bsc, bscTestnet];
-const projectId = process.env.PROJECT_ID;
+const projectId = "f5dcf20eb66353538219a935685ad5fd";
 
 const { publicClient } = configureChains(chains, [w3mProvider({ projectId })]);
 const wagmiConfig = createConfig({
