@@ -364,7 +364,7 @@ const Hero = () => {
                   class="custom-btn btn-9"
                   style={{ borderRadius: "40rem" }}
                 >
-                  Mint now
+                  MINT TICKETS
                 </button>
               </Link>
             </div>

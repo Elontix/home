@@ -160,7 +160,7 @@ const Features = () => {
             </div>
             <div className="mx-5 mb-30 mb-md-0">
               <button style={{ transform: `scale(1.2)` }} className="cmn-btn">
-                Mint Now
+                MINT TICKETS
               </button>
             </div>
           </div>
