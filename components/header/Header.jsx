@@ -245,6 +245,7 @@ const Header = () => {
               padding: "1rem",
               borderBottomLeftRadius: "1rem",
               background: colors.bgOne,
+              boxShadow: `0px 0px 4px ${colors.baseColor}`,
             }}
             className=" socials_custom"
           >

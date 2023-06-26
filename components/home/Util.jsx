@@ -188,7 +188,10 @@ const GradCard = () => {
                 textShadow: `-2px -2px 5px ${colors.baseColor}, 2px 2px 5px ${colors.bgOne}`,
               }}
             >
-              SPECIAL DRAW
+              SPECIAL{" "}
+              <span>
+                <h1>DRAW</h1>
+              </span>
             </h1>
             <div className="subtitle"></div>
             <div className="util_card_gradient_content col-12">
@@ -238,7 +241,10 @@ const GradCard = () => {
                 textShadow: `-2px -2px 5px ${colors.baseColor}, 2px 2px 5px ${colors.bgOne}`,
               }}
             >
-              LIFE TIME DRAW
+              LIFETIME{" "}
+              <span>
+                <h1>DRAW</h1>
+              </span>
             </h1>
             <div className="subtitle"></div>
             <div className="util_card_gradient_content col-12">
