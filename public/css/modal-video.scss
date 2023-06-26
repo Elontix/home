@@ -400,7 +400,6 @@ $bg-two: #02014a;
 
 .main_txt_under {
   color: #ffb200;
-  margin: 0.4rem 0;
   font-weight: bold;
   font-size: 2.5rem;
   text-align: center;
@@ -1030,14 +1029,31 @@ $card__line_bd-cr: $cr-blue-1;
   }
 }
 
-.util_bg {
+.util_bg_2 {
   background-image: linear-gradient(
-    to right,
-    #5a4bcc,
-    #4538a2,
-    #31277a,
+    to left top,
+    #0f0232,
+    #611150,
+    #b22851,
+    #ec643a,
+    #ffb200
+  );
+  // background: rgba(255, 255, 255, 0.01);
+  // border-radius: 16px;
+  // box-shadow: 0 4px 30px rgba(0, 0, 0, 0.1);
+  // backdrop-filter: blur(1.3px);
+  // -webkit-backdrop-filter: blur(1.3px);
+  transform: scale(0.9);
+}
+
+.util_bg_1 {
+  background-image: linear-gradient(
+    to right top,
+    #0f0232,
     #1d1655,
-    #0f0232
+    #31277a,
+    #4538a2,
+    #5a4bcc
   );
   // background: rgba(255, 255, 255, 0.01);
   // border-radius: 16px;
@@ -1157,15 +1173,11 @@ $card__line_bd-cr: $cr-blue-1;
 }
 
 .token_main_txt {
-  font-size: 0.8rem;
+  font-size: 0.9rem;
   @media (min-width: 800px) {
     font-size: 1rem;
   }
 }
 
 .token_sub_txt {
-  font-size: 0.9rem;
-  @media (min-width: 800px) {
-    font-size: 1rem;
-  }
 }

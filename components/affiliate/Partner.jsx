@@ -159,9 +159,8 @@ const Partner = () => {
                       textAlign: "left",
                     }}
                   >
-                    Elontix is an innovative Meme-based decentralized lottery
-                    platform that embodies the visionary spirit of Elon Musk.
-                    Inspired by
+                    Elontix is an innovative Meme-based nft lottery platform
+                    that embodies the visionary spirit of Elon Musk. Inspired by
                     {` Musk's `} desire to revolutionize industries through
                     technological advancements, Elontix aims to redefine the
                     traditional lottery experience using the power of blockchain

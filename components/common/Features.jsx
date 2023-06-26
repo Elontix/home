@@ -6,6 +6,7 @@ import feature_4 from "/public/images/hourglass.png";
 
 import hero_4_obj from "/public/images/elements/hero-4-obj.png";
 import { colors } from "../../theme/color";
+import Link from "next/link";
 
 const Features = () => {
   return (
@@ -159,9 +160,11 @@ const Features = () => {
               </p>
             </div>
             <div className="mx-5 mb-30 mb-md-0">
-              <button style={{ transform: `scale(1.2)` }} className="cmn-btn">
-                MINT TICKETS
-              </button>
+              <Link href="/mint">
+                <button style={{ transform: `scale(1.2)` }} className="cmn-btn">
+                  MINT TICKETS
+                </button>
+              </Link>
             </div>
           </div>
         </div>

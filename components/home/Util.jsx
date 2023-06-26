@@ -7,6 +7,7 @@ import PlayStore from "/public/images/download.png";
 import Toast from "/public/images/999.png";
 import Bg from "/public/images/bg-util.png";
 import Link from "next/link";
+import { useCountdown } from "./Timer";
 
 const Util = () => {
   return (
@@ -82,7 +83,7 @@ const Util = () => {
                     justifyContent: "center",
                     alignItems: "center",
                   }}
-                  href="/mint-multiple"
+                  href="/mint"
                 >
                   <h4 className="tag  text-center">Mint now</h4>
                 </Link>
@@ -154,8 +155,11 @@ const Charity = () => {
     </div>
   );
 };
+const timeC = new Date(2023, 5, 28, 17, 30, 0);
 
 const GradCard = () => {
+  const [days, hours, minutes, seconds] = useCountdown(timeC);
+  console.log(days, hours, minutes, seconds);
   return (
     <div style={{}} class="card main__card card_bg_img">
       <div>
@@ -169,7 +173,7 @@ const GradCard = () => {
           className="p-0 py-2 p-md-5 gy-5 gx-2 util_card_gradient row "
         >
           <div
-            className="col-12 col-lg-6 util_bg"
+            className="col-12 col-lg-6 util_bg_1"
             style={{
               padding: "2rem 0",
               borderRadius: "1rem",
@@ -181,19 +185,19 @@ const GradCard = () => {
             <div className="util_card_gradient_content col-12">
               <div className="main_module_ul">
                 <div className="timer_tick">
-                  <div className="tick">10</div>
+                  <div className="tick">{days}</div>
                   <div className="timer">Days</div>
                 </div>
                 <div className="timer_tick">
-                  <div className="tick">8</div>
+                  <div className="tick">{hours}</div>
                   <div className="timer">Hours</div>
                 </div>
                 <div className="timer_tick">
-                  <div className="tick">2</div>
+                  <div className="tick">{minutes}</div>
                   <div className="timer">Minutes</div>
                 </div>
                 <div className="timer_tick">
-                  <div className="tick">22</div>
+                  <div className="tick">{seconds}</div>
                   <div className="timer">Seconds</div>
                 </div>
               </div>
@@ -206,54 +210,40 @@ const GradCard = () => {
             </div>
           </div>
           <div
-            className="col-12 col-lg-6 util_bg"
+            className="col-12 col-lg-6 util_bg_2"
             style={{
               padding: "2rem 0",
               borderRadius: "0rem",
-              boxShadow: `0px 0px 5px ${colors.baseColor}`,
+              boxShadow: `-5px -5px 5px ${colors.bgOne}`,
               border: `8px solid ${colors.baseColor}`,
               background: Bg,
+              display: "flex",
+              justifyContent: "flex-start",
+              flexDirection: "column",
+              textAlign: "center",
             }}
           >
-            <Image
-              style={{
-                position: "absolute",
-                left: "0px",
-                top: "-130px",
-              }}
-              src={Toast}
-              alt="source"
-              height={256}
-              width={256}
-            />
-            <div className="subtitle"></div>
-            <div className="util_card_gradient_content col-12 ">
-              <div
+            <div>
+              <h1
+                className="px-2 tag text-align-center"
                 style={{
-                  fontSize: "1rem",
-                  display: "flex",
-                  justifyContent: "flex-start",
-                  flexDirection: "column",
-                  alignItems: "flex-start",
-                  padding: "1rem 2rem",
-                  paddingTop: "4rem",
-                  lineHeight: "1",
+                  textShadow: `-2px -2px 5px ${colors.baseColor}, 2px 2px 5px ${colors.bgOne}`,
                 }}
               >
-                <div className="bnb">GUARANTEED WIN</div>
-                <div className="bnb_value tag">300 BNB</div>
-                <h4 style={{ textAlign: "left" }} className="tag">
-                  100 BNB guaranteed for 3 winners
-                </h4>
-              </div>
-              <div
+                999 BNB
+              </h1>
+              <h2
+                className="px-2 tag text-align-left"
                 style={{
-                  display: "flex",
-                  justifyContent: "flex-end",
-                  padding: "0 2rem",
+                  textShadow: `-2px -2px 5px ${colors.baseColor}, 2px 2px 5px ${colors.bgOne}`,
                 }}
               >
-                <button className="cmn-btn">Mint Now</button>
+                LIFE TIME DRAW
+              </h2>
+            </div>
+            <div className="util_card_gradient_content col-12">
+              <div className="sub_module_ul">
+                <div className="bnb text-light">WIN UPTO BNB</div>
               </div>
             </div>
           </div>

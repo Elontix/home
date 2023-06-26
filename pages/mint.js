@@ -1,4 +1,3 @@
-import mint from "../data/mint";
 import Image from "next/image";
 import TicketGif from "/public/images/ticket.gif";
 
@@ -11,7 +10,7 @@ import { colors } from "../theme/color";
 import { MintAPi } from "./api/mint/mint";
 
 import toast, { Toaster } from "react-hot-toast";
-import { BiErrorAlt } from "react-icons/bi";
+import { BiErrorAlt, BiTrash } from "react-icons/bi";
 import { MdOutlineDoneOutline } from "react-icons/md";
 
 import Mintbar from "../components/common/MintBar";
@@ -50,13 +49,16 @@ function generateRandom(min = 0, max = 100000) {
 }
 
 const Mint = () => {
-  const [token, setToken] = useState(["0", "0", "0", "0", "0", "0"]);
-  const [price, setPrice] = useState(0);
-  const [type, setType] = useState("");
-
   function updateRandomNumber() {
-    setToken([...generateRandom()]);
     nftIdentifier();
+    setToken([...generateRandom()]);
+  }
+
+  function typeColor(type) {
+    if (type === "DIAMOND") return "#b9f2ff";
+    if (type === "GOLD") return "#FFD700";
+    if (type === "SILVER") return "#C0C0C0";
+    if (type === "BRONZE") return " #CD7F32";
   }
 
   function updateNumber(value, key) {
@@ -70,61 +72,6 @@ const Mint = () => {
     for (let i = 0; i < token.length; i++) n += token[i];
     return Number(n);
   }
-
-  const { open, setDefaultChain } = useWeb3Modal();
-  const { disconnect } = useDisconnect();
-  const { address, isConnected } = useAccount();
-  const { data: balance, isFetched: balanceFeteched } = useBalance({
-    address,
-  });
-
-  const connectWallet = () => {
-    open();
-    setDefaultChain(bscTestnet);
-    nftIdentifier();
-  };
-  const addressStrip = (str) =>
-    str.substring(0, 4) + "...." + str.substring(str.length - 4, str.length);
-
-  useEffect(() => {
-    disconnect();
-  }, []);
-
-  const {
-    write: mintWrite,
-    data: mintData,
-    error: mintError,
-    isError: mintIsError,
-    isSuccess: mintIsSuccess,
-    status: mintStatus,
-  } = useContractWrite({
-    address: MintAPi.getAddress(false),
-    abi: MintAPi.getMintAbi(false),
-    functionName: "mint",
-    args: [address, tokenStrip(token)],
-    chainId: bscTestnet.chainId,
-    account: address,
-    value: BigInt(price * 10 ** 18),
-  });
-
-  const [counter, setCounter] = useState(0);
-
-  console.log(mintIsSuccess);
-
-  function typeColor(type) {
-    if (type === "DIAMOND") return "#b9f2ff";
-    if (type === "GOLD") return "#FFD700";
-    if (type === "SILVER") return "#C0C0C0";
-    if (type === "BRONZE") return " #CD7F32";
-  }
-
-  useEffect(() => {
-    console.log(counter, mintStatus, mintIsSuccess);
-    if (mintIsSuccess && counter < 4) {
-      mintWrite();
-      setCounter(counter + 1);
-    }
-  }, [counter, mintIsSuccess]);
 
   function nftIdentifier() {
     let stripedToken = tokenStrip(token);
@@ -150,14 +97,94 @@ const Mint = () => {
     }
   }
 
-  const timeFrame = (t) => {
-    if (t === 0) return "DAYS";
-    if (t === 1) return "HOURS";
-    if (t === 2) return "MINUTES";
-    if (t === 3) return "SECONDS";
+  const { disconnect } = useDisconnect();
+  const { address, isConnected } = useAccount();
+  const { open, setDefaultChain } = useWeb3Modal();
+  const { data: balance, isFetched: balanceFeteched } = useBalance({
+    address,
+  });
+
+  const [type, setType] = useState("");
+  const [price, setPrice] = useState(0);
+  const [counter, setCounter] = useState(0);
+  const [tickets, setTickets] = useState([]);
+  const [token, setToken] = useState(["0", "0", "0", "0", "0", "0"]);
+
+  const connectWallet = () => {
+    open();
+    setDefaultChain(bscTestnet);
+    nftIdentifier();
+  };
+  const addressStrip = (str) =>
+    str.substring(0, 4) + "...." + str.substring(str.length - 4, str.length);
+
+  useEffect(() => {
+    disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const getTickets = () => {
+    let sampledTickets = [];
+    for (let i = 0; i < tickets.length; i++) {
+      const s = tickets[i].tokenId;
+      let t = "";
+      for (let j = 0; j < s.length; j++) {
+        t += s[j];
+      }
+      sampledTickets.push(Number(t));
+    }
+    return sampledTickets;
   };
 
-  const data = [1, 2, 2, 2, 2, 2];
+  const {
+    write: mintWrite,
+    data: mintData,
+    error: mintError,
+    isError: mintIsError,
+    isSuccess: mintIsSuccess,
+    status: mintStatus,
+  } = useContractWrite({
+    address: MintAPi.getAddress(false),
+    abi: MintAPi.getMintAbi(false),
+    functionName: "mintMultiple",
+    args: [address, getTickets()],
+    chainId: bscTestnet.chainId,
+    account: address,
+    value: totalPrice() * 10 ** 16,
+  });
+
+  useEffect(() => {
+    if (mintIsSuccess && counter < 4) {
+      mintWrite();
+      setCounter(counter + 1);
+    }
+  }, [counter, mintIsSuccess]);
+
+  function addTicket() {
+    let tempTickets = tickets;
+    tempTickets.push({
+      tokenId: [...token],
+      price: price,
+      type: type,
+    });
+    setTickets([...tempTickets]);
+  }
+
+  function deleteTickets(index) {
+    let tempTickets = [];
+    for (let i = 0; i < tickets.length; i++) {
+      if (index !== i) {
+        tempTickets.push(tickets[i]);
+      }
+    }
+    setTickets([...tempTickets]);
+  }
+
+  function totalPrice() {
+    let price = 0;
+    for (let i = 0; i < tickets.length; i++) price += tickets[i].price;
+    return price;
+  }
 
   return (
     <>
@@ -165,11 +192,8 @@ const Mint = () => {
 
       <div className="container" style={{ paddingBottom: "5rem" }}>
         <Mintbar />
-        <div
-          className="row"
-          style={{ rowGap: "2rem", columnGap: "0rem", alignItems: "center" }}
-        >
-          <div className="col-sm-12 col-lg-6 px-5">
+        <div className="row" style={{ rowGap: "2rem" }}>
+          <div className="col-sm-12 col-lg-6">
             <div
               className="px-4 rounded"
               style={{
@@ -179,93 +203,270 @@ const Mint = () => {
                 boxShadow: `0px 0px 12px -4px ${"black"}`,
               }}
             >
+              <h3 className="py-4">Mint your ticket to reveal your NFT</h3>
               <Image height={320} width={520} src={TicketGif} alt="ok" />
-              <div className="row g-4 py-4">
-                {data.map((s, i) => (
+
+              <div className="row py-4">
+                <div className="col-6" style={{ textAlign: "left" }}>
+                  <h4>Ticket Type</h4>
+                  <h4>Price</h4>
+                </div>
+                <div className="col-6" style={{ textAlign: "right" }}>
+                  <h5 style={{ color: typeColor(type) }}>{type}</h5>
+
+                  <h5 style={{ color: colors.baseColor }}>
+                    {price}{" "}
+                    <span>
+                      <h5>BNB</h5>
+                    </span>
+                  </h5>
+                </div>
+                <div
+                  className="row"
+                  style={{ justifyContent: "center", alignItems: "center" }}
+                >
+                  {token.map((i, k) => (
+                    <input
+                      key={k}
+                      style={{
+                        background: colors.bgOne,
+                        textAlign: "center",
+                        display: "flex",
+                        justifyContent: "center",
+                        color: typeColor(type),
+                        alignItems: "center",
+                        margin: "1rem .4rem",
+                        borderRadius: "5px",
+                        fontSize: "xl",
+                        fontWeight: "bold",
+                        boxShadow: `0px 0px 8px ${typeColor(type)}`,
+                      }}
+                      type="text"
+                      value={i}
+                      className="col"
+                      maxlength="1"
+                      onChange={(e) => updateNumber(e.target.value, k)}
+                    />
+                  ))}
+                </div>
+                <div className="p-4">
+                  <h4
+                    onClick={updateRandomNumber}
+                    style={{ cursor: "pointer" }}
+                  >
+                    GENERATE{" "}
+                    <span>
+                      <h4 className="tag">RANDOM TICKET</h4>
+                    </span>
+                  </h4>
+
                   <div
                     style={{
-                      display: "flex",
-                      flexDirection: "row",
-                      justifyContent: "space-evenly",
-                      alignItems: "center",
-                      borderRadius: "1rem",
+                      width: "80%",
+                      margin: "1rem auto",
+                      height: "3px",
+                      borderRadius: "20px",
+                      background: "gray",
                     }}
-                    key={i}
-                    className="col-12 py-4"
-                  >
-                    {[1, 2, 3, 4].map((k, j) => (
-                      <div
-                        style={{
-                          display: "flex",
-                          justifyContent: "center",
-                          alignItems: "center",
-                          flexDirection: "column",
-                          rowGap: ".5rem",
-                        }}
-                        key={j}
-                      >
-                        <div
-                          style={{
-                            display: "flex",
-                            justifyContent: "center",
-                            alignItems: "center",
-                            fontSize: "2rem",
-                            background: colors.bgOne,
-                            boxShadow: `0px 0px 4px ${colors.baseColor}`,
-                            borderRadius: "10px",
-                            minWidth: "60px",
-                            maxWidth: "60px",
-                            maxHeight: "60px",
-                            minHeight: "60px",
-                            color: colors.baseColor,
-                          }}
-                          key={j}
-                        >
-                          {k}
-                        </div>
+                  ></div>
+                  {isConnected ? (
+                    <div
+                      style={{ cursor: "pointer" }}
+                      onClick={addTicket}
+                      className="cmn-btn"
+                    >
+                      ADD TICKET
+                    </div>
+                  ) : (
+                    <button onClick={connectWallet} className="cmn-btn">
+                      CONNECT WALLET
+                    </button>
+                  )}
+                </div>
 
-                        <div
-                          style={{ fontSize: ".7rem", fontWeight: "bold" }}
-                          className="tag"
-                        >
-                          {timeFrame(j)}{" "}
-                        </div>
+                {isConnected ? (
+                  <div style={{ color: colors.baseColor }}>
+                    <div
+                      style={{
+                        alignItems: "center",
+                        display: "flex",
+                        justifyContent: "space-between",
+                      }}
+                    >
+                      <div style={{ textAlign: "left" }}>
+                        <div style={{ color: "white" }}>Connected To</div>
+                        <div>{isConnected ? addressStrip(address) : ""}</div>
                       </div>
-                    ))}
+
+                      <div>
+                        {balanceFeteched ? (
+                          <span>
+                            {`${balance.formatted}`}{" "}
+                            <span style={{ color: colors.baseColor }}>
+                              {`${balance.symbol}`}
+                            </span>
+                          </span>
+                        ) : (
+                          0
+                        )}
+                      </div>
+                    </div>
                   </div>
-                ))}
+                ) : null}
               </div>
             </div>
           </div>
-          <div className="col-sm-12 col-lg-6 px-5">
+          <div className="col-sm-12 col-lg-6">
             <div
-              style={{ borderLeft: "2px dotted white", rowGap: "2rem" }}
+              style={{
+                textAlign: "center",
+                backgroundImage:
+                  "radial-gradient(circle, #5a4bcc, #4538a2, #31277a, #1d1655, #0f0232)",
+                boxShadow: `0px 0px 12px -4px ${"black"}`,
+              }}
               className="row px-3"
             >
-              {mint.map((data, index) => (
-                <div key={index}>
-                  <div style={{ position: "relative" }}>
+              <h2 className="pt-5">Your Tickets</h2>
+              <div>
+                {!isConnected ? (
+                  <div>
+                    <button onClick={connectWallet} className="cmn-btn my-4">
+                      CONNECT WALLET
+                    </button>
+                    <div className="tag">
+                      Connect your wallet to add tickets
+                    </div>
+                  </div>
+                ) : null}
+              </div>
+              <div>
+                {tickets.map((i, k) => (
+                  <div
+                    className="row "
+                    key={k}
+                    style={{
+                      background: colors.bgOne,
+                      padding: "2rem 1rem",
+                      textAlign: "center",
+                      display: "flex",
+                      margin: "2rem 1rem",
+                      borderRadius: "5px",
+                      fontSize: "xl",
+                      fontWeight: "bold",
+                      width: "100%",
+                      boxShadow: `0px 0px 10px ${typeColor(i.type)}`,
+                    }}
+                  >
                     <div
                       style={{
-                        position: "absolute",
-                        left: "-42px",
-                        color: "white",
-                        width: "28px",
-                        height: "28px",
-                        background: colors.baseColor,
-                        color: colors.bgOne,
-                        textAlign: "center",
-                        borderRadius: "1rem",
-                        padding: ".2rem",
+                        display: "flex",
+                        columnGap: "1rem",
+                        alignItems: "center",
+                        width: "100%",
+                        position: "relative",
                       }}
                     >
-                      {index + 1}
+                      <div
+                        style={{
+                          position: "absolute",
+                          top: "-100%",
+                          left: "-3%",
+                        }}
+                      >
+                        <div
+                          style={{
+                            borderRadius: ".2rem",
+                            background: typeColor(i.type),
+                            padding: "0.2rem 1rem",
+                            fontSize: ".8rem",
+                            color: colors.bgOne,
+                          }}
+                        >
+                          {i.type}
+                        </div>
+                      </div>
+                      <div className="row col-8">
+                        {i.tokenId.map((j, l) => (
+                          <div
+                            key={l}
+                            style={{
+                              width: "100%",
+                              margin: "0 .2rem",
+                              background: typeColor(i.type),
+                              height: "40px",
+                              width: "40px",
+                              borderRadius: "30vh",
+                              columnGap: "0",
+                              display: "flex",
+                              justifyContent: "center",
+                              alignItems: "center",
+                            }}
+                          >
+                            {j}
+                          </div>
+                        ))}
+                      </div>
+                      <div className="row col-3">
+                        <h4 style={{ color: typeColor(i.type) }}>
+                          {i.price.toFixed(2)} <span>BNB</span>
+                        </h4>
+                      </div>
+                      <div
+                        className="row col-1"
+                        style={{
+                          display: "flex",
+                          justifyContent: "flex-end",
+                          columnGap: "1rem",
+                        }}
+                      >
+                        <BiTrash
+                          onClick={() => deleteTickets(k)}
+                          size={24}
+                          color={colors.baseColor}
+                        />
+                      </div>
                     </div>
-                    <h3 className="title">{data.header}</h3>
-                    <span className="subtitle">{data.sub}</span>
                   </div>
-                </div>
-              ))}
+                ))}
+              </div>
+              <div style={{ paddingBottom: "2rem" }}>
+                {isConnected ? (
+                  <div>
+                    <button
+                      onClick={async () => {
+                        mintWrite();
+                        setCounter(1);
+                        if (mintIsError) {
+                          eToster(
+                            mintError.message,
+                            6000,
+                            "red",
+                            "white",
+                            <BiErrorAlt size={48} />
+                          );
+                          return;
+                        }
+                        if (mintIsSuccess) {
+                          eToster(
+                            mintError.message,
+                            3000,
+                            "green",
+                            "white",
+                            <MdOutlineDoneOutline size={48} />
+                          );
+                        }
+                      }}
+                      className="cmn-btn"
+                    >
+                      MINT TICKETS
+                    </button>
+                    <div className="my-2 tag">
+                      <span>Total Price</span> {totalPrice().toFixed(2)}{" "}
+                      <span>BNB</span>
+                    </div>
+                  </div>
+                ) : null}
+              </div>
             </div>
           </div>
         </div>

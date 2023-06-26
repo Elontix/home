@@ -59,7 +59,7 @@ const LatestWinner = () => {
     },
     {
       label: "Contract Address",
-      value: "0x212...........24a1",
+      value: "0x11....d3c5",
       copy: true,
     },
   ];
@@ -157,15 +157,27 @@ const LatestWinner = () => {
                             key={i}
                           >
                             <h5>{t.label}</h5>
-                            <h6 style={{ color: colors.baseColor }}>
+                            <h6
+                              style={{
+                                color: colors.baseColor,
+                                display: "flex",
+                                alignItems: "center",
+                                justifyContent: "center",
+                              }}
+                            >
                               {t.copy ? (
                                 <span
+                                  onClick={() =>
+                                    navigator.clipboard.writeText(
+                                      "0x113864e2740c76d63336e481190be534f151d3c5"
+                                    )
+                                  }
                                   style={{
                                     margin: "0 1rem",
                                     cursor: "pointer",
                                   }}
                                 >
-                                  <BiCopy size={32} />
+                                  <BiCopy size={28} />
                                 </span>
                               ) : null}
                               {t.value}

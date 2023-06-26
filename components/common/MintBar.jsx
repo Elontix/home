@@ -47,7 +47,7 @@ const Mintbar = () => {
           style={{ display: "flex", justifyContent: "center" }}
           className="col-12 col-md-4"
         >
-          <ToggleButton label="Mint" link="/mint-multiple" />
+          <ToggleButton label="Mint" link="/mint" />
         </div>
         <div
           style={{ display: "flex", justifyContent: "center" }}

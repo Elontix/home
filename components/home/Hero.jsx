@@ -180,10 +180,17 @@ const Hero = () => {
 
           <div className="row justify-content-center">
             <div className="col-lg-12">
-              <div style={{ color: "white" }} className="main_txt_under_sub">
+              <div
+                style={{
+                  color: "white",
+                  marginTop: "1rem",
+                  marginBottom: ".5rem",
+                }}
+                className="main_txt_under_sub"
+              >
                 {`World's`} #1{" "}
                 <span>
-                  <div className="main_txt_under_sub tag">
+                  <div className="main_txt_under_sub tag ">
                     {["M", "e", "m", "e", "-", "b", "a", "s", "e", "d"].map(
                       (b, k) => (
                         <motion.div
@@ -225,7 +232,7 @@ const Hero = () => {
                   alignItems: "center",
                 }}
               >
-                <div className="main_txt_under gd_text">
+                <div className="main_txt_under gd_text mb-3">
                   WIN{" "}
                   <span>
                     {["B", "N", "B", "s"].map((b, k) => (
@@ -255,7 +262,7 @@ const Hero = () => {
                     ))}
                   </span>
                   {"\u00A0"}
-                  EVERY WEEK FOR
+                  EVERY DAY FOR
                   {"\u00A0"}
                   <span>
                     {["L", "I", "F", "E"].map((b, k) => (
@@ -340,33 +347,18 @@ const Hero = () => {
                     "o",
                     "w",
                   ].map((s, i) => (
-                    <motion.div
-                      initial={{ scale: 0 }}
-                      animate={{ rotate: 360, scale: 1 }}
-                      transition={{
-                        type: "spring",
-                        stiffness: 260,
-                        damping: 20,
-                        delay: i * 0.1,
-                        repeat: Infinity,
-                        repeatDelay: 2,
-                      }}
+                    <h3
                       key={i}
+                      className={i > 18 && i < 32 ? "tag mint_txt" : "mint_txt"}
                     >
-                      <h3
-                        className={
-                          i > 18 && i < 32 ? "tag mint_txt" : "mint_txt"
-                        }
-                      >
-                        {" "}
-                        {s}
-                      </h3>
-                    </motion.div>
+                      {" "}
+                      {s}
+                    </h3>
                   ))}
                 </div>
               </div>
 
-              <Link href="/mint-multiple" className="btn_grp my-4">
+              <Link href="/mint" className="btn_grp my-4">
                 <button
                   class="custom-btn btn-9"
                   style={{ borderRadius: "40rem" }}
@@ -383,7 +375,6 @@ const Hero = () => {
             style={{
               display: "flex",
               justifyContent: "center",
-              paddingTop: "2rem",
             }}
           >
             <Image className="px-5" src={elon} alt="image" />
