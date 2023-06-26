@@ -169,18 +169,27 @@ const GradCard = () => {
         <span class="card__line card__line_bottom"></span>
 
         <div
-          style={{ zIndex: 2 }}
+          style={{
+            zIndex: 2,
+          }}
           className="p-0 py-2 p-md-5 gy-5 gx-2 util_card_gradient row "
         >
           <div
             className="col-12 col-lg-6 util_bg_1"
             style={{
               padding: "2rem 0",
-              borderRadius: "1rem",
-              boxShadow: `0px 0px 5px ${colors.baseColor}`,
+              boxShadow: `0px 0px 5px ${colors.bgOne}`,
+              border: `8px solid ${colors.baseColor}`,
             }}
           >
-            <div className="title">NEXT DRAW IN</div>
+            <h1
+              className="px-2 tag text-align-center"
+              style={{
+                textShadow: `-2px -2px 5px ${colors.baseColor}, 2px 2px 5px ${colors.bgOne}`,
+              }}
+            >
+              SPECIAL DRAW
+            </h1>
             <div className="subtitle"></div>
             <div className="util_card_gradient_content col-12">
               <div className="main_module_ul">
@@ -223,27 +232,74 @@ const GradCard = () => {
               textAlign: "center",
             }}
           >
-            <div>
-              <h1
-                className="px-2 tag text-align-center"
-                style={{
-                  textShadow: `-2px -2px 5px ${colors.baseColor}, 2px 2px 5px ${colors.bgOne}`,
-                }}
-              >
-                999 BNB
-              </h1>
-              <h2
-                className="px-2 tag text-align-left"
-                style={{
-                  textShadow: `-2px -2px 5px ${colors.baseColor}, 2px 2px 5px ${colors.bgOne}`,
-                }}
-              >
-                LIFE TIME DRAW
-              </h2>
-            </div>
+            <h1
+              className="px-2 tag text-align-center"
+              style={{
+                textShadow: `-2px -2px 5px ${colors.baseColor}, 2px 2px 5px ${colors.bgOne}`,
+              }}
+            >
+              LIFE TIME DRAW
+            </h1>
+            <div className="subtitle"></div>
             <div className="util_card_gradient_content col-12">
-              <div className="sub_module_ul">
-                <div className="bnb text-light">WIN UPTO BNB</div>
+              <div className="main_module_ul">
+                <div
+                  style={{
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "flex-start",
+                    flexDirection: "row",
+                    columnGap: ".2rem",
+                    border: `2px 2px 4px ${colors.baseColor}`,
+                  }}
+                >
+                  <div className="timer_tick">
+                    <div
+                      style={{
+                        color: colors.baseColor,
+                        minWidth: "128px",
+                        borderRadius: ".4rem",
+                      }}
+                      className="tick bg-dark"
+                    >
+                      200
+                    </div>
+                    <div style={{ fontSize: "1.2rem" }} className="timer">
+                      MINTED
+                    </div>
+                  </div>
+                  <div
+                    style={{
+                      color: colors.baseColor,
+                      padding: "0 1rem",
+                      borderRadius: ".4rem",
+                      marginTop: "1rem",
+                    }}
+                  >
+                    |
+                  </div>
+                  <div className="timer_tick">
+                    <div
+                      style={{
+                        color: colors.baseColor,
+                        minWidth: "128px",
+                        borderRadius: ".4rem",
+                      }}
+                      className="tick bg-dark"
+                    >
+                      1000
+                    </div>
+                    <div style={{ fontSize: "1.2rem" }} className="timer">
+                      NFTs
+                    </div>
+                  </div>
+                </div>
+              </div>
+
+              <div className="sub_module_ul bg-dark">
+                <div className="bnb">WIN UPTO</div>
+                <div className="bnb_value tag">1000</div>
+                <div className="bnb">BNB</div>
               </div>
             </div>
           </div>

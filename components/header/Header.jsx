@@ -112,7 +112,7 @@ const Header = () => {
       className={`menu_has_children ${open === "Home" ? "open" : ""}`}
     >
       <Link href="/#" onClick={(e) => handleOpen(e)}>
-        Papers
+        Docs
       </Link>
       <ul className="sub-menu">
         {[
@@ -120,6 +120,10 @@ const Header = () => {
           [
             "KYC",
             "https://verified.assuredefi.com/projects?recordId=recCBLklWKzl9SAWS",
+          ],
+          [
+            "Audit",
+            "https://github.com/CFG-NINJA/audits/blob/9ce4b97c0c78532ae115bb16dc93f31b6b0df0ea/20230622_CFGNINJA_ElonTix_ELONTIX_Audit.pdf",
           ],
         ].map(([itm, url], i) => (
           <li key={i}>

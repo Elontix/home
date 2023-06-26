@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 
 import {
   EthereumClient,
@@ -24,6 +24,36 @@ import "../public/css/modal-video.scss";
 import "../public/styles/main.sass";
 import "../public/styles/global.css";
 
+import { CirclesWithBar } from "react-loader-spinner";
+import { colors } from "../theme/color";
+import { isLocalURL } from "next/dist/shared/lib/router/router";
+
+const Toasts = () => (
+  <div
+    style={{
+      height: "100vh",
+      width: "100vw",
+      background: colors.bgOne,
+      display: "flex",
+      justifyContent: "center",
+      alignItems: "center",
+    }}
+  >
+    <CirclesWithBar
+      height="200"
+      width="200"
+      color={colors.baseColor}
+      wrapperStyle={{}}
+      wrapperClass=""
+      visible={true}
+      outerCircleColor=""
+      innerCircleColor=""
+      barColor=""
+      ariaLabel="circles-with-bar-loading"
+    />
+  </div>
+);
+
 const chains = [bsc, bscTestnet];
 const projectId = "f5dcf20eb66353538219a935685ad5fd";
 
@@ -39,7 +69,10 @@ const ethereumClient = new EthereumClient(wagmiConfig, chains);
 function MyApp({ Component, pageProps }) {
   useEffect(() => {
     require("bootstrap/dist/js/bootstrap.bundle.min.js");
+    setTimeout(() => setLoading(true), 2000);
   }, []);
+
+  const [loading, setLoading] = useState(false);
 
   if (Component.getLayout) {
     return Component.getLayout(
@@ -53,21 +86,27 @@ function MyApp({ Component, pageProps }) {
     );
   }
   return (
-    <HydrationProvider>
-      <Client>
-        <ApolloProvider client={client}>
-          <WagmiConfig config={wagmiConfig}>
-            <Head>
-              <title>Elontix.io</title>
-            </Head>
-            <Layout>
-              <Component {...pageProps} />
-            </Layout>
-          </WagmiConfig>
-        </ApolloProvider>
-        <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
-      </Client>
-    </HydrationProvider>
+    <div>
+      {loading ? (
+        <HydrationProvider>
+          <Client>
+            <ApolloProvider client={client}>
+              <WagmiConfig config={wagmiConfig}>
+                <Head>
+                  <title>Elontix.io</title>
+                </Head>
+                <Layout>
+                  <Component {...pageProps} />
+                </Layout>
+              </WagmiConfig>
+            </ApolloProvider>
+            <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
+          </Client>
+        </HydrationProvider>
+      ) : (
+        <Toasts />
+      )}
+    </div>
   );
 }
 
