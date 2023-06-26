@@ -353,7 +353,14 @@ const Hero = () => {
                       }}
                       key={i}
                     >
-                      <h3 className={i > 18 && i < 32 ? "tag" : ""}> {s}</h3>
+                      <h3
+                        className={
+                          i > 18 && i < 32 ? "tag mint_txt" : "mint_txt"
+                        }
+                      >
+                        {" "}
+                        {s}
+                      </h3>
                     </motion.div>
                   ))}
                 </div>

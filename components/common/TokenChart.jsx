@@ -1,4 +1,5 @@
 import React from "react";
+import { colors } from "../../theme/color";
 
 export function TokenChart() {
   return <iframe width="100%" height="450" srcDoc={chart} />;

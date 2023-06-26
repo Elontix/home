@@ -1078,10 +1078,10 @@ $card__line_bd-cr: $cr-blue-1;
 }
 
 .hbd_elon_txt {
-  font-size: 3rem;
+  font-size: 2rem;
 
   @media (min-width: 800px) {
-    font-size: 3rem;
+    font-size: 2.6rem;
   }
 
   @media (min-width: 1200px) {
@@ -1107,7 +1107,8 @@ $card__line_bd-cr: $cr-blue-1;
     max-width: 440px;
   }
   @media (min-width: 1600px) {
-    max-width: 530px;
+    max-width: 500px;
+    top: -180px;
   }
 }
 
@@ -1143,6 +1144,27 @@ $card__line_bd-cr: $cr-blue-1;
   @media (min-width: 600px) {
     font-size: 0.88rem;
   }
+  @media (min-width: 800px) {
+    font-size: 1rem;
+  }
+}
+
+.mint_txt {
+  font-size: 0.9rem;
+  @media (min-width: 900px) {
+    font-size: 1.8rem;
+  }
+}
+
+.token_main_txt {
+  font-size: 0.8rem;
+  @media (min-width: 800px) {
+    font-size: 1rem;
+  }
+}
+
+.token_sub_txt {
+  font-size: 0.9rem;
   @media (min-width: 800px) {
     font-size: 1rem;
   }

@@ -197,6 +197,9 @@ const LatestWinner = () => {
                             rowGap: ".5rem",
                             columnGap: ".5rem",
                             gridTemplateColumns: "1fr 1fr",
+                            borderRadius: "1rem",
+                            background: colors.bgOne,
+                            boxShadow: `2px 2px 5px ${colors.baseColorTwo}, -2px -2px 5px ${colors.baseColor}`,
                           }}
                         >
                           <ChartText

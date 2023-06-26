@@ -6,6 +6,7 @@ import AppStore from "/public/images/play.png";
 import PlayStore from "/public/images/download.png";
 import Toast from "/public/images/999.png";
 import Bg from "/public/images/bg-util.png";
+import Link from "next/link";
 
 const Util = () => {
   return (
@@ -74,7 +75,17 @@ const Util = () => {
                 alt="elon"
               />
               <div className="mint_now_util">
-                <h4 className="tag  text-center">Mint now</h4>
+                <Link
+                  style={{
+                    textAlign: "center",
+                    display: "flex",
+                    justifyContent: "center",
+                    alignItems: "center",
+                  }}
+                  href="/mint-multiple"
+                >
+                  <h4 className="tag  text-center">Mint now</h4>
+                </Link>
               </div>
             </div>
           </div>
