@@ -51,16 +51,21 @@ const Mint = () => {
   const [tickets, setTickets] = useState([]);
   const [token, setToken] = useState(["0", "0", "0", "0", "0"]);
 
-  function updateRandomNumber() {
-    nftIdentifier();
-    setToken([...generateRandom()]);
-  }
-
   function typeColor(type) {
     if (type === "DIAMOND") return "#b9f2ff";
     if (type === "GOLD") return "#FFD700";
     if (type === "SILVER") return "#C0C0C0";
     if (type === "BRONZE") return " #CD7F32";
+  }
+
+  function updateRandomNumber() {
+    let temp = token;
+    const t = [...generateRandom()];
+    for (let k = 0; k < temp.length; k++) {
+      temp[k] = t[k];
+    }
+    setToken([...temp]);
+    nftIdentifier();
   }
 
   function updateNumber(value, key) {
@@ -78,29 +83,34 @@ const Mint = () => {
 
   function nftIdentifier() {
     let stripedToken = tokenStrip(token);
+    console.log(stripedToken);
     // diamond
     if (stripedToken < 5000) {
       setPrice(0.2);
       setType("DIAMOND");
       setImage(Diamond);
+      return;
     }
     // gold
     if (stripedToken > 5000 && stripedToken < 20000) {
       setPrice(0.1);
       setType("GOLD");
       setImage(Gold);
+      return;
     }
     // silver
     if (stripedToken > 20000 && stripedToken < 50000) {
       setPrice(0.05);
       setType("SILVER");
       setImage(Silver);
+      return;
     }
     // bronze
     if (stripedToken > 50000) {
       setPrice(0.03);
       setType("BRONZE");
       setImage(Bronze);
+      return;
     }
     setIsImageSet(true);
   }
@@ -312,7 +322,9 @@ const Mint = () => {
                     >
                       <div style={{ textAlign: "left" }}>
                         <div style={{ color: "white" }}>Connected To</div>
-                        <div>{isConnected ? addressStrip(address) : ""}</div>
+                        <div style={{ fontSize: "1.4rem" }}>
+                          {isConnected ? addressStrip(address) : ""}
+                        </div>
                       </div>
 
                       <div>
