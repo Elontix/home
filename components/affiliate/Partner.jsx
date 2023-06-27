@@ -5,6 +5,7 @@ import elon_1 from "/public/images/partner/elon_1.webp";
 import elon_2 from "/public/images/partner/elon_3.webp";
 import Tests from "/public/images/cake.png";
 import PS from "/public/images/ps_l.png";
+import Link from "next/link";
 
 const Board = (props) => {
   return (
@@ -83,53 +84,58 @@ const Partner = () => {
                   <h1 className="hbd_elon_txt">of his birthday</h1>
                 </div>
 
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    padding: "2rem 0",
-                  }}
+                <Link
+                  href="https://www.pinksale.finance/launchpad/0x97BC243267747508ceb608f0Fc1444d1745FFc5F?chain=ETH"
+                  target={"_blank"}
                 >
                   <div
-                    className="pinksale_butt _pinksale"
                     style={{
-                      margin: "auto",
-                      cursor: "pointer",
                       display: "flex",
                       justifyContent: "center",
                       alignItems: "center",
-                      padding: "1rem 0",
-                      position: "relative",
-                      boxShadow: `0px 0px 4px ${colors.baseColor}`,
-                      borderRadius: "40rem",
+                      padding: "2rem 0",
                     }}
                   >
-                    <span
+                    <div
+                      className="pinksale_butt _pinksale"
                       style={{
-                        position: "absolute",
-                        bottom: "8%",
-                        right: "15%",
-                        background: colors.baseColor,
-                        color: colors.bgOne,
-                        fontWeight: "bold",
-                        padding: ".2rem .5rem",
-                        borderRadius: "1rem",
+                        margin: "auto",
+                        cursor: "pointer",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        padding: "1rem 0",
+                        position: "relative",
+                        boxShadow: `0px 0px 4px ${colors.baseColor}`,
+                        borderRadius: "40rem",
                       }}
                     >
-                      Coming Soon
-                    </span>
-                    <Image
-                      style={{
-                        objectFit: "contain",
-                        padding: "1rem",
-                        maxWidth: "100%",
-                      }}
-                      src={PS}
-                      alt="ps"
-                    />
+                      <span
+                        style={{
+                          position: "absolute",
+                          bottom: "8%",
+                          right: "15%",
+                          background: colors.baseColor,
+                          color: colors.bgOne,
+                          fontWeight: "bold",
+                          padding: ".2rem .5rem",
+                          borderRadius: "1rem",
+                        }}
+                      >
+                        Coming Soon
+                      </span>
+                      <Image
+                        style={{
+                          objectFit: "contain",
+                          padding: "1rem",
+                          maxWidth: "100%",
+                        }}
+                        src={PS}
+                        alt="ps"
+                      />
+                    </div>
                   </div>
-                </div>
+                </Link>
               </div>
               <div style={{ borderRadius: "1rem" }} className="col-12 col-lg-6">
                 <Image className="hbd_elon" src={Tests} alt="" />

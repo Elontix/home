@@ -141,9 +141,15 @@ const Header = () => {
       id="gotoTop"
       className={`header ${
         windowHeight > 50 && "menu-fixed animated fadeInDown"
-      }`}
+      } `}
     >
-      <div className="header__bottom">
+      <div
+        className="header__bottom"
+        style={{
+          background: colors.bgOne,
+          boxShadow: `0px 0px 4px ${colors.baseColor}`,
+        }}
+      >
         <div className="container">
           <nav className="navbar navbar-expand-xl p-0 align-items-center">
             <Link href="/" className="site-logo site-title">
@@ -173,56 +179,61 @@ const Header = () => {
               </ul>
 
               <div className="nav-right">
-                <div
-                  style={{
-                    display: "flex",
-                    justifyContent: "center",
-                    alignItems: "center",
-                    padding: "2rem 0",
-                  }}
+                <Link
+                  href="https://www.pinksale.finance/launchpad/0x97BC243267747508ceb608f0Fc1444d1745FFc5F?chain=ETH"
+                  target={"_blank"}
                 >
                   <div
                     style={{
-                      maxHeight: "50px",
-                      width: "160px",
-                      margin: "auto",
-                      cursor: "pointer",
                       display: "flex",
                       justifyContent: "center",
                       alignItems: "center",
-                      padding: "1rem 0",
-                      position: "relative",
-                      boxShadow: `0px 0px 4px ${colors.baseColor}`,
-                      borderRadius: "40rem",
+                      padding: "2rem 0",
                     }}
-                    className="pinksale_butt"
                   >
-                    <span
+                    <div
                       style={{
-                        position: "absolute",
-                        bottom: "-10%",
-                        right: "20%",
-                        background: colors.baseColor,
-                        color: colors.bgOne,
-                        fontWeight: "bold",
-                        padding: ".1rem .25rem",
-                        borderRadius: "1rem",
-                        fontSize: "0.55rem",
+                        maxHeight: "50px",
+                        width: "160px",
+                        margin: "auto",
+                        cursor: "pointer",
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        padding: "1rem 0",
+                        position: "relative",
+                        boxShadow: `0px 0px 4px ${colors.baseColor}`,
+                        borderRadius: "40rem",
                       }}
+                      className="pinksale_butt"
                     >
-                      Coming Soon
-                    </span>
-                    <Image
-                      style={{
-                        objectFit: "contain",
-                        padding: "1rem",
-                        maxWidth: "100%",
-                      }}
-                      src={PS}
-                      alt="ps"
-                    />
+                      <span
+                        style={{
+                          position: "absolute",
+                          bottom: "-10%",
+                          right: "20%",
+                          background: colors.baseColor,
+                          color: colors.bgOne,
+                          fontWeight: "bold",
+                          padding: ".1rem .25rem",
+                          borderRadius: "1rem",
+                          fontSize: "0.55rem",
+                        }}
+                      >
+                        Coming Soon
+                      </span>
+                      <Image
+                        style={{
+                          objectFit: "contain",
+                          padding: "1rem",
+                          maxWidth: "100%",
+                        }}
+                        src={PS}
+                        alt="ps"
+                      />
+                    </div>
                   </div>
-                </div>
+                </Link>
               </div>
             </div>
           </nav>

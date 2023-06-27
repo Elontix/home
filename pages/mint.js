@@ -1,5 +1,11 @@
 import Image from "next/image";
+
 import TicketGif from "/public/images/ticket.gif";
+
+import Diamond from "/public/images/ticket.gif";
+import Gold from "/public/images/ticket.gif";
+import Silver from "/public/images/ticket.gif";
+import Bronze from "/public/images/ticket.gif";
 
 import { useWeb3Modal } from "@web3modal/react";
 import { useAccount, useBalance, useDisconnect, useContractWrite } from "wagmi";
@@ -49,6 +55,21 @@ function generateRandom(min = 0, max = 100000) {
 }
 
 const Mint = () => {
+  const { disconnect } = useDisconnect();
+  const { address, isConnected } = useAccount();
+  const { open, setDefaultChain } = useWeb3Modal();
+  const { data: balance, isFetched: balanceFeteched } = useBalance({
+    address,
+  });
+
+  const [type, setType] = useState("");
+  const [price, setPrice] = useState(0);
+  const [image, setImage] = useState();
+  const [isImageSet, setIsImageSet] = useState(false);
+  const [counter, setCounter] = useState(0);
+  const [tickets, setTickets] = useState([]);
+  const [token, setToken] = useState(["0", "0", "0", "0", "0", "0"]);
+
   function updateRandomNumber() {
     nftIdentifier();
     setToken([...generateRandom()]);
@@ -79,36 +100,28 @@ const Mint = () => {
     if (stripedToken < 5000) {
       setPrice(0.2);
       setType("DIAMOND");
+      setImage(Diamond);
     }
     // gold
     if (stripedToken > 5000 && stripedToken < 20000) {
       setPrice(0.1);
       setType("GOLD");
+      setImage(Gold);
     }
     // silver
     if (stripedToken > 20000 && stripedToken < 50000) {
       setPrice(0.05);
       setType("SILVER");
+      setImage(Silver);
     }
     // bronze
     if (stripedToken > 50000) {
       setPrice(0.03);
       setType("BRONZE");
+      setImage(Bronze);
     }
+    setIsImageSet(true);
   }
-
-  const { disconnect } = useDisconnect();
-  const { address, isConnected } = useAccount();
-  const { open, setDefaultChain } = useWeb3Modal();
-  const { data: balance, isFetched: balanceFeteched } = useBalance({
-    address,
-  });
-
-  const [type, setType] = useState("");
-  const [price, setPrice] = useState(0);
-  const [counter, setCounter] = useState(0);
-  const [tickets, setTickets] = useState([]);
-  const [token, setToken] = useState(["0", "0", "0", "0", "0", "0"]);
 
   const connectWallet = () => {
     open();
@@ -204,7 +217,12 @@ const Mint = () => {
               }}
             >
               <h3 className="py-4">Mint your ticket to reveal your NFT</h3>
-              <Image height={320} width={520} src={TicketGif} alt="ok" />
+              <Image
+                height={320}
+                width={520}
+                src={isImageSet ? image : TicketGif}
+                alt="ok"
+              />
 
               <div className="row py-4">
                 <div className="col-6" style={{ textAlign: "left" }}>
