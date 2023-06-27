@@ -8,7 +8,11 @@ import { useAccount, useDisconnect, useContractRead } from "wagmi";
 import Mintbar from "../components/common/MintBar";
 import ContestCard from "../components/cards/ContestCard";
 
+const contractAddress = MintAPi.getAddress(true);
+const contractAbi = MintAPi.getMintAbi(true);
+
 const Collection = () => {
+  console.log(contractAbi, contractAddress);
   const { open, setDefaultChain } = useWeb3Modal();
   const { disconnect } = useDisconnect();
   const { address, isConnected } = useAccount();
@@ -23,8 +27,8 @@ const Collection = () => {
 
   const { data: collectionData, isSuccess: hasCollecitonSucess } =
     useContractRead({
-      address: MintAPi.getAddress(true),
-      abi: MintAPi.getMintAbi(true),
+      address: contractAddress,
+      abi: contractAbi,
       args: [address, counter],
       functionName: "tokenOfOwnerByIndex",
       chainId: bsc.chainId,

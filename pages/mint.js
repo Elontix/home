@@ -21,7 +21,11 @@ import { MdOutlineDoneOutline } from "react-icons/md";
 
 import Mintbar from "../components/common/MintBar";
 
+const contractAddress = MintAPi.getAddress(true);
+const contractAbi = MintAPi.getMintAbi(true);
+
 const Mint = () => {
+  console.log(contractAddress, contractAbi);
   const { disconnect } = useDisconnect();
   const { address, isConnected } = useAccount();
   const { open, setDefaultChain } = useWeb3Modal();
@@ -154,8 +158,8 @@ const Mint = () => {
     isSuccess: mintIsSuccess,
     status: mintStatus,
   } = useContractWrite({
-    address: MintAPi.getAddress(true),
-    abi: MintAPi.getMintAbi(true),
+    address: contractAddress,
+    abi: contractAbi,
     functionName: "mintMultiple",
     args: [address, getTickets()],
     chainId: bsc.chainId,

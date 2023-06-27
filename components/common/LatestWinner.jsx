@@ -8,6 +8,9 @@ import { MintAPi } from "../../pages/api/mint/mint.js";
 import Mintbar from "./MintBar";
 import WinnerCard from "../cards/WinnerCard";
 
+const contractAddress = MintAPi.getAddress(true);
+const contractAbi = MintAPi.getMintAbi(true);
+
 const LatestWinner = () => {
   const { address, isConnected } = useAccount();
   const { disconnect } = useDisconnect();
@@ -23,8 +26,8 @@ const LatestWinner = () => {
   };
 
   const totalWinners = useContractRead({
-    address: MintAPi.getAddress(true),
-    abi: MintAPi.getMintAbi(true),
+    address: contractAddress,
+    abi: contractAbi,
     functionName: "_drawsToDate",
     chainId: bsc.chainId,
     account: address,
@@ -38,8 +41,8 @@ const LatestWinner = () => {
     isFetched: hasWinnersFetched,
     isLoading: isWinnersLoading,
   } = useContractRead({
-    address: MintAPi.getAddress(true),
-    abi: MintAPi.getMintAbi(true),
+    address: contractAddress,
+    abi: contractAbi,
     args: [counter],
     functionName: "ListOfDraws",
     chainId: bsc.chainId,
@@ -52,8 +55,8 @@ const LatestWinner = () => {
     isError: mintIsError,
     isSuccess: mintIsSuccess,
   } = useContractRead({
-    address: MintAPi.getAddress(true),
-    abi: MintAPi.getMintAbi(true),
+    address: contractAddress,
+    abi: contractAbi,
     args: [mints[counter] || 100000],
     functionName: "isTokenMinted",
     chainId: bsc.chainId,
@@ -76,7 +79,6 @@ const LatestWinner = () => {
         setMints(m);
       }
     }
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasWinnerSuccess, counter]);
 
   useEffect(() => {
