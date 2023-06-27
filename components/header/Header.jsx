@@ -147,7 +147,7 @@ const Header = () => {
         className="header__bottom"
         style={{
           background: colors.bgOne,
-          boxShadow: `0px 0px 4px ${colors.baseColor}`,
+          boxShadow: `0px 0px 4px ${colors.bgTwo}`,
         }}
       >
         <div className="container">

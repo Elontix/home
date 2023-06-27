@@ -1,12 +1,12 @@
-import { useEffect, useState } from "react";
+import { bsc } from "wagmi/chains";
 import { useWeb3Modal } from "@web3modal/react";
-import { bscTestnet } from "wagmi/chains";
+import { useEffect, useState } from "react";
 
-import { useAccount, useDisconnect, useContractRead } from "wagmi";
-import Mintbar from "../components/common/MintBar";
-
-import ContestCard from "../components/cards/ContestCard";
 import { MintAPi } from "./api/mint/mint";
+import { useAccount, useDisconnect, useContractRead } from "wagmi";
+
+import Mintbar from "../components/common/MintBar";
+import ContestCard from "../components/cards/ContestCard";
 
 const Collection = () => {
   const { open, setDefaultChain } = useWeb3Modal();
@@ -18,18 +18,16 @@ const Collection = () => {
 
   const connectWallet = () => {
     open();
-    setDefaultChain(bscTestnet);
+    setDefaultChain(bsc);
   };
-  const addressStrip = (str) =>
-    str.substring(0, 4) + "...." + str.substring(str.length - 4, str.length);
 
   const { data: collectionData, isSuccess: hasCollecitonSucess } =
     useContractRead({
-      address: MintAPi.getAddress(false),
-      abi: MintAPi.getMintAbi(false),
+      address: MintAPi.getAddress(true),
+      abi: MintAPi.getMintAbi(true),
       args: [address, counter],
       functionName: "tokenOfOwnerByIndex",
-      chainId: bscTestnet.chainId,
+      chainId: bsc.chainId,
       account: address,
     });
 
@@ -58,7 +56,6 @@ const Collection = () => {
         if (!isUpdated) init().then().catch();
       }
     }
-    console.log(tokenIds);
   }, [counter, hasCollecitonSucess]);
 
   return (

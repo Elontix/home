@@ -7,52 +7,19 @@ import Gold from "/public/images/ticket.gif";
 import Silver from "/public/images/ticket.gif";
 import Bronze from "/public/images/ticket.gif";
 
+import { useEffect, useState } from "react";
+import toast, { Toaster } from "react-hot-toast";
+
+import { bsc } from "wagmi/chains";
+import { colors } from "../theme/color";
+import { MintAPi } from "./api/mint/mint";
 import { useWeb3Modal } from "@web3modal/react";
 import { useAccount, useBalance, useDisconnect, useContractWrite } from "wagmi";
 
-import { useEffect, useState } from "react";
-import { bscTestnet } from "wagmi/chains";
-import { colors } from "../theme/color";
-import { MintAPi } from "./api/mint/mint";
-
-import toast, { Toaster } from "react-hot-toast";
 import { BiErrorAlt, BiTrash } from "react-icons/bi";
 import { MdOutlineDoneOutline } from "react-icons/md";
 
 import Mintbar from "../components/common/MintBar";
-
-function eToster(message, duration, bg, color, icon) {
-  return toast.custom(
-    <div
-      style={{
-        maxWidth: "820px",
-        padding: "1rem",
-        borderRadius: "1rem",
-        background: bg,
-        color: color,
-        display: "flex",
-        columnGap: "1rem",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
-    >
-      <div> {icon}</div>
-      <p style={{ color: color }}> {message}</p>
-    </div>,
-    { duration: duration }
-  );
-}
-
-function generateRandom(min = 0, max = 100000) {
-  let difference = max - min;
-  let rand = Math.random();
-  rand = Math.floor(rand * difference);
-  rand = String(rand + min);
-  rand = rand.split("");
-  let spliter = 6 - rand.length;
-  for (let i = 0; i < spliter; i++) rand = ["0", ...rand];
-  return rand;
-}
 
 const Mint = () => {
   const { disconnect } = useDisconnect();
@@ -66,7 +33,6 @@ const Mint = () => {
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState();
   const [isImageSet, setIsImageSet] = useState(false);
-  const [counter, setCounter] = useState(0);
   const [tickets, setTickets] = useState([]);
   const [token, setToken] = useState(["0", "0", "0", "0", "0", "0"]);
 
@@ -88,6 +54,7 @@ const Mint = () => {
     setToken([...temp]);
     nftIdentifier();
   }
+
   function tokenStrip() {
     let n = "";
     for (let i = 0; i < token.length; i++) n += token[i];
@@ -123,20 +90,7 @@ const Mint = () => {
     setIsImageSet(true);
   }
 
-  const connectWallet = () => {
-    open();
-    setDefaultChain(bscTestnet);
-    nftIdentifier();
-  };
-  const addressStrip = (str) =>
-    str.substring(0, 4) + "...." + str.substring(str.length - 4, str.length);
-
-  useEffect(() => {
-    disconnect();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, []);
-
-  const getTickets = () => {
+  function getTickets() {
     let sampledTickets = [];
     for (let i = 0; i < tickets.length; i++) {
       const s = tickets[i].tokenId;
@@ -147,31 +101,7 @@ const Mint = () => {
       sampledTickets.push(Number(t));
     }
     return sampledTickets;
-  };
-
-  const {
-    write: mintWrite,
-    data: mintData,
-    error: mintError,
-    isError: mintIsError,
-    isSuccess: mintIsSuccess,
-    status: mintStatus,
-  } = useContractWrite({
-    address: MintAPi.getAddress(false),
-    abi: MintAPi.getMintAbi(false),
-    functionName: "mintMultiple",
-    args: [address, getTickets()],
-    chainId: bscTestnet.chainId,
-    account: address,
-    value: totalPrice() * 10 ** 16,
-  });
-
-  useEffect(() => {
-    if (mintIsSuccess && counter < 4) {
-      mintWrite();
-      setCounter(counter + 1);
-    }
-  }, [counter, mintIsSuccess]);
+  }
 
   function addTicket() {
     let tempTickets = tickets;
@@ -199,10 +129,43 @@ const Mint = () => {
     return price;
   }
 
+  function addressStrip(str) {
+    return (
+      str.substring(0, 4) + "...." + str.substring(str.length - 4, str.length)
+    );
+  }
+
+  function connectWallet() {
+    open();
+    setDefaultChain(bsc);
+    nftIdentifier();
+  }
+
+  useEffect(() => {
+    disconnect();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
+
+  const {
+    write: mintWrite,
+    data: mintData,
+    error: mintError,
+    isError: mintIsError,
+    isSuccess: mintIsSuccess,
+    status: mintStatus,
+  } = useContractWrite({
+    address: MintAPi.getAddress(true),
+    abi: MintAPi.getMintAbi(true),
+    functionName: "mintMultiple",
+    args: [address, getTickets()],
+    chainId: bsc.chainId,
+    account: address,
+    value: totalPrice() * 10 ** 16,
+  });
+
   return (
     <>
       <div className="" style={{ minHeight: "25vh" }}></div>
-
       <div className="container" style={{ paddingBottom: "5rem" }}>
         <Mintbar />
         <div className="row" style={{ rowGap: "2rem" }}>
@@ -453,7 +416,6 @@ const Mint = () => {
                     <button
                       onClick={async () => {
                         mintWrite();
-                        setCounter(1);
                         if (mintIsError) {
                           eToster(
                             mintError.message,
@@ -466,8 +428,8 @@ const Mint = () => {
                         }
                         if (mintIsSuccess) {
                           eToster(
-                            mintError.message,
-                            3000,
+                            `hash ${mintData.hash}`,
+                            12000,
                             "green",
                             "white",
                             <MdOutlineDoneOutline size={48} />
@@ -496,3 +458,36 @@ const Mint = () => {
 };
 
 export default Mint;
+
+function eToster(message, duration, bg, color, icon) {
+  return toast.custom(
+    <div
+      style={{
+        maxWidth: "820px",
+        padding: "1rem",
+        borderRadius: "1rem",
+        background: bg,
+        color: color,
+        display: "flex",
+        columnGap: "1rem",
+        justifyContent: "center",
+        alignItems: "center",
+      }}
+    >
+      <div> {icon}</div>
+      <p style={{ color: color }}> {message}</p>
+    </div>,
+    { duration: duration }
+  );
+}
+
+function generateRandom(min = 0, max = 100000) {
+  let difference = max - min;
+  let rand = Math.random();
+  rand = Math.floor(rand * difference);
+  rand = String(rand + min);
+  rand = rand.split("");
+  let spliter = 6 - rand.length;
+  for (let i = 0; i < spliter; i++) rand = ["0", ...rand];
+  return rand;
+}

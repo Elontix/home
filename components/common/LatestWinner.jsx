@@ -1,12 +1,12 @@
-import WinnerCard from "../cards/WinnerCard";
-
-import { bscTestnet } from "wagmi/chains";
+import { bsc } from "wagmi/chains";
 import { useWeb3Modal } from "@web3modal/react";
 import { useContractRead, useDisconnect, useAccount } from "wagmi";
 import { useState, useEffect } from "react";
 
 import { MintAPi } from "../../pages/api/mint/mint.js";
+
 import Mintbar from "./MintBar";
+import WinnerCard from "../cards/WinnerCard";
 
 const LatestWinner = () => {
   const { address, isConnected } = useAccount();
@@ -19,14 +19,14 @@ const LatestWinner = () => {
 
   const connectWallet = () => {
     open();
-    setDefaultChain(bscTestnet);
+    setDefaultChain(bsc);
   };
 
   const totalWinners = useContractRead({
-    address: "0xd23306DA2087CA5374F3F05DAB93D8F6189C3E46",
-    abi: MintAPi.getMintAbi(false),
+    address: MintAPi.getAddress(true),
+    abi: MintAPi.getMintAbi(true),
     functionName: "_drawsToDate",
-    chainId: bscTestnet.chainId,
+    chainId: bsc.chainId,
     account: address,
   });
 
@@ -38,11 +38,11 @@ const LatestWinner = () => {
     isFetched: hasWinnersFetched,
     isLoading: isWinnersLoading,
   } = useContractRead({
-    address: "0xd23306DA2087CA5374F3F05DAB93D8F6189C3E46",
-    abi: MintAPi.getMintAbi(false),
+    address: MintAPi.getAddress(true),
+    abi: MintAPi.getMintAbi(true),
     args: [counter],
-    functionName: "draws",
-    chainId: bscTestnet.chainId,
+    functionName: "ListOfDraws",
+    chainId: bsc.chainId,
     account: address,
   });
 
@@ -52,16 +52,15 @@ const LatestWinner = () => {
     isError: mintIsError,
     isSuccess: mintIsSuccess,
   } = useContractRead({
-    address: "0xd23306DA2087CA5374F3F05DAB93D8F6189C3E46",
-    abi: MintAPi.getMintAbi(false),
+    address: MintAPi.getAddress(true),
+    abi: MintAPi.getMintAbi(true),
     args: [mints[counter] || 100000],
     functionName: "isTokenMinted",
-    chainId: bscTestnet.chainId,
+    chainId: bsc.chainId,
     account: address,
   });
 
   useEffect(() => {
-    console.log(winnerData);
     if (counter !== totalWinners.data && hasWinnerSuccess && mintIsSuccess) {
       let isUpdated = false;
       for (let i = 0; i < winners.length; i++)
@@ -79,6 +78,10 @@ const LatestWinner = () => {
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [hasWinnerSuccess, counter]);
+
+  useEffect(() => {
+    disconnect();
+  }, []);
 
   return (
     <section className="latest-winner-section position-relative pt-120 pb-120">

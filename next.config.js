@@ -6,6 +6,7 @@ const nextConfig = {
   },
   env: {
     PROJECT_ID: process.env.PROJECT_ID,
+    IS_CONTRACT_MAINNET: process.env.IS_CONTRACT_MAINNET,
   },
 };
 
