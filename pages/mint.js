@@ -196,7 +196,7 @@ const Mint = () => {
     args: [address, getTickets()],
     chainId: bsc.chainId,
     account: address,
-    value: totalPrice() * 10 ** 16,
+    value: totalPrice() * 10 ** 18,
   });
 
   return (
