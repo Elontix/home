@@ -19,7 +19,8 @@ import { BiErrorAlt, BiTrash } from "react-icons/bi";
 import { MdOutlineDoneOutline } from "react-icons/md";
 
 import Mintbar from "../components/common/MintBar";
-import Modal from "react-modal";
+import { Modal } from "react-responsive-modal";
+import "react-responsive-modal/styles.css";
 
 const contractAddress = MintAPi.getAddress(true);
 const contractAbi = MintAPi.getMintAbi(true);
@@ -33,6 +34,16 @@ const Mint = () => {
     address,
   });
 
+  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [message, setMessage] = useState({
+    message: "success cool",
+    isError: false,
+    icon: <BiErrorAlt size={48} />,
+  });
+
+  function closeModal() {
+    setIsOpen(false);
+  }
   const [type, setType] = useState("");
   const [price, setPrice] = useState(0);
   const [image, setImage] = useState();
@@ -143,6 +154,27 @@ const Mint = () => {
     open();
     setDefaultChain(bsc);
     nftIdentifier();
+  }
+
+  async function mintTickets() {
+    mintWrite();
+    if (mintIsError) {
+      console.log(mintError.message);
+      setMessage({
+        icon: <BiErrorAlt color={"red"} size={48} />,
+        message: mintError.message,
+        isError: true,
+      });
+      setModalIsOpen(true);
+    }
+    if (mintIsSuccess) {
+      setMessage({
+        icon: <MdOutlineDoneOutline color="green" size={48} />,
+        message: `hash ${mintData.hash}`,
+        isError: false,
+      });
+      setModalIsOpen(true);
+    }
   }
 
   useEffect(() => {
@@ -417,31 +449,7 @@ const Mint = () => {
               <div style={{ paddingBottom: "2rem" }}>
                 {isConnected ? (
                   <div>
-                    <button
-                      onClick={async () => {
-                        mintWrite();
-                        if (mintIsError) {
-                          eToster(
-                            mintError.message,
-                            6000,
-                            "red",
-                            "white",
-                            <BiErrorAlt size={48} />
-                          );
-                          return;
-                        }
-                        if (mintIsSuccess) {
-                          eToster(
-                            `hash ${mintData.hash}`,
-                            12000,
-                            "green",
-                            "white",
-                            <MdOutlineDoneOutline size={48} />
-                          );
-                        }
-                      }}
-                      className="cmn-btn"
-                    >
+                    <button onClick={() => mintTickets()} className="cmn-btn">
                       MINT TICKETS
                     </button>
                     <div className="my-2 tag">
@@ -455,56 +463,58 @@ const Mint = () => {
           </div>
         </div>
       </div>
+      <Modal
+        styles={{
+          modal: {
+            background: colors.bgOne,
+            borderRadius: "2rem",
+          },
+          closeButton: {
+            color: colors.baseColor,
+            background: colors.baseColor,
+          },
+        }}
+        open={modalIsOpen}
+        onClose={() => setModalIsOpen(false)}
+      >
+        <div
+          style={{
+            background: colors.bgOne,
+            padding: "2rem",
+          }}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              columnGap: "2rem",
+            }}
+          >
+            <div>{message.icon}</div>
+            <div style={{ color: colors.baseColor }}>
+              {message.message.substring(0, 620)}
+            </div>
+          </div>
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "flex-end",
+              marginTop: "2rem",
+            }}
+          >
+            <button className="cmn-btn" onClick={() => setModalIsOpen(false)}>
+              close
+            </button>
+          </div>
+        </div>
+      </Modal>
       <div className="bg-shape"></div>
     </>
   );
 };
 
 export default Mint;
-
-function eToster(message, duration, bg, color, icon) {
-  return (
-    <div
-      class="modal fade"
-      id="exampleModal"
-      tabindex="-1"
-      role="dialog"
-      aria-labelledby="exampleModalLabel"
-      aria-hidden="true"
-    >
-      <div class="modal-dialog" role="document">
-        <div class="modal-content">
-          <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">
-              Modal title
-            </h5>
-            <button
-              type="button"
-              class="close"
-              data-dismiss="modal"
-              aria-label="Close"
-            >
-              <span aria-hidden="true">&times;</span>
-            </button>
-          </div>
-          <div class="modal-body">...</div>
-          <div class="modal-footer">
-            <button
-              type="button"
-              class="btn btn-secondary"
-              data-dismiss="modal"
-            >
-              Close
-            </button>
-            <button type="button" class="btn btn-primary">
-              Save changes
-            </button>
-          </div>
-        </div>
-      </div>
-    </div>
-  );
-}
 
 function generateRandom(min = 0, max = 100000) {
   let difference = max - min;
