@@ -8,7 +8,6 @@ import Silver from "/public/images/ticket.gif";
 import Bronze from "/public/images/ticket.gif";
 
 import { useEffect, useState } from "react";
-import toast, { Toaster } from "react-hot-toast";
 
 import { bsc } from "wagmi/chains";
 import { colors } from "../theme/color";
@@ -20,6 +19,7 @@ import { BiErrorAlt, BiTrash } from "react-icons/bi";
 import { MdOutlineDoneOutline } from "react-icons/md";
 
 import Mintbar from "../components/common/MintBar";
+import Modal from "react-modal";
 
 const contractAddress = MintAPi.getAddress(true);
 const contractAbi = MintAPi.getMintAbi(true);
@@ -455,7 +455,6 @@ const Mint = () => {
           </div>
         </div>
       </div>
-      <Toaster />
       <div className="bg-shape"></div>
     </>
   );
@@ -464,24 +463,46 @@ const Mint = () => {
 export default Mint;
 
 function eToster(message, duration, bg, color, icon) {
-  return toast.custom(
+  return (
     <div
-      style={{
-        maxWidth: "820px",
-        padding: "1rem",
-        borderRadius: "1rem",
-        background: bg,
-        color: color,
-        display: "flex",
-        columnGap: "1rem",
-        justifyContent: "center",
-        alignItems: "center",
-      }}
+      class="modal fade"
+      id="exampleModal"
+      tabindex="-1"
+      role="dialog"
+      aria-labelledby="exampleModalLabel"
+      aria-hidden="true"
     >
-      <div> {icon}</div>
-      <p style={{ color: color }}> {message}</p>
-    </div>,
-    { duration: duration }
+      <div class="modal-dialog" role="document">
+        <div class="modal-content">
+          <div class="modal-header">
+            <h5 class="modal-title" id="exampleModalLabel">
+              Modal title
+            </h5>
+            <button
+              type="button"
+              class="close"
+              data-dismiss="modal"
+              aria-label="Close"
+            >
+              <span aria-hidden="true">&times;</span>
+            </button>
+          </div>
+          <div class="modal-body">...</div>
+          <div class="modal-footer">
+            <button
+              type="button"
+              class="btn btn-secondary"
+              data-dismiss="modal"
+            >
+              Close
+            </button>
+            <button type="button" class="btn btn-primary">
+              Save changes
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
   );
 }
 

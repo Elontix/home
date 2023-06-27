@@ -4,8 +4,6 @@ import elon from "/public/images/utils/elon_2.webp";
 import ticket from "/public/images/ticket.png";
 import AppStore from "/public/images/play.png";
 import PlayStore from "/public/images/download.png";
-import Toast from "/public/images/999.png";
-import Bg from "/public/images/bg-util.png";
 import Link from "next/link";
 import { useCountdown } from "./Timer";
 
@@ -228,7 +226,6 @@ const GradCard = () => {
               borderRadius: "0rem",
               boxShadow: `-5px -5px 5px ${colors.bgOne}`,
               border: `8px solid ${colors.baseColor}`,
-              background: Bg,
               display: "flex",
               justifyContent: "flex-start",
               flexDirection: "column",

@@ -1,7 +1,6 @@
 import client_1 from "/public/images/dexview.png";
 import client_2 from "/public/images/ps.png";
 import client_3 from "/public/images/adi.png";
-import client_4 from "/public/images/dextools.png";
 import affiliate_1 from "/public/images/icon/affiliate/1.png";
 import affiliate_2 from "/public/images/icon/affiliate/2.png";
 import affiliate_3 from "/public/images/icon/affiliate/3.png";
