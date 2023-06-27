@@ -4,6 +4,12 @@ import { clients } from "../../data/affiliate";
 
 import "slick-carousel/slick/slick.css";
 import { colors } from "../../theme/color";
+import Link from "next/link";
+const links = [
+  "https://www.dexview.com/eth/0x113864e2740c76d63336e481190be534f151d3c5",
+  "https://www.pinksale.finance/launchpad/0x97BC243267747508ceb608f0Fc1444d1745FFc5F?chain=ETH",
+  "https://verified.assuredefi.com/projects?recordId=recCBLklWKzl9SAWS",
+];
 
 const Trusted = () => {
   const settings = {
@@ -46,11 +52,13 @@ const Trusted = () => {
                 <Slider {...settings}>
                   {clients.map((singleItm, i) => (
                     <div key={i} className="client-single">
-                      <Image
-                        style={{ borderRadius: "1rem" }}
-                        src={singleItm}
-                        alt={`client ${i}`}
-                      />
+                      <Link href={links[i]} target="_blank">
+                        <Image
+                          style={{ borderRadius: "1rem" }}
+                          src={singleItm}
+                          alt={`client ${i}`}
+                        />
+                      </Link>
                     </div>
                   ))}
                 </Slider>

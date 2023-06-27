@@ -24,7 +24,7 @@ export default function HomeThree() {
         <Util />
       </Element>
       <HowElonTixWorks />
-      <Marketing />
+      {/* <Marketing /> */}
       <Features />
       <Element name="roadmap">
         <Roadmap />

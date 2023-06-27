@@ -34,11 +34,11 @@ const Mint = () => {
     address,
   });
 
-  const [modalIsOpen, setModalIsOpen] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(true);
   const [message, setMessage] = useState({
-    message: "success cool",
+    message: "",
     isError: false,
-    icon: <BiErrorAlt size={48} />,
+    icon: <BiErrorAlt color={"green"} size={48} />,
   });
 
   function closeModal() {
