@@ -49,7 +49,7 @@ const Mint = () => {
   const [image, setImage] = useState();
   const [isImageSet, setIsImageSet] = useState(false);
   const [tickets, setTickets] = useState([]);
-  const [token, setToken] = useState(["0", "0", "0", "0", "0", "0"]);
+  const [token, setToken] = useState(["0", "0", "0", "0", "0"]);
 
   function updateRandomNumber() {
     nftIdentifier();
@@ -317,9 +317,18 @@ const Mint = () => {
 
                       <div>
                         {balanceFeteched ? (
-                          <span>
+                          <span
+                            style={{
+                              fontSize: "2rem",
+                            }}
+                          >
                             {`${balance.formatted}`}{" "}
-                            <span style={{ color: colors.baseColor }}>
+                            <span
+                              style={{
+                                color: colors.baseColor,
+                                fontSize: "1.2rem",
+                              }}
+                            >
                               {`${balance.symbol}`}
                             </span>
                           </span>
@@ -522,7 +531,7 @@ function generateRandom(min = 0, max = 100000) {
   rand = Math.floor(rand * difference);
   rand = String(rand + min);
   rand = rand.split("");
-  let spliter = 6 - rand.length;
+  let spliter = 5 - rand.length;
   for (let i = 0; i < spliter; i++) rand = ["0", ...rand];
   return rand;
 }

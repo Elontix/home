@@ -59,7 +59,7 @@ const Mintbar = () => {
           style={{ display: "flex", justifyContent: "center" }}
           className="col-12 col-md-4"
         >
-          <ToggleButton isLinkDeactive={true} label="Winners" link="/winner" />
+          <ToggleButton label="Winners" link="/winner" />
         </div>
       </div>
     </div>
