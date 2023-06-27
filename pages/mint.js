@@ -166,27 +166,6 @@ const Mint = () => {
     nftIdentifier();
   }
 
-  async function mintTickets() {
-    mintWrite();
-    if (mintIsError) {
-      console.log(mintError.message);
-      setMessage({
-        icon: <BiErrorAlt color={"red"} size={48} />,
-        message: mintError.message,
-        isError: true,
-      });
-      setModalIsOpen(true);
-    }
-    if (mintIsSuccess) {
-      setMessage({
-        icon: <MdOutlineDoneOutline color="green" size={48} />,
-        message: `hash ${mintData.hash}`,
-        isError: false,
-      });
-      setModalIsOpen(true);
-    }
-  }
-
   useEffect(() => {
     disconnect();
     // eslint-disable-next-line react-hooks/exhaustive-deps
@@ -208,6 +187,40 @@ const Mint = () => {
     account: address,
     value: BigInt(totalPrice() * 10 ** 18),
   });
+
+  async function loadup() {
+    setMessage({
+      icon: null,
+      message: ``,
+      isError: false,
+    });
+    setModalIsOpen(false);
+    return true;
+  }
+
+  async function mintTickets() {
+    loadup()
+      .then((res) => {
+        mintWrite();
+        if (mintIsError) {
+          // setMessage({
+          //   icon: <BiErrorAlt color={"red"} size={48} />,
+          //   message: `Oops Something went wrong`,
+          //   isError: true,
+          // });
+          // setModalIsOpen(true);
+        }
+        if (mintIsSuccess) {
+          setMessage({
+            icon: <MdOutlineDoneOutline color="green" size={48} />,
+            message: `hash ${mintData.hash}`,
+            isError: false,
+          });
+          setModalIsOpen(true);
+        }
+      })
+      .catch((err) => console.log(err));
+  }
 
   return (
     <>
@@ -524,7 +537,17 @@ const Mint = () => {
               marginTop: "2rem",
             }}
           >
-            <button className="cmn-btn" onClick={() => setModalIsOpen(false)}>
+            <button
+              className="cmn-btn"
+              onClick={() => {
+                setModalIsOpen(false);
+                setMessage({
+                  icon: null,
+                  isError: false,
+                  message: "",
+                });
+              }}
+            >
               close
             </button>
           </div>
