@@ -314,45 +314,57 @@ const Hero = () => {
                   }}
                 >
                   {[
-                    "M",
-                    "i",
-                    "n",
-                    "t",
-                    "\u00A0",
-                    "Y",
-                    "o",
+                    "B",
                     "u",
-                    "r",
+                    "y",
                     "\u00A0",
-                    "L",
-                    "i",
-                    "f",
-                    "e",
+                    "0",
+                    ".",
+                    "1",
                     "\u00A0",
-                    "t",
-                    "i",
-                    "m",
-                    "e",
-                    "\u00A0",
-                    "M",
-                    "e",
-                    "m",
-                    "e",
-                    "\u00A0",
+                    "E",
                     "T",
-                    "i",
-                    "c",
-                    "k",
-                    "e",
-                    "t",
+                    "H",
                     "\u00A0",
                     "n",
                     "o",
                     "w",
+                    "\u00A0",
+                    "&",
+                    "\u00A0",
+                    "w",
+                    "i",
+                    "n",
+                    "\u00A0",
+                    "u",
+                    "p",
+                    "t",
+                    "o",
+                    "\u00A0",
+                    "3",
+                    "0",
+                    "0",
+                    "\u00A0",
+                    "B",
+                    "N",
+                    "B",
+                    "\u00A0",
+                    "p",
+                    "e",
+                    "r",
+                    "\u00A0",
+                    "w",
+                    "e",
+                    "e",
+                    "k",
                   ].map((s, i) => (
                     <h3
                       key={i}
-                      className={i > 18 && i < 32 ? "tag mint_txt" : "mint_txt"}
+                      className={
+                        (i > 3 && i < 12) || (i > 26 && i < 35)
+                          ? "tag mint_txt"
+                          : "mint_txt"
+                      }
                     >
                       {" "}
                       {s}
@@ -364,23 +376,24 @@ const Hero = () => {
           </div>
         </div>
 
-        <Link
-          className="btn_grp"
-          href="https://www.pinksale.finance/launchpad/0x97BC243267747508ceb608f0Fc1444d1745FFc5F?chain=ETH"
-          target={"_blank"}
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "center",
+            alignItems: "center",
+            padding: "2rem 0",
+          }}
         >
-          <div
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              alignItems: "center",
-              padding: "2rem 0",
-            }}
+          <Link
+            className="btn_grp"
+            href="https://www.pinksale.finance/launchpad/0x97BC243267747508ceb608f0Fc1444d1745FFc5F?chain=ETH"
+            target={"_blank"}
           >
+            {" "}
             <div
               style={{
-                maxHeight: "70px",
-                width: "190px",
+                maxHeight: "90px",
+                width: "280px",
                 margin: "auto",
                 cursor: "pointer",
                 display: "flex",
@@ -392,21 +405,24 @@ const Hero = () => {
               }}
               className="pinksale_butt"
             >
-              {/* <span
+              <span
                 style={{
                   position: "absolute",
                   bottom: "-10%",
                   right: "20%",
                   background: "#A2FF86",
                   color: colors.bgOne,
+                  display: "flex",
+                  justifySelf: "center",
+                  alignItems: "center",
                   fontWeight: "bold",
-                  padding: ".1rem .25rem",
+                  padding: ".1rem .5rem",
                   borderRadius: ".2rem",
                   fontSize: "0.55rem",
                 }}
               >
-                LIVE SOON
-              </span> */}
+                LIVE NOW
+              </span>
               <Image
                 style={{
                   objectFit: "contain",
@@ -418,8 +434,8 @@ const Hero = () => {
                 alt="ps"
               />
             </div>
-          </div>
-        </Link>
+          </Link>
+        </div>
 
         <div style={{ position: "relative" }}>
           <div

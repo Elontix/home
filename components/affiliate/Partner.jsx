@@ -115,14 +115,14 @@ const Partner = () => {
                           position: "absolute",
                           bottom: "8%",
                           right: "15%",
-                          background: colors.baseColor,
+                          background: "#A2FF86",
                           color: colors.bgOne,
                           fontWeight: "bold",
                           padding: ".2rem .5rem",
                           borderRadius: "1rem",
                         }}
                       >
-                        Coming Soon
+                        LIVE NOW
                       </span>
                       <Image
                         style={{
