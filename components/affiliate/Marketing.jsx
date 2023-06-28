@@ -1,13 +1,13 @@
 import Image from "next/image";
 import Slider from "react-slick";
-import { clients } from "../../data/affiliate";
+import { markets } from "../../data/affiliate";
 
 import "slick-carousel/slick/slick.css";
 import { colors } from "../../theme/color";
 
 const Marketing = () => {
   const settings = {
-    slidesToShow: 3,
+    slidesToShow: 5,
     slidesToScroll: 1,
     infinite: false,
     speed: 700,
@@ -17,7 +17,7 @@ const Marketing = () => {
       {
         breakpoint: 1200,
         settings: {
-          slidesToShow: 2,
+          slidesToShow: 3,
         },
       },
       {
@@ -45,11 +45,15 @@ const Marketing = () => {
               </h2>
               <div className="client-slider">
                 <Slider {...settings}>
-                  {clients.map((singleItm, i) => (
+                  {markets.map((singleItm, i) => (
                     <div key={i} className="client-single">
                       <Image
                         src={singleItm}
-                        style={{ padding: "1rem" }}
+                        style={{
+                          padding: "2rem",
+                          borderRadius: "100%",
+                          maxWidth: "216px",
+                        }}
                         alt={`client ${i}`}
                       />
                     </div>

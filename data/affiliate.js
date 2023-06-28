@@ -9,6 +9,17 @@ import how_work_1 from "/public/images/icon/how-work/1.png";
 import how_work_2 from "/public/images/icon/how-work/2.png";
 import how_work_3 from "/public/images/icon/how-work/3.png";
 
+import market1 from "/public/images/market/1.jpeg";
+// import market2 from "/public/images/market/2.jpeg";
+import market3 from "/public/images/market/3.jpeg";
+import market4 from "/public/images/market/4.jpeg";
+import market5 from "/public/images/market/5.jpeg";
+import market6 from "/public/images/market/6.jpeg";
+import market7 from "/public/images/market/7.jpeg";
+import market8 from "/public/images/market/8.jpeg";
+import market9 from "/public/images/market/9.jpeg";
+import market10 from "/public/images/market/10.jpeg";
+
 import top_affiliate_1 from "/public/images/team/6.png";
 import top_affiliate_2 from "/public/images/team/2.png";
 import top_affiliate_3 from "/public/images/team/3.png";
@@ -113,3 +124,14 @@ export const top_affiliate = [
 ];
 
 export const clients = [client_1, client_2, client_3];
+
+export const markets = [
+  market1,
+  market3,
+  market4,
+  market5,
+  market7,
+  market8,
+  market9,
+  market10,
+];

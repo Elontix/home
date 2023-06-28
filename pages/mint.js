@@ -34,7 +34,7 @@ const Mint = () => {
     address,
   });
 
-  const [modalIsOpen, setModalIsOpen] = useState(true);
+  const [modalIsOpen, setModalIsOpen] = useState(false);
   const [message, setMessage] = useState({
     message: "",
     isError: false,
@@ -188,38 +188,33 @@ const Mint = () => {
     value: BigInt(totalPrice() * 10 ** 18),
   });
 
-  async function loadup() {
+  useEffect(() => {
+    if (mintStatus === "error" && mintStatus !== "loading") {
+      setMessage({
+        icon: <BiErrorAlt color={"red"} size={48} />,
+        message: `Oops Something went wrong`,
+        isError: true,
+      });
+      setModalIsOpen(true);
+    }
+    if (mintStatus === "success" && mintStatus !== "loading") {
+      setMessage({
+        icon: <MdOutlineDoneOutline color="green" size={48} />,
+        message: `hash ${mintData.hash}`,
+        isError: false,
+      });
+      setModalIsOpen(true);
+    }
+  }, [mintStatus]);
+
+  async function mintTickets() {
     setMessage({
       icon: null,
       message: ``,
       isError: false,
     });
     setModalIsOpen(false);
-    return true;
-  }
-
-  async function mintTickets() {
-    loadup()
-      .then((res) => {
-        mintWrite();
-        if (mintIsError) {
-          // setMessage({
-          //   icon: <BiErrorAlt color={"red"} size={48} />,
-          //   message: `Oops Something went wrong`,
-          //   isError: true,
-          // });
-          // setModalIsOpen(true);
-        }
-        if (mintIsSuccess) {
-          setMessage({
-            icon: <MdOutlineDoneOutline color="green" size={48} />,
-            message: `hash ${mintData.hash}`,
-            isError: false,
-          });
-          setModalIsOpen(true);
-        }
-      })
-      .catch((err) => console.log(err));
+    mintWrite();
   }
 
   return (

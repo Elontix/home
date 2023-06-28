@@ -1,7 +1,8 @@
 import { bsc } from "wagmi/chains";
 import { useWeb3Modal } from "@web3modal/react";
-import { useContractRead, useDisconnect, useAccount } from "wagmi";
+import { useContractRead, useDisconnect, useAccount, useBalance } from "wagmi";
 import { useState, useEffect } from "react";
+import { colors } from "../../theme/color.js";
 
 import { MintAPi } from "../../pages/api/mint/mint.js";
 
@@ -12,6 +13,11 @@ const contractAddress = MintAPi.getAddress(true);
 const contractAbi = MintAPi.getMintAbi(true);
 
 const LatestWinner = () => {
+  function addressStrip(str) {
+    return (
+      str.substring(0, 4) + "...." + str.substring(str.length - 4, str.length)
+    );
+  }
   const { address, isConnected } = useAccount();
   const { disconnect } = useDisconnect();
   const { open, setDefaultChain } = useWeb3Modal();
@@ -19,6 +25,10 @@ const LatestWinner = () => {
   const [counter, setCounter] = useState(0);
   const [winners, setWinners] = useState([]);
   const [mints, setMints] = useState([]);
+
+  const { data: balance, isFetched: balanceFeteched } = useBalance({
+    address,
+  });
 
   const connectWallet = () => {
     open();
@@ -95,6 +105,57 @@ const LatestWinner = () => {
           </div>
         </div>
         <div className="row">
+          {isConnected ? (
+            <div
+              style={{
+                display: "flex",
+                justifyContent: "center",
+                color: colors.baseColor,
+              }}
+            >
+              <div
+                style={{
+                  alignItems: "center",
+                  display: "flex",
+                  justifyContent: "space-between",
+                  padding: "1rem 2rem",
+                  boxShadow: `0px 0px 4px ${colors.baseColor}`,
+                  columnGap: "2rem",
+                  minWidth: "326px",
+                }}
+              >
+                <div style={{ textAlign: "left" }}>
+                  <div style={{ color: "white" }}>Connected To</div>
+                  <div style={{ fontSize: "1.4rem" }}>
+                    {isConnected ? addressStrip(address) : ""}
+                  </div>
+                </div>
+
+                <div>
+                  {balanceFeteched ? (
+                    <span
+                      style={{
+                        fontSize: "2rem",
+                      }}
+                    >
+                      {`${balance.formatted}`}{" "}
+                      <span
+                        style={{
+                          color: colors.baseColor,
+                          fontSize: "1.2rem",
+                        }}
+                      >
+                        {`${balance.symbol}`}
+                      </span>
+                    </span>
+                  ) : (
+                    0
+                  )}
+                </div>
+              </div>
+            </div>
+          ) : null}
+
           <div className="col-lg-12">
             {isConnected ? (
               <div className="tab-content mt-50" id="winnerTabContent">

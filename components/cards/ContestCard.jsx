@@ -12,13 +12,15 @@ const ContestCard = ({ id, address }) => {
     isError: tokenUriIsError,
     isSuccess: tokenUriIsSuccess,
   } = useContractRead({
-    address: MintAPi.getAddress(false),
-    abi: MintAPi.getMintAbi(false),
+    address: MintAPi.getAddress(true),
+    abi: MintAPi.getMintAbi(true),
     args: [id],
     functionName: "tokenURI",
     chainId: bscTestnet.chainId,
     account: address,
   });
+
+  console.log(tokenUriData);
 
   const [price, setPrice] = useState(0);
   const [type, setType] = useState("");
