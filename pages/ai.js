@@ -34,17 +34,27 @@ const AI = () => {
   const [prob, setProb] = useState("0");
 
   function generateRandom(min = 0, max = 5000) {
-    let difference = max - min;
-    let rand = Math.random();
-    rand = Math.floor(rand * difference);
-    rand = String(rand + min);
-    setNumber(rand);
+    const t = localStorage.getItem("store");
+    if (t === null) {
+      localStorage.setItem("store", 1);
+    } else {
+      localStorage.setItem("store", t + 1);
+    }
+    if (t <= 3) {
+      let difference = max - min;
+      let rand = Math.random();
+      rand = Math.floor(rand * difference);
+      rand = String(rand + min);
+      setNumber(rand);
 
-    let diff = 100 - 80;
-    let newRand = Math.random();
-    newRand = Math.floor(newRand * diff);
-    newRand = String(newRand + 80);
-    setProb(newRand);
+      let diff = 100 - 80;
+      let newRand = Math.random();
+      newRand = Math.floor(newRand * diff);
+      newRand = String(newRand + 80);
+      setProb(newRand);
+    } else {
+      alert("Oops! AI is busy, please try again sometime...");
+    }
   }
 
   return (
@@ -137,7 +147,7 @@ const AI = () => {
                       padding: "1rem 2rem",
                       columnGap: "2rem",
                       rowGap: "2rem",
-                      maxWidth: "526px",
+                      maxWidth: "726px",
                       borderRadius: "1rem",
                     }}
                   >
@@ -148,30 +158,43 @@ const AI = () => {
                     >
                       Ask out AI BOT
                     </button>
-                    <h3
-                      style={{
-                        padding: "0.2rem 1rem",
-                        backgroundImage: `linear-gradient(4deg, rgb(236, 3, 139) 0%, rgb(251, 100, 104) 44%,rgb(251, 185, 54) 100%)`,
-                        borderRadius: "1rem",
-                      }}
-                    >
-                      choose {"\u00A0"}
-                      <span>
-                        <h3 style={{ color: colors.bgOne, fontWeight: "bold" }}>
-                          {number}
-                        </h3>
-                      </span>
-                      {"\u00A0"}
-                      for
-                      {"\u00A0"}
-                      <span>
-                        <h3 style={{ color: colors.bgOne, fontWeight: "bold" }}>
-                          {prob}%
-                        </h3>
-                      </span>
-                      {"\u00A0"}
-                      of winning
-                    </h3>
+                    {number !== "0" ? (
+                      <h3
+                        style={{
+                          padding: "0.4rem 1rem",
+                          boxShadow: `0px 0px 4px ${colors.baseColor}`,
+                          backgroundImage: `linear-gradient(to right top,#5a4bcc,#4538a2,#31277a,#1d1655,#0f0232)`,
+                          borderRadius: "1rem",
+                        }}
+                      >
+                        choose bin number{"\u00A0"}
+                        <span>
+                          <h3
+                            style={{
+                              color: colors.baseColor,
+                              fontWeight: "bold",
+                            }}
+                          >
+                            {number}
+                          </h3>
+                        </span>
+                        {"\u00A0"}
+                        for
+                        {"\u00A0"}
+                        <span>
+                          <h3
+                            style={{
+                              color: colors.baseColor,
+                              fontWeight: "bold",
+                            }}
+                          >
+                            {prob}%
+                          </h3>
+                        </span>
+                        {"\u00A0"}
+                        chances of winning
+                      </h3>
+                    ) : null}
                   </div>
                 </div>
               </div>
