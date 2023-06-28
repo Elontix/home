@@ -9,9 +9,6 @@ const Winner = () => {
       {/* Banner section here*/}
       <Banner />
 
-      {/* Winning Number section */}
-      <WinningNumber />
-
       {/* Latest Winner section */}
       <LatestWinner />
     </>
