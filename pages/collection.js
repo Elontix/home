@@ -65,13 +65,14 @@ const Collection = () => {
         if (!isUpdated) init().then().catch();
       }
     }
-
     console.log(tokenIds);
-    let t = tokenIds.filter(function (element) {
-      return element !== undefined;
-    });
-    console.log(t);
-    setTokenIds([...t]);
+
+    // console.log(tokenIds);
+    // let t = tokenIds.filter(function (element) {
+    //   return element !== undefined;
+    // });
+    // console.log(t);
+    // setTokenIds([...t]);
   }, [counter, hasCollecitonSucess]);
 
   function addressStrip(str) {

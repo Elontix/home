@@ -15,7 +15,7 @@ const ToggleButton = (props) => {
           boxShadow: `0px 0px 4px black`,
           padding: "1rem",
           color: "white",
-          width: "180px",
+          width: "200px",
           textAlign: "center",
           fontSize: "18px",
           fontWeight: "bolder",
@@ -45,21 +45,31 @@ const Mintbar = () => {
       >
         <div
           style={{ display: "flex", justifyContent: "center" }}
-          className="col-12 col-md-4"
+          className="col-12 col-md-6 col-lg-3"
         >
           <ToggleButton label="Mint" link="/mint" />
         </div>
         <div
           style={{ display: "flex", justifyContent: "center" }}
-          className="col-12 col-md-4"
+          className="col-12 col-md-6 col-lg-3"
         >
           <ToggleButton label="My Collection" link="/collection" />
         </div>
         <div
           style={{ display: "flex", justifyContent: "center" }}
-          className="col-12 col-md-4"
+          className="col-12 col-md-6 col-lg-3"
         >
           <ToggleButton label="Winners" link="/winner" />
+        </div>
+        <div
+          style={{ display: "flex", justifyContent: "center" }}
+          className="col-12 col-md-6 col-lg-3"
+        >
+          <ToggleButton
+            isLinkDeactive={true}
+            label="AI Prediction BOT"
+            link="/ai"
+          />
         </div>
       </div>
     </div>
