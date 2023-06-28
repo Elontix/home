@@ -7,7 +7,6 @@ import logo from "/public/images/logo.webp";
 import { useRouter } from "next/router";
 import { FaDiscord, FaMedium, FaTelegram, FaTwitter } from "react-icons/fa";
 import { colors } from "../../theme/color";
-import PS from "/public/images/ps_l.png";
 
 const Header = () => {
   const router = useRouter();
@@ -199,63 +198,11 @@ const Header = () => {
                 )}
               </ul>
 
-              <div className="nav-right">
-                <Link
-                  href="https://www.pinksale.finance/launchpad/0x97BC243267747508ceb608f0Fc1444d1745FFc5F?chain=ETH"
-                  target={"_blank"}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      padding: "2rem 0",
-                    }}
-                  >
-                    <div
-                      style={{
-                        maxHeight: "50px",
-                        width: "160px",
-                        margin: "auto",
-                        cursor: "pointer",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        padding: "1rem 0",
-                        position: "relative",
-                        boxShadow: `0px 0px 4px ${colors.baseColor}`,
-                        borderRadius: "40rem",
-                      }}
-                      className="pinksale_butt"
-                    >
-                      <span
-                        style={{
-                          position: "absolute",
-                          bottom: "-10%",
-                          right: "20%",
-                          background: colors.baseColor,
-                          color: colors.bgOne,
-                          fontWeight: "bold",
-                          padding: ".1rem .25rem",
-                          borderRadius: "1rem",
-                          fontSize: "0.55rem",
-                        }}
-                      >
-                        Coming Soon
-                      </span>
-                      <Image
-                        style={{
-                          objectFit: "contain",
-                          padding: "1rem",
-                          maxWidth: "100%",
-                        }}
-                        src={PS}
-                        alt="ps"
-                      />
-                    </div>
-                  </div>
-                </Link>
-              </div>
+              <Link href="/mint" className="pl-2">
+                <button class="cmn-btn" style={{ borderRadius: "40rem" }}>
+                  MINT TICKETS
+                </button>
+              </Link>
             </div>
           </nav>
         </div>

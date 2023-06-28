@@ -1,6 +1,8 @@
 import Link from "next/link";
 import Image from "next/image";
 
+import PS from "/public/images/ps_l.png";
+
 import e from "/public/images/elements/hero-2-star.png";
 import elon from "/public/images/elon.webp";
 import elon_bg from "/public/images/elon_bg.png";
@@ -15,6 +17,7 @@ import VedioModal from "../vedioModal/VedioModal";
 import { useState } from "react";
 
 import { motion } from "framer-motion";
+import { colors } from "../../theme/color";
 
 const Hero = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -357,18 +360,66 @@ const Hero = () => {
                   ))}
                 </div>
               </div>
-
-              <Link href="/mint" className="btn_grp my-4">
-                <button
-                  class="custom-btn btn-9"
-                  style={{ borderRadius: "40rem" }}
-                >
-                  MINT TICKETS
-                </button>
-              </Link>
             </div>
           </div>
         </div>
+
+        <Link
+          className="btn_grp"
+          href="https://www.pinksale.finance/launchpad/0x97BC243267747508ceb608f0Fc1444d1745FFc5F?chain=ETH"
+          target={"_blank"}
+        >
+          <div
+            style={{
+              display: "flex",
+              justifyContent: "center",
+              alignItems: "center",
+              padding: "2rem 0",
+            }}
+          >
+            <div
+              style={{
+                maxHeight: "50px",
+                width: "160px",
+                margin: "auto",
+                cursor: "pointer",
+                display: "flex",
+                justifyContent: "center",
+                alignItems: "center",
+                padding: "1rem 0",
+                position: "relative",
+                boxShadow: `0px 0px 4px ${colors.baseColor}`,
+                borderRadius: "40rem",
+              }}
+              className="pinksale_butt"
+            >
+              <span
+                style={{
+                  position: "absolute",
+                  bottom: "-10%",
+                  right: "20%",
+                  background: colors.baseColor,
+                  color: colors.bgOne,
+                  fontWeight: "bold",
+                  padding: ".1rem .25rem",
+                  borderRadius: ".2rem",
+                  fontSize: "0.55rem",
+                }}
+              >
+                LIVE
+              </span>
+              <Image
+                style={{
+                  objectFit: "contain",
+                  padding: "1rem",
+                  maxWidth: "100%",
+                }}
+                src={PS}
+                alt="ps"
+              />
+            </div>
+          </div>
+        </Link>
 
         <div style={{ position: "relative" }}>
           <div
