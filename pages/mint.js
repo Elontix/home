@@ -544,7 +544,7 @@ const Mint = () => {
                 </div>
               </div>
             ) : (
-              <Success hash={mintData.hash || ""} />
+              <Success hash={mintStatus === "success" ? mintData.hash : ""} />
             )}
           </div>
           <div
