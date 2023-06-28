@@ -379,26 +379,25 @@ const Hero = () => {
           >
             <div
               style={{
-                maxHeight: "50px",
-                width: "160px",
+                maxHeight: "70px",
+                width: "190px",
                 margin: "auto",
                 cursor: "pointer",
                 display: "flex",
                 justifyContent: "center",
                 alignItems: "center",
-                padding: "1rem 0",
                 position: "relative",
                 boxShadow: `0px 0px 4px ${colors.baseColor}`,
                 borderRadius: "40rem",
               }}
               className="pinksale_butt"
             >
-              <span
+              {/* <span
                 style={{
                   position: "absolute",
                   bottom: "-10%",
                   right: "20%",
-                  background: colors.baseColor,
+                  background: "#A2FF86",
                   color: colors.bgOne,
                   fontWeight: "bold",
                   padding: ".1rem .25rem",
@@ -406,13 +405,14 @@ const Hero = () => {
                   fontSize: "0.55rem",
                 }}
               >
-                LIVE
-              </span>
+                LIVE SOON
+              </span> */}
               <Image
                 style={{
                   objectFit: "contain",
                   padding: "1rem",
                   maxWidth: "100%",
+                  minHeight: "180px",
                 }}
                 src={PS}
                 alt="ps"
