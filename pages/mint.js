@@ -544,9 +544,7 @@ const Mint = () => {
                 </div>
               </div>
             ) : (
-              <Success
-                hash={`0xcb66159dd5d3915043616c25292f966fbc102753e6397f4be9b6760f6c2bf3d7`}
-              />
+              <Success hash={mintData.hash || ""} />
             )}
           </div>
           <div
