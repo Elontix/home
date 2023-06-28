@@ -1,6 +1,7 @@
 import Image from "next/image";
 
 import TicketGif from "/public/images/ticket.gif";
+import elon from "/public/images/elon.webp";
 
 import Diamond from "/public/images/ticket.gif";
 import Gold from "/public/images/ticket.gif";
@@ -26,7 +27,6 @@ const contractAddress = MintAPi.getAddress(true);
 const contractAbi = MintAPi.getMintAbi(true);
 
 const Mint = () => {
-  console.log(contractAddress, contractAbi);
   const { disconnect } = useDisconnect();
   const { address, isConnected } = useAccount();
   const { open, setDefaultChain } = useWeb3Modal();
@@ -504,12 +504,21 @@ const Mint = () => {
           },
         }}
         open={modalIsOpen}
-        onClose={() => setModalIsOpen(false)}
+        onClose={() => {
+          setModalIsOpen(false);
+          setTimeout(() => {
+            setMessage({
+              icon: null,
+              isError: false,
+              message: "",
+            });
+          }, 1000);
+        }}
       >
         <div
           style={{
             background: colors.bgOne,
-            padding: "2rem",
+            padding: "0 2rem",
           }}
         >
           <div
@@ -520,27 +529,44 @@ const Mint = () => {
               columnGap: "2rem",
             }}
           >
-            <div>{message.icon}</div>
-            <div style={{ color: colors.baseColor }}>
-              {message.message.substring(0, 620)}
-            </div>
+            {message.isError ? (
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "center",
+                  alignItems: "center",
+                  columnGap: "2rem",
+                }}
+              >
+                <div>{message.icon}</div>
+                <div style={{ color: colors.baseColor }}>
+                  {message.message.substring(0, 620)}
+                </div>
+              </div>
+            ) : (
+              <Success
+                hash={`0xcb66159dd5d3915043616c25292f966fbc102753e6397f4be9b6760f6c2bf3d7`}
+              />
+            )}
           </div>
           <div
             style={{
               display: "flex",
               justifyContent: "flex-end",
-              marginTop: "2rem",
+              marginTop: "1rem",
             }}
           >
             <button
               className="cmn-btn"
               onClick={() => {
+                setTimeout(() => {
+                  setMessage({
+                    icon: null,
+                    isError: false,
+                    message: "",
+                  });
+                }, 1000);
                 setModalIsOpen(false);
-                setMessage({
-                  icon: null,
-                  isError: false,
-                  message: "",
-                });
               }}
             >
               close
@@ -565,3 +591,33 @@ function generateRandom(min = 0, max = 100000) {
   for (let i = 0; i < spliter; i++) rand = ["0", ...rand];
   return rand;
 }
+console.log(bsc);
+
+const Success = (props) => {
+  return (
+    <div
+      style={{
+        display: "flex",
+        justifyContent: "center",
+        flexDirection: "column",
+        alignItems: "center",
+      }}
+    >
+      <h2>Hooray!</h2>
+      <h4> You have minted nfts</h4>
+      <Image
+        style={{ maxWidth: "312px", padding: "1rem 0" }}
+        src={elon}
+        alt="elon"
+      />
+      <a
+        href={bsc.blockExplorers.default.url + "/tx/" + props.hash}
+        target="_blank"
+        rel="noopener noreferrer"
+      >
+        <div>check transaction on blockchain</div>
+      </a>
+      <p>**please refresh the page after 2 minutes for the update</p>
+    </div>
+  );
+};
