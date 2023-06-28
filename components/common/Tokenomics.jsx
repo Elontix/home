@@ -55,7 +55,7 @@ const LatestWinner = () => {
     },
     {
       label: "Type",
-      value: "BEP-20",
+      value: "ERC-20",
     },
     {
       label: "Contract Address",
