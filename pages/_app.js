@@ -18,15 +18,18 @@ import { ApolloProvider } from "@apollo/client";
 import Head from "next/head";
 import Layout from "../components/layout";
 
+import { Modal } from "react-responsive-modal";
+import { CirclesWithBar } from "react-loader-spinner";
+import { colors } from "../theme/color";
+
+import "react-responsive-modal/styles.css";
+
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../public/css/line-awesome.min.css";
 import "../public/css/modal-video.scss";
 import "../public/styles/main.sass";
 import "../public/styles/global.css";
-
-import { CirclesWithBar } from "react-loader-spinner";
-import { colors } from "../theme/color";
-import { isLocalURL } from "next/dist/shared/lib/router/router";
+import Link from "next/link";
 
 const Toasts = () => (
   <div
@@ -73,6 +76,7 @@ function MyApp({ Component, pageProps }) {
   }, []);
 
   const [loading, setLoading] = useState(false);
+  const [modalIsOpen, setModalIsOpen] = useState(true);
 
   if (Component.getLayout) {
     return Component.getLayout(
@@ -98,6 +102,70 @@ function MyApp({ Component, pageProps }) {
                 <Layout>
                   <Component {...pageProps} />
                 </Layout>
+
+                <Modal
+                  styles={{
+                    modal: {
+                      top: "20%",
+                      background: colors.bgOne,
+                      borderRadius: "2rem",
+                    },
+                    closeButton: {
+                      color: colors.baseColor,
+                      background: colors.baseColor,
+                    },
+                  }}
+                  open={modalIsOpen}
+                  onClose={() => setModalIsOpen(false)}
+                >
+                  <div
+                    style={{
+                      background: colors.bgOne,
+                      padding: "4rem 2rem",
+                    }}
+                  >
+                    <div
+                      style={{
+                        display: "flex",
+                        justifyContent: "center",
+                        alignItems: "center",
+                        columnGap: "2rem",
+                        flexDirection: "column",
+                        rowGap: "2rem",
+                      }}
+                    >
+                      <h3 style={{ textAlign: "center" }}>
+                        Mint an NFT now to avail a{" "}
+                        <span>
+                          <h3 className="tag">25% Discount in the presale!</h3>
+                        </span>
+                        Limited time offer until Presale ends
+                      </h3>
+                      <Link
+                        className="cmn-btn_1"
+                        href="/mint"
+                        target={"_blank"}
+                      >
+                        Mint Now
+                      </Link>
+                      <h3 style={{ textAlign: "center" }}>
+                        Increase your chances by{" "}
+                        <span>
+                          <h3 className="tag">60% to win 10 BNB</h3>
+                        </span>{" "}
+                        in this weekly draw by contributing 0.1 ETH in our
+                        presale, top 100 will be eligible
+                      </h3>
+                      <Link
+                        href="https://www.pinksale.finance/launchpad/0x97BC243267747508ceb608f0Fc1444d1745FFc5F?chain=ETH"
+                        target={"_blank"}
+                        className="cmn-btn_1"
+                      >
+                        Pinksale Live
+                      </Link>
+                    </div>
+                  </div>
+                </Modal>
               </WagmiConfig>
             </ApolloProvider>
             <Web3Modal projectId={projectId} ethereumClient={ethereumClient} />
