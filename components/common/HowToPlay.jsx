@@ -42,8 +42,8 @@ const HowToPlay = () => {
                 <span className="play-card__number">01</span>
               </div>
               <div className="play-card__content">
-                <h3 className="play-card__title tag mb-1">Choose</h3>
-                <h5 className="">Connect your wallet</h5>
+                <h3 className="play-card__title tag mb-1">BUY</h3>
+                <h5 className="">Go and Buy $ETIX on Uniswap</h5>
               </div>
             </div>
           </div>
@@ -58,8 +58,10 @@ const HowToPlay = () => {
                 <span className="play-card__number">02</span>
               </div>
               <div className="play-card__content">
-                <h3 className="play-card__title tag mb-1">buy</h3>
-                <h5 className="">Purchase ElonTix tickets</h5>
+                <h3 className="play-card__title tag mb-1">HODL</h3>
+                <h5 className="">
+                  For every 1 $ETIX = 1 ticket will be minted
+                </h5>
               </div>
             </div>
           </div>
@@ -74,8 +76,8 @@ const HowToPlay = () => {
                 <span className="play-card__number">03</span>
               </div>
               <div className="play-card__content">
-                <h3 className="play-card__title tag mb-1">Track</h3>
-                <h5 className="">Track and Verify</h5>
+                <h3 className="play-card__title tag mb-1">Participate</h3>
+                <h5 className="">Participate and win in Raffle everyday</h5>
               </div>
             </div>
           </div>
@@ -91,7 +93,7 @@ const HowToPlay = () => {
               </div>
               <div className="play-card__content">
                 <h3 className="play-card__title tag mb-1">Win</h3>
-                <h5 className="">Claim your winnings</h5>
+                <h5 className="">Claim your winnings upto 1 ETH</h5>
               </div>
             </div>
           </div>

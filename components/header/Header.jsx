@@ -71,22 +71,9 @@ const Header = () => {
       key={4}
       className={`menu_has_children ${open === "Home" ? "open" : ""}`}
     >
-      <Link href="/#" onClick={(e) => handleOpen(e)}>
+      <Link href="/collection" onClick={(e) => handleOpen(e)}>
         NFTs
       </Link>
-      <ul className="sub-menu">
-        {[
-          ["Mint", "/mint"],
-          ["Collection", "/collection"],
-          ["Winners", "/winner"],
-        ].map(([itm, url], i) => (
-          <li key={i}>
-            <Link href={url} onClick={() => setShow(false)}>
-              {itm}
-            </Link>
-          </li>
-        ))}
-      </ul>
     </li>,
     <li key={1}>
       <Links
@@ -112,19 +99,6 @@ const Header = () => {
         style={{ cursor: "pointer" }}
       >
         Tokenomics
-      </Links>
-    </li>,
-    <li key={3}>
-      <Links
-        activeClass="active"
-        to="team"
-        spy={true}
-        smooth={true}
-        offset={50}
-        duration={500}
-        style={{ cursor: "pointer" }}
-      >
-        Team
       </Links>
     </li>,
     <li

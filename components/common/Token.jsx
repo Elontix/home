@@ -1,3 +1,16 @@
+import Image from "next/image";
+import elon from "/public/images/token.webp";
+
+import { colors } from "../../theme/color";
+
+import { FaHandHoldingHeart } from "react-icons/fa";
+import { BiCopy, BiSelectMultiple } from "react-icons/bi";
+import { MdOutlineHowToVote, MdOutlineLoyalty } from "react-icons/md";
+import { TbPigMoney } from "react-icons/tb";
+
+import TokenChart from "./TokenChart";
+import ChartText from "./ChartText";
+
 export default function Tokenomics() {
   const tokenomics = [
     {
@@ -85,7 +98,6 @@ export default function Tokenomics() {
                     x
                   </div>
                   <div className="col-lg-6 mb-30">
-                    {/* Tokenomics */}
                     <div className="" style={{ paddingBottom: "3rem" }}>
                       <h2 className="pb-2">
                         Token
@@ -145,7 +157,6 @@ export default function Tokenomics() {
                         ))}
                       </div>
                     </div>
-                    {/* Chart */}
                     <div className="" style={{ paddingBottom: "3rem" }}>
                       <h2 className="pb-2">
                         Token
@@ -187,7 +198,6 @@ export default function Tokenomics() {
                       </div>
                     </div>
 
-                    {/* Token Tax */}
                     <div className="" style={{ paddingBottom: "3rem" }}>
                       <h2 className="pb-2">
                         Token
@@ -224,7 +234,6 @@ export default function Tokenomics() {
                       </div>
                     </div>
 
-                    {/* Token Utility */}
                     <div className="pb-90">
                       <h2 className="pb-2">
                         Token
@@ -256,7 +265,7 @@ export default function Tokenomics() {
                             }}
                             key={i}
                           >
-                            {<t.icon size={24} color={colors.baseColor} />}
+                            {/* {<t.icon size={24} color={colors.baseColor} />} */}
                             <h5>{t.text}</h5>
                           </div>
                         ))}

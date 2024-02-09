@@ -293,7 +293,7 @@ const GradCard = () => {
                       1000
                     </div>
                     <div style={{ fontSize: "1.2rem" }} className="timer">
-                      NFTs
+                      Special NFTs
                     </div>
                   </div>
                 </div>

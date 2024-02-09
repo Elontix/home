@@ -246,7 +246,7 @@ const Footer = () => {
           style={{ textAlign: "center" }}
           className="py-4 copy-right-text text-lg-start text-center mb-lg-0 mb-3"
         >
-          Copyright © 2023.All Rights Reserved By{" "}
+          Copyright © 2024.All Rights Reserved By{" "}
           <Link
             style={{ color: colors.baseColor, textAlign: "center" }}
             href="/"

@@ -88,16 +88,15 @@ const Partner = () => {
                       textAlign: "left",
                     }}
                   >
-                    Elontix is an innovative Meme-based nft lottery platform
+                    Elontix is the first ERC404 standard NFT lottery platform
                     that embodies the visionary spirit of Elon Musk. Inspired by
-                    {` Musk's `} desire to revolutionize industries through
+                    Musk's desire to revolutionize industries through
                     technological advancements, Elontix aims to redefine the
-                    traditional lottery experience using the power of blockchain
-                    and non-fungible tokens. By leveraging the decentralized
-                    nature of blockchain, Elontix ensures transparency,
+                    traditional lottery experience by harnessing the combined
+                    power of fungible and non-fungible tokens. By leveraging the
+                    benefits of ERC404, Elontix ensures transparency, liquidity,
                     security, and fairness in every lottery draw, providing
-                    participants with a seamless and trustworthy gaming
-                    experience.
+                    participants with a seamless and trustworthy experience.
                   </p>
                 </div>
                 <div className="col-12 col-xl-6">
