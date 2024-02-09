@@ -135,24 +135,13 @@ const Util = () => {
       </div>
 
       <GradCard />
-      <div className="container">
-        <div className="row my-5 my-md-0">
-          <Charity />
-        </div>
-      </div>
+      <div className="container"></div>
     </div>
   );
 };
 
 export default Util;
 
-const Charity = () => {
-  return (
-    <div className="container charity_parent">
-      <div className="charity"></div>
-    </div>
-  );
-};
 const timeC = new Date(2024, 1, 10, 17, 30, 0);
 
 const GradCard = () => {

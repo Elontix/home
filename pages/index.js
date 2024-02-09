@@ -12,6 +12,7 @@ import Token from '../components/common/Token'
 
 export default function HomeThree() {
   return (
+
     <>
       <Element name="home">
         <Hero />
