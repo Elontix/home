@@ -90,7 +90,7 @@ const Partner = () => {
                   >
                     Elontix is the first ERC404 standard NFT Raffle platform
                     that embodies the visionary spirit of Elon Musk. Inspired by
-                    Musk's desire to revolutionize industries through
+                    {`Musk's`} desire to revolutionize industries through
                     technological advancements, Elontix aims to redefine the
                     traditional Raffle experience by harnessing the combined
                     power of fungible and non-fungible tokens. By leveraging the

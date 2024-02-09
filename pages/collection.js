@@ -20,19 +20,19 @@ const Collection = () => {
 				paddingTop: "10rem",
 				paddingBottom: "4rem"
 			}}>
-			<h1>NFT's</h1>
+			<h1>{`NFT's`}</h1>
 			<div className="container m-6">
 				<div style={{ display: "flex", justifyContent: 'center', alignItems: 'center' }}>
 					<div>
 						<Image src={DIAMOND} />
-						<h4 style={{ textAlign: 'center', marginTop: "1rem" }}>Diamond (1-5000)</h4>
+						<h4 alt="diamond" style={{ textAlign: 'center', marginTop: "1rem" }}>Diamond (1-5000)</h4>
 					</div>
 				</div>
 				<div className="row">
 					{images.map((i, k) =>
 						<div key={k} className="col-12 col-lg-6 my-4">
 							<Image src={i.img} />
-							<h4 style={{ textAlign: 'center', marginTop: "1rem" }}>{i.text}</h4>
+							<h4 alt={i.text} style={{ textAlign: 'center', marginTop: "1rem" }}>{i.text}</h4>
 						</div>
 					)}
 				</div>
