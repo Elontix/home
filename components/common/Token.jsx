@@ -157,46 +157,6 @@ export default function Tokenomics() {
                         ))}
                       </div>
                     </div>
-                    <div className="" style={{ paddingBottom: "3rem" }}>
-                      <h2 className="pb-2">
-                        Token
-                        {"\u00A0"}
-                        <span>
-                          <h2 className="tag">Distribution</h2>
-                        </span>
-                      </h2>
-                      <div
-                        style={{
-                          margin: "1rem 0",
-                          borderRadius: "5px",
-                        }}
-                      >
-                        <TokenChart />
-                        <div
-                          style={{
-                            padding: "1rem",
-                            display: "grid",
-                            rowGap: ".5rem",
-                            columnGap: ".5rem",
-                            gridTemplateColumns: "1fr 1fr",
-                            borderRadius: "1rem",
-                            background: colors.bgOne,
-                            boxShadow: `2px 2px 5px ${colors.baseColorTwo}, -2px -2px 5px ${colors.baseColor}`,
-                          }}
-                        >
-                          <ChartText
-                            bg={"#66B032"}
-                            text="Pinksale Presale - 57%"
-                          />
-                          <ChartText bg={"#0C47FE"} text="DEX Listing - 28%" />
-                          <ChartText bg={"#FB9902 "} text="CEX Listing - 9%" />
-                          <ChartText
-                            bg={"#FE2712"}
-                            text="Eco System & Treasury - 6%"
-                          />
-                        </div>
-                      </div>
-                    </div>
 
                     <div className="" style={{ paddingBottom: "3rem" }}>
                       <h2 className="pb-2">
@@ -228,44 +188,6 @@ export default function Tokenomics() {
                             key={i}
                           >
                             <h3 style={{ color: colors.baseColor }}>{t.tax}</h3>
-                            <h5>{t.text}</h5>
-                          </div>
-                        ))}
-                      </div>
-                    </div>
-
-                    <div className="pb-90">
-                      <h2 className="pb-2">
-                        Token
-                        {"\u00A0"}
-                        <span>
-                          <h2 className="tag">Utility</h2>
-                        </span>
-                      </h2>
-
-                      <div
-                        style={{
-                          borderRadius: "1rem",
-                          background: colors.bgOne,
-                          boxShadow: `2px 2px 5px ${colors.baseColorTwo}, -2px -2px 5px ${colors.baseColor}`,
-                        }}
-                      >
-                        {utils.map((t, i) => (
-                          <div
-                            style={{
-                              columnGap: "1rem",
-                              display: "flex",
-                              justifyContent: "flex-start",
-                              margin: ".5rem 0",
-                              padding: "1rem 1rem",
-                              borderBottom:
-                                i === utils.length - 1
-                                  ? ""
-                                  : `2px solid ${colors.baseColorTwo}`,
-                            }}
-                            key={i}
-                          >
-                            {/* {<t.icon size={24} color={colors.baseColor} />} */}
                             <h5>{t.text}</h5>
                           </div>
                         ))}

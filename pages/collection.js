@@ -5,8 +5,8 @@ import GOLD from '../public/tickets/gold.png'
 import SILVER from '../public/tickets/silver.png'
 
 const images = [
-	{ img: GOLD, text: "Gold (5001 - 15000)" },
-	{ img: SILVER, text: "Silver (15000 - 50000)" },
+	{ img: GOLD, text: "Gold (5001 - 20000)" },
+	{ img: SILVER, text: "Silver (20001 - 50000)" },
 ]
 
 const Collection = () => {

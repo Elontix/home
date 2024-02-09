@@ -330,6 +330,8 @@ const Hero = () => {
                     "\u00A0",
                     "1",
                     "\u00A0",
+                    "$",
+                    "E",
                     "T",
                     "I",
                     "X",
@@ -367,7 +369,7 @@ const Hero = () => {
                     <h3
                       key={i}
                       className={
-                        (i > 3 && i < 10) || (i > 24 && i < 30)
+                        (i > 3 && i < 12) || (i > 26 && i < 32)
                           ? "tag mint_txt"
                           : "mint_txt"
                       }
