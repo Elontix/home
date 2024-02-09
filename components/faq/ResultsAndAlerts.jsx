@@ -40,7 +40,7 @@ const ResultsAndAlerts = () => {
             aria-expanded="false"
             aria-controls="collapse3"
           >
-            What are the advantages of using a blockchain-based NFT lottery
+            What are the advantages of using a ERC404 NFT lottery
             platform?
           </button>
         </div>
