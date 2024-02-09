@@ -19,6 +19,7 @@ import { useState } from "react";
 
 import { motion } from "framer-motion";
 import { colors } from "../../theme/color";
+import { DEX } from "../../data/dex";
 
 const Hero = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -388,8 +389,8 @@ const Hero = () => {
         <div style={{ display: "flex", justifyContent: "center" }}>
           <Link
             className="btn_grp"
-            href="https://www.pinksale.finance/launchpad/0x97BC243267747508ceb608f0Fc1444d1745FFc5F?chain=ETH"
-            target={"_blank"}
+            href={DEX}
+            // target={"_blank"}
             style={{
               display: "flex",
               maxWidth: "230px",

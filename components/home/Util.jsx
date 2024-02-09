@@ -6,6 +6,7 @@ import AppStore from "/public/images/play.png";
 import PlayStore from "/public/images/download.png";
 import Link from "next/link";
 import { useCountdown } from "./Timer";
+import { DEX } from "../../data/dex";
 
 const Util = () => {
   return (
@@ -81,7 +82,7 @@ const Util = () => {
                     justifyContent: "center",
                     alignItems: "center",
                   }}
-                  href="/mint"
+                  href={DEX}
                 >
                   <h4 className="tag  text-center">Mint now</h4>
                 </Link>
