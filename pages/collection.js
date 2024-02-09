@@ -25,7 +25,7 @@ const Collection = () => {
 				<div style={{ display: "flex", justifyContent: 'center', alignItems: 'center' }}>
 					<div>
 						<Image src={DIAMOND} />
-						<h4 style={{ textAlign: 'center', marginTop: "1rem" }}>{`Diamond (1-5000)`}</h4>
+						<h4 style={{ textAlign: 'center', marginTop: "1rem" }}>Diamond (1-5000)</h4>
 					</div>
 				</div>
 				<div className="row">
