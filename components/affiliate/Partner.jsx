@@ -54,7 +54,7 @@ const Partner = () => {
             <span>
               <h2 className="tag">Elontix </h2>
             </span>{" "}
-            - Your ticket to meme-filled riches,{" "}
+            - Your ERC-404 ticket to meme-filled riches,{" "}
             <span>
               <h2 className="tag">Elon Musk</h2>{" "}
             </span>{" "}
@@ -66,83 +66,6 @@ const Partner = () => {
 
       <section style={{ padding: "8rem 0 0 0" }} className="position-relative">
         <div className="container pt-120">
-          <div className="container pt-120 pb-120">
-            <div className="row align-items-center">
-              <div
-                className="col-12 col-lg-6 "
-                style={{
-                  display: "grid",
-                  justifyContent: "center",
-                  marginBottom: "3rem",
-                  alignItems: "center",
-                }}
-              >
-                <div style={{ paddingLeft: "3rem" }}>
-                  <h1 className="tag hbd_elon_txt">Giving back</h1>
-                  <h1 className="hbd_elon_txt">to Musk fans</h1>
-                  <h1 className="tag hbd_elon_txt">on ocassion </h1>
-                  <h1 className="hbd_elon_txt">of his birthday</h1>
-                </div>
-
-                <Link
-                  href="https://www.pinksale.finance/launchpad/0x97BC243267747508ceb608f0Fc1444d1745FFc5F?chain=ETH"
-                  target={"_blank"}
-                >
-                  <div
-                    style={{
-                      display: "flex",
-                      justifyContent: "center",
-                      alignItems: "center",
-                      padding: "2rem 0",
-                    }}
-                  >
-                    <div
-                      className="pinksale_butt _pinksale"
-                      style={{
-                        margin: "auto",
-                        cursor: "pointer",
-                        display: "flex",
-                        justifyContent: "center",
-                        alignItems: "center",
-                        padding: "1rem 0",
-                        position: "relative",
-                        boxShadow: `0px 0px 4px ${colors.baseColor}`,
-                        borderRadius: "40rem",
-                      }}
-                    >
-                      <span
-                        style={{
-                          position: "absolute",
-                          bottom: "8%",
-                          right: "15%",
-                          background: "#A2FF86",
-                          color: colors.bgOne,
-                          fontWeight: "bold",
-                          padding: ".2rem .5rem",
-                          borderRadius: "1rem",
-                        }}
-                      >
-                        LIVE NOW
-                      </span>
-                      <Image
-                        style={{
-                          objectFit: "contain",
-                          padding: "1rem",
-                          maxWidth: "100%",
-                        }}
-                        src={PS}
-                        alt="ps"
-                      />
-                    </div>
-                  </div>
-                </Link>
-              </div>
-              <div style={{ borderRadius: "1rem" }} className="col-12 col-lg-6">
-                <Image className="hbd_elon" src={Tests} alt="" />
-              </div>
-            </div>
-          </div>
-
           <div className="row justify-content-center">
             <div className="col-lg-12">
               <h1 style={{ textAlign: "center" }}>

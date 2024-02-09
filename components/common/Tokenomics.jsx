@@ -39,7 +39,7 @@ const ChartText = (props) => {
   );
 };
 
-const LatestWinner = () => {
+const Tokenomics = () => {
   const tokenomics = [
     {
       label: "Name",
@@ -314,4 +314,4 @@ const LatestWinner = () => {
   );
 };
 
-export default LatestWinner;
+export default Tokenomics;

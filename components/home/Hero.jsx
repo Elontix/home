@@ -194,38 +194,48 @@ const Hero = () => {
                 {`World's`} #1{" "}
                 <span>
                   <div className="main_txt_under_sub tag ">
-                    {["M", "e", "m", "e", "-", "b", "a", "s", "e", "d"].map(
-                      (b, k) => (
-                        <motion.div
-                          style={{
-                            display: "inline-block",
-                            fontWeight: "bolder",
-                          }}
-                          key={k}
-                          initial={{
-                            scale: 1.5,
-                            y: 3,
-                          }}
-                          animate={{
-                            scale: 1,
-                            y: 0,
-                          }}
-                          transition={{
-                            type: "spring",
-                            stiffness: 260,
-                            damping: 20,
-                            delay: k * 0.1,
-                            repeat: Infinity,
-                            repeatDelay: 1,
-                          }}
-                        >
-                          {b}
-                        </motion.div>
-                      )
-                    )}
+                    {[
+                      "E",
+                      "R",
+                      "C",
+                      "-",
+                      "4",
+                      "0",
+                      "4",
+                      "\u00A0",
+                      "N",
+                      "F",
+                      "T",
+                    ].map((b, k) => (
+                      <motion.div
+                        style={{
+                          display: "inline-block",
+                          fontWeight: "bolder",
+                        }}
+                        key={k}
+                        initial={{
+                          scale: 1.5,
+                          y: 3,
+                        }}
+                        animate={{
+                          scale: 1,
+                          y: 0,
+                        }}
+                        transition={{
+                          type: "spring",
+                          stiffness: 260,
+                          damping: 20,
+                          delay: k * 0.1,
+                          repeat: Infinity,
+                          repeatDelay: 1,
+                        }}
+                      >
+                        {b}
+                      </motion.div>
+                    ))}
                   </div>{" "}
                 </span>{" "}
-                NFT lottery platform
+                Raffle platform
               </div>
 
               <div
@@ -238,7 +248,7 @@ const Hero = () => {
                 <div className="main_txt_under gd_text mb-3">
                   WIN{" "}
                   <span>
-                    {["B", "N", "B", "s"].map((b, k) => (
+                    {["E", "T", "H", "s"].map((b, k) => (
                       <motion.div
                         style={{
                           display: "inline-block",
@@ -318,13 +328,11 @@ const Hero = () => {
                     "u",
                     "y",
                     "\u00A0",
-                    "0",
-                    ".",
                     "1",
                     "\u00A0",
-                    "E",
                     "T",
-                    "H",
+                    "I",
+                    "X",
                     "\u00A0",
                     "n",
                     "o",
@@ -341,13 +349,11 @@ const Hero = () => {
                     "t",
                     "o",
                     "\u00A0",
-                    "3",
-                    "0",
-                    "0",
+                    "1",
                     "\u00A0",
-                    "B",
-                    "N",
-                    "B",
+                    "E",
+                    "T",
+                    "H",
                     "\u00A0",
                     "p",
                     "e",
@@ -361,7 +367,7 @@ const Hero = () => {
                     <h3
                       key={i}
                       className={
-                        (i > 3 && i < 12) || (i > 26 && i < 35)
+                        (i > 3 && i < 10) || (i > 24 && i < 30)
                           ? "tag mint_txt"
                           : "mint_txt"
                       }
@@ -383,59 +389,7 @@ const Hero = () => {
             alignItems: "center",
             padding: "2rem 0",
           }}
-        >
-          <Link
-            className="btn_grp"
-            href="https://www.pinksale.finance/launchpad/0x97BC243267747508ceb608f0Fc1444d1745FFc5F?chain=ETH"
-            target={"_blank"}
-          >
-            {" "}
-            <div
-              style={{
-                maxHeight: "90px",
-                width: "280px",
-                margin: "auto",
-                cursor: "pointer",
-                display: "flex",
-                justifyContent: "center",
-                alignItems: "center",
-                position: "relative",
-                boxShadow: `0px 0px 4px ${colors.baseColor}`,
-                borderRadius: "40rem",
-              }}
-              className="pinksale_butt"
-            >
-              <span
-                style={{
-                  position: "absolute",
-                  bottom: "-10%",
-                  right: "20%",
-                  background: "#A2FF86",
-                  color: colors.bgOne,
-                  display: "flex",
-                  justifySelf: "center",
-                  alignItems: "center",
-                  fontWeight: "bold",
-                  padding: ".1rem .5rem",
-                  borderRadius: ".2rem",
-                  fontSize: "0.55rem",
-                }}
-              >
-                LIVE NOW
-              </span>
-              <Image
-                style={{
-                  objectFit: "contain",
-                  padding: "1rem",
-                  maxWidth: "100%",
-                  minHeight: "180px",
-                }}
-                src={PS}
-                alt="ps"
-              />
-            </div>
-          </Link>
-        </div>
+        ></div>
 
         <div style={{ position: "relative" }}>
           <div

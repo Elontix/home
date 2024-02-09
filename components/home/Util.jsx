@@ -153,7 +153,7 @@ const Charity = () => {
     </div>
   );
 };
-const timeC = new Date(2023, 5, 28, 17, 30, 0);
+const timeC = new Date(2024, 1, 10, 17, 30, 0);
 
 const GradCard = () => {
   const [days, hours, minutes, seconds] = useCountdown(timeC);
@@ -214,8 +214,8 @@ const GradCard = () => {
 
               <div className="sub_module_ul">
                 <div className="bnb">WIN UPTO</div>
-                <div className="bnb_value tag">300</div>
-                <div className="bnb">BNB</div>
+                <div className="bnb_value tag">1</div>
+                <div className="bnb">ETH</div>
               </div>
             </div>
           </div>
@@ -301,8 +301,8 @@ const GradCard = () => {
 
               <div className="sub_module_ul bg-dark">
                 <div className="bnb">WIN UPTO</div>
-                <div className="bnb_value tag">1000</div>
-                <div className="bnb">BNB</div>
+                <div className="bnb_value tag">10</div>
+                <div className="bnb">ETH</div>
               </div>
             </div>
           </div>

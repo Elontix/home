@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -H 192.168.1.31",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -11,8 +11,6 @@
   "dependencies": {
     "@apollo/client": "^3.7.15",
     "@react-spring/web": "^9.7.2",
-    "@web3modal/ethereum": "^2.4.2",
-    "@web3modal/react": "^2.4.2",
     "bootstrap": "^5.2.3",
     "eslint": "8.29.0",
     "eslint-config-next": "13.0.6",
@@ -35,8 +33,6 @@
     "react-scroll": "^1.8.9",
     "react-slick": "^0.29.0",
     "sass": "^1.56.2",
-    "slick-carousel": "^1.8.1",
-    "viem": "^0.3.47",
-    "wagmi": "^1.1.0"
+    "slick-carousel": "^1.8.1"
   }
 }

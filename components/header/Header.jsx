@@ -197,12 +197,6 @@ const Header = () => {
                   </li>
                 )}
               </ul>
-
-              <Link href="/mint" className="pl-2">
-                <button class="cmn-btn" style={{ borderRadius: "40rem" }}>
-                  MINT TICKETS
-                </button>
-              </Link>
             </div>
           </nav>
         </div>
