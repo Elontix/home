@@ -75,19 +75,6 @@ const Header = () => {
         NFTs
       </Link>
     </li>,
-    <li key={1}>
-      <Links
-        activeClass="active"
-        to="roadmap"
-        spy={true}
-        smooth={true}
-        offset={50}
-        duration={500}
-        style={{ cursor: "pointer" }}
-      >
-        Roadmap
-      </Links>
-    </li>,
     <li key={2}>
       <Links
         activeClass="active"
