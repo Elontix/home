@@ -22,7 +22,7 @@ const Tickets = () => {
         >
           <div className="card-body">
             <p>
-              ElonTix is a blockchain-based NFT lottery platform that utilizes
+              ElonTix is a ERC404-based NFT lottery platform that utilizes
               blockchain technology and non-fungible tokens (NFTs) to conduct
               lotteries. It combines the transparency, security, and
               immutability of the blockchain with the uniqueness and scarcity of

@@ -19,15 +19,15 @@ export default function Tokenomics() {
     },
     {
       label: "Ticker",
-      value: "$ELONTIX",
+      value: "$ETIX",
     },
     {
       label: "Total Supply",
-      value: "1,000,000,000,000 ",
+      value: "50000 ",
     },
     {
       label: "Type",
-      value: "ERC-20",
+      value: "ERC-404",
     },
     {
       label: "Contract Address",

@@ -22,9 +22,8 @@ const Banking = () => {
         >
           <div className="card-body">
             <p>
-              To participate, you need to buy ElonTix NFTs with preferred
-              payment methods. Each ticket represents a chance to win various
-              lottery prizes on the platform
+              To participate, you need to buy $ETIX token on Uniswap. Each ticket represents a chance to win various
+              lottery prizes on the platform.
             </p>
           </div>
         </div>
