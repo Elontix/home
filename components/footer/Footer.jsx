@@ -158,7 +158,7 @@ const Footer = () => {
                 <Link
                   target={"_blank"}
                   className="soc_hover"
-                  href="https://whitepaper.elontix.io/"
+                  href=""
                 >
                   <FaMedium size={32} />
                 </Link>
@@ -207,7 +207,7 @@ const Footer = () => {
               <li>
                 <Link
                   style={{ color: colors.baseColor }}
-                  href="https://whitepaper.elontix.io/introduction/abstract"
+                  href=""
                   target={"_blank"}
                 >
                   Whitepaper

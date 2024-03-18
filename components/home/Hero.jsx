@@ -195,13 +195,12 @@ const Hero = () => {
                 <span>
                   <div className="main_txt_under_sub tag ">
                     {[
-                      "E",
-                      "R",
-                      "C",
-                      "-",
-                      "4",
-                      "0",
-                      "4",
+                      "S",
+                      "O",
+                      "L",
+                      "A",
+                      "N",
+                      "A",
                       "\u00A0",
                       "N",
                       "F",

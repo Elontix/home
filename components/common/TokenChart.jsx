@@ -79,10 +79,8 @@ const chart = `
             type: "pie",
             name: "pool",
             data: [
-              ["Cex Listing", 9],
-              ["DEX Liquidity", 28],
-              ["Pinksale Presale", 57.0],
-              ["Eco Systems & Treasury", 6],
+              ["Presale", 50.0],
+              ["LP", 50],
             ],
           },
         ],

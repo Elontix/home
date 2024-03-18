@@ -136,7 +136,7 @@ function MyApp({ Component, pageProps }) {
                       presale, top 100 will be eligible
                     </h3>
                     <Link
-                      href="https://www.pinksale.finance/launchpad/0x97BC243267747508ceb608f0Fc1444d1745FFc5F?chain=ETH"
+                      href=""
                       target={"_blank"}
                       className="cmn-btn_1"
                     >

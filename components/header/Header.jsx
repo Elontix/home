@@ -110,14 +110,14 @@ const Header = () => {
       </Link>
       <ul className="sub-menu">
         {[
-          ["White Paper", "https://whitepaper.elontix.io/"],
+          ["White Paper", ""],
           [
             "KYC",
-            "https://verified.assuredefi.com/projects?recordId=recCBLklWKzl9SAWS",
+            "",
           ],
           [
             "Audit",
-            "https://github.com/CFG-NINJA/audits/blob/9ce4b97c0c78532ae115bb16dc93f31b6b0df0ea/20230622_CFGNINJA_ElonTix_ELONTIX_Audit.pdf",
+            "",
           ],
         ].map(([itm, url], i) => (
           <li key={i}>
@@ -213,7 +213,7 @@ const Header = () => {
             <Link
               target={"_blank"}
               className="soc_hover"
-              href="https://whitepaper.elontix.io/"
+              href=""
             >
               <FaMedium size={32} />
             </Link>

@@ -54,7 +54,7 @@ const Partner = () => {
             <span>
               <h2 className="tag">Elontix </h2>
             </span>{" "}
-            - Your ERC-404 ticket to meme-filled riches,{" "}
+            - Your SOLANA ticket to meme-filled riches,{" "}
             <span>
               <h2 className="tag">Elon Musk</h2>{" "}
             </span>{" "}
@@ -88,13 +88,13 @@ const Partner = () => {
                       textAlign: "left",
                     }}
                   >
-                    Elontix is the first ERC404 standard NFT lottery platform
+                    Elontix is the first SPL standard NFT lottery platform
                     that embodies the visionary spirit of Elon Musk. Inspired by
                     Musk's desire to revolutionize industries through
                     technological advancements, Elontix aims to redefine the
                     traditional lottery experience by harnessing the combined
                     power of fungible and non-fungible tokens. By leveraging the
-                    benefits of ERC404, Elontix ensures transparency, liquidity,
+                    benefits of SOLANA, Elontix ensures transparency, liquidity,
                     security, and fairness in every lottery draw, providing
                     participants with a seamless and trustworthy experience.
                   </p>

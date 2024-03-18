@@ -4,7 +4,7 @@ const roadmapData = [
     status: "DONE",
     works: [
       "ElonTix Ideation",
-      "ERC404 Market Research",
+      "SPL Market Research",
       "Core Team Formation",
       "Drafting ElonTix WhitePaper",
       "Workflow for ElonTix Website",
@@ -16,7 +16,7 @@ const roadmapData = [
     title: "Design and Development ",
     status: "DONE",
     works: [
-      "ERC 404 Contract Development",
+      "SOLANA Contract Development",
       "Blockchain Integration",
       "Security Audits",
       "Develop User Interface",
@@ -31,7 +31,7 @@ const roadmapData = [
     done: 2,
     works: [
       "ElonTix Website Launch",
-      "ERC404 NFTs Launch",
+      "SOLANA NFTs Launch",
       "User acquisition Campaigns",
       "Pre-Listing on CMC/CG",
       "Token Launch on DEX",

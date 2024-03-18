@@ -27,7 +27,7 @@ export default function Tokenomics() {
     },
     {
       label: "Type",
-      value: "ERC-404",
+      value: "SOLANA",
     },
     {
       label: "Contract Address",
@@ -186,14 +186,9 @@ export default function Tokenomics() {
                         >
                           <ChartText
                             bg={"#66B032"}
-                            text="Pinksale Presale - 57%"
+                            text="Presale - 50%"
                           />
-                          <ChartText bg={"#0C47FE"} text="DEX Listing - 28%" />
-                          <ChartText bg={"#FB9902 "} text="CEX Listing - 9%" />
-                          <ChartText
-                            bg={"#FE2712"}
-                            text="Eco System & Treasury - 6%"
-                          />
+                          <ChartText bg={"#FB9902 "} text="LP - 50%" />
                         </div>
                       </div>
                     </div>
