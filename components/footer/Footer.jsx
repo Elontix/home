@@ -57,7 +57,7 @@ const Footer = () => {
       <div className="bg-shape--top">
         <Image src={round_shape_2} alt="image" />
       </div>
-      <div className="container">
+      <div style={{ padding: "0rem 2rem" }} className="container">
         <div className="row">
           <div className="col-lg-12">
             <div className="subscribe-area">

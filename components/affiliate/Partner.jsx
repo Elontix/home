@@ -90,9 +90,9 @@ const Partner = () => {
                   >
                     Elontix is the first SPL standard NFT lottery platform
                     that embodies the visionary spirit of Elon Musk. Inspired by
-                    Musk's desire to revolutionize industries through
+                    {`Musk's`} desire to revolutionize industries through
                     technological advancements, Elontix aims to redefine the
-                    traditional lottery experience by harnessing the combined
+                    traditional Raffle experience by harnessing the combined
                     power of fungible and non-fungible tokens. By leveraging the
                     benefits of SOLANA, Elontix ensures transparency, liquidity,
                     security, and fairness in every lottery draw, providing
@@ -140,7 +140,7 @@ const Partner = () => {
                     lotteries are conducted with utmost integrity and
                     accessibility, empowering individuals worldwide to dream big
                     and participate in life-changing opportunities. With
-                    Elontix, the convergence of blockchain and lottery creates a
+                    Elontix, the convergence of blockchain and Raffle creates a
                     new paradigm, reflecting Elon {` Musk's `} commitment to
                     pushing boundaries and challenging conventional norms.
                   </p>

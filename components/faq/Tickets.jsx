@@ -22,11 +22,11 @@ const Tickets = () => {
         >
           <div className="card-body">
             <p>
-              ElonTix is a ERC404-based NFT lottery platform that utilizes
+              ElonTix is a ERC404-based NFT Raffle platform that utilizes
               blockchain technology and non-fungible tokens (NFTs) to conduct
               lotteries. It combines the transparency, security, and
               immutability of the blockchain with the uniqueness and scarcity of
-              NFTs to create a fair and exciting lottery experience.
+              NFTs to create a fair and exciting Raffle experience.
             </p>
           </div>
         </div>

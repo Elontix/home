@@ -1,5 +1,6 @@
 import Link from "next/link";
 import Image from "next/image";
+import Dex from "/public/dex.png";
 
 import PS from "/public/images/ps_l.png";
 
@@ -18,6 +19,7 @@ import { useState } from "react";
 
 import { motion } from "framer-motion";
 import { colors } from "../../theme/color";
+import { DEX } from "../../data/dex";
 
 const Hero = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -329,6 +331,8 @@ const Hero = () => {
                     "\u00A0",
                     "1",
                     "\u00A0",
+                    "$",
+                    "E",
                     "T",
                     "I",
                     "X",
@@ -366,7 +370,7 @@ const Hero = () => {
                     <h3
                       key={i}
                       className={
-                        (i > 3 && i < 10) || (i > 24 && i < 30)
+                        (i > 3 && i < 12) || (i > 26 && i < 32)
                           ? "tag mint_txt"
                           : "mint_txt"
                       }
@@ -379,6 +383,57 @@ const Hero = () => {
               </div>
             </div>
           </div>
+        </div>
+
+        <div style={{ display: "flex", justifyContent: "center" }}>
+          <Link
+            className="btn_grp"
+            href={DEX}
+            // target={"_blank"}
+            style={{
+              display: "flex",
+              maxWidth: "230px",
+              justifyContent: "center",
+              alignItems: "center",
+            }}
+          >
+            <div
+              style={{
+                position: "relative",
+                margin: "2rem auto auto auto",
+                borderRadius: "2rem",
+                cursor: "pointer",
+              }}
+              className="pinksale_butt"
+            >
+              <Image
+                src={Dex}
+                style={{
+                  padding: "1rem",
+                  objectFit: "contain",
+                }}
+              />
+              <span
+                style={{
+                  bottom: "-5px",
+                  right: "0px",
+                  position: "absolute",
+                  background: "#A2FF86",
+                  color: colors.bgOne,
+                  display: "flex",
+                  justifySelf: "center",
+                  alignItems: "center",
+                  fontWeight: "bold",
+                  zIndex: 4,
+                  padding: "0 1rem",
+                  borderRadius: ".2rem",
+                  fontSize: "0.66rem",
+                }}
+              >
+                LIVE NOW
+              </span>
+            </div>
+          </Link>
         </div>
 
         <div

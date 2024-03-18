@@ -6,6 +6,7 @@ import AppStore from "/public/images/play.png";
 import PlayStore from "/public/images/download.png";
 import Link from "next/link";
 import { useCountdown } from "./Timer";
+import { DEX } from "../../data/dex";
 
 const Util = () => {
   return (
@@ -81,7 +82,7 @@ const Util = () => {
                     justifyContent: "center",
                     alignItems: "center",
                   }}
-                  href="/mint"
+                  href={DEX}
                 >
                   <h4 className="tag  text-center">Mint now</h4>
                 </Link>
@@ -135,24 +136,13 @@ const Util = () => {
       </div>
 
       <GradCard />
-      <div className="container">
-        <div className="row my-5 my-md-0">
-          <Charity />
-        </div>
-      </div>
+      <div className="container"></div>
     </div>
   );
 };
 
 export default Util;
 
-const Charity = () => {
-  return (
-    <div className="container charity_parent">
-      <div className="charity"></div>
-    </div>
-  );
-};
 const timeC = new Date(2024, 1, 10, 17, 30, 0);
 
 const GradCard = () => {

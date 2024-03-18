@@ -9,7 +9,7 @@ const roadmapData = [
       "Drafting ElonTix WhitePaper",
       "Workflow for ElonTix Website",
       "Business Model - Revenue Streams",
-      "Lottery/Contests  Mechanisms",
+      "Raffle/Contests  Mechanisms",
     ],
   },
   {
